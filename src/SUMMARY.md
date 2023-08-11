@@ -87,6 +87,7 @@
 - [FFI](ffi/index.md)
   - [unsafe](ffi/unsafe.md)
   - [c](ffi/c.md)
+  - [c string](ffi/c-string.md)
   - [自动生成语言绑定](ffi/binding.md)
   - [linux 内核模块](ffi/kernel-module.md)
 - [性能优化](perf/index.md)
