@@ -1,0 +1,6 @@
+[book]
+title = "Rust 语言笔记"
+author = "Shaohua"
+
+[output.html]
+git-repository-url = "https://github.com/xushaohua/rust-book"

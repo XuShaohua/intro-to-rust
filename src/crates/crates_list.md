@@ -1,0 +1,512 @@
+
+# Core crates
+
+- [ ] byteorder
+- [ ] lazy static
+- [ ] rayon
+
+# Trash
+- [ ] actix
+- [x] actix-web
+- [x] actix_derive
+- [x] adler32
+- [ ] aho-corasick
+- [ ] alloc
+- [ ] alloc_jemalloc
+- [ ] alloc_system
+- [x] ammonia
+- [x] ansi_term
+- [x] app_dirs
+- [ ] arena
+- [x] arrayvec
+- [x] aster
+- [x] atk-sys
+- [x] atty
+- [x] backtrace
+- [x] backtrace-sys
+- [x] base-x
+- [x] base32
+- [x] base64
+- [x] bincode
+- [x] bit-set
+- [x] bit-vec
+- [x] bitflags
+- [x] blooms-db
+- [x] bn
+- [x] brotli-sys
+- [x] brotli2
+- [x] build_const
+- [ ] build_helper
+- [x] bytecount
+- [x] byteorder
+- [x] bytes
+- [x] c_vec
+- [x] cairo-rs
+- [x] cairo-sys-rs
+- [x] cargo_metadata
+- [x] cc
+- [x] cfg-if
+- [ ] chalk-engine
+- [ ] chalk-macros
+- [x] chrono
+- [x] cid
+- [x] clap
+- [x] cmake
+- [x] common-types
+- [ ] compiler_builtins
+- [x] conv
+- [ ] cookie
+- [ ] core
+- [x] crc
+- [x] crossbeam
+- [x] crossbeam-channel
+- [x] crossbeam-deque
+- [x] crossbeam-epoch
+- [x] crossbeam-utils
+- [x] crunchy
+- [x] ct-logs
+- [x] ctrlc
+- [x] custom_derive
+- [x] daemonize
+- [ ] datafrog
+- [x] dbghelp-sys
+- [x] derive-error-chain
+- [x] diesel
+- [x] diesel_cli
+- [x] diesel_derives
+- [x] dir
+- [x] docopt
+- [x] dotenv
+- [x] dtoa
+- [ ] edit-distance
+- [ ] either
+- [ ] elastic-array
+- [ ] elasticlunr-rs
+- [ ] ena
+- [ ] encoding
+- [x] encoding-index-japanese
+- [x] encoding-index-korean
+- [x] encoding-index-simpchinese
+- [x] encoding-index-singlebyte
+- [x] encoding-index-tradchinese
+- [x] encoding_index_tests
+- [x] env_logger
+- [x] error-chain
+- [ ] eth-secp256k1
+- [ ] ethabi
+- [ ] ethabi-contract
+- [ ] ethabi-derive
+- [ ] ethash
+- [ ] ethbloom
+- [ ] ethcore
+- [x] ethcore-bloom-journal
+- [x] ethcore-bytes
+- [x] ethcore-crypto
+- [x] ethcore-devtools
+- [x] ethcore-io
+- [x] ethcore-light
+- [x] ethcore-logger
+- [x] ethcore-miner
+- [x] ethcore-network
+- [x] ethcore-network-devp2p
+- [x] ethcore-private-tx
+- [x] ethcore-service
+- [x] ethcore-stratum
+- [x] ethcore-sync
+- [x] ethcore-transaction
+- [x] ethereum-types
+- [x] ethereum-types-serialize
+- [ ] ethjson
+- [ ] ethkey
+- [ ] ethstore
+- [ ] evm
+- [ ] extprim
+- [ ] failure
+- [ ] failure_derive
+- [ ] fdlimit
+- [ ] fetch
+- [x] filetime
+- [ ] fixed-hash
+- [ ] fixedbitset
+- [ ] flate2
+- [ ] fmt_macros
+- [ ] fnv
+- [ ] fs-swap
+- [ ] futf
+- [ ] futures
+- [ ] futures-cpupool
+- [ ] futures-timer
+- [x] gcc
+- [x] gdk
+- [x] gdk-pixbuf
+- [x] gdk-pixbuf-sys
+- [x] gdk-sys
+- [ ] getopts
+- [x] gio
+- [x] gio-sys
+- [x] glib
+- [x] glib-sys
+- [ ] glob
+- [ ] globset
+- [x] gobject-sys
+- [ ] graphviz
+- [x] gtk
+- [x] gtk-sys
+- [ ] h2
+- [ ] hamming
+- [ ] handlebars
+- [ ] hardware-wallet
+- [ ] hashdb
+- [x] heapsize
+- [ ] heck
+- [x] hex
+- [ ] hidapi
+- [x] hostname
+- [ ] html5ever
+- [ ] http
+- [ ] http-range
+- [ ] httparse
+- [ ] humantime
+- [ ] hyper
+- [ ] hyper-rustls
+- [ ] idna
+- [ ] igd
+- [ ] indexmap
+- [ ] infer_schema_internals
+- [x] inotify
+- [x] inotify-sys
+- [ ] integer-encoding
+- [ ] interleaved-ordered
+- [ ] iovec
+- [ ] ipnetwork
+- [ ] iron
+- [ ] is-match
+- [ ] itertools
+- [x] itoa
+- [ ] jobserver
+- [ ] journaldb
+- [ ] jsonrpc-core
+- [x] jsonrpc-http-server
+- [x] jsonrpc-ipc-server
+- [x] jsonrpc-macros
+- [x] jsonrpc-pubsub
+- [x] jsonrpc-server-utils
+- [x] jsonrpc-tcp-server
+- [x] jsonrpc-ws-server
+- [ ] keccak-hash
+- [ ] kernel32-sys
+- [ ] kvdb
+- [ ] kvdb-memorydb
+- [ ] kvdb-rocksdb
+- [ ] language-tags
+- [ ] lazy_static
+- [ ] lazycell
+- [x] libc
+- [x] libsqlite3-sys
+- [ ] libusb
+- [x] libusb-sys
+- [ ] linked-hash-map
+- [ ] local-encoding
+- [x] log
+- [ ] log_settings
+- [ ] lru-cache
+- [x] mac_address
+- [ ] macros
+- [ ] maplit
+- [ ] markup5ever
+- [x] matches
+- [ ] mdbook
+- [ ] mem
+- [ ] memchr
+- [ ] memmap
+- [ ] memoffset
+- [ ] memory-cache
+- [ ] memory_units
+- [ ] memorydb
+- [ ] migration-rocksdb
+- [ ] migrations_internals
+- [x] mime
+- [x] mime_guess
+- [ ] minifier
+- [ ] miniz-sys
+- [ ] miniz_oxide
+- [ ] miniz_oxide_c_api
+- [ ] mio
+- [ ] mio-named-pipes
+- [ ] mio-uds
+- [ ] miow
+- [ ] modifier
+- [ ] mount
+- [ ] msdos_time
+- [ ] multibase
+- [ ] multihash
+- [ ] mysqlclient-sys
+- [ ] nan-preserving-float
+- [ ] net2
+- [ ] new_debug_unreachable
+- [x] nix
+- [ ] node-filter
+- [ ] node-health
+- [ ] nodrop
+- [x] notify
+- [x] ntp
+- [ ] num
+- [ ] num-bigint
+- [ ] num-integer
+- [ ] num-iter
+- [ ] num-traits
+- [ ] num_cpus
+- [ ] number_prefix
+- [ ] onig_sys
+- [ ] open
+- [ ] order-stat
+- [ ] ordered-float
+- [ ] ordermap
+- [ ] owning_ref
+- [x] pango
+- [x] pango-sys
+- [ ] panic_abort
+- [ ] panic_hook
+- [ ] panic_unwind
+- [x] parity-dapps
+- [x] parity-dapps-glue
+- [x] parity-hash-fetch
+- [x] parity-ipfs-api
+- [x] parity-local-store
+- [x] parity-machine
+- [x] parity-reactor
+- [x] parity-rpc
+- [x] parity-rpc-client
+- [x] parity-tokio-ipc
+- [x] parity-updater
+- [x] parity-version
+- [x] parity-wasm
+- [x] parity-whisper
+- [x] parity-wordlist
+- [ ] parking_lot
+- [ ] parking_lot_core
+- [ ] path
+- [ ] patricia-trie
+- [ ] percent-encoding
+- [ ] pest
+- [ ] pest_derive
+- [ ] petgraph
+- [ ] phf
+- [ ] phf_codegen
+- [ ] phf_generator
+- [ ] phf_shared
+- [x] pkg-config
+- [ ] plain_hasher
+- [ ] plist
+- [ ] plugin
+- [ ] podio
+- [ ] polonius-engine
+- [x] pq-sys
+- [ ] precomputed-hash
+- [x] pretty_env_logger
+- [ ] price-info
+- [ ] primal
+- [ ] primal-bit
+- [ ] primal-check
+- [ ] primal-estimate
+- [ ] primal-sieve
+- [ ] proc-macro2
+- [ ] proc_macro
+- [x] protobuf
+- [ ] pulldown-cmark
+- [ ] pwasm-utils
+- [ ] quasi
+- [ ] quasi_codegen
+- [ ] quick-error
+- [x] quote
+- [x] rand
+- [ ] rand_core
+- [ ] rayon
+- [ ] rayon-core
+- [ ] regex
+- [ ] regex-syntax
+- [ ] registrar
+- [ ] relay
+- [x] remove_dir_all
+- [x] resolv-conf
+- [x] ring
+- [ ] rlp
+- [ ] rlp_compress
+- [ ] rlp_derive
+- [ ] rls-data
+- [ ] rls-span
+- [ ] rocksdb
+- [x] rocksdb-sys
+- [ ] rpassword
+- [ ] rpc-cli
+- [ ] rprompt
+- [ ] rust-crypto
+- [ ] rustc
+- [ ] rustc-demangle
+- [ ] rustc-hash
+- [ ] rustc-hex
+- [ ] rustc-main
+- [ ] rustc-rayon
+- [ ] rustc-rayon-core
+- [ ] rustc-serialize
+- [ ] rustc_allocator
+- [ ] rustc_apfloat
+- [ ] rustc_asan
+- [ ] rustc_borrowck
+- [ ] rustc_codegen_llvm
+- [ ] rustc_codegen_utils
+- [ ] rustc_cratesio_shim
+- [ ] rustc_data_structures
+- [ ] rustc_driver
+- [ ] rustc_errors
+- [ ] rustc_incremental
+- [ ] rustc_lint
+- [ ] rustc_llvm
+- [ ] rustc_lsan
+- [ ] rustc_metadata
+- [ ] rustc_mir
+- [ ] rustc_msan
+- [ ] rustc_passes
+- [ ] rustc_platform_intrinsics
+- [ ] rustc_plugin
+- [ ] rustc_privacy
+- [ ] rustc_resolve
+- [ ] rustc_save_analysis
+- [ ] rustc_target
+- [ ] rustc_traits
+- [ ] rustc_tsan
+- [ ] rustc_typeck
+- [ ] rustc_version
+- [ ] rustdoc
+- [ ] rustdoc-tool
+- [ ] rustls
+- [ ] rustsym
+- [ ] safemem
+- [x] same-file
+- [ ] scoped-tls
+- [ ] scopeguard
+- [ ] sct
+- [x] semver
+- [x] semver-parser
+- [ ] sequence_trie
+- [ ] serde
+- [ ] serde_derive
+- [ ] serde_derive_internals
+- [ ] serde_json
+- [ ] serde_urlencoded
+- [ ] serialize
+- [x] sha1
+- [ ] shlex
+- [ ] siphasher
+- [ ] skeptic
+- [ ] slab
+- [x] smallvec
+- [x] snappy
+- [x] snappy-sys
+- [ ] stable_deref_trait
+- [ ] staticfile
+- [x] stats
+- [ ] std
+- [ ] std_unicode
+- [ ] stop-guard
+- [ ] string
+- [ ] string_cache
+- [ ] string_cache_codegen
+- [ ] string_cache_shared
+- [ ] strsim
+- [ ] strum
+- [ ] strum_macros
+- [ ] syn
+- [ ] syncbox
+- [ ] synom
+- [ ] synstructure
+- [ ] syntax
+- [ ] syntax_ext
+- [ ] syntax_pos
+- [ ] syntex
+- [ ] syntex_errors
+- [ ] syntex_pos
+- [ ] syntex_syntax
+- [x] take
+- [x] target_info
+- [x] tempdir
+- [x] tempfile
+- [ ] tendril
+- [ ] term
+- [x] term_size
+- [x] termcolor
+- [ ] test
+- [ ] textwrap
+- [x] thread-id
+- [x] thread_local
+- [x] time
+- [x] timer
+- [x] tiny-keccak
+- [x] tokio
+- [x] tokio-codec
+- [x] tokio-core
+- [ ] tokio-current-thread
+- [x] tokio-executor
+- [x] tokio-fs
+- [x] tokio-io
+- [x] tokio-named-pipes
+- [x] tokio-proto
+- [x] tokio-reactor
+- [x] tokio-retry
+- [x] tokio-rustls
+- [x] tokio-service
+- [x] tokio-signal
+- [x] tokio-tcp
+- [x] tokio-threadpool
+- [x] tokio-timer
+- [x] tokio-udp
+- [x] tokio-uds
+- [x] toml
+- [x] toml-query
+- [x] trace-time
+- [ ] traitobject
+- [ ] transaction-pool
+- [ ] transient-hashmap
+- [ ] trezor-sys
+- [ ] triehash
+- [ ] trust-dns-proto
+- [ ] trust-dns-resolver
+- [ ] typeable
+- [ ] typemap
+- [x] ucd-util
+- [x] uint
+- [x] unexpected
+- [x] unicase
+- [x] unicode-bidi
+- [x] unicode-normalization
+- [x] unicode-segmentation
+- [x] unicode-width
+- [x] unicode-xid
+- [x] unreachable
+- [x] unsafe-any
+- [x] untrusted
+- [ ] unwind
+- [x] url
+- [ ] using_queue
+- [ ] utf-8
+- [ ] utf8-ranges
+- [x] util-error
+- [x] uuid
+- [x] vec_map
+- [x] vergen
+- [x] version_check
+- [ ] vm
+- [x] void
+- [x] walkdir
+- [x] wasm
+- [x] wasmi
+- [x] webpki
+- [x] webpki-roots
+- [x] winapi
+- [x] winapi-build
+- [x] ws
+- [x] ws2_32-sys
+- [x] xdg
+- [x] xml-rs
+- [x] xmltree
+- [x] zip
