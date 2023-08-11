@@ -3,9 +3,14 @@
 [关于](README.md)
 
 - [基本数据类型](fundamental/index.md)
-  - [数据类型 Data Types](fundamental/data-types.md)
-  - [基础类型 Primitive](fundamental/primitive.md)
-
+  - [整数类型](fundamental/integer-types.md)
+  - [浮点类型](fundamental/floating-point-types.md)
+  - [布尔类型](fundamental/bool-type.md)
+  - [字符 char](fundamental/char-type.md)
+  - [数组 array](fundamental/array.md)
+  - [元组 tuple](fundamental/tuple.md)
+  - [切片 slice](fundamental/slice.md)
+  - [字符串 string](fundamental/string-types.md)
 - [所有权 Ownership](ownership/index.md)
   - [标注生命周期 Lifetime marker](ownership/lifetime-marker.md)
   - [标注泛型生命周期](ownership/generic-lifetime-marker.md)
