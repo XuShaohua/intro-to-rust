@@ -3,11 +3,15 @@ resolver = "2"
 
 members = [ "code/asynchronous",
     "code/closure",
-    "code/collections", "code/concurrency",
+    "code/collections",
+    "code/concurrency",
     "code/enums",
+    "code/error_handling",
     "code/ffi",
-    "code/memory", "code/primtives",
-    "code/references", "code/stdlib",
+    "code/memory",
+    "code/primtives",
+    "code/references",
+    "code/stdlib",
     "code/structs",
     "code/traits"
 ]
