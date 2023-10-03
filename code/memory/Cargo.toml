@@ -5,3 +5,4 @@ edition = "2021"
 publish = false
 
 [dependencies]
+libc = "0.2.153"
