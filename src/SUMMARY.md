@@ -44,6 +44,7 @@
     - [所有权 Ownership](ownership/ownership.md)
     - [转移所有权](ownership/move.md)
     - [不需要转移所有权](ownership/copy-type.md)
+    - [reborrow](ownership/reborrow.md)
     - [使用 Rc 与 Arc 共享所有权](ownership/rc-arc.md)
 - [引用与生命周期 Reference and Lifetime](reference/index.md)
     - [对值的引用](reference/ref-to-value.md)

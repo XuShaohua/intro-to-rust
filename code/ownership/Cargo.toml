@@ -1,0 +1,10 @@
+[package]
+name = "ownership"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[features]
+compile_failure = []
+
+[dependencies]
