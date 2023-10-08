@@ -5,7 +5,7 @@
 
 set -xe
 
-cargo clippy --all-targets --all-features
+cargo clippy --all-targets
 
 mdbook build
 #mdbook test

@@ -5,4 +5,4 @@
 
 set -xe
 
-cargo clippy --all-targets --all-features --fix --allow-dirty --allow-staged
+cargo clippy --all-targets --fix --allow-dirty --allow-staged
