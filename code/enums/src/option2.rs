@@ -14,14 +14,14 @@ pub enum Option2<T> {
 pub use Option2::{None2, Some2};
 
 impl<T> Option2<T> {
-    pub fn is_some(&self) -> bool {
+    pub const fn is_some(&self) -> bool {
         match *self {
             Some2(_) => true,
             None2 => false,
         }
     }
 
-    pub fn is_none(&self) -> bool {
+    pub const fn is_none(&self) -> bool {
         !self.is_some()
     }
 
@@ -35,7 +35,7 @@ impl<T> Option2<T> {
         }
     }
 
-    pub fn as_ref(&self) -> Option2<&T> {
+    pub const fn as_ref(&self) -> Option2<&T> {
         match *self {
             Some2(ref x) => Some2(x),
             None2 => None2,
@@ -49,7 +49,7 @@ impl<T> Option2<T> {
         }
     }
 
-    pub fn as_pin_ref<'a>(self: Pin<&'a Option2<T>>) -> Option2<Pin<&'a T>> {
+    pub fn as_pin_ref<'a>(self: Pin<&'a Self>) -> Option2<Pin<&'a T>> {
         unsafe { Pin::get_ref(self).as_ref().map(|x| Pin::new_unchecked(x)) }
     }
 
@@ -136,6 +136,6 @@ impl<T> Option2<T> {
                 return Some2(x);
             }
         }
-        return None2;
+        None2
     }
 }
