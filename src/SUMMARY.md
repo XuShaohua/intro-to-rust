@@ -300,6 +300,7 @@
     - [Link Time Optimization: lto](perf/lto.md)
     - [Profile-guided Optimization: pgo](perf/pgo.md)
     - [加快编译速度](perf/opt-compile-time.md)
+    - [MIR](perf/mir.md)
 - [常用工具](tools/index.md)
     - [sccache](tools/sccache.md)
     - [clippy](tools/clippy.md)
