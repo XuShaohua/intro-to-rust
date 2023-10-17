@@ -1,7 +1,8 @@
 [workspace]
 resolver = "2"
 
-members = [ "code/asynchronous",
+members = [
+    "code/asynchronous",
     "code/closure",
     "code/collections",
     "code/concurrency",
@@ -16,6 +17,7 @@ members = [ "code/asynchronous",
     "code/references",
     "code/smart_pointers",
     "code/stdlib",
+    "code/strings",
     "code/structs",
     "code/traits"
 ]
