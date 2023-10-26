@@ -1,0 +1,8 @@
+
+[workspace]
+
+members = [
+  "simple-factory"
+]
+
+resolver = "2"
