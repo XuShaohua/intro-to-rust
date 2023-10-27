@@ -1,11 +1,11 @@
-
 [workspace]
 
 members = [
-  "abstract-factory",
-  "builder",
-  "factory-method",
-  "simple-factory",
+    "abstract-factory",
+    "builder",
+    "factory-method",
+    "prototype",
+    "simple-factory",
 ]
 
 resolver = "2"

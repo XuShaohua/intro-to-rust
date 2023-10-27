@@ -15,5 +15,9 @@ name = "factory-method"
 version = "0.1.0"
 
 [[package]]
+name = "prototype"
+version = "0.1.0"
+
+[[package]]
 name = "simple-factory"
 version = "0.1.0"
