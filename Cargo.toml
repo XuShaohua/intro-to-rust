@@ -3,6 +3,7 @@
 
 members = [
   "abstract-factory",
+  "builder",
   "factory-method",
   "simple-factory",
 ]
