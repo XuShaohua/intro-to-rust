@@ -2,6 +2,7 @@
 
 members = [
     "abstract-factory",
+    "adapter",
     "builder",
     "factory-method",
     "prototype",
