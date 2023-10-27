@@ -97,14 +97,3 @@ impl DoorFactory for IronDoorFactory {
         Box::new(Carpenter {})
     }
 }
-
-/*
-pub trait DoorFactoryDynamic {
-    pub fn make_door(&self) -> Box<dyn Door> {
-        Box::new(Door::new())
-    }
-    pub fn make_fitting_expert(&self) -> Box<dyn DoorFittingExpert> {
-        Box::new(DoorFittingExpert::new())
-    }
-}
-*/
