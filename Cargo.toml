@@ -2,7 +2,8 @@
 [workspace]
 
 members = [
-  "simple-factory"
+  "factory-method",
+  "simple-factory",
 ]
 
 resolver = "2"
