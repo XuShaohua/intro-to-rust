@@ -10,13 +10,30 @@
     clippy::pedantic
 )]
 
-mod lazy;
+mod lazy_static_macro;
+mod once_cell_lazy;
 mod president;
 
-fn test_lazy() {
-    use lazy::GLOBAL_PRESIDENT;
+fn test_once_cell_lazy() {
+    use once_cell_lazy::GLOBAL_PRESIDENT;
 
-    GLOBAL_PRESIDENT.lock().unwrap().set_name("Trump");
+    GLOBAL_PRESIDENT
+        .lock()
+        .unwrap()
+        .set_name("Trump[once_cell]");
+    println!(
+        "President name: {}",
+        GLOBAL_PRESIDENT.lock().unwrap().name()
+    );
+}
+
+fn test_lazy_static_macro() {
+    use lazy_static_macro::GLOBAL_PRESIDENT;
+
+    GLOBAL_PRESIDENT
+        .lock()
+        .unwrap()
+        .set_name("Trump[lazy_static]");
     println!(
         "President name: {}",
         GLOBAL_PRESIDENT.lock().unwrap().name()
@@ -24,5 +41,6 @@ fn test_lazy() {
 }
 
 fn main() {
-    test_lazy();
+    test_once_cell_lazy();
+    test_lazy_static_macro();
 }

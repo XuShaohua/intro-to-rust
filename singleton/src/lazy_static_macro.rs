@@ -2,10 +2,12 @@
 // Use of this source is governed by General Public License that can be
 // found in the LICENSE file.
 
-use once_cell::sync::Lazy;
+use lazy_static::lazy_static;
 use std::sync::Mutex;
 
 use crate::president::President;
 
-pub static GLOBAL_PRESIDENT: Lazy<Mutex<President>> =
-    Lazy::new(|| Mutex::new(President::new("Lazy Trump")));
+lazy_static! {
+    pub static ref GLOBAL_PRESIDENT: Mutex<President> =
+        Mutex::new(President::new("LazyStaticMacro"));
+}
