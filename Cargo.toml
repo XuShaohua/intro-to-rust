@@ -6,6 +6,7 @@ members = [
     "factory-method",
     "prototype",
     "simple-factory",
+    "singleton",
 ]
 
 resolver = "2"
