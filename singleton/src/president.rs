@@ -8,6 +8,13 @@ pub struct President {
 
 impl President {
     #[must_use]
+    pub(crate) const fn empty() -> Self {
+        Self {
+            name: String::new(),
+        }
+    }
+
+    #[must_use]
     pub(crate) fn new(name: &str) -> Self {
         Self {
             name: name.to_owned(),

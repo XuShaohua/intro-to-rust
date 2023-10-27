@@ -11,6 +11,7 @@
 )]
 
 mod lazy_static_macro;
+mod mutex_only;
 mod once_cell_lazy;
 mod president;
 
@@ -40,7 +41,21 @@ fn test_lazy_static_macro() {
     );
 }
 
+fn test_mutex_only() {
+    use mutex_only::GLOBAL_PRESIDENT;
+
+    GLOBAL_PRESIDENT
+        .lock()
+        .unwrap()
+        .set_name("Trump[mutex_only]");
+    println!(
+        "President name: {}",
+        GLOBAL_PRESIDENT.lock().unwrap().name()
+    );
+}
+
 fn main() {
     test_once_cell_lazy();
     test_lazy_static_macro();
+    test_mutex_only();
 }
