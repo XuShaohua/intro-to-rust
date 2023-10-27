@@ -3,6 +3,10 @@
 version = 3
 
 [[package]]
+name = "abstract-factory"
+version = "0.1.0"
+
+[[package]]
 name = "factory-method"
 version = "0.1.0"
 

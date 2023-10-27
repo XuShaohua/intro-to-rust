@@ -2,6 +2,7 @@
 [workspace]
 
 members = [
+  "abstract-factory",
   "factory-method",
   "simple-factory",
 ]
