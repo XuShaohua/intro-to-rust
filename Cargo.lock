@@ -11,6 +11,10 @@ name = "adapter"
 version = "0.1.0"
 
 [[package]]
+name = "bridge"
+version = "0.1.0"
+
+[[package]]
 name = "builder"
 version = "0.1.0"
 

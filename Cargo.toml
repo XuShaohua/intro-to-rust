@@ -3,6 +3,7 @@
 members = [
     "abstract-factory",
     "adapter",
+    "bridge",
     "builder",
     "factory-method",
     "prototype",
