@@ -5,6 +5,7 @@ members = [
     "adapter",
     "bridge",
     "builder",
+    "composite",
     "factory-method",
     "prototype",
     "simple-factory",

@@ -19,6 +19,10 @@ name = "builder"
 version = "0.1.0"
 
 [[package]]
+name = "composite"
+version = "0.1.0"
+
+[[package]]
 name = "factory-method"
 version = "0.1.0"
 
