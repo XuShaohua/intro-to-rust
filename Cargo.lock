@@ -23,6 +23,10 @@ name = "composite"
 version = "0.1.0"
 
 [[package]]
+name = "decorator"
+version = "0.1.0"
+
+[[package]]
 name = "factory-method"
 version = "0.1.0"
 
