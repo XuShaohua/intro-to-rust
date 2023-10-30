@@ -10,9 +10,6 @@
     clippy::pedantic
 )]
 
-use std::cell::RefCell;
-use std::rc::Rc;
-
 pub trait Account {
     fn name(&self) -> &'static str;
 
@@ -22,9 +19,10 @@ pub trait Account {
             self.pay_money(amount);
             return true;
         }
+        let name = self.name().to_owned();
         if let Some(successor) = self.get_successor() {
-            println!("'Cannot pay using {}. Proceeding ..", self.name());
-            return successor.borrow_mut().pay(amount);
+            println!("'Cannot pay using {name}. Proceeding ..");
+            return successor.as_mut().pay(amount);
         }
         println!("None of the accounts have enough balance");
         false
@@ -32,7 +30,7 @@ pub trait Account {
 
     fn balance(&self) -> f64;
 
-    fn get_successor(&self) -> Option<Rc<RefCell<dyn Account>>>;
+    fn get_successor(&mut self) -> Option<&mut Box<dyn Account>>;
 
     fn pay_money(&mut self, amount: f64);
 
@@ -41,7 +39,7 @@ pub trait Account {
     }
 }
 
-type AccountNode = Option<Rc<RefCell<dyn Account>>>;
+type AccountNode = Option<Box<dyn Account>>;
 
 pub struct Bank {
     balance: f64,
@@ -64,8 +62,8 @@ impl Account for Bank {
         self.balance
     }
 
-    fn get_successor(&self) -> AccountNode {
-        self.next.clone()
+    fn get_successor(&mut self) -> Option<&mut Box<dyn Account>> {
+        self.next.as_mut()
     }
 
     fn pay_money(&mut self, amount: f64) {
@@ -94,8 +92,8 @@ impl Account for Paypal {
         self.balance
     }
 
-    fn get_successor(&self) -> AccountNode {
-        self.next.clone()
+    fn get_successor(&mut self) -> Option<&mut Box<dyn Account>> {
+        self.next.as_mut()
     }
 
     fn pay_money(&mut self, amount: f64) {
@@ -124,8 +122,8 @@ impl Account for Bitcoin {
         self.balance
     }
 
-    fn get_successor(&self) -> AccountNode {
-        self.next.clone()
+    fn get_successor(&mut self) -> Option<&mut Box<dyn Account>> {
+        self.next.as_mut()
     }
 
     fn pay_money(&mut self, amount: f64) {
@@ -141,8 +139,8 @@ fn main() {
     //      If bank can't pay then paypal
     //      If paypal can't pay then bit coin
 
-    let bitcoin = Rc::new(RefCell::new(Bitcoin::new(300.0, None))); // Bitcoin with balance 300
-    let paypal = Rc::new(RefCell::new(Paypal::new(200.0, Some(bitcoin)))); // Paypal with balance 200
+    let bitcoin = Box::new(Bitcoin::new(300.0, None)); // Bitcoin with balance 300
+    let paypal = Box::new(Paypal::new(200.0, Some(bitcoin))); // Paypal with balance 200
     let mut bank = Bank::new(100.0, Some(paypal)); // Bank with balance 100
 
     // Let's try to pay using the first priority i.e. bank
