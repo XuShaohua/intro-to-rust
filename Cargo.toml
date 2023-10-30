@@ -22,6 +22,7 @@ members = [
     "singleton",
     "state",
     "strategy",
+    "template",
     "visitor",
 ]
 
