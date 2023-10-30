@@ -6,6 +6,7 @@ members = [
     "bridge",
     "builder",
     "chain_of_resposibility",
+    "command",
     "composite",
     "decorator",
     "facade",
