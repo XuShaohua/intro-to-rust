@@ -19,6 +19,10 @@ name = "builder"
 version = "0.1.0"
 
 [[package]]
+name = "chain_of_resposibility"
+version = "0.1.0"
+
+[[package]]
 name = "composite"
 version = "0.1.0"
 
