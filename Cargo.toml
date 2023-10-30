@@ -12,6 +12,7 @@ members = [
     "facade",
     "factory-method",
     "flyweight",
+    "iterator",
     "prototype",
     "proxy",
     "simple-factory",
