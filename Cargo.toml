@@ -13,6 +13,7 @@ members = [
     "factory-method",
     "flyweight",
     "iterator",
+    "mediator",
     "prototype",
     "proxy",
     "simple-factory",
