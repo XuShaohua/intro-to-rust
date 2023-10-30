@@ -15,6 +15,7 @@ members = [
     "iterator",
     "mediator",
     "memento",
+    "observer",
     "prototype",
     "proxy",
     "simple-factory",
