@@ -55,6 +55,10 @@ name = "prototype"
 version = "0.1.0"
 
 [[package]]
+name = "proxy"
+version = "0.1.0"
+
+[[package]]
 name = "simple-factory"
 version = "0.1.0"
 

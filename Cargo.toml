@@ -11,6 +11,7 @@ members = [
     "factory-method",
     "flyweight",
     "prototype",
+    "proxy",
     "simple-factory",
     "singleton",
 ]
