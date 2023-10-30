@@ -20,6 +20,7 @@ members = [
     "proxy",
     "simple-factory",
     "singleton",
+    "visitor",
 ]
 
 resolver = "2"
