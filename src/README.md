@@ -1,8 +1,17 @@
 
 # 关于
-
 记录学习 rust 语言的心得, 梳理关键功能点.
 
+[在线浏览](https://rust.biofan.org)
+
+## 如何生成网页
+这些记录以 markdown 文件为主, 可以使用`mdbook`工具将其转换成网页:
+```bash
+cargo install mdbook
+mdbook build
+```
+
+## 参考资料
 目前参考的在线资料:
 * [rust by example](https://doc.rust-lang.org/rust-by-example/) - rust 101
 * [Rust Playground](https://play.rust-lang.org/)
@@ -17,8 +26,7 @@
 * [rustc source](https://github.com/rust-lang/rust/tree/master/compiler/rustc) - how to implement language features
 * [algorithms in rust](https://github.com/TheAlgorithms/Rust) - data structures and algorithms
 
-出版的书籍:
+书籍:
 - [Programming Rust, 2nd Edition](https://www.oreilly.com/library/view/programming-rust-2nd/9781492052586/), Jim Blandy etc.
 - [Hands-On Concurrency with Rust](https://www.packtpub.com/product/hands-on-concurrency-with-rust/9781788399975), Brian L. Troutwine
 
-更新时间: 2023-08-11
