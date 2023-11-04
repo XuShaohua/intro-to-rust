@@ -1,23 +1,11 @@
 
 # Flow of Control
 
-## break
-
-`break` 还可以返回一个值:
-```rust
-let mut count = 0;
-let result = loop {
-  count += 1;
-  if count > 10 {
-    break count * 2;
-  }
-}
-```
-
 ## loop
 多层嵌套的循环语句, 可以使用 label 跳出来.
 
 loop 表达式也可以有返回值:
+
 ```rust
 let mut counter = 0;
 let result = loop {
