@@ -120,5 +120,5 @@
   - [IO](std/io.md)
 - [设计模式](design-patterns/index.md)
 - [新特性](unstable/index.md)
-- [第三方库](crate_review/index.md)
+- [第三方库](crate-reviews/index.md)
 - [数据结构与算法](algs/index.md)
