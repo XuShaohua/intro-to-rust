@@ -1,4 +1,8 @@
 
+add_executable(dp-abstract-factory
+    abstract_factory.cpp
+)
+
 add_executable(dp-builder
     builder.cpp
 )
