@@ -3,6 +3,10 @@ add_executable(dp-builder
     builder.cpp
 )
 
+add_executable(dp-factory-method
+    factory_method.cpp
+)
+
 add_executable(dp-prototype
     prototype.cpp
 )
