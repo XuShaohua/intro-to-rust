@@ -18,3 +18,7 @@ add_executable(dp-decorator
 add_executable(dp-facade
     facade.cpp
     )
+
+add_executable(dp-proxy
+    proxy.cpp
+    )
