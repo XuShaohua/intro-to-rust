@@ -10,3 +10,7 @@ add_executable(dp-bridge
 add_executable(dp-composite
     composite.cpp
     )
+
+add_executable(dp-decorator
+    decorator.cpp
+    )
