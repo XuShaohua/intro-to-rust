@@ -19,6 +19,10 @@ add_executable(dp-facade
     facade.cpp
     )
 
+add_executable(dp-flyweight
+    flyweight.cpp
+    )
+
 add_executable(dp-proxy
     proxy.cpp
     )
