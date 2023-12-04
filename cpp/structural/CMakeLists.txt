@@ -14,3 +14,7 @@ add_executable(dp-composite
 add_executable(dp-decorator
     decorator.cpp
     )
+
+add_executable(dp-facade
+    facade.cpp
+    )
