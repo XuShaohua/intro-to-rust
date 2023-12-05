@@ -10,3 +10,7 @@ add_executable(dp-command
 add_executable(dp-mediator
     mediator.cpp
     )
+
+add_executable(dp-observer
+    observer.cpp
+    )
