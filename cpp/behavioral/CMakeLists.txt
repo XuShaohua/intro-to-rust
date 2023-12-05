@@ -6,3 +6,7 @@ add_executable(dp-chain-of-responsibilities
 add_executable(dp-command
     command.cpp
     )
+
+add_executable(dp-mediator
+    mediator.cpp
+    )
