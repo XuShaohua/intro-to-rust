@@ -1,0 +1,29 @@
+[workspace]
+
+members = [
+    "abstract-factory",
+    "adapter",
+    "bridge",
+    "builder",
+    "chain_of_resposibility",
+    "command",
+    "composite",
+    "decorator",
+    "facade",
+    "factory-method",
+    "flyweight",
+    "iterator",
+    "mediator",
+    "memento",
+    "observer",
+    "prototype",
+    "proxy",
+    "simple-factory",
+    "singleton",
+    "state",
+    "strategy",
+    "template",
+    "visitor",
+]
+
+resolver = "2"
