@@ -42,12 +42,16 @@ array slice, 是两个 word 大小的对象, 第一个值是指向 array 内部�
 
 array 可以直接转换 array slice:
 ```rust
+fn do_something(slice: &[i32]) { }
+
 let xs = [1, 1, 2, 3, 5];
 do_something(&xs);
 ```
 
 也可以只将array 的一部分元素转为 array slice:
 ```rust
+fn do_something(slice: &[i32]) { }
+
 let xs = [1, 1, 2, 3, 5];
 do_something(&xs[1..3]);
 ```

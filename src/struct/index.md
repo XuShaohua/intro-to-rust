@@ -45,7 +45,7 @@ struct Ascii(Vec<u8>);
 ```
 这种写法比以下写法更为严格:
 ```rust
-type Ascii = Vec<u8);
+type Ascii = Vec<u8>;
 ```
 
 ## Unit-Like Structs
@@ -57,12 +57,12 @@ Unit struct, 即定义一个空白的不包含任何具体元素的, 比如 `str
 ```rust
 pub struct Queue<T> {
   older: Vec<T>,
-  yonger: Vec<T>,
+  younger: Vec<T>,
 }
 
 impl<T> Queue<T> {
   pub fn new() -> Queue<T> {
-    Queue{ older: Vec::new(), yonger: Vec::new() }
+    Queue{ older: Vec::new(), younger: Vec::new() }
   }
 
   pub fn push(&mut self, t: T) {
@@ -75,11 +75,17 @@ impl<T> Queue<T> {
 }
 ```
 
-偏特化:
+### 偏特化 (partial specialization)
+
 ```rust
+pub struct Queue<T> {
+    older: Vec<T>,
+    younger: Vec<T>,
+}
+
 impl<bool> Queue<bool> {
   pub fn all_true(&self) -> bool {
-    ...
+    unimplemented!()
   }
 }
 ```
