@@ -1,6 +1,22 @@
 [book]
 title = "Rust 语言编程"
+description = ""
 authors = ["Shaohua <shaohua@biofan.org>"]
+language = "zh-CN"
+
+[rust]
+edition = "2021"
+
+[build]
+create-missing = false
 
 [output.html]
 git-repository-url = "https://github.com/xushaohua/rust-book"
+
+[output.html.playground]
+copy-js = true
+editable = true
+
+[output.html.fold]
+enable = true
+level = 0
