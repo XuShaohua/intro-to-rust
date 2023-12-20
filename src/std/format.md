@@ -21,3 +21,5 @@
 * '>' 右对齐
 
 如果是结构体的话, 还支持 pretty printing, 只需要使用 `{:#?}` 这样的标记即可.
+
+## Format Traits

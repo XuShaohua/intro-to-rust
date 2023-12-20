@@ -7,7 +7,7 @@
 * actix
 * actix web
 * macros
-* concurent hash map
+* concurrent hash map
 * atomic
 * mpsc, spmc/broadcast
 
