@@ -2,7 +2,7 @@
 # SUMMARY
 [关于](README.md)
 
-- [基本数据类型](fundamental/index.md)
+- [基础数据类型](fundamental/index.md)
   - [整数类型](fundamental/integer.md)
   - [浮点类型](fundamental/floating-point.md)
   - [布尔类型](fundamental/bool.md)

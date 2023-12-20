@@ -14,8 +14,8 @@ create-missing = false
 git-repository-url = "https://github.com/xushaohua/rust-book"
 
 [output.html.playground]
-copy-js = true
 editable = true
+line-numbers = true
 
 [output.html.fold]
 enable = true
