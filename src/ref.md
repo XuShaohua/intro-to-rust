@@ -1,5 +1,6 @@
 # 参考资料
-目前参考的在线资料:
+
+在线文档:
 * [rust by example](https://doc.rust-lang.org/rust-by-example/) - rust 101
 * [Rust Playground](https://play.rust-lang.org/)
 * [The Rust Programming Language](https://doc.rust-lang.org/book/)
