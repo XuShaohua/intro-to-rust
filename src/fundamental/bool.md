@@ -1,5 +1,6 @@
 
 # 布尔类型
+
 bool, 可以是 `true` 或 `false`, bool 占用一个字节, 即:
 ```rust
 use std::mem::size_of;
