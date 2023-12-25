@@ -15,3 +15,6 @@ module, 某个函数等起作用的话, 使用 `#[module_attribute]` 写法.
 
 `#[allow(dead_code)]` 对某个模块及函数禁用 `dead_code` lint.
 
+
+## 相关知识
+- [条件编译](cross-compling.md)

@@ -6,7 +6,7 @@
 配置脚本, 我们只需要引入它即可. 以 nightly 版本为例, 可以在 `~/.bashrc` 文件中
 加入以下内容:
 
-```shell
+```bash
 if [ -f ~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/etc/bash_completion.d/cargo ]; then
   source ~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/etc/bash_completion.d/cargo
 fi

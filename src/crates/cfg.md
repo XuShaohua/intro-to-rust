@@ -1,5 +1,5 @@
 
-# Cfg
+# 条件编译
 
 ## cfg
 `#[cfg(...)]` 在编译器应用.
@@ -36,6 +36,17 @@ fn are_you_linux() -> bool {
     return false;
   }
 }
+```
+
+可以设置只编译适合某个目标平台的代码, 比如下面的例子, 只编译 arm64 架构:
+
+```no_run
+#[cfg(all(
+    any(target_os = "linux", target_os = "android"),
+    target_arch = "aarch64"
+))]
+#[path = "platforms/linux-aarch64/mod.rs"]
+mod platform;
 ```
 
 ## cfg_attr
