@@ -1,0 +1,14 @@
+
+[workspace]
+resolver = "2"
+
+members = [
+  "code",
+  "design-patterns/*",
+]
+
+exclude = [
+  "book",
+  "src",
+  "tools",
+]
