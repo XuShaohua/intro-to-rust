@@ -5,7 +5,15 @@
 - [Evcxr](https://github.com/evcxr/evcxr), 直接运行 Rust 代码的交互式终端 (REPL)
 - [sccache](https://github.com/mozilla/sccache), 编译缓存工具, 可以加快编译过程
 
-## Cargo 工具
+## cargo-audit
+[cargo audit](https://github.com/rustsec/rustsec) 用于查询当前项目使用的模块是否存在安全
+风险, 通过查询 [RustSec](https://rustsec.org/) 官网, 并给出可能的修复方法.
+
+## cargo-edit
+[cargo-edit](https://github.com/killercup/cargo-edit) 为 `cargo` 添加 `add`, `rm` 以及
+`upgrade` 等命令, 而不用手动编辑 `Cargo.toml` 文件.
+
+## cargo-watch
 [cargo watch](https://github.com/watchexec/cargo-watch), 用于监视 cargo 项目的更改,
 估然自动执行指定的动作.
 
