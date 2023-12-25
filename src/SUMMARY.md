@@ -43,7 +43,6 @@
   - [基础](crates/guide.md)
   - [包引用](crates/references.md)
   - [构建脚本 build.rs](crates/build.md)
-  - [Tips](crates/tips.md)
 - [所有权与生命周期 Ownership and Lifetime](ownership/index.md)
   - [标注生命周期 Lifetime marker](ownership/lifetime-marker.md)
   - [标注泛型生命周期](ownership/generic-lifetime-marker.md)
