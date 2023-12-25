@@ -30,7 +30,7 @@
 - [库与模块 crates and modules](crates/index.md)
   - [文档与注释](crates/doc.md)
   - [测试](crates/test.md)
-  - [Benchmark](crates/bench.md)
+  - [Benchmark](crates/benchmark.md)
   - [调试 Debug](crates/debug.md)
   - [rustup工具](crates/rustup.md)
   - [属性 attr](crates/attributes.md)
