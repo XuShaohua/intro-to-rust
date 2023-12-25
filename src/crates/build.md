@@ -1,5 +1,7 @@
 
-# Build Script
+# 构建脚本 Build Script
+
+通过编写 `build.rs` 来自定义 `cargo` 的编译过程, 可以生成环境变量, cfg 属性, 以及文件.
 
 可以读取环境变量, 标准输出会写入到 `target/debug/build/<pkg>/output`. 
 
