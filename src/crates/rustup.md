@@ -5,6 +5,7 @@ rustup 用于管理 Rust 工具链, 类似于用于管理 Node 环境的 [nvm][n
 Python 环境的 [pyenv][pyenv].
 
 ## 安装
+
 最简单的, 使用 rustup 官方的安装脚本. 要注意的是, 默认情况下该脚本会从官网下载
 Rust 工具链, 大陆用户直接访问它们会非常慢, 可以考虑使用中科大的镜像源来加速,
 使用方法也很简单, 只需要先在终端里定义两个环境变量即可:
@@ -28,7 +29,8 @@ cargo 目录是 `~/.cargo`.
 为了之后方便使用中科大等第三方镜像源, 我们可以将以上的环境变量追加到 `~/.bashrc` 里.
 
 ## 更新
-每天更新 Rust 工具链是个好习惯, 更新方法也很简单:
+
+经常更新 Rust 工具链是个好习惯, 更新方法也很简单:
 ```bash
 $ rustup update
 ```
@@ -40,6 +42,7 @@ $ rustup self update
 ```
 
 ## 自动补全
+
 rustup 命令可以生成 `bash` 环境的自动补全脚本:
 ```bash
 $ mkdir ~/.local/share/bash_completion.d
@@ -57,6 +60,7 @@ fi
 ```
 
 ## 安装 nightly 工具链
+
 默认情问下, rustup 安装的是稳定版 (stable) 的工具链, 为了使用最新的特性, 我们通常
 还会使用每日构建版 (nightly) 的工具链, 可以使用 rustup 来安装:
 
@@ -65,6 +69,7 @@ $ rustup toolchain add nightly
 ```
 
 ## 指定使用特定的工具链
+
 可以在项目根目录运行 `rustup show` 命令来查看使用哪个工具链来构建当前项目.
 
 修改工具链的方法如下, 它们的优先级从高到低依次是:
@@ -78,6 +83,7 @@ $ rustup toolchain add nightly
 比如 `rustup default nightly`
 
 ## 参考
+
 - [rustup](https://rust-lang.github.io/rustup)
 
 [rustup]: https://github.com/rust-lang/rustup
