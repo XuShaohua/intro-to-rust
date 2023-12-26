@@ -1,5 +1,6 @@
 
 # String
+
 有效的 UTF-8 编码字串.
 
 Raw string, 为了避免频繁地转义, 可以用 `r"Raw string"` 这种形式.
@@ -12,11 +13,11 @@ hello, world.
 "###);
 ```
 
-* String, &str, Unicode text
-* std::path::PathBuf, `&Path`
-* Vec<u8>, &[u8]
-* OsString, &OsStr
-* std::ffi::CString, &CStr
+- String, &str, Unicode text
+- std::path::PathBuf, `&Path`
+- Vec<u8>, &[u8]
+- OsString, &OsStr
+- std::ffi::CString, &CStr
 
 
 ## char
