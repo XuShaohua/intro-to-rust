@@ -21,13 +21,13 @@ impl Point {
         Self { x, y }
     }
 
-    /// Returns x-axis value of `` or vector.
+    /// Returns x-axis value of point or vector.
     #[must_use]
     pub const fn x(&self) -> f32 {
         self.x
     }
 
-    /// Returns y-axis value of `` or vector.
+    /// Returns y-axis value of point or vector.
     #[must_use]
     pub const fn y(&self) -> f32 {
         self.y
@@ -45,7 +45,7 @@ impl Point {
         self.y = pt.y.abs();
     }
 
-    /// Adds offset (dx, dy) to ``.
+    /// Adds offset (dx, dy) to point.
     pub fn offset(&mut self, dx: f32, dy: f32) {
         self.x += dx;
         self.y += dy;
