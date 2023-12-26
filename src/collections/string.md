@@ -23,33 +23,6 @@ hello, world.
 ## char
 32-bit 的值
 
-## FromStr
-从字符串转为指定的类型, 只需要给这个类型实现了 `FromStr` trait.
-
-```rust
-trait FromStr: Sized {
-  type Err;
-  fn from_str(s: &str) -> Result<Self, Self::Err>;
-}
-```
-
-比如说, 字符串转为整数, 字符串转为 `IPv4Addr`.
-
-## To string
-首先是 `std::fmt::Display` trait, 在将其它类型转为字符串时, 还可以对其进行格式化.
-
-
-其实是 `std::str::ToString` trait, 通常只需要实现了 `Display` trait, 会自动实现
-这个 `ToString` trait, 平时极少需要手动实现.
-
-```rust
-trait ToString {
-  fn to_string(&self) -> String;
-}
-```
-
-最后一个是 `std::fmt::Debug` trait, 这个是为了方便调用用的, 可以打印出数据的
-内部结构.
 
 ## String Formatting
 
