@@ -60,6 +60,7 @@
 - [操作符重载 Operator Overloading](ops/index.md)
   - [算术操作符 Arithmetic operators](ops/arith-ops.md)
   - [逻辑操作符 Logic operators](ops/logic-ops.md)
+  - [Range](ops/range.md)
   - [索引 Index 与 IndexMut](ops/index-index-mut.md)
   - [比较 Eq and Ord](ops/eq-ord.md)
 - [迭代器 Iterators](iterator/index.md)
