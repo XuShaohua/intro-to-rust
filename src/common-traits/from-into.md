@@ -1,5 +1,5 @@
 
-# From 与 Into
+# From trait 与 Into trait
 
 `Convert A from B <=> Convert B into A`, 通常这个应该是成立的.
 
