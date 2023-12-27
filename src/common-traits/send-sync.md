@@ -1,2 +1,2 @@
 
-# Send 与 Sync
+# Send trait 与 Sync trait

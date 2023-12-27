@@ -6,8 +6,6 @@
 如果实现了 `From` trait, 会自动实现 `Into` trait:
 
 ```no_run
-use std::convert::From;
-
 impl From<A> for B {
   fn from(item: A) -> B {
     

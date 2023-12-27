@@ -31,5 +31,3 @@ pub struct LinkedList {
   next: Option<Box<LinkedList>>,
 }
 ```
-
-
