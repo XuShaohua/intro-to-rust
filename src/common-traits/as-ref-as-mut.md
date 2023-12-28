@@ -18,3 +18,8 @@ pub trait AsMut<T>where
     fn as_mut(&mut self) -> &mut T;
 }
 ```
+
+比如 `String` 实现了 `AsRef<str>` 及 `AsRef<[u8]>`, 所以 `String` 可以作为
+`&str` 及 `&[u8]` 使用.
+
+`Vec<T>` 也实现了 `AsRef<[T]>`, 所以它可以作为 `&[T]` 使用.
