@@ -53,6 +53,8 @@ impl From<&str> for Vec<u8> {
 }
 ```
 
+要注意的是, `From` 和 `Into` trait 是获取了值的所有权的, 有所有权的转移.
+
 ## 其它转换方式
 - [基础数据类型使用 as](../fundamental/cast.md)
 - [TryFrom/TryInto](../common-traits/try-from-try-into.md)
