@@ -88,7 +88,7 @@
   - [Deref 与 DerefMut](common-traits/deref-deref-mut.md)
   - [Borrow 与 BorrowMut](common-traits/borrow-borrow-mut.md)
   - [Send 与 Sync](common-traits/send-sync.md)
-  - [Sized 与 ?Sized](common-traits/sized.md)
+  - [Sized](common-traits/sized.md)
   - [Hash 与 Hasher](common-traits/hash-hasher.md)
 - [函数与闭包 Closure](closure/index.md)
   - [函数 function](closure/function.md)
