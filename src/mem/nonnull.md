@@ -69,5 +69,9 @@ let x_ref = unsafe { ptr.as_mut() };
 assert_eq!(x, 3);
 ```
 
+上面的代码片段, 其栈上的内存布局如下图所示:
+
+![NonNull Memory](./NonNull.svg)
+
 ## 参考
 - [subtyping](https://doc.rust-lang.org/reference/subtyping.html#variance)

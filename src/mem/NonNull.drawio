@@ -1,0 +1,43 @@
+<mxfile host="Electron" modified="2023-12-28T07:58:12.140Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.7.5 Chrome/114.0.5735.289 Electron/25.8.1 Safari/537.36" etag="G0Q-c9or0mW6eNaUPx6j" version="21.7.5" type="device">
+  <diagram name="Page-1" id="pao3NAnChHeWGkX1BeB-">
+    <mxGraphModel dx="1434" dy="835" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="UoQYdsvIS5otEnkYs6bd-1" value="x" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;strokeColor=#264653;strokeWidth=4;fontFamily=Ubuntu;fontSize=28;fontColor=#264653;fillColor=#2a9d8f;" vertex="1" parent="1">
+          <mxGeometry x="240" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="UoQYdsvIS5otEnkYs6bd-3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;shadow=0;strokeColor=#264653;strokeWidth=4;fontFamily=Ubuntu;fontSize=28;fontColor=#264653;endArrow=block;endFill=1;fillColor=#264653;" edge="1" parent="1" source="UoQYdsvIS5otEnkYs6bd-2" target="UoQYdsvIS5otEnkYs6bd-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UoQYdsvIS5otEnkYs6bd-2" value="ptr" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;strokeColor=#264653;strokeWidth=4;fontFamily=Ubuntu;fontSize=28;fontColor=#264653;fillColor=#2a9d8f;" vertex="1" parent="1">
+          <mxGeometry x="240" y="240" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="UoQYdsvIS5otEnkYs6bd-5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;shadow=0;strokeColor=#264653;strokeWidth=4;fontFamily=Ubuntu;fontSize=28;fontColor=#264653;endArrow=block;endFill=1;fillColor=#264653;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="UoQYdsvIS5otEnkYs6bd-4" target="UoQYdsvIS5otEnkYs6bd-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="510" y="170" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="410" y="370" />
+              <mxPoint x="410" y="170" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UoQYdsvIS5otEnkYs6bd-4" value="x_value" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;strokeColor=#264653;strokeWidth=4;fontFamily=Ubuntu;fontSize=28;fontColor=#264653;fillColor=#2a9d8f;" vertex="1" parent="1">
+          <mxGeometry x="240" y="340" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="UoQYdsvIS5otEnkYs6bd-7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;shadow=0;strokeColor=#264653;strokeWidth=4;fontFamily=Ubuntu;fontSize=28;fontColor=#264653;endArrow=block;endFill=1;fillColor=#264653;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="UoQYdsvIS5otEnkYs6bd-6" target="UoQYdsvIS5otEnkYs6bd-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="490" y="140" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="440" y="470" />
+              <mxPoint x="440" y="155" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UoQYdsvIS5otEnkYs6bd-6" value="x_ref" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;strokeColor=#264653;strokeWidth=4;fontFamily=Ubuntu;fontSize=28;fontColor=#264653;fillColor=#2a9d8f;" vertex="1" parent="1">
+          <mxGeometry x="240" y="440" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
