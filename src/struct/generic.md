@@ -28,18 +28,35 @@ impl<T> Queue<T> {
 
 除了一般的泛型写法之外, 还可以使用偏特化为某个类型单独实现一种特殊形式.
 
-比如, 下面的例子为布尔类型做的特别处理.
+比如, 标准库里的 `Box<T>` 就有这样的代码:
 
 ```rust
-pub struct Queue<T> {
-    older: Vec<T>,
-    younger: Vec<T>,
+impl<T: Default> Default for Box<T> {
+    /// Creates a `Box<T>`, with the `Default` value for T.
+    #[inline]
+    fn default() -> Self {
+        Box::new(T::default())
+    }
 }
 
-impl<bool> Queue<bool> {
-  pub fn all_true(&self) -> bool {
-    unimplemented!()
-  }
+impl<T> Default for Box<[T]> {
+    #[inline]
+    fn default() -> Self {
+        let ptr: Unique<[T]> = Unique::<[T; 0]>::dangling();
+        Box(ptr, Global)
+    }
+}
+
+impl Default for Box<str> {
+    #[inline]
+    fn default() -> Self {
+        // SAFETY: This is the same as `Unique::cast<U>` but with an unsized `U = str`.
+        let ptr: Unique<str> = unsafe {
+            let bytes: Unique<[u8]> = Unique::<[u8; 0]>::dangling();
+            Unique::new_unchecked(bytes.as_ptr() as *mut str)
+        };
+        Box(ptr, Global)
+    }
 }
 ```
 
