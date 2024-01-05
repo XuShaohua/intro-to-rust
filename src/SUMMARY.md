@@ -141,6 +141,7 @@
   - [Barrier](concurrency/barrier.md)
   - [Memory Order](concurrency/memory-order.md)
   - [原子操作 Atomic](concurrency/atomic.md)
+  - [Thread Local Storage](concurrency/thread-local-storage.md)
   - [Channel](concurrency/channel.md)
   - [线程池 rayon](concurrency/rayon.md)
   - [Actor Model](concurrency/actor-model.md)
