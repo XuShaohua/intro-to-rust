@@ -36,6 +36,23 @@ impl ToOwned for str {
 }
 ```
 
+当然, 也可以这样写:
+```rust
+let s: String = "hello".to_string();
+```
+
+因为用到了 `ToString` trait:
+
+```rust
+impl ToString for str {
+    #[inline]
+    fn to_string(&self) -> String {
+        String::from(self)
+    }
+}
+
+```
+
 ## 相关信息
 - [Clone](clone-copy.md)
 - [Cow](../mem/cow.md)
