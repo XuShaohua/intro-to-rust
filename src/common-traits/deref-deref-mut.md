@@ -16,7 +16,12 @@ pub trait DerefMut: Deref {
 }
 ```
 
+`Deref` trait 用于解析引用 (dereference) 操作, 比如 `*v`.
+
 ## Deref coercion
+- 当需要调用 `String::find()` 方法, 而值 `r` 的类型是 `Rc<String>`时, 可以直接写 `r.find('?')`,
+不需要写完整的 `(*r).find('?')`, 因为 `&Rc<String>` 自动被转换成了 `&String` 类型
+- `str` 定义的方法, 都可以被`String`对象直接使用, 因为 `&String` 可以自动被转换成 `&str`
 
 `Box<T>` 的实现:
 ```rust
