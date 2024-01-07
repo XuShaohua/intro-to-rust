@@ -21,3 +21,6 @@ let b: Box<dyn Any> = Box::new(42_i32);
 let actual_id = (&*b).type_id();
 assert_eq!(actual_id, TypeId::of::<i32>());
 ```
+
+## 相关内容
+- [Box Any](../mem/box.md)

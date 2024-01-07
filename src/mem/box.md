@@ -64,3 +64,6 @@ let ptr: *mut i32 = Box::into_raw(x);
 let x2 = unsafe { Box::from_raw(ptr) };
 assert_eq!(*x2, 42);
 ```
+
+## 相关内容
+- [反射 Any](../common-traits/any.md)
