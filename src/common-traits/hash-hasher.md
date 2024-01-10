@@ -54,3 +54,11 @@ pub struct Point2D {
   y: i32,
 }
 ```
+
+## 标准库里的 hash 函数实现
+
+目前, Rust 标准库使用 `SipHash 1-3` 作为默认的哈稀函数, 具体可以参考以下链接:
+
+- [sip.rs](https://github.com/rust-lang/rust/blob/master/library/core/src/hash/sip.rs)
+- [SipHash wikipedia](https://en.wikipedia.org/wiki/SipHash)
+- [JP Aumasson](https://www.aumasson.jp/)

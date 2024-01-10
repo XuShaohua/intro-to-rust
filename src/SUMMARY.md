@@ -173,7 +173,6 @@
   - [字符串 String](collections/string.md)
   - [VecDeque](collections/deque.md)
   - [LinkedList](collections/linked-list.md)
-  - [Hashing](collections/hashing.md)
   - [HashMap & HashSet](collections/hash-map.md)
   - [BTreeMap & BTreeSet](collections/btree-map.md)
   - [BinaryHeap](collections/binary-heap.md)
