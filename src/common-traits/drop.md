@@ -38,3 +38,8 @@ pub struct LinkedList {
   next: Option<Box<LinkedList>>,
 }
 ```
+
+## Drop Flags
+
+## References
+- [Drop Flags](https://doc.rust-lang.org/nomicon/drop-flags.html)
