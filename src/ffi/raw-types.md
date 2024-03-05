@@ -13,21 +13,32 @@ Rust 标准库提供了一些定义, 以便于与C语言中的类型保持一致
 详细的类型对比见下表:
 
 | C 中的类型                 | os::raw 中对应的类型 |
-|------------------------| --- |
-| void                   | c_void |
-| char                   | c_char |
-| signed char            | c_schar|
-| unsigned char          | c_uchar |
-| float                  | c_float |
-| double                 | c_double |
-| short, signed sort     | c_short |
-| unsigned short         | c_ushort | 
-| int, signed int        | c_int |
-| unsigned, unsigned int | c_uint |
-| long                   | c_long |
-| unsigned long | c_ulong |
-| long long              | c_longlong |
-| unsigned long long | c_ulonglong |
+|------------------------|----------------|
+| char                   | c_char         |
+| signed char            | c_schar        |
+| unsigned char          | c_uchar        |
+| float                  | c_float        |
+| double                 | c_double       |
+| short, signed sort     | c_short        |
+| unsigned short         | c_ushort       |
+| int, signed int        | c_int          |
+| unsigned, unsigned int | c_uint         |
+| long                   | c_long         |
+| unsigned long | c_ulong        |
+| long long              | c_longlong     |
+| unsigned long long | c_ulonglong    |
+| void                   | ()             |
+| void * | *mut c_void |
+| const void * | *const c_void |
+
+指针类型比较特殊, 在 rust 里被独立处理的.
+
+### 布尔类型
+Rust 中的 `bool` 类型与 C 或者 C++ 中的完全一致, 没有额外的转换步骤
+
+### 结构体指针及引用
+- C/C++ 中定义的结构体指针 `*T`, 对应于 rust 中的 `*mut T` 
+- C++ 中的对象引用 `&T`, 对应于 rust 中的 `*const T`
 
 ## 其它类型
 `core::ffi` 模块还定义了一些仍在实验中的类型, 我们也介绍一下:
