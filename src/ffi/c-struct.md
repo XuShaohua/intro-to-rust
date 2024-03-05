@@ -93,3 +93,28 @@ pub enum perf_type_id_t {
     PERF_TYPE_MAX = 6,
 }
 ```
+
+## Union 类型
+
+Rust 里定义 union 与在 C 语言中类似:
+
+```rust
+use std::ffi::c_void;
+
+#[repr(C)]
+#[derive(Clone, Copy)]
+#[allow(non_camel_case_types)]
+pub union sigval_t {
+    pub sival_int: i32,
+    pub sival_ptr: *mut c_void,
+}
+```
+
+原始的 `sigval_t` 是这样定义的:
+```C
+// From <siginfo.h>
+typedef union sigval {
+	int sival_int;
+	void *sival_ptr;
+} sigval_t;
+```
