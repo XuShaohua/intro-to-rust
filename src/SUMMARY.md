@@ -186,6 +186,7 @@
   - [c string](ffi/c-string.md)
   - [声明外部函数以及变量](ffi/declare-function.md)
   - [使用外部库中的函数](ffi/function-from-libraries.md)
+  - [使用 CC 编译C代码并链接到内部](ffi/cc.md)
   - [unsafe 代码](ffi/unsafe.md)
   - [自动生成语言绑定](ffi/binding.md)
   - [linux 内核模块](ffi/kernel-module.md)
