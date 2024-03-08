@@ -9,7 +9,7 @@ extern "C" {
 }
 
 pub fn getenv_safe(name: &str) -> String {
-    let name_cstr = unsafe { CString::from_vec_unchecked(name.as_bytes().to_vec()) };
+    let name_cstr = CString::new(name).unwrap();
     let cstr = unsafe { CStr::from_ptr(getenv(name_cstr.as_ptr())) };
     cstr.to_string_lossy().to_string()
 }

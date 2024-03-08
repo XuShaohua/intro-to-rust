@@ -26,12 +26,12 @@ CStr 与 `*const c_char` 之间可以用 `as_ptr()` 以及 `from_ptr()` 进行�
 ```rust
 use std::ffi::{c_char, CStr, CString};
 
-extern "C" {
+extern {
     fn getenv(name: *const c_char) -> *const c_char;
 }
 
 pub fn getenv_safe(name: &str) -> String {
-    let name_cstr = unsafe { CString::from_vec_unchecked(name.as_bytes().to_vec()) };
+    let name_cstr = CString::new(name).unwrap();
     let cstr = unsafe { CStr::from_ptr(getenv(name_cstr.as_ptr())) };
     cstr.to_string_lossy().to_string()
 }
@@ -41,3 +41,8 @@ fn main() {
     println!("PATH:{path}");
 }
 ```
+
+这里:
+- `CString::new<T: Into<Vec<u8>>(t: T)` 会创建一个空字符结尾的 C 字符串
+- `CString::as_ptr()` 返回的是 `*const c_char`, 等同于 C 语言中的 `const *char`, 可以用于FFI函数
+- 
