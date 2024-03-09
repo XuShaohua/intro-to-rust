@@ -199,7 +199,7 @@
     - [简单工厂模式 Simple factory](design-patterns/creational/simple-factory.md)
     - [工厂方法模式 Factory method](design-patterns/creational/factory-method.md)
     - [抽象工厂模式 Abstract factory](design-patterns/creational/abstract-factory.md)
-    - [构建器模式 Builder](design-patterns/creational/builder.md)
+    - [建造者模式 Builder](design-patterns/creational/builder.md)
     - [原型模式 Prototype](design-patterns/creational/prototype.md)
     - [单例模式 Singleton](design-patterns/creational/singleton.md)
   - [结构型 Structural](design-patterns/structural/index.md)
