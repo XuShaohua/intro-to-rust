@@ -1,6 +1,8 @@
 
 # 结构型设计模式 structural design patterns
 
+结构型设计模式, 是通过识别对象之间的关系, 并试图去简化它们.
+
 在这个分类下包含的设计模式有:
 - [适配器模式 Adapter](adapter.md)
 - [桥梁模式 Bridge](bridge.md)

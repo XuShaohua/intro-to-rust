@@ -18,3 +18,4 @@
 - [设计模式：可复用面向对象软件的基础](https://zh.wikipedia.org/wiki/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%9A%E5%8F%AF%E5%A4%8D%E7%94%A8%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%9F%BA%E7%A1%80)
 - [Design Patterns for Humans](https://github.com/kamranahmedse/design-patterns-for-humans)
 - [Design Patterns for Humans 的中文翻译版](https://github.com/guanguans/design-patterns-for-humans-cn)
+- [Rust Design Patterns](https://github.com/lpxxn/rust-design-pattern)
