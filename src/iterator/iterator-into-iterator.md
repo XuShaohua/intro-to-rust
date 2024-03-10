@@ -7,7 +7,7 @@
 该方法会返回 `Option<Self::Item>`, 返回下一个元素 `Some(Self::Item)`; 如果没有下个元素的话, 就返回 `None`.
 
 
-```rust
+```rust, no_run
 pub trait Iterator {
     type Item;
 
