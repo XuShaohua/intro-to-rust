@@ -1,5 +1,6 @@
 
-# Eq and Ord
+# 相等与比较 Eq and Ord
+
 [std::cmp模块](https://doc.rust-lang.org/std/cmp/index.html)提供了四个 traits:
 - `PartialEq`
 - `Eq`

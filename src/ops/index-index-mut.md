@@ -1,6 +1,5 @@
 
-# Index 与 IndexMut
-
+# 索引 Index 与 IndexMut
 
 用于实现 `container[index]` 这样的索引操作, 通过 `*container.index(index)` 以及
 `*container.index_mut(index)` 方法.
