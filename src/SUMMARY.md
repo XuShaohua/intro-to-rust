@@ -58,7 +58,7 @@
   - [Trait Objects](trait/trait-object.md)
   - [泛型 Generic](trait/generic.md)
 - [操作符重载 Operator Overloading](ops/index.md)
-  - [算术与比特操作符 Arithmetic and bitwise operators](ops/arith-bit-ops.md)
+  - [算术与比特位操作符 Arithmetic and bitwise operators](ops/arith-bit-ops.md)
   - [Range](ops/range.md)
   - [索引 Index 与 IndexMut](ops/index-index-mut.md)
   - [相等与比较 Eq and Ord](ops/eq-ord.md)
