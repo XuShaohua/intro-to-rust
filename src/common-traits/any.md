@@ -85,3 +85,4 @@ impl Platform for CanvasPlatform {
 - [Box Any](../mem/box.md)
 - [Downcast](https://ysantos.com/blog/downcast-rust)
 - [bevy_reflect](https://docs.rs/bevy_reflect/latest/bevy_reflect/)
+- [Rust 反射](https://zhuanlan.zhihu.com/p/615577638)
