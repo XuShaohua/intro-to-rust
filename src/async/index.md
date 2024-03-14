@@ -26,3 +26,5 @@ Rust 实现的异步式(async)并发编程模型, 有这些特点:
 ## 参考
 
 - [Rust async book](https://rust-lang.github.io/async-book/)
+- [Async Rust Is A Bad Language](https://bitbashing.io/async-rust.html)
+- [Common Mistakes with Rust Async](https://www.qovery.com/blog/common-mistakes-with-rust-async/)
