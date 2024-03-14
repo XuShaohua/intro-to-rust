@@ -1,8 +1,9 @@
-
 # Generics
 
 ## 偏特化
+
 可以像 C++ 一样, 实现偏特化.
+
 ```rust
 struct GeneralVal<T>(T);
 
@@ -34,13 +35,15 @@ fn main() {
 ```
 
 ## Where
+
 可以使用 `where` 来指定复杂的泛型:
+
 ```rust
 use std::fmt::{Debug, Display};
 
 fn print_info<T>(t: T)
-where
-    T: Debug + Display + Clone,
+    where
+        T: Debug + Display + Clone,
 {
     println!("debug: {:?}, display: {}", t, t.clone());
 }
@@ -52,7 +55,9 @@ fn main() {
 ```
 
 ## Associated types
+
 对于复杂的泛型, 可以使用关联类型这种写法:
+
 ```rust
 trait Contains {
     type A;
@@ -93,8 +98,10 @@ fn main() {
 ```
 
 ## PhantomData
+
 使用 `PhantomData`, 用于处理编译期生命周期的问题, `PhantomData` 本身不占用内存.
 以下示例中, 结构体 `S` 的大小跟 `i32` 是一致的:
+
 ```rust
 use std::marker::PhantomData;
 use std::mem::size_of_val;
@@ -115,7 +122,9 @@ fn main() {
 ```
 
 ## Trait
+
 在 trait 里的方法, 也可以指定生命周期:
+
 ```rust
 #[derive(Debug)]
 struct Borrowed<'a> {
@@ -133,3 +142,11 @@ fn main() {
     println!("b is {:?}", b);
 }
 ```
+
+## Const generics
+
+TODO
+
+# 参考
+
+- [Reference of Generics](https://doc.rust-lang.org/reference/items/generics.html)
