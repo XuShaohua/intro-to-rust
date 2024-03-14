@@ -20,3 +20,5 @@
 ## 参考
 
 - [concurrency](https://web.mit.edu/6.005/www/fa14/classes/17-concurrency/)
+- [Event-driven programming](https://en.wikipedia.org/wiki/Event-driven_programming)
+- [Actor model](https://en.wikipedia.org/wiki/Actor_model)
