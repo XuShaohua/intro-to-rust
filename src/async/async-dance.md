@@ -78,6 +78,6 @@ fn main() {
 }
 ```
 
-其中 `futures::join!()` 宏, 类似于 `.await`, 但它等待多个 futures 对象并发运行, 大致如下图如示:
+其中 `futures::join!()` 宏, 类似于 `.await`, 但它等待多个 Future 对象并发运行, 大致如下图如示:
 
 ![futures join](async-dance.png)
