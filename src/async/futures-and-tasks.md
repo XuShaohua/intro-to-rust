@@ -22,7 +22,13 @@ pub trait Future {
 然后当 `Future` 可以推进到新的进度时, 它会调用 `Wake::wake()` 函数.
 当 `wake()` 被调用后, 运行时会再次调用 `Future` 的 `poll()` 方法, 这样就可以更新进度了.
 
-![future-and-task](future-and-task.png)
+![future-and-task](assets/future-and-task.png)
+
+这里, 如果没有 `Wake::wake()` 方法的话, 每个周期, 运行时都要依次遍历一下所有的 `Future` 对象,
+看看哪个进度有所推进;
+引入了 `wake()` 方法后, 运行时就可以精确地知道在数万个 `Future` 对象中有哪些的进度是有变化的,
+就可以调用它们的 `poll()` 方法了.
+这样的设计可以显著提高运行时的性能.
 
 ## `Poll` 枚举类
 
@@ -34,3 +40,17 @@ pub enum Poll<T> {
     Pending,
 }
 ```
+
+## 并行运行多个 `Future`
+
+## 串起来运行多个 `Future`
+
+## 使用 Waker 来通管运行时再次拉取 `Future`
+
+`Wake` trait
+
+`Waker` 结构体
+
+`RawWaker` 结构体
+
+## 使用 Context 管理运行时上下文 
