@@ -1,4 +1,3 @@
-
 # Atomic
 
 `filetime` 包里利用了 `AtomicBool` 来标注某个系统调用是否可用, 当第一次调用该系统
@@ -48,5 +47,7 @@ fn set_times(
 ```
 
 ## References
+
 - [LLVM Atomic Instructions and Concurrency Guide](https://llvm.org/docs/Atomics.html)
 - [std::memory_order](https://en.cppreference.com/w/cpp/atomic/memory_order)
+- [Portable atomic](https://github.com/taiki-e/portable-atomic)

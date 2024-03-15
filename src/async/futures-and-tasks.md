@@ -30,6 +30,9 @@ pub trait Future {
 就可以调用它们的 `poll()` 方法了.
 这样的设计可以显著提高运行时的性能.
 
+另外 `Future::poll()` 方法的第一个参数类型是 `Pin<&mut Self>`, 这个用到了内存固定 (memory pinning) 相关的,
+后面章节会专门介绍它.
+
 ## `Poll` 枚举类
 
 它位于 `std::task`, 定义如下:
@@ -40,10 +43,6 @@ pub enum Poll<T> {
     Pending,
 }
 ```
-
-## 并行运行多个 `Future`
-
-## 串起来运行多个 `Future`
 
 ## 使用 Waker 来通管运行时再次拉取 `Future`
 

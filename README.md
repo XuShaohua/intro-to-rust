@@ -4,8 +4,6 @@
 
 [在线浏览](https://rust.biofan.org)
 
-[反馈问题](https://github.com/xushaohua/rust-book)
-
 ## 安装依赖
 这些记录以 markdown 文件为主, 可以用`mdbook`生成网页, 用cargo来安装它:
 ```bash
@@ -26,3 +24,6 @@ mdbook build
 ```bash
 mdbook serve
 ```
+
+## 反馈问题
+欢迎[反馈问题](https://github.com/xushaohua/rust-book/issues), 或者提交 PR.
