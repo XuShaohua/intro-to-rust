@@ -1,7 +1,7 @@
-
-# 静态分发与动态分发
+# 静态分发与动态分发 Static Dispatch and Dynamic Dispatch
 
 一句话概括它们的特点:
+
 - 静态分发 (static dispatch), 是在编译期间确定函数调用关系
 - 动态分发 (dynamic dispatch), 是在程序运行期间, 通过对象的虚表 (vtable), 找到要调用的目标函数, 并调用它
 
@@ -49,7 +49,7 @@ fn dynamic_dispatch(point: &(dyn Print + 'static)) {
 }
 
 fn main() {
-    let p = Point {x: 3.0, y: 4.0};
+    let p = Point { x: 3.0, y: 4.0 };
     static_dispatch(&p);
     println!("==============");
     dynamic_dispatch(&p);
@@ -57,4 +57,5 @@ fn main() {
 ```
 
 ## 参考
+
 - [trait object](https://stackoverflow.com/questions/27567849/what-makes-something-a-trait-object)
