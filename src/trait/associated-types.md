@@ -40,3 +40,7 @@ fn main() {
     println!("difference: {}", difference(&c));
 }
 ```
+
+## 参考
+
+- [Associated Items](https://doc.rust-lang.org/reference/items/associated-items.html)
