@@ -1,2 +1,1 @@
-
-# Derive
+# Derive: 自动继承常见的 trait

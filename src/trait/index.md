@@ -1,2 +1,1 @@
-
-# 接口与泛型 Traits and Generics
+# 接口 Traits
