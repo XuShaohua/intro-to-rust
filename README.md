@@ -1,5 +1,5 @@
 
-# 关于
+# The Rust Book
 建立 Rust 的知识体系, 理清难点.
 
 [在线浏览](https://rust.biofan.org)
