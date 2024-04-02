@@ -1,10 +1,7 @@
-# 管理容量
+// Copyright (c) 2024 Xu Shaohua <shaohua@biofan.org>. All rights reserved.
+// Use of this source is governed by General Public License that can be found
+// in the LICENSE file.
 
-- `Vec::reverse();` 这里调用的是 `Slice::reverse()` 方法，是隐式地将 vec 先转成切片的
-
-## 一个示例程序
-
-```rust
 fn main() {
     let v1: Vec<i32> = vec![1, 2, 3, 4, 5];
     println!("len of v1: {}, cap of v1: {}", v1.len(), v1.capacity());
@@ -30,4 +27,3 @@ fn main() {
     v2.push(3);
     println!("len of v2: {}, cap of v2: {}", v2.len(), v2.capacity());
 }
-```
