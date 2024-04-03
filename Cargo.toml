@@ -3,7 +3,7 @@ resolver = "2"
 
 members = [ "code/asynchronous",
     "code/closure",
-    "code/collections",
+    "code/collections", "code/concurrency",
     "code/enums",
     "code/ffi",
     "code/memory", "code/primtives",
