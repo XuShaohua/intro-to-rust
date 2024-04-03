@@ -5,7 +5,7 @@
 use std::io::{stdout, Write};
 
 fn main() {
-    let data = vec![1, 2, 3, 4, 5];
-    let res: Result<(), _> = data.iter().map(|x| writeln!(stdout(), "{x}")).collect();
+    let data = [1, 2, 3, 4, 5];
+    let res = data.iter().try_for_each(|x| writeln!(stdout(), "{x}"));
     println!("res: {:?}", res);
 }
