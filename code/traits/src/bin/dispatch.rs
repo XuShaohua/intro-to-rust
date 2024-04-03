@@ -1,6 +1,6 @@
-// Copyright (c) 2023 Xu Shaohua <shaohua@biofan.org>. All rights reserved.
-// Use of this source is governed by General Public License that can be
-// found in the LICENSE file.
+// Copyright (c) 2024 Xu Shaohua <shaohua@biofan.org>. All rights reserved.
+// Use of this source is governed by General Public License that can be found
+// in the LICENSE file.
 
 pub struct Point {
     x: f32,
@@ -41,7 +41,7 @@ fn dynamic_dispatch(point: &(dyn Print + 'static)) {
 }
 
 fn main() {
-    let p = Point {x: 3.0, y: 4.0};
+    let p = Point { x: 3.0, y: 4.0 };
     static_dispatch(&p);
     println!("==============");
     dynamic_dispatch(&p);
