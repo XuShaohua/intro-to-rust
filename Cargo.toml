@@ -1,13 +1,18 @@
-
 [workspace]
 resolver = "2"
 
 members = [
-  "code",
+    "code/closure",
+    "code/collections",
+    "code/enums",
+    "code/memory",
+    "code/references",
+    "code/structs",
+    "code/traits"
 ]
 
 exclude = [
-  "book",
-  "src",
-  "tools",
+    "book",
+    "src",
+    "tools",
 ]
