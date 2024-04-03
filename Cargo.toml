@@ -6,7 +6,7 @@ members = [ "code/asynchronous",
     "code/collections",
     "code/enums",
     "code/ffi",
-    "code/memory",
+    "code/memory", "code/primtives",
     "code/references",
     "code/structs",
     "code/traits"
