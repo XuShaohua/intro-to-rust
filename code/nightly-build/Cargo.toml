@@ -1,0 +1,10 @@
+[workspace]
+
+[package]
+name = "nightly-build"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+nc = { version = "0.8.20", default-features = false }
