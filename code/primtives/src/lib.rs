@@ -10,3 +10,5 @@
     clippy::pedantic
 )]
 #![allow(dead_code)]
+
+pub mod color;
