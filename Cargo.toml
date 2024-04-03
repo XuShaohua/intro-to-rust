@@ -1,10 +1,11 @@
 [workspace]
 resolver = "2"
 
-members = [
+members = [ "code/asynchronous",
     "code/closure",
     "code/collections",
     "code/enums",
+    "code/ffi",
     "code/memory",
     "code/references",
     "code/structs",
