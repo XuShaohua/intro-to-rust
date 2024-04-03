@@ -17,19 +17,22 @@ pub struct Point {
 
 impl Point {
     #[must_use]
+    #[inline]
     pub const fn from_xy(x: f32, y: f32) -> Self {
         Self { x, y }
     }
 
     /// Returns x-axis value of point or vector.
     #[must_use]
-    pub const fn x(&self) -> f32 {
+    #[inline]
+    pub const fn x(self) -> f32 {
         self.x
     }
 
     /// Returns y-axis value of point or vector.
     #[must_use]
-    pub const fn y(&self) -> f32 {
+    #[inline]
+    pub const fn y(self) -> f32 {
         self.y
     }
 
