@@ -1,0 +1,1 @@
+# 省去标注生命周期 Lifetime Elision
