@@ -1,4 +1,4 @@
-# 泛型 Generics
+# 泛型结构体 Generic Structs
 
 与 C++ 类似, 泛型 (Generics) 这种特性在 Rust 中也被广为使用, 比如标准库中的容器类, 都离开泛型这个特性.
 

@@ -1,4 +1,4 @@
-# 泛型函数 Generis
+# 泛型函数 Generic Functions
 
 对于泛型这种形式, rust 在编译期会生成不同版本的函数. 也就是说, 跟 `Trait Objects` 不同的是,
 泛型函数不需要在运行期查找 `vtable`, 即所谓的动态派发 (dynamic dispatch), 所以其性能要更好些,
@@ -14,6 +14,3 @@ fn say_hello<W: std::io::Write>(out: &mut W) -> std::io::Result<()> {
 ## AsRef<T>
 
 ## 参考
-
-- [Generics in struct](../struct/generics.md)
-- [](../trait/generics.md)

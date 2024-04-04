@@ -1,4 +1,4 @@
-# Generics
+# 泛型 Traits Generic Traits
 
 在 trait 里的方法, 也可以指定生命周期:
 
@@ -27,5 +27,3 @@ TODO
 # 参考
 
 - [Reference of Generics](https://doc.rust-lang.org/reference/items/generics.html)
-- [Struct Generics](../struct/generics.md)
-- [Function Generics](../closure/generics.md)
