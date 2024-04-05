@@ -82,7 +82,7 @@ impl Platform for CanvasPlatform {
 
 ## 相关内容
 
-- [Box Any](../mem/box.md)
+- [Box Any](../smart-pointers/box/box-of-dyn-any.md)
 - [Downcast](https://ysantos.com/blog/downcast-rust)
 - [bevy_reflect](https://docs.rs/bevy_reflect/latest/bevy_reflect/)
 - [Rust 反射](https://zhuanlan.zhihu.com/p/615577638)
