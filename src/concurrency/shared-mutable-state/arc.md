@@ -1,11 +1,3 @@
-# Arc<T> 与 Weak
+# Arc<T> 跨线程的引用计数
 
-## Arc<T> 的内存布局
-
-## Arc<T> 与 `&T` 的转换
-
-## 使用 Weak 解决循环引用的问题
-
-## Arc<Mutex<T>> 的使用
-
-## Arc<(Mutex<T>, Condvar)>
+与 Arc<T> 相关的内容比较多, 我们把它放在了[下个子章节](../arc/index.md).
