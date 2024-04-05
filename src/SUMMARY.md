@@ -22,7 +22,6 @@
     - [静态变量 static](struct/static.md)
     - [别名](struct/type-alias.md)
     - [内存布局 memory layout](struct/layout.md)
-    - [内部可变性 Interior Mutability](struct/interior-mutability.md)
 - [枚举 Enums](enum/index.md)
     - [定义方法 impl](enum/impl.md)
     - [Option](enum/option.md)
