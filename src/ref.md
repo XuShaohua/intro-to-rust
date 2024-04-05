@@ -14,6 +14,7 @@
 * [rustc source](https://github.com/rust-lang/rust/tree/master/compiler/rustc) - how to implement language features
 * [algorithms in rust](https://github.com/TheAlgorithms/Rust) - data structures and algorithms
 * [RustSec](https://rustsec.org/) - A vulnerability database for the Rust ecosystem
+- [cheats.rs](https://github.com/ralfbiedert/cheats.rs) - Rust Language Cheat Sheet
 
 书籍:
 - [Programming Rust, 2nd Edition](https://www.oreilly.com/library/view/programming-rust-2nd/9781492052586/), Jim Blandy etc.

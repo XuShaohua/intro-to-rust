@@ -16,8 +16,10 @@ Rust 语言中的字符串 `String` 或者 `&str` 有这些特点:
 为此, Rust 标准库里单独定义了与C语言兼容的字符串类型.
 
 `CStr` 对 `CString` 的关系就像 `&str` 与 `String` 的关系.
+
 - `CString` 拥有字符串的所有权
 - `CStr` 是对后者的引用
+
 它们之间是可以相互转换的.
 
 CStr 与 `*const c_char` 之间可以用 `as_ptr()` 以及 `from_ptr()` 进行相互的转换.
@@ -45,4 +47,4 @@ fn main() {
 这里:
 - `CString::new<T: Into<Vec<u8>>(t: T)` 会创建一个空字符结尾的 C 字符串
 - `CString::as_ptr()` 返回的是 `*const c_char`, 等同于 C 语言中的 `const *char`, 可以用于FFI函数
-- 
+
