@@ -10,3 +10,7 @@
   不是线程安全的) 以及 `std::sync::Arc` (用于线程间共享, 线程安全)
 * `std::weak_ptr`, 不以引用计数的方式共享内存, 对应于 `std::rc::Weak` 以及 std::sync::Weak`. 它用于辅助 `std::
   shared_ptr` 以解决循环引用问题, 本身不会影响引用计数的数值.
+
+## 参考
+
+- [Rust container cheat sheet](https://docs.google.com/presentation/d/1q-c7UAyrUlM-eZyTo1pd8SZ0qwA_wYxmPZVOQkoDmH4/edit#slide=id.p)
