@@ -1,4 +1,4 @@
-# 写时复制 Cow
+# 写时复制 Cow 与 ToOwned
 
 `Cow` (Clone on Write) 是一个枚举类型.
 
