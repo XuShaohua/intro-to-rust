@@ -216,6 +216,8 @@
         - [使用 Arc<(Mutex<T>, CondVar)>](concurrency/arc/arc-mutex-of-t-condvar.md)
         - [使用 Arc<RwLock<T>>](concurrency/arc/arc-rwlock-of-t.md)
         - [使用 Arc<AtomicUsize>](concurrency/arc/arc-of-atomic-usize.md)
+    - [crossbeam 库](concurrency/crossbeam/index.md)
+    - [dashmap 库: 并发的 HashMap 实现](concurrency/dashmap.md)
     - [参考资料](concurrency/references.md)
 - [异步 async](async/index.md)
     - [第一个 async 程序](async/async-dance.md)
