@@ -175,6 +175,7 @@
         - [ptr::addr_of!() 与 ptr::addr_of_mut!() 宏](mem/ptr/addr-of-fn.md)
         - [ptr::eq() 与 ptr::addr_eq() 函数](mem/ptr/eq-fn.md)
         - [ptr::swap() 与 ptr::replace() 函数](mem/ptr/swap-replace-fn.md)
+        - [ptr::copy() 与 ptr::copy_nonoverlapping() 函数](mem/ptr/copy-fn.md)
         - [ptr::drop_in_place() 函数](mem/ptr/drop-in-place-fn.md)
         - [ptr::null() 函数](mem/ptr/null.md)
         - [ptr::NonNull 类](mem/ptr/nonnull.md)
