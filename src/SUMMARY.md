@@ -172,6 +172,7 @@
 - [内存管理](mem/index.md)
     - [std::ptr 库](mem/ptr/index.md)
         - [ptr::read() 与 ptr::write() 函数](mem/ptr/read-write-fn.md)
+        - [ptr::addr_of!() 与 ptr::addr_of_mut!() 宏](mem/ptr/addr-of-fn.md)
         - [ptr::drop_in_place() 函数](mem/ptr/drop-in-place-fn.md)
         - [ptr::null() 函数](mem/ptr/null.md)
         - [ptr::NonNull 类](mem/ptr/nonnull.md)
