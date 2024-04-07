@@ -2,18 +2,17 @@
 // Use of this source is governed by General Public License that can be found
 // in the LICENSE file.
 
+use std::ptr;
+
 fn main() {
-    let mut s = String::from("foo");
+    let mut s = 42;
 
     unsafe {
-        let mut s2: String = std::ptr::read(&s);
-        assert_eq!(s2, "foo");
-
-        s2 = String::default();
-        assert_eq!(s2, "");
-
-        std::ptr::write(&mut s, String::from("bar"));
+        let s2 = &mut s as *mut i32;
+        let num = ptr::read(s2);
+        assert_eq!(num, 42);
+        ptr::write(s2, num + 1);
     }
 
-    assert_eq!(s, "bar");
+    assert_eq!(s, 43);
 }
