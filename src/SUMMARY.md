@@ -181,7 +181,7 @@
         - [ptr::null() 函数](mem/ptr/null.md)
         - [ptr::NonNull 类](mem/ptr/nonnull.md)
         - [ptr::Unique 类](mem/ptr/unique.md)
-    - [PhantomData](mem/phantom.md)
+    - [PhantomData 类](mem/phantom-data.md)
     - [写时复制 borrow::Cow 与 borrow::ToOwned](mem/cow-to-owned.md)
     - [保持内存 pin::Pin 以及 pin::Unpin](mem/pin.md)
     - [初始化内存 Initialize Memory](mem/init.md)
