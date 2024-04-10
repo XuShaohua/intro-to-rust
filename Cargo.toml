@@ -13,6 +13,7 @@ members = [
     "code/macros",
     "code/memory",
     "code/ownership",
+    "code/pattern_matching",
     "code/primtives",
     "code/references",
     "code/smart_pointers",
