@@ -8,6 +8,7 @@ members = [
     "code/concurrency",
     "code/enums",
     "code/error_handling",
+    "code/expressions",
     "code/ffi",
     "code/iterators",
     "code/macros",
