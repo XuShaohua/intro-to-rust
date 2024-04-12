@@ -1,8 +1,10 @@
+// Copyright (c) 2024 Xu Shaohua <shaohua@biofan.org>. All rights reserved.
+// Use of this source is governed by General Public License that can be found
+// in the LICENSE file.
 
+use std::sync::mpsc::channel;
 use std::sync::{Arc, Mutex};
 use std::thread;
-use std::sync::mpsc::channel;
-
 
 struct Payload {
     count: usize,
@@ -12,7 +14,7 @@ struct Payload {
 fn main() {
     const N: usize = 100;
 
-    let payload = Arc::new(Mutex::new(Payload{ count: 0, value: 1 }));
+    let payload = Arc::new(Mutex::new(Payload { count: 0, value: 1 }));
 
     let (tx, rx) = channel();
 
