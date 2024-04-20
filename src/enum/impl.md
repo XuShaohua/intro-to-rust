@@ -1,6 +1,6 @@
 # 为枚举定义方法 Impl
 
-与C/C++中的枚举一个不同点就是, 在 Rust 中可以为枚举定义方法. 这个也得益于 Rust 将数据与函数做了彻底的分离.
+与C/C++不同, Rust 可以为枚举定义方法. 这个也得益于 Rust 将数据与函数做了彻底的分离.
 
 ```rust
 #[derive(Debug, Default, Clone, Copy, Eq, PartialEq)]
