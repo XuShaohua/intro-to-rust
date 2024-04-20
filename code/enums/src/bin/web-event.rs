@@ -2,6 +2,8 @@
 // Use of this source is governed by General Public License that can be found
 // in the LICENSE file.
 
+#![allow(unused_variables, dead_code)]
+
 use std::mem::size_of;
 
 pub enum WebEvent {
@@ -54,5 +56,4 @@ fn main() {
     assert_eq!(size_of::<WebEventWithMoreStrings>(), 32);
     // let paste = WebEventWithMoreStrings::Paste(s.clone());
     // let paste2 = WebEventWithMoreStrings::Paste2(s);
-    assert!(true);
 }

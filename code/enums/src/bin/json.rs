@@ -2,6 +2,8 @@
 // Use of this source is governed by General Public License that can be found
 // in the LICENSE file.
 
+#![allow(clippy::box_collection, dead_code)]
+
 use std::collections::HashMap;
 use std::mem::size_of;
 
