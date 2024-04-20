@@ -22,5 +22,6 @@ impl Weekday {
 
 fn main() {
     let monday = Weekday::Monday;
+    let tuesday = Weekday::Tuesday;
     assert!(!monday.is_weekend());
 }

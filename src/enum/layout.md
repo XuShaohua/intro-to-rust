@@ -318,6 +318,8 @@ enum class Weekday : uint32_t {
 Rust 中可以这样写:
 
 ```rust
+use std::mem::size_of;
+
 #[repr(u32)]
 enum Weekday {
     Monday,
@@ -328,8 +330,54 @@ enum Weekday {
     Saturday,
     Sunday,
 }
+
+fn main() {
+    assert_eq!(size_of::<Weekday>(), 4);
+}
 ```
 
 它们这些枚举项都占用4个字节, 尽管一个字节足够存储它们的值.
 
 ![weekday-u32](assets/weekday-u32.svg)
+
+## 混合类型
+
+枚举项标签内, 还包含了其它类型的数据.
+
+enum 也可以使用不同的类型作为其元素. 比如:
+
+```rust
+use std::mem::size_of;
+
+pub enum WebEvent {
+    PageLoad,
+    PageUnload,
+    KeyPress(char),
+    Click { x: i32, y: i32 },
+}
+
+fn main() {
+    let key_press = WebEvent::KeyPress('a');
+    let click = WebEvent::Click { x: 42, y: 43 };
+    assert_eq!(size_of::<WebEvent>(), 12);
+}
+```
+
+这里, `WebEvent` 类型占用的内存, 基于其子元素所占内存的最大值, 这里就是 `Click`. 同时要考虑到内存对齐 (alignment) 的问题.
+
+![web-event](assets/webevent.svg)
+
+## 指针类型
+
+## 包含多个指针类型
+
+```rust
+enum WebEvent {
+    PageLoad,
+    PageUnload,
+    KeyPress(char),
+    Paste(String),
+    Copy(String),
+    Click { x: i32, y: i32 },
+}
+```
