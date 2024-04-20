@@ -16,38 +16,6 @@ enum Weekday {
 }
 ```
 
-如果需能像 C++ 中那样,
-显式地指定其数据类型:
-
-```cpp
-enum class Weekday : uint32_t {
-  Monday,
-  Tuesday,
-  Wednesday,
-  Thursday,
-  Friday,
-  Saturday,
-  Sunday,
-};
-```
-
-可以这样写:
-
-```rust
-#[repr(u32)]
-enum Weekday {
-    Monday,
-    Tuesday,
-    Wednesday,
-    Thursday,
-    Friday,
-    Saturday,
-    Sunday,
-}
-```
-
-它们都占用4个字节.
-
 ## 混合类型
 
 enum 也可以使用不同的类型作为其元素. 比如:
