@@ -69,12 +69,12 @@ fn main() {
 
 ## 解构引用
 
-```rust
+```rust, not_run
 let ref v = 42;
 ```
 
 与下面的表达式是一样的:
 
-```rust
+```rust, not_run
 let v = & 42;
 ```
