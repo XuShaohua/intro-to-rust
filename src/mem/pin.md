@@ -1,4 +1,4 @@
-# 保持内存 pin::Pin 以及 pin::Unpin
+# 固定内存 pin::Pin 以及 pin::Unpin
 
 ## 自引用 Ref to self
 

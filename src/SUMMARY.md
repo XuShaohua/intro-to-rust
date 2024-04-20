@@ -183,7 +183,7 @@
         - [ptr::Unique 类](mem/ptr/unique.md)
     - [PhantomData 类](mem/phantom-data.md)
     - [写时复制 borrow::Cow 与 borrow::ToOwned](mem/cow-to-owned.md)
-    - [保持内存 pin::Pin 以及 pin::Unpin](mem/pin.md)
+    - [固定内存 pin::Pin 以及 pin::Unpin](mem/pin.md)
     - [初始化内存 Initialize Memory](mem/init.md)
     - [std::mem 库](mem/mem/index.md)
         - [MaybeUninit 类](mem/mem/maybe-uninit.md)
