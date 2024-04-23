@@ -11,4 +11,4 @@
 )]
 #![allow(dead_code)]
 
-mod option2;
+pub mod option2;

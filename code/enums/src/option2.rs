@@ -2,27 +2,27 @@
 // Use of this source is governed by General Public License that can be found
 // in the LICENSE file.
 
+#![allow(clippy::missing_errors_doc, clippy::missing_panics_doc)]
+
 extern crate core;
 
 use core::pin::Pin;
 
-pub enum Option2<T> {
-    None2,
-    Some2(T),
-}
-
 pub use Option2::{None2, Some2};
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
+pub enum Option2<T> {
+    Some2(T),
+    None2,
+}
 
 impl<T> Option2<T> {
     pub const fn is_some(&self) -> bool {
-        match *self {
-            Some2(_) => true,
-            None2 => false,
-        }
+        matches!(self, Some2(_))
     }
 
     pub const fn is_none(&self) -> bool {
-        !self.is_some()
+        matches!(self, Self::None2)
     }
 
     pub fn contains<U>(&self, x: &U) -> bool
@@ -49,7 +49,8 @@ impl<T> Option2<T> {
         }
     }
 
-    pub fn as_pin_ref<'a>(self: Pin<&'a Self>) -> Option2<Pin<&'a T>> {
+    #[must_use]
+    pub fn as_pin_ref(self: Pin<&Self>) -> Option2<Pin<&T>> {
         unsafe { Pin::get_ref(self).as_ref().map(|x| Pin::new_unchecked(x)) }
     }
 
@@ -130,6 +131,7 @@ impl<T> Option2<T> {
         }
     }
 
+    #[must_use]
     pub fn filter<P: FnOnce(&T) -> bool>(self, predicate: P) -> Self {
         if let Some2(x) = self {
             if predicate(&x) {
