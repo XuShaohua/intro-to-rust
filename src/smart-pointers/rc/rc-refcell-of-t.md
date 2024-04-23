@@ -2,4 +2,4 @@
 
 ## 参考
 
-- [内部可变性](../../struct/interior-mutability.md)
+- [内部可变性](../../structs/interior-mutability.md)
