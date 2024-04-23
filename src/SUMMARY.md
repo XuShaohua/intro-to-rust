@@ -373,7 +373,6 @@
         - [策略模式 Strategy](design-patterns/behavioral/strategy.md)
         - [装态模式 State](design-patterns/behavioral/state.md)
         - [模板方法模式 Template Method](design-patterns/behavioral/template-method.md)
-- [数据结构与算法](algs.md)
 - [新特性 unstable features](unstable/index.md)
     - [portable simd](unstable/portable-simd.md)
 - [第三方库 crates.io](crate.io/index.md)
