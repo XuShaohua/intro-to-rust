@@ -32,7 +32,10 @@ fn main() {
     assert_eq!(size_of::<WebEventWithMoreStrings>(), 32);
     let paste = WebEventWithMoreStrings::Paste(s.clone());
     let copy = WebEventWithMoreStrings::Copy(s);
-    let click = WebEventWithMoreStrings::Click { x: 42, y: 43 };
     let keypress = WebEventWithMoreStrings::KeyPress('a');
+    let click = WebEventWithMoreStrings::Click { x: 42, y: 43 };
+    assert_eq!(keypress.tag(), 2);
+    assert_eq!(paste.tag(), 3);
+    assert_eq!(copy.tag(), 4);
     assert_eq!(click.tag(), 5);
 }
