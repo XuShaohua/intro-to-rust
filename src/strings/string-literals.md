@@ -4,14 +4,14 @@ Unicode 字符串, 存在可执行文件的 text segment中.
 
 多行字符串:
 
-```rust
+```rust, not_run
 let speech = "Hello
 world";
 ```
 
 多行拼接:
 
-```rust
+```rust, not_run
 let speech = "Hello \
 world";
 ```
@@ -20,13 +20,13 @@ world";
 
 Raw strings, 不需要使用转义字符:
 
-```rust
+```rust, not_run
 let path = r"C:\Users\root\Documents\config.json";
 ```
 
 如果里面有双引号, 可以使用以下写法:
 
-```rust
+```rust, not_run
 let path = r###"C:\Program Files\foo\bar.json"###;
 ```
 
@@ -43,7 +43,7 @@ hello, world.
 
 Byte strings 只能包含 ASCII 码以及 `\xHH` 这些字符，由一些 `u8` 值组成。
 
-```rust
+```rust, not_run
 let method = b"GET";
 assert_eq!(method, &[b'G', b'E', b'T']);
 ```
