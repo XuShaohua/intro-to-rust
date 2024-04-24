@@ -1,4 +1,3 @@
-
 # 声明外部函数以及变量
 
 使用 `extern` 可以声明函数及变量, 它们定义在其它库中. 在编译期间由链接器(linker) 将 rust 代码
@@ -6,6 +5,7 @@
 这些库可以是静态库, 或者动态库.
 
 举个例子, 声明C库中的 `strlen`, 最终会与 `libc.so` 或者 `libc.a` 链接:
+
 ```rust
 use std::os::raw::c_char;
 
@@ -23,26 +23,5 @@ extern "C" {
 如果是外部变量的话, 也是类似做法, 比如 `environ` 保存着进程当前的环境变量列表:
 
 ```rust
-use std::ffi::{c_char, CStr};
-
-extern "C" {
-    static mut environ: *const *const c_char;
-}
-
-pub fn print_env() {
-    unsafe {
-        let mut env = environ;
-        if !env.is_null(){
-            while !(*env).is_null(){
-                let entry = CStr::from_ptr(*env);
-                println!("env: {}", entry.to_string_lossy());
-                env = env.add(1);
-            }
-        }
-    }
-}
-
-fn main() {
-    print_env();
-}
+{{#include assets/print-env.rs:5: }}
 ```

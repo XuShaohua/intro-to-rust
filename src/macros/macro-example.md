@@ -21,11 +21,8 @@ macro_rules! x11_link {
     }
   }
 }
-```
 
-然后手动声明各个函数接口:
-
-```rust
+// 然后手动声明各个函数接口
 x11_link! { Xlib, x11, ["libX11.so.6", "libX11.so"], 767,
   pub fn XActivateScreenSaver (_1: *mut Display) -> c_int,
   pub fn XAddConnectionWatch (_3: *mut Display, _2: Option<unsafe extern "C" fn (*mut Display, *mut c_char, c_int, c_int, *mut *mut c_char)>, _1: *mut c_char) -> c_int,

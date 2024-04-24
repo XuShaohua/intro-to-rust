@@ -9,7 +9,7 @@
 
 ## 第三方库
 
-- sync, 解析 AST 里的 token
+- syn, 解析 AST 里的 token
 - quote, 重构 AST
 - proc-macro/2, 支持过程宏的编写
 - darling, 帮助解析属性

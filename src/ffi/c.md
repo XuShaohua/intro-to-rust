@@ -1,11 +1,11 @@
-# C
+# C ffi
 
 ## Box 指针
 
 在生成 C/C++ 库时, 会经常使用 Box 来包装内部的类, 将其导出为C语言可访问的指针.
 比如 `sysinfo` 库, 它大量地运用了这种写法:
 
-```rust
+```rust, ignore
 use std::ffi::{c_char, c_void};
 use libc::pid_t;
 
