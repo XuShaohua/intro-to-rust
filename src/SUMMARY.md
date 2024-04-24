@@ -387,7 +387,7 @@
         - [享元模式 Flyweight](design-patterns/structural/flyweight.md)
         - [代理模式 Proxy](design-patterns/structural/proxy.md)
     - [行为型 Behavioral](design-patterns/behavioral/index.md)
-        - [责任链模式 Chain of Responsibilities](design-patterns/behavioral/chain-of-responsibilities.md)
+        - [责任链模式 Chain of Responsibility](design-patterns/behavioral/chain-of-responsibility.md)
         - [命令行模式 Command](design-patterns/behavioral/command.md)
         - [迭代器模式 Iterator](design-patterns/behavioral/iterator.md)
         - [中介者模式 Mediator](design-patterns/behavioral/mediator.md)
@@ -400,8 +400,8 @@
 - [新特性 unstable features](unstable/index.md)
     - [portable simd](unstable/portable-simd.md)
 - [第三方库 crates.io](crate.io/index.md)
-    - [时间 Time](crate.io/time.md)
     - [数据序列化 serde](crate.io/serde.md)
     - [smallvec](crate.io/smallvec.md)
+    - [时间 Time](crate.io/time.md)
 
 [参考资料](ref.md)

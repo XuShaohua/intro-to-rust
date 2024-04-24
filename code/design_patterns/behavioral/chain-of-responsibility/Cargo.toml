@@ -1,5 +1,5 @@
 [package]
-name = "chain-of-resposibility"
+name = "chain-of-responsibility"
 version = "0.1.0"
 edition = "2021"
 publish = false

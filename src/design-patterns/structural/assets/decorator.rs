@@ -1,0 +1,1 @@
+../../../../code/design_patterns/structural/decorator/src/main.rs

@@ -2,7 +2,7 @@
 
 ## Fragment Types
 
-| fragement type | matches                                              | can be followed by                   |
+| fragment type | matches                                              | can be followed by                   |
 |----------------|------------------------------------------------------|--------------------------------------|
 | expr           | an expression: 2 + 2, "udo", x.len()                 | => , ;                               |
 | stmt           | An expression or declaration, no trailing semicolon: | => , ;                               |

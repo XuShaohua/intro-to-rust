@@ -1,0 +1,1 @@
+../../../../code/design_patterns/creational/simple-factory/src/main.rs

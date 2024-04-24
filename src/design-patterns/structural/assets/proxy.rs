@@ -1,0 +1,1 @@
+../../../../code/design_patterns/structural/proxy/src/main.rs

@@ -1,12 +1,11 @@
 # Portable simd
 
-```rust, ignore
-#![feature(portable_simd)]
-use std::simd::f32x4;
+这个特性用于编写跨平台的 SIMD (Single Instruction Multiple Data) 代码.
 
-fn main() {
-    let a = f32x4::splat(10.0);
-    let b = f32x4::from_array([1.0, 2.0, 3.0, 4.0]);
-    println!("{:?}", a + b);
-}
+```rust, ignore
+{{#include assets/portable-simd.rs:5: }}
 ```
+
+## 参考
+
+- [The Rust standard library's portable SIMD API](https://github.com/rust-lang/portable-simd)

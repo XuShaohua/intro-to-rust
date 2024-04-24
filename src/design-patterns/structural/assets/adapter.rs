@@ -1,0 +1,1 @@
+../../../../code/design_patterns/structural/adapter/src/main.rs

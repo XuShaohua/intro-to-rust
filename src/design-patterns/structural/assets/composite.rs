@@ -1,0 +1,1 @@
+../../../../code/design_patterns/structural/composite/src/main.rs

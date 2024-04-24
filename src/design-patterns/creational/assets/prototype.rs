@@ -1,0 +1,1 @@
+../../../../code/design_patterns/creational/prototype/src/main.rs
