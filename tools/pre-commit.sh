@@ -7,5 +7,5 @@ set -xe
 
 cargo clippy --all-targets
 
-mdbook build
 #mdbook test
+mdbook build

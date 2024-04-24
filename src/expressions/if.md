@@ -30,7 +30,7 @@ enum Foo {
 }
 
 fn main() {
-    let a = Foo: Bar;
+    let a = Foo::Bar;
     if a == Foo::Bar {
         println!("a is bar!");
     }

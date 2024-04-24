@@ -17,7 +17,7 @@ futures = "0.3.30"
 
 之后是 `main.rs` 里的代码:
 
-```rust
+```rust, no_run
 use futures::executor::block_on;
 
 async fn say_hello() {
@@ -39,7 +39,7 @@ fn main() {
 
 下面的例子更为复杂:
 
-```rust
+```rust, no_run
 use futures::executor::block_on;
 
 #[derive(Debug)]

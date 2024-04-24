@@ -1,4 +1,3 @@
-
 # 使用外部库中的函数
 
 如果要使用特定库里的函数, 可以给 `extern` 代码块添加 `#[link]` 属性, 来声明对方库的名称, 路径及库的类别等.
@@ -11,11 +10,14 @@ extern "C" {
     pub fn git_libgit2_init() -> c_int;
 }
 ```
+
 这里, 链接器会在默认的查找路径 (LD_LIBRARY_PATH) 里面尝试寻找 `libgit2.a` 并与它链接一起;
 
 如果这个库不在默认路径里, 可以这样做:
+
 1. 设置环境变量, `export LD_LIBRARY_PATH=/path/to/libgit2.a:$LD_LIBRARY_PATH`, 再编译
 2. 或者添加 `build.rs` 文件, 在里面声明库的路径:
+
 ```rust, no_run
 fn main() {
     println!(r"cargo:rustc-link-search=native=/path/to//libgit2.a");
@@ -24,7 +26,7 @@ fn main() {
 
 以 [nc](https://crates.io/crates/nc) 绑定 `libsyscall.a` 为例:
 
-```rust, no_run
+```rust, ignore
 use super::types::{check_errno, Errno, Sysno};
 
 // 链接到 libsyscall.a, 是静态库

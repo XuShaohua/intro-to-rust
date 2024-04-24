@@ -2,17 +2,21 @@
 
 `for .. in` 表达式用于遍历一个循环体.
 
-```rust, no_run
-for i in 1..101 {
-...
+```rust
+fn main() {
+    for i in 1..101 {
+        println!("i * i = {}", i * i);
+    }
 }
 ```
 
 它还有一个变体, 用于包含超始值及终止值:
 
-```rust, no_run
-for i in 1..=100 {
-...
+```rust
+fn main() {
+    for i in 1..=100 {
+        println!("i * i = {}", i * i);
+    }
 }
 ```
 

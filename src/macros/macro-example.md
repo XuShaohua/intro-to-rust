@@ -1,4 +1,3 @@
-
 # 宏的高级用法
 
 以下示例代码来自 `x11-rs` 项目, 它实现了 `xlib` 的 rust 绑定, 核心代码是一个宏:
@@ -25,6 +24,7 @@ macro_rules! x11_link {
 ```
 
 然后手动声明各个函数接口:
+
 ```rust
 x11_link! { Xlib, x11, ["libX11.so.6", "libX11.so"], 767,
   pub fn XActivateScreenSaver (_1: *mut Display) -> c_int,
@@ -36,6 +36,7 @@ x11_link! { Xlib, x11, ["libX11.so.6", "libX11.so"], 767,
 ```
 
 ## libgit2-sys
+
 看第一个例子, 这个是 `libgit2-sys` 项目中使用的, 它用于批量定义枚举类:
 
 ```rust
@@ -61,10 +62,7 @@ macro_rules! git_enum {
     };
     (gen, $name:ident, $val:expr, ) => {}
 }
-```
 
-使用方法如下:
-```rust
 git_enum! {
     pub enum git_revparse_mode_t {
         GIT_REVPARSE_SINGLE = 1 << 0,
@@ -76,9 +74,10 @@ git_enum! {
 
 这个宏的特殊之处在于它内部使用了递归调用.
 
-
 ## dbg!()
+
 `std::dbg!()` 宏用于调试代码, 尤其是使用递归调用时:
+
 ```rust
 fn factorial(n: u32) -> u32 {
     if dbg!(n <= 1) {

@@ -6,6 +6,9 @@
 比如 `sysinfo` 库, 它大量地运用了这种写法:
 
 ```rust
+use std::ffi::{c_char, c_void};
+use libc::pid_t;
+
 /// Equivalent of [`System`][crate::System] struct.
 pub type CSystem = *mut c_void;
 /// Equivalent of [`Process`][crate::Process] struct.
@@ -35,14 +38,13 @@ pub extern "C" fn sysinfo_destroy(system: CSystem) {
 #[no_mangle]
 pub extern "C" fn sysinfo_refresh_system(system: CSystem) {
     assert!(!system.is_null());
-    let mut system: Box<System> = unsafe { Box::from_raw(system as *mut System) };
+    let mut system: Box<CSystem> = unsafe { Box::from_raw(system as *mut CSystem) };
     {
         let system: &mut System = system.borrow_mut();
         system.refresh_system();
     }
     Box::into_raw(system);
 }
-
 ```
 
 这里要注意的是, 当从C语言中传入的指针被强制转为 Box 指针类型后, 可以安全地进行操作;

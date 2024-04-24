@@ -1,10 +1,10 @@
-
 # 中介者模式 Mediator
 
 ## 问题描述
 
 ## 代码示例
-```rust
+
+```rust, ignore
 use chrono::Local;
 use std::cell::RefCell;
 use std::rc::Rc;
