@@ -5,6 +5,14 @@
 # 第一部分: 语言基础
 
 - [配置开发环境](dev-env/index.md)
+    - [使用 rustup 配置 Rust 环境](dev-env/rustup.md)
+    - [sccache](dev-env/sccache.md)
+    - [clippy](dev-env/clippy.md)
+    - [rust analyzer](dev-env/rust-analyzer.md)
+    - [Rust Rover](dev-env/rustrover.md)
+    - [CLion + rust 插件](dev-env/clion.md)
+    - [VS Code](dev-env/vscode.md)
+    - [vim](dev-env/vim.md)
 - [基础数据类型](primitives/index.md)
     - [整数类型](primitives/integer.md)
     - [浮点类型](primitives/floating-point.md)
@@ -326,10 +334,6 @@
     - [Profile-guided Optimization: pgo](perf/pgo.md)
     - [加快编译速度](perf/opt-compile-time.md)
     - [MIR](perf/mir.md)
-- [常用工具](tools/index.md)
-    - [sccache](tools/sccache.md)
-    - [clippy](tools/clippy.md)
-    - [rust analyzer](tools/rust-analyzer.md)
 
 # 第四部分: Rust语言的生态
 
