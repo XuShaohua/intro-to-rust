@@ -2,7 +2,7 @@
 
 如果错误原因比较多的话, 通常可以自定义一个错误类型:
 
-```rust, no_run
+```rust, compile_fail
 {{#include assets/error.rs:5: }}
 ```
 

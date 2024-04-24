@@ -13,10 +13,10 @@ fn main() {
     let point = Point::default();
 
     match point {
-        Point { x, y: 0 } => println!("on x axes: {}", x),
-        Point { x: 0, y } => println!("on y axes: {}", y),
+        Point { x, y: 0 } => println!("on x axes: {x}"),
+        Point { x: 0, y } => println!("on y axes: {y}"),
         Point { x: 0, y: 0 } => println!("original pos: (0, 0)"),
-        Point { x, .. } => println!("Other position: {}, ignoring y value!", x),
+        Point { x, .. } => println!("Other position: {x}, ignoring y value!"),
     }
 }
 ```
@@ -56,7 +56,7 @@ enum Weekday {
 }
 
 fn main() {
-    let weekday = Friday;
+    let weekday = Weekday::Friday;
 
     match weekday {
         Weekday::Monday => println!("On Monday!"),

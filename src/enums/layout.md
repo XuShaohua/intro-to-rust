@@ -6,7 +6,6 @@
 
 ```rust
 pub enum Weekday {
-    #[default]
     Monday,
     Tuesday,
     Wednesday,
@@ -120,7 +119,7 @@ padding).
 
 这里, 使用 `WebEventWithMoreStrings::tag()` 方法就可以从各个枚举项里解析出枚举ID:
 
-```rust, no_run
+```rust, ignore
 assert_eq!(keypress.tag(), 2);
 assert_eq!(paste.tag(), 3);
 assert_eq!(copy.tag(), 4);

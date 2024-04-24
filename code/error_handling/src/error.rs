@@ -6,9 +6,7 @@
 
 use std::io;
 
-use serde::Serialize;
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum ErrorKind {
     ConfigError,
     JwtError,
@@ -35,7 +33,7 @@ pub enum ErrorKind {
     RequestFormError,
 }
 
-#[derive(Debug, Clone, Serialize)]
+#[derive(Debug, Clone)]
 pub struct Error {
     kind: ErrorKind,
     message: String,

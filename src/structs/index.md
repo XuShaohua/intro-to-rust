@@ -1,12 +1,5 @@
 # 结构体 Structures
 
-自定义类型主要通过两种方式:
-
-- struct, 自定义结构体
-- enum, 枚举
-
-接下来的两个章节就介绍它们.
-
 结构体有三种写法:
 
 ## Named-Field Structs
@@ -58,6 +51,8 @@ Unit struct, 即定义一个空白的不包含任何具体元素的, 比如 `str
 内存大小为0.
 
 ```rust
+struct Nil ();
+
 fn main() {
     let nil = Nil;
     assert_eq!(std::mem::size_of_val(&nil), 0);

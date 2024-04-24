@@ -30,7 +30,7 @@ fn main() {
     }
 
     match val {
-        ref v => assert_eq(v, ref_value),
+        ref v => assert_eq!(v, ref_value),
     }
 }
 ```

@@ -7,5 +7,4 @@ publish = false
 [dependencies]
 image = "0.25.1"
 r2d2 = "0.8.10"
-serde = { version = "1.0.198", features = ["serde_derive"] }
 thiserror = "1.0.59"
