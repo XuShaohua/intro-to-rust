@@ -15,7 +15,7 @@
 
 传递所有权时, 可以更改值的可变性:
 
-```rust, not_run
+```rust, no_run
 let x = Box::new(42i32);
 let mut x2 = x;
 ```

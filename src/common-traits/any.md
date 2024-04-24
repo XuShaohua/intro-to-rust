@@ -32,7 +32,7 @@ assert_eq!(actual_id, TypeId::of::<i32>());
 
 接口部分的代码 (platform.rs):
 
-```rust, not_run
+```rust, no_run
 pub trait Platform {
     fn rect(&self, element: dyn Element) -> Rect;
     fn scale(&self) -> Option<Scale>;
@@ -45,7 +45,7 @@ pub struct State {
 
 特定平台实现的代码 (canvas_platform.rs):
 
-```rust, not_run
+```rust, no_run
 pub struct CanvasPlatform {
   ...
 }
@@ -58,7 +58,7 @@ impl Platform for CanvasPlatform {
 这里, `State` 结构体里面只存放了一个 Platform trait object, 我们并不能直接调用 `CanvasPlatform`
 对象特有的方法. 为此, 可以给 `Platform` trait 添加一个特别的方法, 让它能转换成 `Any` trait:
 
-```rust, not_run
+```rust, no_run
 pub trait Platform {
     fn as_any(&self) -> &dyn Any;
 
@@ -68,7 +68,7 @@ pub trait Platform {
 
 然后为 `CanvasPlatform` 实现这个方法:
 
-```rust, not_run
+```rust, no_run
 impl Platform for CanvasPlatform {
   #[inline]
   #[must_use]

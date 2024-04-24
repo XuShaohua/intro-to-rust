@@ -13,7 +13,7 @@
 
 使用`Box::new()` 在堆上创建值.
 
-```rust, not_run
+```rust, no_run
 let b = Box::new(42);
 ```
 

@@ -10,6 +10,6 @@ using GlyphId = int32_t;
 
 同样的类型, 在Rust中可以这样写:
 
-```rust, not_run
+```rust, no_run
 pub type GlyphId = i32;
 ```

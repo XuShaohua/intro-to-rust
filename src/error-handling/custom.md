@@ -2,7 +2,7 @@
 
 如果错误原因比较多的话, 通常可以自定义一个错误类型:
 
-```rust, not_run
+```rust, no_run
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize)]
 pub enum ErrorKind {
     ConfigError,

@@ -33,7 +33,7 @@ char buf[kBufLen];
 
 Rust 几乎不会进行隐式类型转换, 比如, i32 转为 i64, 都需要显式地写明:
 
-```rust, not_run
+```rust, no_run
 let x = 42i32;
 assert_eq!(x as i64, 42i64);
 ```
@@ -59,7 +59,7 @@ uint8_t y = x * x;
 
 但是针对这个问题, Rust语言提供了更加安全的处理方法. 使用同样的代码片段:
 
-```rust, not_run
+```rust, no_run
 let x: u8 = 20;
 #[allow(arithmetic_overflow)]
 let y: u8 = x * x;

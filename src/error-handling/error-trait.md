@@ -4,7 +4,7 @@
 
 它的接口如下:
 
-```rust, not_run
+```rust, no_run
 pub trait Error: Debug + Display {
     fn source(&self) -> Option<&(dyn Error + 'static)> { ... }
     fn description(&self) -> &str { ... }

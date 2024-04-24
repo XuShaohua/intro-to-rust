@@ -3,7 +3,7 @@
 这两个函数用于从原始指针读取当前值以及向其写入新的值.
 要注意的是, 不管 `T` 有没有实现 `Copy trait`, `read()` 这个操作都可以完成, 因为它是字节级别的拷贝.
 
-```rust, not_run
+```rust, no_run
 pub const unsafe fn read<T>(src: *const T) -> T;
 pub unsafe fn write<T>(dst: *mut T, src: T);
 ```

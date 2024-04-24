@@ -2,7 +2,7 @@
 
 `for .. in` 表达式用于遍历一个循环体.
 
-```rust, not_run
+```rust, no_run
 for i in 1..101 {
 ...
 }
@@ -10,7 +10,7 @@ for i in 1..101 {
 
 它还有一个变体, 用于包含超始值及终止值:
 
-```rust, not_run
+```rust, no_run
 for i in 1..=100 {
 ...
 }

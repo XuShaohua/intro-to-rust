@@ -54,7 +54,7 @@ fn main() {
 
 比如, 标准库里的 `Box<T>` 就有这样的代码:
 
-```rust, not_run
+```rust, no_run
 impl<T: Default> Default for Box<T> {
     /// Creates a `Box<T>`, with the `Default` value for T.
     #[inline]

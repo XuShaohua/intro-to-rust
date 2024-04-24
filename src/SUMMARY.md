@@ -2,7 +2,8 @@
 
 [关于](README.md)
 
-- [第一部分: 语言基础](part1-lang.md)
+# 第一部分: 语言基础
+
 - [配置开发环境](dev-env/index.md)
 - [基础数据类型](primitives/index.md)
     - [整数类型](primitives/integer.md)
@@ -53,7 +54,9 @@
     - [单元测试 Unit Test](test/unit-test.md)
     - [集成测试 Integrated Test](test/integerated-test.md)
     - [代码覆盖率 Code Coverage](test/code-coverage.md)
-- [第二部分: 自定义类型](part2-custom-types.md)
+
+# 第二部分: 自定义类型
+
 - [结构体 Struct](structs/index.md)
     - [定义方法 impl](structs/impl.md)
     - [常量 const](structs/const.md)
@@ -174,7 +177,9 @@
 - [标准库](std/index.md)
     - [num](std/num.md)
     - [Hint](std/hint.md)
-- [第三部分: 并发与异步编程](part3-mem-concurrency-and-async.md)
+
+# 第三部分: 并发与异步编程
+
 - [内存管理基础](mem-basic/index.md)
     - [进程内存结构 Segments](mem-basic/segments.md)
     - [RAII](mem-basic/raii.md)
@@ -325,7 +330,9 @@
     - [sccache](tools/sccache.md)
     - [clippy](tools/clippy.md)
     - [rust analyzer](tools/rust-analyzer.md)
-- [第四部分: Rust语言的生态](part4-rust-language-eco-env.md)
+
+# 第四部分: Rust语言的生态
+
 - [网络编程 network programming](network/index.md)
     - [HTTP 请求: reqwest 库](network/reqwest.md)
     - [Web 服务: hyper 库](network/hyper.md)
@@ -392,4 +399,5 @@
     - [时间 Time](crate.io/time.md)
     - [数据序列化 serde](crate.io/serde.md)
     - [smallvec](crate.io/smallvec.md)
-- [参考资料](ref.md)
+
+[参考资料](ref.md)

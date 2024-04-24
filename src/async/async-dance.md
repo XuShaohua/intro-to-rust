@@ -2,7 +2,7 @@
 
 要创建一个 async 函数时, 只需要在 `fn` 关键字之前加上 `async` 即可:
 
-```rust, not_run
+```rust, no_run
 async fn hello() {
     ...
 }
