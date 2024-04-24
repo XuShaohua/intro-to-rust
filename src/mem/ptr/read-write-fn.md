@@ -15,38 +15,11 @@ pub unsafe fn write<T>(dst: *mut T, src: T);
 - 对于 `read(src)`, 原始指针必须指向一个被初始化了的地址
 
 ```rust
-use std::ptr;
-
-fn main() {
-    let mut s = 42;
-
-    unsafe {
-        let s2 = &mut s as *mut i32;
-        let num = ptr::read(s2);
-        assert_eq!(num, 42);
-        ptr::write(s2, num + 1);
-    }
-
-    assert_eq!(s, 43);
-}
+{{#include assets/ptr-read-write.rs:5: }}
 ```
 
 它类似于下面的C代码:
 
 ```C
-#include <assert.h>
-
-int main() {
-  int s = 42;
-
-  {
-    int* s2 = &s;
-    int num = *s2;
-    assert(num == 42);
-    *s2 = num + 1;
-  }
-
-  assert(s == 43);
-  return 0;
-}
+{{#include assets/ptr-read-write.c:5: }}
 ```

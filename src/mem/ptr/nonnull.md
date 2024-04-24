@@ -59,21 +59,7 @@ assert_eq!(align_of::<NonNull<str>>(), align_of::<Option<NonNull<str>>>());
 - `as_mut()` 得到可变更引用
 
 ```rust
-use std::ptr::NonNull;
-
-fn main() {
-    let mut x = 1_u32;
-    let mut ptr = NonNull::new(&mut x as *mut u32).expect("Invalid pointer");
-
-    unsafe { *ptr.as_ptr() += 1; }
-    let x_value = unsafe { *ptr.as_ptr() };
-    assert_eq!(x_value, 2);
-    assert_eq!(x, 2);
-
-    let x_ref = unsafe { ptr.as_mut() };
-    *x_ref += 1;
-    assert_eq!(x, 3);
-}
+{{#include assets/ptr-nonnull.rs:5: }}
 ```
 
 上面的代码片段, 其栈上的内存布局如下图所示:

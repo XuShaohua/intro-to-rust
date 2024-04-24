@@ -20,44 +20,11 @@ pub const unsafe fn copy_nonoverlapping<T>(
 看一个例子:
 
 ```rust
-use std::ptr;
-
-fn main() {
-    let src = b"hello";
-    let mut dst = b"world".to_vec();
-
-    unsafe {
-        ptr::copy(
-            ptr::from_ref(&src[0]),
-            ptr::from_mut(&mut dst[0]),
-            src.len(),
-        );
-    }
-    assert_eq!(dst, src);
-
-    unsafe {
-        ptr::copy_nonoverlapping(ptr::from_ref(&src[0]), ptr::from_mut(&mut dst[4]), 1);
-    }
-    assert_eq!(dst[4], b'h');
-}
+{{#include assets/ptr-copy.rs:5: }}
 ```
 
 对应的 C 语言的实现:
 
 ```C
-#include <assert.h>
-#include <string.h>
-#include <stdlib.h>
-
-int main() {
-  const char src[] = "hello";
-  char dst[] = "world";
-  memmove(dst, src, strlen(src));
-  assert(strcmp(dst, "hello") == 0);
-
-  memcpy(&dst[4], src, 1);
-  assert(dst[4] == 'h');
-
-  return 0;
-}
+{{#include assets/ptr-copy.c:5: }}
 ```

@@ -19,20 +19,5 @@ pub unsafe fn replace<T>(dst: *mut T, src: T) -> T;
 看一下示例代码:
 
 ```rust
-use std::ptr;
-
-fn main() {
-    let mut msg = ['b', 'u', 's', 't'];
-    let c = unsafe { ptr::replace(&mut msg[0], 'r') };
-    assert_eq!(msg[0], 'r');
-    assert_eq!(c, 'b');
-
-    let mut msg2 = ['b', 'u', 's', 't'];
-    let mut c2 = 'r';
-    unsafe {
-        ptr::swap(&mut msg2[0], &mut c2);
-    }
-    assert_eq!(msg2[0], 'r');
-    assert_eq!(c2, 'b');
-}
+{{#include assets/ptr-swap-replace.rs:5: }}
 ```
