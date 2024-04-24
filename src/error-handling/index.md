@@ -5,7 +5,7 @@
 
 ## abort
 
-```rust
+```bash
 rustc -C panic=abort
 ```
 
@@ -14,7 +14,7 @@ rustc -C panic=abort
 这里, 如果返回的是 `Ok(t)` 就直接得到它的值, 如果返回的是 `Err(e)`, 就将错误
 返回给上层调用处.
 
-```rust
+```rust, ignore
 let weather = get_weather(hometown) ?;
 ```
 

@@ -11,5 +11,6 @@
 )]
 #![allow(dead_code)]
 
+mod data_store_error;
 mod error;
 mod parse_int_error;

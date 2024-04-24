@@ -57,7 +57,7 @@ mod platform;
 
 条件编译, 比如 `notify` 库提供的 `AccessKind` 枚举:
 
-```rust
+```rust, ignore
 /// An event describing non-mutating access operations on files.
 #[derive(Clone, Debug, Eq, Hash, PartialEq)]
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]

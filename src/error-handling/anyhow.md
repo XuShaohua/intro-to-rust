@@ -22,7 +22,7 @@
 `anyhow::Result::context()` 方法, 可以给错误对象添加上下文描述信息.
 比如文件无法访问时, 可以打印出文件路径:
 
-```rust, no_run
+```rust, ignore
 let content = fs::read(path)
   .with_context(|| format!("Failed to read instrs from {}", path.display()))?;
 ```

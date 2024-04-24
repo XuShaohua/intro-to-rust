@@ -1,13 +1,12 @@
-
 # 构建脚本 Build Script
 
 通过编写 `build.rs` 来自定义 `cargo` 的编译过程, 可以生成环境变量, cfg 属性, 以及文件.
 
-可以读取环境变量, 标准输出会写入到 `target/debug/build/<pkg>/output`. 
+可以读取环境变量, 标准输出会写入到 `target/debug/build/<pkg>/output`.
 
 以 `cargo:` 开头的行也会被 cargo 直接解析并使用, 可以用这种方式来定义一些参数:
 
-```rust
+```rust, ignore
 let out_dir = format!(...);
 println!("cargo:rustc-link-search=native={}", out_dir);
 println!("cargo:rustc-link-lib=static=syscall");

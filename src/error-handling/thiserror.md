@@ -4,23 +4,8 @@
 
 使用方法极为简单:
 
-```rust
-use thiserror::Error;
-
-#[derive(Error, Debug)]
-pub enum DataStoreError {
-    #[error("data store disconnected")]
-    Disconnect(#[from] io::Error),
-    #[error("the data for key `{0}` is not available")]
-    Redaction(String),
-    #[error("invalid header (expected {expected:?}, found {found:?})")]
-    InvalidHeader {
-        expected: String,
-        found: String,
-    },
-    #[error("unknown data store error")]
-    Unknown,
-}
+```rust, ignore
+{{#include assets/data_store_error.rs }}
 ```
 
 它会根据宏定义, 自动为结构体实现 `Display` trait, 它们跟让文介绍的手写的错误类型是兼容的, 可以

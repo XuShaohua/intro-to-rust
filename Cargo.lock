@@ -311,6 +311,7 @@ dependencies = [
  "image",
  "r2d2",
  "serde",
+ "thiserror",
 ]
 
 [[package]]

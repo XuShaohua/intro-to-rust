@@ -4,7 +4,7 @@
 
 它的接口如下:
 
-```rust, no_run
+```rust, ignore
 pub trait Error: Debug + Display {
     fn source(&self) -> Option<&(dyn Error + 'static)> { ... }
     fn description(&self) -> &str { ... }
@@ -22,38 +22,6 @@ pub trait Error: Debug + Display {
 
 当尝试把字符串转换成整数时, 标准库使用 `ParseIntError`来记录错误原因.
 
-```rust
-use std::fmt;
-
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct ParseIntError {
-    pub(super) kind: IntErrorKind,
-}
-
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub enum IntErrorKind {
-    Empty,
-    InvalidDigit,
-    PosOverflow,
-    NegOverflow,
-    Zero,
-}
-
-impl Error for ParseIntError {
-    fn description(&self) -> &str {
-        match self.kind {
-            IntErrorKind::Empty => "cannot parse integer from empty string",
-            IntErrorKind::InvalidDigit => "invalid digit found in string",
-            IntErrorKind::PosOverflow => "number too large to fit in target type",
-            IntErrorKind::NegOverflow => "number too small to fit in target type",
-            IntErrorKind::Zero => "number would be zero for non-zero type",
-        }
-    }
-}
-
-impl fmt::Display for ParseIntError {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        self.description().fmt(f)
-    }
-}
+```rust, no_run
+{{#include assets/parse_int_error.rs }}
 ```
