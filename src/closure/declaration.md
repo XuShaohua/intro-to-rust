@@ -1,4 +1,3 @@
-
 # Function Declaration
 
 ## Hook
@@ -7,7 +6,7 @@
 
 标准库里的 panic hook 有这样的定义:
 
-```rust
+```rust, ignore
 enum Hook {
     Default,
     Custom(Box<dyn Fn(&PanicInfo<'_>) + 'static + Sync + Send>),

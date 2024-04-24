@@ -7,7 +7,7 @@
 
 它在标准库里是这样定义的:
 
-```rust
+```rust, ignore
 #[repr(transparent)]
 pub struct NonNull<T: ?Sized> {
     pointer: *const T,
@@ -18,7 +18,7 @@ pub struct NonNull<T: ?Sized> {
 
 `NonNull<T>` 没有实现 `Send` 以及 `Sync` traits:
 
-```rust
+```rust, ignore
 /// `NonNull` pointers are not `Send` because the data they reference may be aliased.
 impl<T: ?Sized> ! Send for NonNull<T> {}
 
@@ -42,7 +42,7 @@ impl<T: ?Sized> ! Sync for NonNull<T> {}
 
 ```rust
 use std::ptr::NonNull;
-use std::mem::size_of;
+use std::mem::{align_of, size_of};
 
 assert_eq!(size_of::<NonNull<i16>>(), size_of::<Option<NonNull<i16>>>());
 assert_eq!(align_of::<NonNull<i16>>(), align_of::<Option<NonNull<i16>>>());

@@ -2,7 +2,7 @@
 
 这两个函数的定义如下:
 
-```rust, no_run
+```rust, ignore
 pub unsafe fn swap<T>(x: *mut T, y: *mut T);
 pub unsafe fn replace<T>(dst: *mut T, src: T) -> T;
 ```

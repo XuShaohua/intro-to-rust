@@ -4,7 +4,7 @@
 
 它在标准库里的定义比较简单:
 
-```rust
+```rust, ignore
 /// A pointer type that uniquely owns a heap allocation of type `T`.
 pub struct Box<T: ?Sized>(Unique<T>);
 ```
@@ -19,7 +19,7 @@ Deref
 
 也可以用 `Box<T>` 来包装函数指针:
 
-```rust
+```rust, ignore
 impl<Args: Tuple, F: FnOnce<Args> + ?Sized, A: Allocator> FnOnce<Args> for Box<F, A> {
     type Output = <F as FnOnce<Args>>::Output;
 

@@ -2,7 +2,7 @@
 
 要创建一个 async 函数时, 只需要在 `fn` 关键字之前加上 `async` 即可:
 
-```rust, no_run
+```rust, ignore
 async fn hello() {
     ...
 }
@@ -40,42 +40,7 @@ fn main() {
 下面的例子更为复杂:
 
 ```rust, ignore
-use futures::executor::block_on;
-
-#[derive(Debug)]
-struct Song {
-    name: String,
-}
-
-async fn learn_song() -> Song {
-    println!("learn song()");
-    Song {
-        name: "Endless life".to_owned(),
-    }
-}
-
-async fn sing_song(song: Song) {
-    println!("Sing a song: {}", song.name);
-}
-
-async fn learn_and_sing() {
-    let song = learn_song().await;
-    sing_song(song).await;
-}
-
-async fn dance() {
-    println!("dance()");
-}
-
-async fn async_main() {
-    let f1 = learn_and_sing();
-    let f2 = dance();
-    futures::join!(f1, f2);
-}
-
-fn main() {
-    block_on(async_main());
-}
+{{#include assets/async-dance.rs:5: }}
 ```
 
 其中 `futures::join!()` 宏, 类似于 `.await`, 但它等待多个 Future 对象并发运行, 大致如下图如示:

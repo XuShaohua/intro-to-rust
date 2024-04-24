@@ -2,7 +2,7 @@
 
 它们都用于比较原始指针 (*const T) 是否相等.
 
-```rust, no_run
+```rust, ignore
 pub fn eq<T>(a: *const T, b: *const T) -> bool
     where
         T: ?Sized;

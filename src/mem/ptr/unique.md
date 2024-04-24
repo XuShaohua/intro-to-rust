@@ -6,7 +6,7 @@
 
 `Unique` 结构体的定义是:
 
-```rust
+```rust, ignore
 #[repr(transparent)]
 pub struct Unique<T: ?Sized> {
     pointer: NonNull<T>,

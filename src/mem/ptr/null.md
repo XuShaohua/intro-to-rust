@@ -6,7 +6,7 @@
 use std::ptr;
 
 fn main() {
-    let ptr: *const T = ptr::null();
+    let ptr: *const i32 = ptr::null();
     assert!(ptr.is_null());
 }
 ```

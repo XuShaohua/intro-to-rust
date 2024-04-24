@@ -41,7 +41,7 @@ assert_eq!(slice[1..4], *slice.index(Range{start:1, end: 4}));
 
 以下代码就会报出 `index out of bounds` 的错误:
 
-```rust, compile_fail
+```rust, ignore
 let mut slice = vec![];
 slice[0] = 1;
 slice[1] = 4;
@@ -80,8 +80,8 @@ assert_eq!(persons.len(), 2);
 use std::collections::BTreeMap;
 
 let mut persons = BTreeMap::<String, f64>::new();
-persons.insert("Joe", 1.74);
-persons.insert("Allen", 1.71);
+persons.insert("Joe".to_owned(), 1.74);
+persons.insert("Allen".to_owned(), 1.71);
 assert_eq!(persons.len(), 2);
 ```
 

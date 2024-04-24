@@ -8,7 +8,7 @@ glibc 里面的 [allocator][glibc-allocator].
 这里的 `Jemalloc` 是实现了 `alloca::GlobalAlloc` trait 接口的. 该接口只是简单定义了
 两个方法:
 
-```rust
+```rust, ignore
 pub trait GlobalAlloc {
   unsafe fn alloc(&self, layout: Layout) -> *mut u8;
   unsafe fn dealloc(&self, ptr: *mut u8, layout: Layout);

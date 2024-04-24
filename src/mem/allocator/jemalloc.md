@@ -11,7 +11,7 @@ jemallocator = "0.3"
 
 之后自己代的根文件中定义一个全局内存分配器变量:
 
-```rust
+```rust, ignore
 #[global_allocator]
 static ALLOC: jemallocator::Jemalloc = jemallocator::Jemalloc;
 ```

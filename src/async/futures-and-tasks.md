@@ -10,7 +10,7 @@
 
 它位于 `std::future`, `async fn` 会返回一个`Future` 对象, 它的接口定义如下:
 
-```rust
+```rust, ignore
 pub trait Future {
     type Output;
     fn poll(self: Pin<&mut Self>, cx: &mut Context<'_>) -> Poll<Self::Output>;
@@ -37,7 +37,7 @@ pub trait Future {
 
 它位于 `std::task`, 定义如下:
 
-```rust
+```rust, ignore
 pub enum Poll<T> {
     Ready(T),
     Pending,

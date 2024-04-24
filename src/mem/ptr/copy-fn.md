@@ -2,7 +2,7 @@
 
 这两个函数都用于将一块内存从 src 拷贝到目的地址.
 
-```rust, no_run
+```rust, ignore
 pub const unsafe fn copy<T>(src: *const T, dst: *mut T, count: usize);
 
 pub const unsafe fn copy_nonoverlapping<T>(

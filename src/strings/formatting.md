@@ -3,12 +3,13 @@
 使用 `{:#?}` 可以 pretty print:
 
 ```rust
+let value = [1, 1, 2, 3, 5];
 println!("value: {:#?}", value);
 ```
 
 使用 `{:p}` 打印指针:
 
-```rust
+```rust, ignore
 println!("p: {:p}", p);
 ```
 

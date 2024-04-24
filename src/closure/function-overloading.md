@@ -1,7 +1,7 @@
-
 # 函数重载 Function Overloading
 
 函数重载的概念对于 C++ 程序员来说是很熟悉的, 举个例子, STL标准库里的 `std::sort()` 函数是这样声明的:
+
 ```cpp
 template< class RandomIt >
 void sort( RandomIt first, RandomIt last );
@@ -37,7 +37,8 @@ impl File {
 ```
 
 在使用时, 也可以传入很多种不同类型的参数, 只要它们都实现了 `AsRef<Path>` trait, 例如:
-```no_run
+
+```rust, ignore
 File::open("/etc/passwd");
 File::open(PathBuf::from("/etc/passwd"));
 File::open(OsStr::new("/etc/passwd"));

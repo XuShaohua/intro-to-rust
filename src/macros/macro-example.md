@@ -2,7 +2,7 @@
 
 以下示例代码来自 `x11-rs` 项目, 它实现了 `xlib` 的 rust 绑定, 核心代码是一个宏:
 
-```rust
+```rust, ignore
 macro_rules! x11_link {
   { $struct_name:ident, $pkg_name:expr, [$($lib_name:expr),*], $nsyms:expr,
     $(pub fn $fn_name:ident ($($param_name:ident : $param_type:ty),*) -> $ret_type:ty,)*

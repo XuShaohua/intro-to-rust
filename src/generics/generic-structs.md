@@ -54,7 +54,7 @@ fn main() {
 
 比如, 标准库里的 `Box<T>` 就有这样的代码:
 
-```rust, no_run
+```rust, ignore
 impl<T: Default> Default for Box<T> {
     /// Creates a `Box<T>`, with the `Default` value for T.
     #[inline]
@@ -114,7 +114,6 @@ fn main() {
     let f = GeneralVal(3.14);
     println!("double: {}", f.double());
 }
-
 ```
 
 ## 参考

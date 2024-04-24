@@ -4,7 +4,7 @@
 
 其接口定义如下:
 
-```rust, no_run
+```rust, ignore
 pub unsafe fn swap_nonoverlapping<T>(x: *mut T, y: *mut T, count: usize);
 ```
 

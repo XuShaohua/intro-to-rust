@@ -4,7 +4,7 @@ ManuallyDrop<T> 用于抑制编译器自动调用 `T` 的析构函数. 可以用
 
 forget() 函数就是利用了 ManuallyDrop 类, 看看该函数的实现:
 
-```rust
+```rust, ignore
 pub const fn forget<T>(t: T) {
     let _ = ManuallyDrop::new(t);
 }
@@ -92,7 +92,7 @@ fn main() {
 - Horse
 - Cow
 
-```rust
+```rust, ignore
 struct Animals {
     sheep: Sheep,
     horse: Horse,

@@ -4,7 +4,7 @@
 接口时, 如果失败了, 返回的是 `ENOSYS` 错误的话, 就会修改该 `AtomicBool` 的值, 并
 回退到默认实现. 之后再使用该函数时, 就会直接跳过访问系统调用的步骤:
 
-```rust
+```rust, ignore
 fn set_times(
     p: &Path,
     atime: Option<FileTime>,
