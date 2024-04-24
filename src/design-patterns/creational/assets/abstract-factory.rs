@@ -1,1 +1,1 @@
-../../../../code/design_patterns/creational/abstract-factory/src/main.rs
+../../../../code/design_patterns/creational/abstract-factory/src/bin/static-dispatch.rs

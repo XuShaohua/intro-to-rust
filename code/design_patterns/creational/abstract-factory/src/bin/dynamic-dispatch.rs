@@ -97,3 +97,23 @@ impl DoorFactory for IronDoorFactory {
         Box::new(Carpenter {})
     }
 }
+
+fn main() {
+    println!("test_dynamic_dispatch()");
+
+    {
+        let wooden_factory = WoodenDoorFactory::new();
+        let door = wooden_factory.make_door();
+        door.get_description();
+        let expert = wooden_factory.make_fitting_expert();
+        expert.get_description();
+    }
+
+    {
+        let iron_factory = IronDoorFactory::new();
+        let door = iron_factory.make_door();
+        door.get_description();
+        let expert = iron_factory.make_fitting_expert();
+        expert.get_description();
+    }
+}

@@ -1,6 +1,6 @@
-// Copyright (c) 2023 Xu Shaohua <shaohua@biofan.org>. All rights reserved.
-// Use of this source is governed by General Public License that can be
-// found in the LICENSE file.
+// Copyright (c) 2024 Xu Shaohua <shaohua@biofan.org>. All rights reserved.
+// Use of this source is governed by General Public License that can be found
+// in the LICENSE file.
 
 pub trait Door {
     fn get_description(&self);
@@ -104,5 +104,25 @@ impl DoorFactory for IronDoorFactory {
 
     fn make_fitting_expert(&self) -> Self::E {
         Self::E {}
+    }
+}
+
+fn main() {
+    println!("test_static_dispatch()");
+
+    {
+        let wooden_factory = WoodenDoorFactory::new();
+        let door = wooden_factory.make_door();
+        door.get_description();
+        let expert = wooden_factory.make_fitting_expert();
+        expert.get_description();
+    }
+
+    {
+        let iron_factory = IronDoorFactory::new();
+        let door = iron_factory.make_door();
+        door.get_description();
+        let expert = iron_factory.make_fitting_expert();
+        expert.get_description();
     }
 }
