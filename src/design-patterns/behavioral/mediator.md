@@ -4,6 +4,6 @@
 
 ## 代码示例
 
-```rust
+```rust, compile_fail
 {{#include assets/mediator.rs:5: }}
 ```

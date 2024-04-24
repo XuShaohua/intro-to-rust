@@ -5,16 +5,7 @@
 标准库里有 `std::thread::Builder` 类实现了建造者模式, 可以看一下它的简单用法:
 
 ```rust
-use std::thread;
-
-fn main() {
-    let builder = thread::Builder::new().name("new-process".to_owned()).stack_size(32 * 1024);
-    let handler = builder.spawn(|| {
-        // thread code goes here.
-        println!("worker thread");
-    });
-    handler.join().unwrap();
-}
+{{#include assets/thread-builder.rs:5: }}
 ```
 
 ## 问题描述
