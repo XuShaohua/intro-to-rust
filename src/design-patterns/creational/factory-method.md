@@ -17,5 +17,5 @@
 ## 程序示例
 
 ```rust
-{{#include assets/factorymethod.rs:5: }}
+{{#include assets/factory-method.rs:5: }}
 ```

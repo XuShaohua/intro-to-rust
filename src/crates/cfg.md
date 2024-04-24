@@ -1,20 +1,23 @@
-
 # 条件编译
 
 ## cfg
+
 `#[cfg(...)]` 在编译器应用.
 `cfg!(...)` 可以在运行期动态起作用.
 
 自定义条件:
+
 * 编译时传入参数: `rustc --cfg is_nightly foo.rs`
 * `build.rs` 脚本中向 stdout 输出配置: `println!("cargo:rustc-cfg=is_nightly");`
 
 之后就可以在代码中使用这个 `is_night` 属性了:
+
 * `#[cfg(is_nightly)]`
 * `#[cfg_attr(is_nightly, feature(llvm_asm))]`, 当 `is_nightly` 属性被设置时, 引入
-`llvm_asm` 特性.
+  `llvm_asm` 特性.
 
 cfg 支持作为属性声名及作为宏定义:
+
 ```rust
 #[cfg(target_os = "linux")]
 fn are_you_linux() -> bool {
@@ -28,6 +31,7 @@ fn are_you_linux() -> bool {
 ```
 
 或者使用宏:
+
 ```rust
 fn are_you_linux() -> bool {
   if cfg!(target_os = "linux") {
@@ -50,6 +54,7 @@ mod platform;
 ```
 
 ## cfg_attr
+
 条件编译, 比如 `notify` 库提供的 `AccessKind` 枚举:
 
 ```rust
@@ -75,4 +80,19 @@ pub enum AccessKind {
     Other,
 }
 
+```
+
+# debug_assertions
+
+`#[cfg(debug_assertions)]` 用于判断是否处于 debug 编译模式:
+
+```rust
+#[allow(unused_variables)]
+fn main() {
+    let keys = [1, 1, 2, 3, 5, 8, 13, 21];
+    #[cfg(debug_assertions)]
+    for i in 1..keys.len() {
+        debug_assert!(keys[i - 1] <= keys[i]);
+    }
+}
 ```
