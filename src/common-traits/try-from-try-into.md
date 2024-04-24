@@ -1,4 +1,3 @@
-
 # TryFrom 与 TryInto
 
 `TryFrom` 和 `TryInfo` 这两个 trait, 主要是为了容错, 因为类型之间的转换有可能是
@@ -24,7 +23,7 @@ pub trait TryInto<T>: Sized {
 
 `char` 模块实现了将 `char` 转换成 `u8`, `u16` 等数值类型, 下面是代码片段:
 
-```rust
+```rust, ignore
 #[stable(feature = "u8_from_char", since = "1.59.0")]
 impl TryFrom<char> for u8 {
     type Error = TryFromCharError;
@@ -47,7 +46,8 @@ impl TryFrom<char> for u8 {
 ```
 
 平时只需要实现 `TryFrom` trait 即可, 因为 `TryInto` 已被标准库实现:
-```rust
+
+```rust, ignore
 // TryFrom implies TryInto
 #[stable(feature = "try_from", since = "1.34.0")]
 impl<T, U> TryInto<U> for T
@@ -109,7 +109,7 @@ impl TryFrom<u8> for ProtocolLevel {
 }
 ```
 
-
 ## 其它转换方式
+
 - [基础数据类型使用 as](../fundamental/cast.md)
 - [From/Into](../common-traits/from-into.md)

@@ -1,9 +1,10 @@
-
 # Write
+
 一个类型实现了 `Write` trait 时, 就表示它实现了二进制字节流输出.
 
 `Write` trait 的定义如下:
-```rust
+
+```rust, ignore
 pub trait Write {
     // Required methods
     fn write(&mut self, buf: &[u8]) -> Result<usize>;
@@ -21,10 +22,12 @@ pub trait Write {
 ```
 
 通常只需要实现以下两个方法:
+
 - `write()` 写入一块数据
 - `flush()` 将缓存回写到存储设备
 
 标准库为多个对象实现了 `Write` trait:
+
 - `File`, 文件对象
 - `TcpStream`, TCP socket 对象
 - `UnixStream`, unix domain socket 对象

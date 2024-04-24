@@ -1,4 +1,3 @@
-
 # Default trait
 
 `Default` trait 用于返回一个类型的默认值, 其定义如下:
@@ -11,7 +10,8 @@ pub trait Default: Sized {
 ```
 
 Rust 里的基础数据类型都实现了这个 trait, 比如布尔类型的默认值是 `false`:
-```rust
+
+```rust, ignore
 default_impl! { bool, false, "Returns the default value of `false`" }
 ```
 
@@ -20,27 +20,26 @@ default_impl! { bool, false, "Returns the default value of `false`" }
 | 类型          | 默认值     |
 |-------------|---------|
 | `bool`      | `false` |
-| `i8`          | `0`     |
-| `i16` | `0`     |
-| `i32` | `0`     |
-| `i64` | `0`     |
-| `i128` | `0`     |
-| `isize` | `0`     |
-| `u8` | `0`     |
-| `u16` | `0`     |
-| `u32` | `0`     |
-| `u64` | `0`     |
-| `u128` | `0`     |
-| `usize` | `0`     |
-| `f32` | `0.0`   |
-| `f64` | `0.0`   |
+| `i8`        | `0`     |
+| `i16`       | `0`     |
+| `i32`       | `0`     |
+| `i64`       | `0`     |
+| `i128`      | `0`     |
+| `isize`     | `0`     |
+| `u8`        | `0`     |
+| `u16`       | `0`     |
+| `u32`       | `0`     |
+| `u64`       | `0`     |
+| `u128`      | `0`     |
+| `usize`     | `0`     |
+| `f32`       | `0.0`   |
+| `f64`       | `0.0`   |
 | `char`      | `\x00`  |
 | `unit`      | `()`    |
-| `slice` | empty   |
-| `str` | epmty  |
+| `slice`     | empty   |
+| `str`       | epmty   |
 | `Option<T>` | `None`  |
-| `String` | empty |
-
+| `String`    | empty   |
 
 ## Struct
 
@@ -56,6 +55,7 @@ pub struct Point {
 ```
 
 以上定义的 `Point` 结构体, 同时实现了 `Default` trait. 等同于手动编写的代码:
+
 ```rust
 pub struct Point {
     x: f32,
@@ -74,6 +74,7 @@ impl Default for Point {
 
 对于一个实现了 `Default` trait 的结构体, 在创建该结构体实例时, 可以只手动指定某具元还给, 然后调用
 `Default::default()` 方法用默认值补全剩下的元素:
+
 ```rust
 
 #[derive(Default)]
@@ -97,6 +98,7 @@ impl Point {
 ## Enum
 
 对于枚举类, 可以通过 `#[default]` 标签属性来指定哪个值是默认的, 看下面的示例代码:
+
 ```rust
 #[derive(Default)]
 pub enum Color {
