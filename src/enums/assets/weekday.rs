@@ -1,0 +1,1 @@
+../../../code/enums/src/bin/weekday.rs

@@ -8,7 +8,7 @@ Rust 引入这个特性, 就是为了解决自身的不足, 即默认情竞下, 
 
 可以使用 `std::cell::Cell` 及 `std::cell:RefCell` 实现这样的效果.
 
-```no_run
+```rust, ignore
 impl<T> Cell<T>
   where T: Copy
 {
@@ -34,7 +34,7 @@ impl<T> Cell<T>
 
 为了解决以上问题, rust 又引入了 `RefCell` 类型.
 
-```no_run
+```rust, ignore
 impl<T> RefCell<T>
 {
   pub fn new(t: T) -> RefCell<T> {
