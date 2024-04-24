@@ -17,7 +17,7 @@ futures = "0.3.30"
 
 之后是 `main.rs` 里的代码:
 
-```rust, no_run
+```rust, ignore
 use futures::executor::block_on;
 
 async fn say_hello() {
@@ -39,7 +39,7 @@ fn main() {
 
 下面的例子更为复杂:
 
-```rust, no_run
+```rust, ignore
 use futures::executor::block_on;
 
 #[derive(Debug)]
@@ -80,4 +80,4 @@ fn main() {
 
 其中 `futures::join!()` 宏, 类似于 `.await`, 但它等待多个 Future 对象并发运行, 大致如下图如示:
 
-![futures join](assets/async-dance.png)
+![futures join](assets/async-dance.svg)
