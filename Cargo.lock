@@ -310,7 +310,6 @@ version = "0.1.0"
 dependencies = [
  "image",
  "r2d2",
- "serde",
  "thiserror",
 ]
 

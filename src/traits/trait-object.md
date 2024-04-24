@@ -7,7 +7,7 @@ use std::io::Write;
 
 fn main() {
     let mut buf: Vec<u8> = Vec::new();
-    let writer: &mut Write = &mut buf;
+    let writer: &mut dyn Write = &mut buf;
 }
 ```
 

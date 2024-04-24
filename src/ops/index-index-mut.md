@@ -1,4 +1,3 @@
-
 # 索引 Index 与 IndexMut
 
 用于实现 `container[index]` 这样的索引操作, 通过 `*container.index(index)` 以及
@@ -6,6 +5,7 @@
 它们常用于容器类中, 用于访问容器中的某个或者某些元素.
 
 它们的定义如下:
+
 ```rust
 pub trait Index<Idx>where
     Idx: ?Sized,{
@@ -25,20 +25,23 @@ pub trait IndexMut<Idx>: Index<Idx>where
 可以看到, `IndexMut<T>` 是对 `Index<T>` 的扩展, 它返回一个可变更引用 (mutable reference).
 
 比如:
+
 ```rust
 use std::ops::{Index, Range};
 let slice = vec![1, 1, 2, 3, 5];
 assert_eq!(slice[1..4], *slice.index(Range{start:1, end: 4}));
 ```
+
 可以看到, `container[index]` 这种写法只是个语法糖.
 
-
 ## 与 C++ 的区别
+
 在 C++ 中, `index` 操作符是可以直接向容器中插入新的值, 但根据上面的定义可以看出, `IndexMut` 只是
 返回一个可变引用, 只能用于修改已有值, 不能用于插入新值.
 
 以下代码就会报出 `index out of bounds` 的错误:
-```rust
+
+```rust, compile_fail
 let mut slice = vec![];
 slice[0] = 1;
 slice[1] = 4;
@@ -60,14 +63,25 @@ int main() {
 }
 ```
 
-但当把它用 Rust 重写之后, 并不能通过编译, 因为 `BTreeMap` 并没有实现 `IndexMut`:
+但当把它用 Rust 重写之后, 并不能被编译:
 
-```rust
+```rust, ignore
 use std::collections::BTreeMap;
 
 let mut persons = BTreeMap::<String, f64>::new();
 persons["Joe"] = 1.74;
 persons["Allen"] = 1.71;
+assert_eq!(persons.len(), 2);
+```
+
+需要显式地插入元素:
+
+```rust
+use std::collections::BTreeMap;
+
+let mut persons = BTreeMap::<String, f64>::new();
+persons.insert("Joe", 1.74);
+persons.insert("Allen", 1.71);
 assert_eq!(persons.len(), 2);
 ```
 

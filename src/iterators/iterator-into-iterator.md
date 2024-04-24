@@ -1,4 +1,3 @@
-
 # Iterator 与 IntoIterator
 
 `Iterator` trait 与 `IntoIterator` trait 是 Rust 实现迭代器的基础.
@@ -6,8 +5,7 @@
 `Iterator` trait 的定义比较复杂, 有70多个方法, 但通常只需要实现 `next()` 方法即可.
 该方法会返回 `Option<Self::Item>`, 返回下一个元素 `Some(Self::Item)`; 如果没有下个元素的话, 就返回 `None`.
 
-
-```rust, no_run
+```rust, ignore
 pub trait Iterator {
     type Item;
 

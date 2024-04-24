@@ -144,10 +144,8 @@ fn smallest(v: &[i32]) -> &i32 {
 
 fn main() {
     let s;
-    {
-        let parabola = [9, 4, 3, 1, 1, 4, 9];
-        s = smallest(&parabola);
-    }
+    let parabola = [9, 4, 3, 1, 1, 4, 9];
+    s = smallest(&parabola);
     println!("s: {}", s);
 }
 ```

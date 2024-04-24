@@ -1,9 +1,8 @@
-
 # Extend
 
 这个 trait 主要是给容器类使用, 将迭代器里的值依次存储到容器类中.
 
-```rust
+```rust, ignore
 pub trait Extend<A> {
     fn extend<T>(&mut self, iter: T) where T: IntoIterator<Item = A>;
 

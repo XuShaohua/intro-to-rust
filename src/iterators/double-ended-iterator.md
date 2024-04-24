@@ -1,8 +1,8 @@
-
 # DoubleEndedIterator
+
 这个 trait 提供了方法, 可以从前后两端访问迭代器.
 
-```rust
+```rust, ignore
 ub trait DoubleEndedIterator: Iterator {
     fn next_back(&mut self) -> Option<Self::Item>;
 

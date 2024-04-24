@@ -15,7 +15,11 @@ git-repository-url = "https://github.com/xushaohua/rust-book"
 
 [output.html.playground]
 editable = true
+copyable = true
+copy-js = true 
 line-numbers = true
+runnable = true
+
 
 [output.html.fold]
 enable = true

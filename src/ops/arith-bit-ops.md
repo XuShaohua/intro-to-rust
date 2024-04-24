@@ -70,18 +70,7 @@ pub trait Neg {
 只需要定义 `neg()` 方法即可, 我们来复数结构实现这个trait:
 
 ```rust
-use std::ops::Neg;
-
-impl<T: Neg<Output=T>> Neg for Complex<T> {
-    type Output = Self;
-
-    fn neg(self) -> Self::Output {
-        Self {
-            re: -self.re,
-            im: -self.im,
-        }
-    }
-}
+{{#include assets/complex.rs:5:39 }}
 ```
 
 逻辑否操作`!`, 对应于 `Not` trait, 它的接口定义如下:
@@ -133,7 +122,7 @@ pub trait Add<Rhs = Self> {
 
 下面的例子代码就是为复数实现 `Add` trait:
 
-```rust
+```rust, ignore
 impl<T: Add<T, Output=T>> Add for Complex<T> {
     type Output = Self;
 
@@ -148,7 +137,7 @@ impl<T: Add<T, Output=T>> Add for Complex<T> {
 
 其它几个二元算术操作符的定义与上面的类似, 我们一并列出来:
 
-```rust
+```rust, ignore
 pub trait Sub<Rhs = Self> {
     type Output;
     fn sub(self, rhs: Rhs) -> Self::Output;
@@ -172,8 +161,7 @@ pub trait Rem<Rhs = Self> {
 
 为复数实现这些接口:
 
-```rust
-
+```rust, ignore
 impl<T: Sub<T, Output=T>> Sub for Complex<T> {
     type Output = Self;
 
