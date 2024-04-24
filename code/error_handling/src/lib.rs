@@ -10,3 +10,6 @@
     clippy::pedantic
 )]
 #![allow(dead_code)]
+
+mod error;
+mod parse_int_error;

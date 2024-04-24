@@ -35,7 +35,9 @@ impl Bounds {
     }
 }
 
-let image_bounds = Bounds(1024, 768);
+fn main() {
+    let image_bounds = Bounds(1024, 768);
+}
 ```
 
 这种写法对于重命名一个新的类型很有效, 还可以为它实现新的方法:
@@ -56,6 +58,8 @@ Unit struct, 即定义一个空白的不包含任何具体元素的, 比如 `str
 内存大小为0.
 
 ```rust
-let nil = Nil;
-assert_eq!(std::mem::size_of_val(&nil), 0);
+fn main() {
+    let nil = Nil;
+    assert_eq!(std::mem::size_of_val(&nil), 0);
+}
 ```

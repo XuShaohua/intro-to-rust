@@ -2,6 +2,7 @@
 // Use of this source is governed by General Public License that can be found
 // in the LICENSE file.
 
+#[repr(u32)]
 #[derive(Debug, Default, Clone, Copy, Eq, PartialEq)]
 pub enum Weekday {
     #[default]
