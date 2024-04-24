@@ -2,11 +2,9 @@
 // Use of this source is governed by General Public License that can be found
 // in the LICENSE file.
 
-use once_cell::sync::Lazy;
 use std::sync::Mutex;
 
-pub static GLOBAL_PRESIDENT: Lazy<Mutex<President>> =
-    Lazy::new(|| Mutex::new(President::new("OnceCell::Lazy")));
+pub static GLOBAL_PRESIDENT: Mutex<President> = Mutex::new(President::empty());
 
 pub struct President {
     name: String,
@@ -42,7 +40,7 @@ fn main() {
     GLOBAL_PRESIDENT
         .lock()
         .unwrap()
-        .set_name("Trump[once_cell]");
+        .set_name("Trump[mutex_only]");
     println!(
         "President name: {}",
         GLOBAL_PRESIDENT.lock().unwrap().name()
