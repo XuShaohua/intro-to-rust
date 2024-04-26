@@ -6,6 +6,7 @@ members = [
     "code/closure",
     "code/concurrency",
     "code/containers",
+    "code/crates",
     "code/design_patterns/behavioral/*",
     "code/design_patterns/creational/*",
     "code/design_patterns/structural/*",
