@@ -2,6 +2,8 @@
 // Use of this source is governed by General Public License that can be found
 // in the LICENSE file.
 
+use std::fmt;
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Color {
     pub red: u8,
@@ -35,9 +37,10 @@ impl From<std::num::ParseIntError> for ParseColorError {
     }
 }
 
-impl std::string::ToString for Color {
-    fn to_string(&self) -> String {
-        format!(
+impl fmt::Display for Color {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(
+            f,
             "rgba({}, {}, {}, {})",
             self.red, self.green, self.blue, self.alpha
         )
@@ -142,8 +145,7 @@ mod tests {
     #[test]
     fn test_parse() {
         let color = Color::new(255, 255, 255, 100);
-        println!("color: {color:?}");
-        println!("color: {}", color.to_string());
+        println!("color: {color}");
 
         let colors = [
             "#fea",

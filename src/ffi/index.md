@@ -12,3 +12,4 @@ Rust 的标准库内部有广泛的使用.
 
 ## 参考
 - [FFI in nomicon](https://doc.rust-lang.org/nomicon/ffi.html)
+- [Rust for C++ programmers](https://github.com/nrc/r4cppp)

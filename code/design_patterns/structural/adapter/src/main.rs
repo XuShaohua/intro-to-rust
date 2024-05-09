@@ -9,6 +9,7 @@
     clippy::nursery,
     clippy::pedantic
 )]
+#![allow(dead_code)]
 
 pub trait Lion {
     fn roar(&self) {
