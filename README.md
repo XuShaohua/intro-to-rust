@@ -1,4 +1,4 @@
-# Rust 语言入门 Introduction to Rust 🦀
+# Rust 语言入门 Introduction to Rust
 
 本文档使用大量的图片和代码片段, 尝试帮助阅读者建立 Rust 的知识体系, 理清难点.
 
