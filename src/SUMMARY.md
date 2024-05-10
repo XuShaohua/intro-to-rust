@@ -368,6 +368,7 @@
 - [嵌入式开发 Embedded](embedded/index.md)
 - [分布式系统](distributed-systems/index.md)
 - [人工智能 AI](ai/index.md)
+- [数据结构与算法](algs.md)
 - [设计模式](design-patterns/index.md)
     - [创建型 Creational](design-patterns/creational/index.md)
         - [简单工厂模式 Simple factory](design-patterns/creational/simple-factory.md)
