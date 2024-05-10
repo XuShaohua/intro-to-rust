@@ -8,4 +8,4 @@ set -xe
 cargo clippy --all-targets
 
 #mdbook test
-mdbook build
+#mdbook build

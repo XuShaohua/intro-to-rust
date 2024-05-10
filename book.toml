@@ -20,7 +20,27 @@ copy-js = true
 line-numbers = true
 runnable = true
 
-
 [output.html.fold]
 enable = true
 level = 0
+
+[output.pandoc]
+hosted-html = "https://rust.biofan.org"
+
+[output.pandoc.profile.pdf]
+output-file = "rust-book.pdf" # output file (within the profile's build directory)
+to = "latex" # output format
+
+# PDF-specific settings
+pdf-engine = "xelatex"
+#pdf-engine = "pdflatex" # engine to use to produce PDF output
+
+# `mdbook-pandoc` overrides Pandoc's defaults for the following options to better support mdBooks
+file-scope = true # parse each file individually before combining
+number-sections = true # number sections headings
+standalone = true # produce output with an appropriate header and footer
+table-of-contents = true # include an automatically generated table of contents
+
+[output.pandoc.profile.pdf.variables]
+CJKmainfont = "WenQuanYi Micro Hei"
+#CJKmainfont = "AR PL UKai CN"
