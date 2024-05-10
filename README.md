@@ -4,6 +4,8 @@
 
 [在线浏览](https://rust.biofan.org)
 
+[下载 pdf 文件](https://rust.biofan.org/pandoc/pdf/rust-book.pdf)
+
 ## 反馈问题
 
 欢迎[反馈问题](https://github.com/xushaohua/rust-book/issues), 或者提交 PR.
@@ -23,6 +25,14 @@
 
 ### 生成 PDF
 
+如果想生成 pdf, 需要安装 [mdbook-pandoc](https://github.com/max-heller/mdbook-pandoc),
+用命令: `cargo install mdbook-pandoc`
+
+并且安装 latex 相应的包:
+
 ```bash
-sudo apt install pandoc librsvg2-bin texlive-latex-recommended
+sudo apt install pandoc librsvg2-bin texlive-latex-recommended latex-cjk-all texlive-xetex
 ```
+
+安装好依赖之后, 运行 `mdbook build` 命令, 就会生成 `book/pandoc/pdf/rust-book.pdf` 文件.
+
