@@ -2,9 +2,15 @@
 
 本文档使用大量的图片和代码片段, 尝试帮助阅读者建立 Rust 的知识体系, 理清难点.
 
-[在线浏览](https://rust.biofan.org)
+[在线浏览](https://rust.biofan.org), 或者[下载 pdf 文件](https://share.biofan.org/intro-to-rust.pdf).
 
-[下载 pdf 文件](https://share.biofan.org/intro-to-rust.pdf)
+目前, 本文档包括了六个部分的内容:
+1. 第一部分: 语言基础
+2. 第二部分: 自定义类型
+3. 第三部分: 标准库
+4. 第四部分: 并发与异步编程
+5. 第五部分: 工程实践
+6. 第六部分: Rust语言的生态
 
 ## 反馈问题
 
@@ -34,5 +40,5 @@
 sudo apt install pandoc librsvg2-bin texlive-latex-recommended latex-cjk-all texlive-xetex
 ```
 
-安装好依赖之后, 运行 `mdbook build` 命令, 就会生成 `book/pandoc/pdf/intro-to-rust.pdf` 文件.
+安装好依赖之后, 运行 `./tools/generate-pdf.sh` 命令, 就会生成 `book-pandoc/intro-to-rust.pdf` 文件.
 
