@@ -31,3 +31,6 @@ pub fn factorial(n: u32) -> u64 {
 ```bash
 $ cargo doc
 ```
+
+Rust 社区维护了所有开源库的文档, 它们被每天更新, 可以[在线查看](https://docs.rs).
+所以, 在编写开源的 rust 库时, 及时更新代码里的文档注释是很关键的.
