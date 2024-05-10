@@ -21,4 +21,4 @@ rustc -g foo.rs
 
 ## 参考
 
-- [条件编译](../crates/cfg.md)
+- [条件编译](../crates/conditional-compilation)
