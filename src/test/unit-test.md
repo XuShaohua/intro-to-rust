@@ -11,7 +11,7 @@ pub fn fibonacci(n: u32) -> u32 {
     }
 }
 
-#[cfg(tests)]
+#[cfg(test)]
 mod tests {
     use super::fibonacci;
 
@@ -21,3 +21,8 @@ mod tests {
     }
 }
 ```
+
+可以使用这样的命令来编译和运行:
+
+- `cargo test`
+- `rustc --test xxx`
