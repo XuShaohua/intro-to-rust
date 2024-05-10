@@ -10,8 +10,6 @@
     - [CLion + rust 插件](dev-env/clion.md)
     - [VS Code](dev-env/vscode.md)
     - [vim](dev-env/vim.md)
-    - [sccache](dev-env/sccache.md)
-    - [代码检查 clippy](dev-env/clippy.md)
     - [rust analyzer](dev-env/rust-analyzer.md)
 - [基础数据类型](primitives/index.md)
     - [整数类型](primitives/integer.md)
