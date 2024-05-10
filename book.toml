@@ -8,10 +8,15 @@ language = "zh-CN"
 edition = "2021"
 
 [build]
+build-dir = "book"
 create-missing = false
 
 [output.html]
 git-repository-url = "https://github.com/xushaohua/intro-to-rust"
+
+[output.html.fold]
+enable = true
+level = 0
 
 [output.html.playground]
 editable = true
@@ -20,37 +25,37 @@ copy-js = true
 line-numbers = true
 runnable = true
 
-[output.html.fold]
-enable = true
-level = 0
+[output.html.print]
+enable = true    # include support for printable output
+page-break = true # insert page-break after each chapter
 
-[output.pandoc]
-hosted-html = "https://rust.biofan.org"
-
-[output.pandoc.profile.pdf]
-output-file = "intro-to-rust.pdf" # output file (within the profile's build directory)
-to = "latex" # output format
-
-# PDF-specific settings
-pdf-engine = "xelatex" # engine to use to produce PDF output
-
-# `mdbook-pandoc` overrides Pandoc's defaults for the following options to better support mdBooks
-file-scope = true # parse each file individually before combining
-number-sections = true # number sections headings
-standalone = true # produce output with an appropriate header and footer
-table-of-contents = true # include an automatically generated table of contents
-
-[output.pandoc.profile.pdf.variables]
-# To pass variables (https://pandoc.org/MANUAL.html#variables) to pandoc
-
-#CJKmainfont = "AR PL UKai CN"
-CJKmainfont = "WenQuanYi Micro Hei"
-
-geometry = "a4paper, margin=20mm"
-colorlinks = "true"
-linkcolor = "blue"
-urlcolor = "blue"
-#toccolor = "gray"
-
-# adjusts line spacing using the setspace package, e.g. 1.25, 1.5
-linestretch = "1.25"
+# Disable pandoc by default
+#[output.pandoc]
+##hosted-html = "https://rust.biofan.org"
+#
+#[output.pandoc.profile.pdf]
+#output-file = "intro-to-rust.pdf" # output file (within the profile's build directory)
+#to = "latex" # output format
+#
+## PDF-specific settings
+#pdf-engine = "xelatex" # engine to use to produce PDF output
+#
+## `mdbook-pandoc` overrides Pandoc's defaults for the following options to better support mdBooks
+#file-scope = true # parse each file individually before combining
+#number-sections = true # number sections headings
+#standalone = true # produce output with an appropriate header and footer
+#table-of-contents = true # include an automatically generated table of contents
+#
+#[output.pandoc.profile.pdf.variables]
+## To pass variables (https://pandoc.org/MANUAL.html#variables) to pandoc
+#
+##CJKmainfont = "AR PL UKai CN"
+#CJKmainfont = "WenQuanYi Micro Hei"
+#
+#geometry = "a4paper, margin=20mm"
+#colorlinks = "true"
+#linkcolor = "blue"
+#urlcolor = "blue"
+#
+## adjusts line spacing using the setspace package, e.g. 1.25, 1.5
+#linestretch = "1.25"

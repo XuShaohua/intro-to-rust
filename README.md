@@ -4,7 +4,7 @@
 
 [在线浏览](https://rust.biofan.org)
 
-[下载 pdf 文件](https://rust.biofan.org/pandoc/pdf/intro-to-rust.pdf)
+[下载 pdf 文件](https://share.biofan.org/intro-to-rust.pdf)
 
 ## 反馈问题
 
