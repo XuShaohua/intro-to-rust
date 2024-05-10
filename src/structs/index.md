@@ -1,4 +1,4 @@
-# 结构体 Structures
+# 结构体 Structs
 
 结构体有三种写法:
 

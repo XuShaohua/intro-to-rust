@@ -1,5 +1,4 @@
-
-# 迭代器 Iterator
+# 迭代器 Iterators
 
 迭代器模式, 作为一种常用的设计模式, 在 Rust 里也有广泛的应用.
 
@@ -10,6 +9,7 @@
 本章我们将介绍与迭代器相关的几个 traits, 以及如何为自定义的类型实现迭代器模式.
 
 ## 遍历的三种形式
+
 从一个集合创建迭代器, 有三种形式:
 
 - `iter()`, 通过 `&T` 遍历, 只读的形式
@@ -17,6 +17,7 @@
 - `into_iter()`, 通过 `T` 遍历, 发生了所有权的转移
 
 只读引用的形式:
+
 ```rust
 let v = vec![1, 2, 3, 4];
 for x in v.iter() {
@@ -25,6 +26,7 @@ for x in v.iter() {
 ```
 
 可变更引用的形式:
+
 ```rust
 let mut v = vec![1, 2, 3, 4];
 for x in v.iter_mut() {
@@ -38,6 +40,7 @@ for x in &mut v {
 ```
 
 发生所有权转移的形式:
+
 ```rust
 let v = vec![1, 2, 3, 4];
 for x in v {
@@ -47,4 +50,5 @@ for x in v {
 ```
 
 ## 相关知识
+
 - [Range](../ops/range.md)

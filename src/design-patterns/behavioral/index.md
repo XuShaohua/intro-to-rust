@@ -1,4 +1,4 @@
-# 行为型设计模式 Behavioral design patterns
+# 行为型 Behavioral
 
 在这个分类下包含的设计模式有:
 

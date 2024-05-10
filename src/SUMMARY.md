@@ -11,7 +11,7 @@
     - [VS Code](dev-env/vscode.md)
     - [vim](dev-env/vim.md)
     - [rust analyzer](dev-env/rust-analyzer.md)
-- [基础数据类型](primitives/index.md)
+- [基础数据类型 Primitives](primitives/index.md)
     - [整数类型](primitives/integer.md)
     - [浮点类型](primitives/floating-point.md)
     - [布尔类型](primitives/bool.md)
@@ -56,7 +56,7 @@
 
 # 第二部分: 自定义类型
 
-- [结构体 Struct](structs/index.md)
+- [结构体 Structs](structs/index.md)
     - [定义方法 impl](structs/impl.md)
     - [常量 const](structs/const.md)
     - [静态变量 static](structs/static.md)
@@ -66,7 +66,7 @@
     - [定义方法 impl](enums/impl.md)
     - [Option](enums/option.md)
     - [Result](enums/result.md)
-- [联合体 Union](union/index.md)
+- [联合体 Unions](unions/index.md)
 - [模式匹配 Pattern Matching](pattern-matching/index.md)
     - [模式 Patterns](pattern-matching/patterns.md)
     - [匹配值 Matching Values](pattern-matching/matching-values.md)
@@ -339,7 +339,7 @@
 
 # 第六部分: Rust语言的生态
 
-- [网络编程 network programming](network/index.md)
+- [网络编程 Network Programming](network/index.md)
     - [HTTP 请求: reqwest 库](network/reqwest.md)
     - [Web 服务: hyper 库](network/hyper.md)
     - [基于 Actor 模型实现的 Web 服务: actix-web 库](network/actix-web.md)
@@ -355,7 +355,7 @@
     - [wasmer 运行时](wasm/wasmer.md)
     - [WasmEdge 运行时](wasm/WasmEdge.md)
     - [反编译与调试](wasm/disassemble-and-debug.md)
-- [web programming](web/index.md)
+- [web 前端开发](web/index.md)
     - [web-sys 库](web/web-sys.md)
     - [wasm-bindgen 库](web/wasm-bindgen.md)
     - [wasm-pack 工具](web/wasm-pack.md)
@@ -400,7 +400,7 @@
         - [策略模式 Strategy](design-patterns/behavioral/strategy.md)
         - [装态模式 State](design-patterns/behavioral/state.md)
         - [模板方法模式 Template Method](design-patterns/behavioral/template-method.md)
-- [新特性 unstable features](unstable/index.md)
+- [新特性 Unstable Features](unstable/index.md)
     - [portable simd](unstable/portable-simd.md)
 - [第三方库 crates.io](crates.io/index.md)
     - [数据序列化 serde](crates.io/serde.md)

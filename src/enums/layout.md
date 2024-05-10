@@ -112,6 +112,7 @@ enum<T> 对于T里包含有指针类型时, 有独特的优化.
 ```
 
 这个枚举类的内存反而简单了一些:
+
 ![web-event3](assets/web-event3.svg)
 
 因为不存在对指针的优化, `Paste(String)` 和 `Copy(String)` 的枚举ID也被设置了, 它占用一个字节, 同时有7个字节的填充(
