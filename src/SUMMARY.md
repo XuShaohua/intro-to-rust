@@ -1,16 +1,14 @@
 # SUMMARY
 
-[关于](README.md)
+[Rust 语言入门 Introduction to Rust](README.md)
 
 # 第一部分: 语言基础
 
 - [配置开发环境](dev-env/index.md)
-    - [使用 rustup 配置 Rust 环境](dev-env/rustup.md)
-    - [RustRover](dev-env/rustrover.md)
+    - [使用 rustup 配置 Rust 工具链](dev-env/rustup.md)
+    - [RustRover IDE](dev-env/rustrover.md)
     - [CLion + rust 插件](dev-env/clion.md)
     - [VS Code](dev-env/vscode.md)
-    - [vim](dev-env/vim.md)
-    - [rust analyzer](dev-env/rust-analyzer.md)
 - [基础数据类型 Primitives](primitives/index.md)
     - [整数类型](primitives/integer.md)
     - [浮点类型](primitives/floating-point.md)

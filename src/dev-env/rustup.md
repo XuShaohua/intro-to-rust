@@ -1,5 +1,5 @@
 
-# Rustup
+# 使用 rustup 配置 Rust 工具链
 
 rustup 用于管理 Rust 工具链, 类似于用于管理 Node 环境的 [nvm][nvm] 以及用于管理
 Python 环境的 [pyenv][pyenv].
