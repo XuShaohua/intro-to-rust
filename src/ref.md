@@ -4,7 +4,7 @@
 
 - [rust by example](https://doc.rust-lang.org/rust-by-example/) - rust 101
 - [Rust Playground](https://play.rust-lang.org/)
-- [The Rust Programming Language](https://doc.rust-lang.org/book/)
+- [The Rust Programming Language](https://doc.rust-lang.org/book/), the book
 - [The Cargo Book](https://doc.rust-lang.org/cargo/)
 - [The Rust Unstable Book](https://doc.rust-lang.org/unstable-book/) - more features, more power
 - [Nomicon](https://doc.rust-lang.org/nomicon/) - dark side of the force
