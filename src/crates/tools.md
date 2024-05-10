@@ -6,7 +6,9 @@
 
 ## clippy
 
-代码检查工具, 可以配置选项.
+[rust-clippy](https://github.com/rust-lang/rust-clippy) 是一个很全面的代码检查工具, 可以配置选项.
+
+它支持的700多条检查规则可以在[官网查看](https://rust-lang.github.io/rust-clippy/master/index.html).
 
 ## Evcxr
 
