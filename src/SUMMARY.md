@@ -303,6 +303,8 @@
     - [目录结构](crates/project-structure.md)
     - [属性 Attributes](crates/attributes.md)
     - [特性 Features](crates/features.md)
+    - [main() 函数](crates/main-function.md)
+    - [调用 main() 函数之前发生了什么](crates/before-calling-main-function.md)
     - [条件编译 Conditional compilation](crates/conditional-compilation.md)
     - [跨平台 Cross Platform](crates/cross-platform.md)
     - [交叉编译 Cross Compilation](crates/cross-complation.md)
