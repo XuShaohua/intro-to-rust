@@ -31,6 +31,10 @@
     - [for 循环](expressions/for.md)
     - [while 循环](expressions/while.md)
 - [模块 Modules](modules/index.md)
+  - [模块 Modules](modules/modules.md)
+  - [super 与 self](modules/super-and-self.md)
+  - [文件系统结构 Filesystem Hierarchy](modules/fs-hierarchy.md)
+  - [可见性 Visibility](modules/visibility.md)
 - [所有权 Ownership](ownership/index.md)
     - [所有权 Ownership](ownership/ownership.md)
     - [转移所有权 Move Semantics](ownership/move.md)
@@ -93,6 +97,7 @@
     - [泛型函数 Generic Functions](generics/generic-functions.md)
     - [泛型结构体 Generic Structs](generics/generic-structs.md)
     - [泛型 Traits Generic Traits](generics/generic-traits.md)
+    - [常量泛型参数 Const Generics](generics/const-generics.md)
 
 # 第三部分: 标准库
 
@@ -319,6 +324,8 @@
     - [宏示例](macros/macro-example.md)
     - [过程宏 proc-macro](macros/proc-macro.md)
     - [syn 库](macros/syn.md)
+- [汇编 Assembly](asm/index.md)
+    - [行汇编 Inline Assembly](asm/inline-assembly.md) 
 - [不安全的代码 Unsafe code](unsafe/index.md)
     - [访问原始指针 Dereference raw pointers](unsafe/dereference-raw-pointers.md)
     - [Union](unsafe/unions.md)
