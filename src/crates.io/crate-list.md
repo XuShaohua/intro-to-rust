@@ -544,6 +544,7 @@
 - xdg
 - xml-rs
 - xmltree
+- zerocopy
 - zip
 
 ## DONE

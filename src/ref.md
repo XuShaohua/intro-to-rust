@@ -17,6 +17,7 @@
 - [RustSec](https://rustsec.org/) - A vulnerability database for the Rust ecosystem
 - [cheats.rs](https://github.com/ralfbiedert/cheats.rs) - Rust Language Cheat Sheet
 - [Learn Rust the Dangerous Way](https://cliffle.com/p/dangerust/)
+- [Comprehensive Rust](https://github.com/google/comprehensive-rust)
 
 书籍:
 
