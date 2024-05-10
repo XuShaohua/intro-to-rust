@@ -23,14 +23,24 @@ pub enum Weekday {
 随着元素个数的增加, 可以占用2个字节或者更多.
 比如下面的例子, 编译器会给它分配2个字节, 因为有太多枚举项了:
 
-<details>
-<summary><code>enum TooManyTags</code></summary>
+```rust, ignore
+use std::mem::size_of;
 
-```rust
-{{#include assets/too-many-tags.rs:5: }}
+pub enum TooManyTags {
+    Tag0,
+    Tag1,
+    Tag2,
+    Tag3,
+    ...
+    Tag257,
+    Tag258,
+    Tag259,
+}
+
+fn main() {
+    assert_eq!(size_of::<TooManyTags>(), 2);
+}
 ```
-
-</details>
 
 ## 显式地指定字节数
 
