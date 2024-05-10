@@ -1,5 +1,5 @@
 [book]
-title = "Rust 语言编程"
+title = "Rust 语言入门 Introduction to Rust"
 description = ""
 authors = ["Shaohua <shaohua@biofan.org>"]
 language = "zh-CN"
@@ -11,7 +11,7 @@ edition = "2021"
 create-missing = false
 
 [output.html]
-git-repository-url = "https://github.com/xushaohua/rust-book"
+git-repository-url = "https://github.com/xushaohua/intro-to-rust"
 
 [output.html.playground]
 editable = true
@@ -28,7 +28,7 @@ level = 0
 hosted-html = "https://rust.biofan.org"
 
 [output.pandoc.profile.pdf]
-output-file = "rust-book.pdf" # output file (within the profile's build directory)
+output-file = "intro-to-rust.pdf" # output file (within the profile's build directory)
 to = "latex" # output format
 
 # PDF-specific settings

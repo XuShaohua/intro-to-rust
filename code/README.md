@@ -1,3 +1,3 @@
 # About
 
-Examples for rust-book
+Examples for intro-to-book

@@ -1,14 +1,14 @@
-# The Rust Book
+# Rust 语言入门 Introduction to Rust
 
 本文档使用大量的图片和代码片段, 尝试帮助阅读者建立 Rust 的知识体系, 理清难点.
 
 [在线浏览](https://rust.biofan.org)
 
-[下载 pdf 文件](https://rust.biofan.org/pandoc/pdf/rust-book.pdf)
+[下载 pdf 文件](https://rust.biofan.org/pandoc/pdf/intro-to-rust.pdf)
 
 ## 反馈问题
 
-欢迎[反馈问题](https://github.com/xushaohua/rust-book/issues), 或者提交 PR.
+欢迎[反馈问题](https://github.com/xushaohua/intro-to-rust/issues), 或者提交 PR.
 
 ## 搭建本地环境
 
@@ -34,5 +34,5 @@
 sudo apt install pandoc librsvg2-bin texlive-latex-recommended latex-cjk-all texlive-xetex
 ```
 
-安装好依赖之后, 运行 `mdbook build` 命令, 就会生成 `book/pandoc/pdf/rust-book.pdf` 文件.
+安装好依赖之后, 运行 `mdbook build` 命令, 就会生成 `book/pandoc/pdf/intro-to-rust.pdf` 文件.
 
