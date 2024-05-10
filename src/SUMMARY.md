@@ -32,6 +32,7 @@
     - [返回 return](expressions/return.md)
     - [for 循环](expressions/for.md)
     - [while 循环](expressions/while.md)
+- [模块 Modules](modules/index.md)
 - [所有权 Ownership](ownership/index.md)
     - [所有权 Ownership](ownership/ownership.md)
     - [转移所有权 Move Semantics](ownership/move.md)
@@ -52,7 +53,6 @@
     - [省去标注生命周期 Lifetime Elision](lifetimes/lifetime-elision.md)
     - [static 静态生命周期](lifetimes/lifetime-static.md)
     - [Non-lexical lifetimes NLL](lifetimes/nll.md)
-- [模块 Modules](modules/index.md)
 
 # 第二部分: 自定义类型
 
@@ -192,7 +192,7 @@
         - [OnceCell<T> 类](smart-pointers/cell/once-cell.md)
         - [LazyCell<T> 类](smart-pointers/cell/lazy-cell.md)
         - [UnsafeCell<T> 类](smart-pointers/cell/unsafe-cell.md)
-    - [写时复制 borrow::Cow 与 borrow::ToOwned](smart-pointers/cow-to-owned.md)
+    - [写时复制 borrow::Cow 与 borrow::ToOwned](smart-pointers/cow.md)
 - [内存管理](mem/index.md)
     - [std::ptr 库](mem/ptr/index.md)
         - [ptr::read() 与 ptr::write() 函数](mem/ptr/read-write-fn.md)
@@ -251,7 +251,7 @@
     - [crossbeam 库](concurrency/crossbeam/index.md)
     - [dashmap 库: 并发的 HashMap 实现](concurrency/dashmap.md)
     - [参考资料](concurrency/references.md)
-- [异步 async](async/index.md)
+- [异步 async/await](async/index.md)
     - [第一个 async 程序](async/async-dance.md)
     - [理解 Futures 与 Tasks](async/futures-and-tasks.md)
     - [理解 async/await](async/async-await.md)

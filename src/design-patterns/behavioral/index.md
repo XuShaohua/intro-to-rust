@@ -2,7 +2,7 @@
 
 在这个分类下包含的设计模式有:
 
-- [责任链模式 Chain of Responsibilities](chain-of-responsibility)
+- [责任链模式 Chain of Responsibilities](chain-of-responsibility.md)
 - [命令行模式 Command](command.md)
 - [迭代器模式 Iterator](iterator.md)
 - [中介者模式 Mediator](mediator.md)

@@ -2,8 +2,8 @@
 
 与 C++ 类似, 泛型 (Generics) 这种特性在 Rust 中也被广为使用, 比如标准库中的容器类, 都离开泛型这个特性.
 
-泛型在 Rust 里有广泛的应用, 除了本节介绍的结构体的泛型, 还有 [函数泛型](../closure/generics.md)
-以及 [trait 泛型](../traits/generics.md)等等, 后面章节陆续会有介绍.
+泛型在 Rust 里有广泛的应用, 除了本节介绍的结构体的泛型, 还有 [函数泛型](../generics/generic-functions.md)
+以及 [trait 泛型](../generics/generic-traits.md)等等, 后面章节陆续会有介绍.
 
 一般的泛型写法:
 

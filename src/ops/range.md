@@ -46,7 +46,7 @@ assert_eq!((3..), RangeFrom { start: 3 });
 
 用于定义无边界区间, 然而它并不是一个迭代器, 它没有起始值.
 
-它用来支持 `..` 这种语法糖, 它用来选择一个 [slice](../fundamental/slice.md) 里的所有元素.
+它用来支持 `..` 这种语法糖, 它用来选择一个 [slice](../primitives/slice.md) 里的所有元素.
 
 ```rust
 let slice = [0, 1, 1, 2, 3];

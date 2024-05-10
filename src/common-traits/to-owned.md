@@ -59,4 +59,4 @@ impl ToString for str {
 ## 相关信息
 
 - [Clone](clone-copy.md)
-- [Cow](../mem/cow.md)
+- [Cow](../smart-pointers/cow.md)

@@ -6,4 +6,4 @@
 
 ## 相关知识
 
-- [Cow](../../mem/cow.md)
+- [Cow](../cow.md)
