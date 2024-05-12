@@ -41,7 +41,7 @@ impl ExitCode {
 
 比如, 下面的一个例子:
 ```rust
-{{#iclude assets/read-passwd.rs:5: }}
+{{#include assets/read-passwd.rs:5: }}
 ```
 
 ## 参考
