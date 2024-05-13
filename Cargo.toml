@@ -4,8 +4,8 @@ resolver = "2"
 members = [
     "code/asynchronous",
     "code/closure",
+    "code/collections",
     "code/concurrency",
-    "code/containers",
     "code/crates",
     "code/design_patterns/behavioral/*",
     "code/design_patterns/creational/*",
