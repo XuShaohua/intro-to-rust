@@ -70,24 +70,3 @@ git_enum! {
 ```
 
 这个宏的特殊之处在于它内部使用了递归调用.
-
-## dbg!()
-
-`std::dbg!()` 宏用于调试代码, 尤其是使用递归调用时:
-
-```rust
-fn factorial(n: u32) -> u32 {
-    if dbg!(n <= 1) {
-        dbg!(1)
-    } else {
-        dbg!(n * factorial(n - 1))
-    }
-}
-
-fn main() {
-    let x = 42;
-    dbg!(x);
-
-    dbg!(factorial(5));
-}
-```

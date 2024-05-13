@@ -1,7 +1,7 @@
 # 过程宏 proc-macro
 
-`rustversion` 库大量使用了 `proc-macro`, 需要的话可以读一下它的代码.
-另外, `getset` 库也是, 而且这个库的代码量很小, 就几百行, 基于 proc-macro 实现的.
+`rustversion` 库大量使用了过程宏; 另外 `getset` 库也是, 而且这个库的代码量很小, 就几百行,
+基于 proc-macro 实现的.
 
 - 函数式宏, `println!()`
 - 继承宏, `#[derive(Debug)]`
