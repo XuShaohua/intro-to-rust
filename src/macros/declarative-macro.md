@@ -1,4 +1,6 @@
-# 宏的语法 Macros
+# 声明宏 Declarative Macros
+
+声明宏(又被翻译成 "声明式宏"), 是 Rust 早期引入的宏语法, 目前仍被支持.
 
 ## Fragment Types
 
@@ -77,6 +79,45 @@ fn write_color(
     }
 }
 ```
+
+## libgit2-sys 递归调用
+
+看第一个例子, 这个是 `libgit2-sys` 项目中使用的, 它用于批量定义枚举类:
+
+```rust
+macro_rules! git_enum {
+    (pub enum $name:ident { $($variants:tt)* }) => {
+        #[cfg(target_env = "msvc")]
+        pub type $name = i32;
+        #[cfg(not(target_env = "msvc"))]
+        pub type $name = u32;
+        git_enum!(gen, $name, 0, $($variants)*);
+    };
+    (pub enum $name:ident: $t:ty { $($variants:tt)* }) => {
+        pub type $name = $t;
+        git_enum!(gen, $name, 0, $($variants)*);
+    };
+    (gen, $name:ident, $val:expr, $variant:ident, $($rest:tt)*) => {
+        pub const $variant: $name = $val;
+        git_enum!(gen, $name, $val+1, $($rest)*);
+    };
+    (gen, $name:ident, $val:expr, $variant:ident = $e:expr, $($rest:tt)*) => {
+        pub const $variant: $name = $e;
+        git_enum!(gen, $name, $e+1, $($rest)*);
+    };
+    (gen, $name:ident, $val:expr, ) => {}
+}
+
+git_enum! {
+    pub enum git_revparse_mode_t {
+        GIT_REVPARSE_SINGLE = 1 << 0,
+        GIT_REVPARSE_RANGE = 1 << 1,
+        GIT_REVPARSE_MERGE_BASE = 1 << 2,
+    }
+}
+```
+
+这个宏的特殊之处在于它内部使用了递归调用.
 
 ## 参考
 

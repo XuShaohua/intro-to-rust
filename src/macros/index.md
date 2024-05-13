@@ -53,3 +53,8 @@ impl_helper_for! { i8 i16 i32 i64 i128 isize u8 u16 u32 u64 u128 usize }
 
 - 宏代码更难阅读, 也就更难维护
 - 宏支持的传入参数很丰富, 也更复杂
+
+本章先介绍一些常用的宏, 随后介绍 Rust 支持的两种宏写法:
+
+- 声明宏 Declarative Macros
+- 过程宏 Proc Macros

@@ -18,6 +18,7 @@
 - [cheats.rs](https://github.com/ralfbiedert/cheats.rs) - Rust Language Cheat Sheet
 - [Learn Rust the Dangerous Way](https://cliffle.com/p/dangerust/)
 - [Comprehensive Rust](https://github.com/google/comprehensive-rust)
+- [rust course](https://github.com/sunface/rust-course)
 - [Rust for C++ programmers](https://github.com/nrc/r4cppp)
 - [Rust Quiz](https://github.com/dtolnay/rust-quiz)
 
