@@ -295,6 +295,7 @@
     - [代码覆盖率 Code Coverage](test/code-coverage.md)
 - [库 Crates](crates/index.md)
     - [文档与注释](crates/doc.md)
+    - [指定使用特定的工具链 Custom Toolchain](crates/custom-toolchain.md)
     - [Cargo 基础](crates/cargo-guide.md)
     - [Cargo 配置](crates/cargo-config.md)
     - [引用外部库](crates/use-crates.md)
