@@ -17,6 +17,25 @@ assert_eq!(size_of_val(&char_a), 4);
 
 ## char 的内存布局
 
+上面提到了, char 占用4个字节.
+我们可以用代码来验证它:
+
+```rust
+{{#include assets/char-values.rs:5: }}
+```
+
+然后在调试器中, 分别查看两个变量的内存, 可以看到 `you` 的内存取值是 `0b0000 4f60`:
+
+![char you](assets/char-you.png)
+
+而字符`'a'`的内存取值是 `0b0000 0061`:
+
+![char a](assets/char-a.png)
+
+## char 常用方法
+
+## char 转换为整数
+
 ## 参考
 
 - [Unicode.org](https://home.unicode.org/)
