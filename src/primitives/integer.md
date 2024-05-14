@@ -40,6 +40,30 @@ assert_eq!(x as i64, 42i64);
 
 ## 整数类型的内存布局 - 大小端
 
+什么是大小端?
+
+- 大端 big endian: 把数据的高字节位(MSB, most significant byte)保存在内存的低地址中; 而把低字节位(LSB, least significant
+  byte)保存在内存的高低地址中
+- 小端 little endian: 把数据的高字节位保存在内存的高低地址中; 而把低字节位保存在内存的低地址中
+
+我们以 `let count: i32 = 0x12345678;` 为例来说明它的内存结构.
+
+```rust
+{{#include assets/endian-of-i32.rs:5: }}
+```
+
+在常用的小端的系统里, 它的布局是这样的:
+
+![i32 with little endian](assets/i32-with-little-endian.svg)
+
+我们可以通过调试器来检查:
+
+![endian of i32](assets/endian-of-i32.png)
+
+在不常见的大端系统里, 它是这样的:
+
+![i32 with big endian](assets/i32-with-big-endian.svg)
+
 ## 数值运算时溢出 overflow/underflow/wrapping
 
 先看一段C代码:
