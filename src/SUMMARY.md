@@ -6,8 +6,8 @@
 
 - [配置开发环境](dev-env/index.md)
     - [使用 rustup 配置 Rust 工具链](dev-env/rustup.md)
+    - [第一个 rust 程序 hello world](dev-env/hello-world.md)
     - [RustRover IDE](dev-env/rustrover.md)
-    - [CLion + rust 插件](dev-env/clion.md)
     - [VS Code](dev-env/vscode.md)
 - [基础数据类型 Primitives](primitives/index.md)
     - [整数类型](primitives/integer.md)
