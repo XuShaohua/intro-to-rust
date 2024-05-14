@@ -276,6 +276,10 @@
     - [smol 库](async/smol.md)
     - [如何调试 debug](async/debug.md)
     - [IO uring](async/io-uring.md)
+- [并行计算 Parallel Computing](parallel/index.md)
+    - [SIMD 基础](parallel/simd-basic.md)
+    - [SIMD 实践](parallel/simd-examples.md)
+    - [CUDA](parallel/cuda.md)
 
 # 第五部分: 工程实践
 
@@ -345,9 +349,17 @@
     - [使用外部库中的函数](ffi/function-from-libraries.md)
     - [使用 CC 编译C代码并链接到内部](ffi/cc.md)
     - [自动生成语言绑定](ffi/binding.md)
+- [数据结构与算法 Algorithms](algs.md)
 
 # 第六部分: Rust语言的生态
 
+- [新特性 Unstable Features](unstable/index.md)
+    - [portable simd](unstable/portable-simd.md)
+- [第三方库 crates.io](crates.io/index.md)
+    - [数据序列化 serde](crates.io/serde.md)
+    - [smallvec](crates.io/smallvec.md)
+    - [时间 Time](crates.io/time.md)
+- [分布式系统 Distributed System](distributed-systems/index.md)
 - [网络编程 Network Programming](network/index.md)
     - [HTTP 请求: reqwest 库](network/reqwest.md)
     - [Web 服务: hyper 库](network/hyper.md)
@@ -356,8 +368,6 @@
     - [openssl 的原生实现: rustls 库](network/rustls.md)
     - [QUIC 协议: quinn 库](network/quinn.md)
     - [gRPC 服务: tonic 库](network/tonic.md)
-- [分布式系统](distributed-systems/index.md)
-- [数据结构与算法](algs.md)
 - [WebAssembly](wasm/index.md)
     - [WebAssembly 系统接口 wasi](wasm/wasi.md)
     - [基于 LLVM 的编译器 emscripten](wasm/emscripten.md)
@@ -409,11 +419,5 @@
         - [策略模式 Strategy](design-patterns/behavioral/strategy.md)
         - [装态模式 State](design-patterns/behavioral/state.md)
         - [模板方法模式 Template Method](design-patterns/behavioral/template-method.md)
-- [新特性 Unstable Features](unstable/index.md)
-    - [portable simd](unstable/portable-simd.md)
-- [第三方库 crates.io](crates.io/index.md)
-    - [数据序列化 serde](crates.io/serde.md)
-    - [smallvec](crates.io/smallvec.md)
-    - [时间 Time](crates.io/time.md)
 
 [参考资料](ref.md)
