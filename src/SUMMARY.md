@@ -10,13 +10,12 @@
     - [RustRover IDE](dev-env/rustrover.md)
     - [VS Code](dev-env/vscode.md)
 - [基础数据类型 Primitives](primitives/index.md)
-    - [整数类型](primitives/integer.md)
-    - [浮点类型](primitives/floating-point.md)
-    - [布尔类型](primitives/bool.md)
+    - [整数类型 Integers](primitives/integer.md)
+    - [浮点类型 Floating Point Numbers](primitives/floating-point.md)
+    - [布尔类型 Boolean](primitives/bool.md)
     - [字符 char](primitives/char.md)
     - [数组 array](primitives/array.md)
     - [元组 tuple](primitives/tuple.md)
-    - [unit](primitives/unit.md)
     - [切片 slice](primitives/slice.md)
     - [字符串切片 str](primitives/str.md)
     - [指针 pointer](primitives/pointer.md)
@@ -349,10 +348,10 @@
     - [使用外部库中的函数](ffi/function-from-libraries.md)
     - [使用 CC 编译C代码并链接到内部](ffi/cc.md)
     - [自动生成语言绑定](ffi/binding.md)
-- [数据结构与算法 Algorithms](algs.md)
 
 # 第六部分: Rust语言的生态
 
+- [数据结构与算法 Algorithms](algs.md)
 - [新特性 Unstable Features](unstable/index.md)
     - [portable simd](unstable/portable-simd.md)
 - [第三方库 crates.io](crates.io/index.md)
