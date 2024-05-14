@@ -4,6 +4,8 @@
 
 #[allow(clippy::eq_op)]
 fn main() {
+    let _is_checked = false;
+    let _is_hover = true;
     assert_eq!(false.then_some(0), None);
     assert_eq!((1 + 1 == 2).then_some(2), Some(2));
 }
