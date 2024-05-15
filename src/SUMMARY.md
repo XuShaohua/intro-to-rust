@@ -59,7 +59,7 @@
 # 第二部分: 自定义类型
 
 - [结构体 Structs](structs/index.md)
-    - [定义方法 impl](structs/impl.md)
+    - [定义方法 Implementation](structs/impl.md)
     - [常量 const](structs/const.md)
     - [静态变量 static](structs/static.md)
     - [内存布局 Memory Layout](structs/layout.md)
@@ -235,9 +235,11 @@
         - [互斥琐 Mutex 与 MutexGuard](concurrency/shared-mutable-state/mutex.md)
         - [在用户空间实现的快速锁 futex](concurrency/shared-mutable-state/futex.md)
         - [读写锁 RwLock 与 RwLockGuards](concurrency/shared-mutable-state/rwlock.md)
+        - [自旋锁 Spinlock](concurrency/shared-mutable-state/spinlock.md)
         - [OnceLock](concurrency/shared-mutable-state/once_lock.md)
         - [LazyLock](concurrency/shared-mutable-state/lazy-lock.md)
         - [Barrier](concurrency/shared-mutable-state/barrier.md)
+        - [信号量 Semaphore](concurrency/shared-mutable-state/semaphore.md)
         - [条件变量 CondVar](concurrency/shared-mutable-state/condvar.md)
         - [Memory Order](concurrency/shared-mutable-state/memory-order.md)
         - [原子操作 Atomic](concurrency/shared-mutable-state/atomic.md)

@@ -3,17 +3,19 @@
 // in the LICENSE file.
 
 #[must_use]
+#[inline]
 pub fn nearly_equal_tolerance(p1: f64, p2: f64, tolerance: f64) -> bool {
     (p1 - p2).abs() < tolerance
 }
 
 #[must_use]
+#[inline]
 pub fn nearly_equal(p1: f64, p2: f64) -> bool {
     nearly_equal_tolerance(p1, p2, f64::EPSILON)
 }
 
-#[inline]
 #[must_use]
+#[inline]
 pub fn nearly_is_zero(p: f64) -> bool {
     nearly_equal(p, 0.0)
 }

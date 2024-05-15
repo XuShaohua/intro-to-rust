@@ -1,2 +1,1 @@
-
-# Impl
+# 定义方法 Implementation
