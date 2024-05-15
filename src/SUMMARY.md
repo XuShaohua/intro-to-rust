@@ -59,9 +59,10 @@
 # 第二部分: 自定义类型
 
 - [结构体 Structs](structs/index.md)
-    - [定义方法 Implementation](structs/impl.md)
-    - [常量 const](structs/const.md)
-    - [静态变量 static](structs/static.md)
+    - [定义结构体 Definition](structs/definition.md)
+    - [定义方法 Implementation](structs/implementation.md)
+    - [常量 Const](structs/const.md)
+    - [静态变量 Static](structs/static.md)
     - [内存布局 Memory Layout](structs/layout.md)
 - [枚举 Enums](enums/index.md)
     - [内存布局 Memory Layout](enums/layout.md)

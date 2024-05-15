@@ -1,17 +1,15 @@
 # 基础数据类型 Primitives
 
 本章介绍Rust的基础数据类型, 比如整数, 浮点数, 元组等, 后面的章节会接触到更复杂的类型, 比如Box,
-Vec, Atomic等.
+Vec, Atomic等, 以及结构体, 枚举, traits.
 
-除了基础数据类型之外, Rust 还支持三种主要的用户自定义类型:
+常见的编程语言都有相似的基础数据类型, 我们以 C/C++ 以及 Python 为参考对象, 列出了 Rust 与它们的相同点和不同点.
 
-- [结构体](../structs/index.md)
-- [枚举](../enums/index.md)
-- [trait](../traits/index.md)
+更详细的信息, 可以参考[标准库的文档](https://doc.rust-lang.org/stable/std/primitive/)
 
-## 参考
+本章目标:
 
-更详细的信息, 可以参考以下模块的文档:
-
-- [primitive](https://doc.rust-lang.org/stable/std/primitive/)
-- [slice](https://doc.rust-lang.org/stable/std/slice/index.html)
+- 了解基础数据类型有哪些, 及其常用的操作函数
+- 理解这些数据类型的内存布局
+- 熟练掌握切片 (slice) 的用法, 因为它在日常的编码过程中使用频率非常高
+- 了解类型别名和类型转换

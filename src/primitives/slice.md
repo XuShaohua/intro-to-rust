@@ -61,3 +61,7 @@ do_something(&xs[1..3]);
 ```
 
 其实 Slice 本身的类型签名是 `[T]`, 但在代码中并不能直接使用这个类型.
+
+## 参考
+
+- [slice](https://doc.rust-lang.org/stable/std/slice/index.html)
