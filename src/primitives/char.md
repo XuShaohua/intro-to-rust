@@ -32,9 +32,39 @@ assert_eq!(size_of_val(&char_a), 4);
 
 ![char a](assets/char-a.png)
 
-## char 常用方法
+## char 的常用方法
+
+- 大小写转换
+    - `to_lowercase()`
+    - `to_uppercase()`
+    - `to_ascii_lowercase()`
+    - `to_ascii_uppercase()`
+    - `make_ascii_lowercase()`
+    - `make_ascii_uppercase()`
+- 从 `u32` 转成 char, 因为 char 的取值范围更小
+    - `from_u32()`
+    - `from_u32_unchecked()`
+- 判断字符的范围
+    - `is_alphabetic()`
+    - `is_alphanumeric()`
+    - `is_ascii_alphabetic()`
+    - `is_ascii_alphabetic()`
+    - `is_ascii()`
+    - `is_control()`
+    - `is_ascii_control()`
+    - `is_digit()`
+    - `is_ascii_digit()`
+    - `is_lowercase()`
+    - `is_uppercase()`
+    - `is_ascii_lowercase()`
+    - `is_ascii_uppercase()`
+    - `is_whitespace()`
+    - `is_ascii_whitespace()`
 
 ## char 转换为整数
+
+- `to_digit(self, radix: u32) -> Option<u32>`, 将字符转换成 u32 类型的整数
+- `is_ascii_digit(&self) -> bool`, 判断字符的范围是不是位于 `'0' ..= '9'`
 
 ## 参考
 
