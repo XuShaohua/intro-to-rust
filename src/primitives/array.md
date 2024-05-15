@@ -33,8 +33,12 @@ pub use type Array<T, N> = [T; N];
 
 数组的操作方法, 比如 `arr.len()`, 都是隐式地将它先转换成相应的[切片 slice](slice.md), 再调用切片提供的方法.
 
-- `as_slice()`, `as_mut_slice()`
-- `each_ref()`, `each_mut()`
+- `as_slice()`, `as_mut_slice()`, 显式地转换成切片 (`[T]`), 这样就可以调用切片的方法
+- `each_ref()`, `each_mut()`, 转换成新的数组, 新数组中每个元素的值是对当前数组中同一个位置元素的引用
+
+```rust
+{{#include assets/array-of-string.rs:5: }}
+```
 
 ## 参考
 
