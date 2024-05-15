@@ -1,0 +1,1 @@
+../../../code/primtives/src/bin/array-of-prime-numbers.rs
