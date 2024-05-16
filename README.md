@@ -4,7 +4,7 @@
 
 [在线浏览](https://rust.biofan.org), 或者[下载 pdf 文件](https://share.biofan.org/intro-to-rust.pdf).
 
-目前, 本文档包括了六个部分的内容:
+本文档包括了六个部分的内容:
 1. 第一部分: 语言基础
 2. 第二部分: 自定义类型
 3. 第三部分: 标准库
@@ -14,7 +14,7 @@
 
 ## 反馈问题
 
-欢迎[反馈问题](https://github.com/xushaohua/intro-to-rust/issues), 或者提交 PR.
+欢迎 [反馈问题](https://github.com/xushaohua/intro-to-rust/issues), 或者提交 PR.
 
 ## 搭建本地环境
 
@@ -40,5 +40,4 @@
 sudo apt install pandoc librsvg2-bin texlive-latex-recommended latex-cjk-all texlive-xetex
 ```
 
-安装好依赖之后, 运行 `./tools/generate-pdf.sh` 命令, 就会生成 `book-pandoc/intro-to-rust.pdf` 文件.
-
+安装好依赖之后, 运行 `./tools/generate-pdf.sh` 命令, 就会生成 `book-pandoc/intro-to-rust.pdf`.
