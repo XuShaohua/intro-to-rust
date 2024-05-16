@@ -91,6 +91,6 @@ fn main() -> () {
 占用了24个字节呢? 这个与内存对齐 (memory alignment) 有关系:
 
 - 尽管 `tuple.2` 是 `bool`类型, 但它占了4个字节, 其中的3个字节用作填充 (padding)
-- `tuple.3` 是 `char` 类型, 它本身只需要4个字节, 但它后面又多出了4个字节, 后面的4个字节也被用处填充
+- `tuple.3` 是 `char` 类型, 它本身只需要4个字节, 但它后面又多出了4个字节, 后面的4个字节也被用作填充
 
 ![tuple mem layout](assets/tuple-mem-layout.svg)
