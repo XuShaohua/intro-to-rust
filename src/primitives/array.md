@@ -42,9 +42,6 @@ pub use type Array<T, N> = [T; N];
 看内存里的内容, 可以发现 `arr` 确实是一个存储相同元素大小 (i32) 连续内存块, 其占用的内存大小为
 `4 * 6 = 24` 24个字节.
 
-另外, 它是直接存储在进程的栈空间的, 并不是存放在堆内存上.
-所以, array 占用的空间不能太大, 否则会出现 `stack overflow` 等问题:
-
 其它几个变量都是指针类型, 但里面的指针都指向的是 `arr` 的内存地址:
 
 - `addr`, 直接调用 `addr_of!()` 宏, 返回对象的内存地址, 它不需要创建临时对象
@@ -54,6 +51,21 @@ pub use type Array<T, N> = [T; N];
 把上面的内存块经过抽像处理后, 可以得到各变量的内存布局图:
 
 ![array mem layout](assets/array-mem-layout.svg)
+
+另外, `arr` 是直接存储在进程的栈空间的, 并不是存放在堆内存上. 所以, 数组占用的空间不能太大,
+否则会出现 `stack overflow` 等问题:
+
+```rust
+{{#include assets/array-overflow.rs:5: }}
+```
+
+这个程序会运行失败, 输出如下错误:
+
+```bash
+thread 'main' has overflowed its stack
+fatal runtime error: stack overflow
+Aborted (core dumped)
+```
 
 ## 数组的常用方法
 

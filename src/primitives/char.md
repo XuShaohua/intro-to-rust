@@ -24,11 +24,11 @@ assert_eq!(size_of_val(&char_a), 4);
 {{#include assets/char-values.rs:5: }}
 ```
 
-然后在调试器中, 分别查看两个变量的内存, 可以看到 `you` 的内存取值是 `0b0000 4f60`:
+然后在调试器中, 分别查看两个变量的内存, 可以看到 `'你'` 的内存值是 `0b0000 4f60`:
 
 ![char you](assets/char-you.png)
 
-而字符`'a'`的内存取值是 `0b0000 0061`:
+而字符`'a'`的内存值是 `0b0000 0061`:
 
 ![char a](assets/char-a.png)
 
