@@ -41,3 +41,4 @@ assert_eq!(pos_sum, 4294967254);
 
 - [From/Into](../common-traits/from-into.md)
 - [TryFrom/TryInto](../common-traits/try-from-try-into.md)
+- [mem::transmute](../mem/mem/transmute.md)

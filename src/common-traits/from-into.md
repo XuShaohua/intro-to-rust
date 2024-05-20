@@ -56,5 +56,6 @@ impl From<&str> for Vec<u8> {
 
 ## 其它转换方式
 
-- [基础数据类型使用 as](../primitives/cast.md)
+- [Casting](../primitives/cast.md)
 - [TryFrom/TryInto](../common-traits/try-from-try-into.md)
+- [mem::transmute](../mem/mem/transmute.md)

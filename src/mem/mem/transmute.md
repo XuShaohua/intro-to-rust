@@ -12,3 +12,9 @@
 ```C
 {{#include assets/mem-transmute.c:5: }}
 ```
+
+## 其它转换方式
+
+- [Casting](../../primitives/cast.md)
+- [From/Into](../../common-traits/from-into.md)
+- [TryFrom/TryInto](../../common-traits/try-from-try-into.md)
