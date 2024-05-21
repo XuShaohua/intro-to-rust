@@ -47,6 +47,7 @@
     - [引用的内存结构](references/mem-layout.md)
     - [引用的安全性](references/ref-safety.md)
     - [reborrow](references/reborrow.md)
+    - [借用检查器 Borrow Checker](references/borrow-checker.md)
 - [生命周期 Lifetimes](lifetimes/index.md)
     - [标注生命周期 Lifetime marker](lifetimes/lifetime-marker.md)
     - [泛型生命周期](lifetimes/generic-lifetime.md)
