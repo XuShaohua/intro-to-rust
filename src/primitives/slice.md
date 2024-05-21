@@ -75,3 +75,38 @@ assert_eq!(part, &[1, 2]);
 - 连续存储的元素个数
 
 ![slice mem layout](assets/slice-mem-layout.svg)
+
+## 切片常用方法
+
+切片本身提供了很丰富的函数, 操作数组(array), 动态数组(vector)以及字符串时, 会非常频繁地使用这些接口.
+
+### is_empty(), len()
+
+### iter(), iter_mut()
+
+### contains(), starts_with(), ends_with()
+
+### swap(), swap_with_slice()
+
+### reverse(), rotate_left(), rotate_right()
+
+### split(), split_first()
+
+### sort(), sort_unstable()
+
+### as_ptr(), as_mut_ptr()
+
+这两个函数将引用切片转换成原始指针, 原始指针指向的内存地址就是 `buffer ptr` 指向的地址 ,
+它们返回的指针类型分别是 `*const T` 和 `*mut T`.
+
+```rust
+{{#include assets/slice-as-ptr.rs:5: }}
+```
+
+### concat(), join()
+
+### copy_from_slice(), clone_from_slice()
+
+### fill(), fill_with(), repeat()
+
+### first(), first_mut(), last(), last_mut()
