@@ -198,6 +198,47 @@ assert_eq!(nums, [0, 2, 3, 5, 2]);
 
 ### reverse(), rotate_left(), rotate_right()
 
+这一组函数用于批量移动切片中的元素, 它们的函数声明如下:
+
+```rust, ignore
+pub fn reverse(&mut self);
+pub fn rotate_left(&mut self, mid: usize);
+pub fn rotate_right(&mut self, k: usize);
+```
+
+其中, `reverse()`, 原地前后互转切片中的所有元素, 第一个元素与最后一个互换, 第二个元素与倒数第二个互换, 以此类推.
+看一个 `reverse()` 的示例:
+
+```rust
+{{#include assets/slice-reverse.rs:5: }}
+```
+
+过程如下图所示:
+
+![slice reverse](assets/slice-reverse.svg)
+
+函数 `rotate_left(mid)`, 将所有的元素原地左移 `mid` 个位置, 这样的话原本处于 `mid` 位置的元素就被移到了左侧第一个位置.
+看一个示例程序:
+
+```rust
+{{#include assets/slice-rotate-left.rs:5: }}
+```
+
+整个过程如下图所示:
+
+![slice rotate left](assets/slice-rotate-left.svg)
+
+函数 `rotate_right(k)`, 将所有的元素原地右移 `k` 个位置, 这样的话原本处于从右数第 `k` 个位置的元素就被移到了左侧第一个位置.
+看一个示例代码:
+
+```rust
+{{#include assets/slice-rotate-right.rs:5: }}
+```
+
+整个过程如下图所示:
+
+![slice rotate right](assets/slice-rotate-right.svg)
+
 ### split(), split_first()
 
 ### sort(), sort_unstable()
