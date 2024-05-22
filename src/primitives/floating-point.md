@@ -55,11 +55,21 @@ IEEE 754 标准定义的浮点数, 在常见的编程语言中均有实现, 例�
 - `round()`, `ceil()`, `floor()`, 浮点数四舍五入近似计算, 转为整数
 - `is_finite()`, `is_infinite()`, `is_nan()` 等判断特殊整数
 - `is_sign_negative()`, `is_sign_positive()`, `signum()` 等处理浮点的符号位
+- `min()`, `max()`, `clamp()` 用于限制浮点数的取值范围
 
 ## 比较两个浮点数是否相等
 
-两个浮点数之间并不能直接比较它们是否相等, 也不能直接判断一个浮点数是不是等于 `0.0`.
-因为浮点数不是精确的数, 但我们可以比较它们之间是不是近似相等:
+两个浮点数之间并不能直接比较它们是否相等, 也不能直接判断一个浮点数是不是等于 `0.0`,
+因为浮点数不是精确的数, 浮点数并没有实现 `Ord` trait.
+
+`total_cmp()` 方法可以缓解一部分限制, 它基于 IEEE 754 中的 `totalOrder` 规则,
+该方法常用于浮点数的排序.
+
+```rust
+{{#include assets/float-total-cmp.rs:5: }}
+```
+
+有时还需要比较浮点数值之间是不是近似相等:
 
 ```rust
 {{#include assets/float-nearly-equal.rs:5: }}

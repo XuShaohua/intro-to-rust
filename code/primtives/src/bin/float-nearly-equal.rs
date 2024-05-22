@@ -24,10 +24,9 @@ fn main() {
     let a: f64 = 0.15 + 0.15 + 0.15;
     let b: f64 = 0.1 + 0.1 + 0.25;
     println!("{a} != {b}");
-    // Fails, because they are not exactly equal
+    // a 和 b 并不精确相等.
     assert_ne!(a, b);
     assert!(nearly_equal(a, b));
-
     assert!(!nearly_equal(f64::INFINITY, f64::INFINITY));
     assert!(!nearly_equal(f64::NAN, f64::INFINITY));
 }
