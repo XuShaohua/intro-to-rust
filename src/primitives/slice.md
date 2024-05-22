@@ -82,9 +82,58 @@ assert_eq!(part, &[1, 2]);
 
 ### is_empty(), len()
 
+这两个函数都会访问切片的 `length` 属性, 使用方法也很简单. 但有一点要注意的, 这两个函数都是常量函数.
+
+```rust, ignore
+pub const fn len(&self) -> usize;
+pub const fn is_empty(&self) -> bool;
+```
+
+### as_ptr(), as_mut_ptr()
+
+这两个函数将引用切片转换成原始指针, 原始指针指向的内存地址就是切片的 `buffer ptr` 属性指向的地址,
+它们返回的指针类型分别是 `*const T` 和 `*mut T`.
+
+```rust
+{{#include assets/slice-as-ptr.rs:5: }}
+```
+
 ### iter(), iter_mut()
 
+这一组函数获取切片的迭代器, 它们经常被使用, 分别返回不可变更迭代器 (immutable iterator) 和可变更迭代器.
+
+```rust, ignore
+pub fn iter(&self) -> Iter<'_, T>;
+pub fn iter_mut(&mut self) -> IterMut<'_, T>;
+```
+
+上面 `as_mut_ptr()` 的示例代码, 可以用迭代器来重写:
+
+```rust
+{{#include assets/slice-iter.rs:5: }}
+```
+
 ### contains(), starts_with(), ends_with()
+
+这一组函数用于检查切片中是否包含某个或某些元素:
+
+```rust, ignore
+pub fn contains(&self, x: &T) -> bool where T: PartialEq;
+pub fn ends_with(&self, needle: &[T]) -> bool where T: PartialEq;
+pub fn starts_with(&self, needle: &[T]) -> bool where T: PartialEq;
+```
+
+- `contains()`, 遍历切片, 依次检查元素是否与给定的值相等, 时间复杂度是 `O(n)`
+- `starts_with()`, 检查切片是否以某个子切片开始, 用于判断前缀
+- `ends_with()`, 检查切片是否以某个子切片结尾, 用于判断后缀
+
+看下面的示例代码:
+
+```rust
+{{#include assets/slice-contains.rs:5: }}
+```
+
+### get(), get_mut(), first(), first_mut(), last(), last_mut()
 
 ### swap(), swap_with_slice()
 
@@ -94,13 +143,42 @@ assert_eq!(part, &[1, 2]);
 
 ### sort(), sort_unstable()
 
-### as_ptr(), as_mut_ptr()
+对切片做排序, 其中:
 
-这两个函数将引用切片转换成原始指针, 原始指针指向的内存地址就是 `buffer ptr` 指向的地址 ,
-它们返回的指针类型分别是 `*const T` 和 `*mut T`.
+- `sort()` 是稳定排序
+    - 基于归并排序 (merge sort) 实现的
+    - 时间复杂度是 `O(n * log(n))`
+    - 空间复杂度是 `O(n)`
+    - 如果切片中的元素比较少, 会使用插入排序代替
+- `sort_unstable()` 是不稳定排序
+    - 基于快速排序 (quick sort) 实现的
+    - 时间复杂度是 `O(n * log(n))`
+    - 空间复杂度是 `O(1)`
+
+它们还有一些辅助函数, 可以指定排序函数, 比如 `sort_by()`, `sort_by_key()`.
+
+下面展示一个示例程序:
 
 ```rust
-{{#include assets/slice-as-ptr.rs:5: }}
+{{#include assets/slice-sort.rs:5: }}
+```
+
+### binary_search(), binary_search_by(), binary_search_by_key()
+
+这一组方法, 使用二分法查找切片中是否包含某个值, 在调用该函数前要确保切片中的元素已经被排序了, 否则该操作没有意义.
+上面介绍的 `contains()` 方法是从头到尾线性遍历切片, 比较慢, 但是不要求切片是排序的.
+
+```rust, ignore
+pub fn binary_search(&self, x: &T) -> Result<usize, usize> where T: Ord;
+pub fn binary_search_by<'a, F>(&'a self, f: F) -> Result<usize, usize> where F: FnMut(&'a T) -> Ordering;
+pub fn binary_search_by_key<'a, B, F>(&'a self, b: &B, f: F) -> Result<usize, usize> where F: FnMut(&'a T) -> B, B: Ord;
+```
+
+可以看到, binary_search() 是要求类型 `T` 实现 `Ord` trait 的, 但有时切片中的类型并不会实现它, 比如浮点类型的 f32, f64.
+为此, 我们可以使用该组中的其它函数来绕过限制, 可以看看下面的示例代码:
+
+```rust
+{{#include assets/slice-binary-search.rs:5: }}
 ```
 
 ### concat(), join()
@@ -108,5 +186,3 @@ assert_eq!(part, &[1, 2]);
 ### copy_from_slice(), clone_from_slice()
 
 ### fill(), fill_with(), repeat()
-
-### first(), first_mut(), last(), last_mut()
