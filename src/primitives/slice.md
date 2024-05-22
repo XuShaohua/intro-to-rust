@@ -135,7 +135,46 @@ pub fn starts_with(&self, needle: &[T]) -> bool where T: PartialEq;
 
 ### get(), get_mut(), first(), first_mut(), last(), last_mut()
 
+这一组方法用于获取切片中某个索引位置的元素, 它们都会返回 `Option<T>` 值, 因为不确定索引是否有效.
+
+```rust, ignore
+pub fn get<I>(&self, index: I) -> Option<&<I as SliceIndex<[T]>>::Output>
+  where I: SliceIndex<[T]>;
+pub fn get_mut<I>(&mut self, index: I) -> Option<&mut <I as SliceIndex<[T]>>::Output> 
+  where I: SliceIndex<[T]>;
+pub const fn first(&self) -> Option<&T>;
+pub fn first_mut(&mut self) -> Option<&mut T>;
+pub const fn last(&self) -> Option<&T>;
+pub fn last_mut(&mut self) -> Option<&mut T>;
+```
+
+- `get()` 和 `get_mut()`, 需要指定元素的索引位置, 分别返回不可变引用和可变引用
+- `first()` 和 `first_mut()`, 返回切片中的第一个元素, 如果切片是空的, 就返回None
+- `last()` 和 `last_mut()`, 返回切片的最后一个元素, 如果切片是空的, 就返回 None
+
+看一下示例程序:
+
+```rust
+{{#include assets/slice-get.rs:5: }}
+```
+
 ### swap(), swap_with_slice()
+
+这一组方法用于交换切片中的元素, 但它们有明显的区别:
+
+- `swap()` 用于交换切片内的不同位置的元素
+- `swap_with_slice()` 用于交换两个相同长度的切片的所有元素
+
+```rust, ignore
+pub fn swap(&mut self, a: usize, b: usize);
+pub fn swap_with_slice(&mut self, other: &mut [T]);
+```
+
+比如, 下面的插入排序算法就会频繁地调用 `swap()` 方法:
+
+```rust
+{{#include assets/insertion-sort.rs:5: }}
+```
 
 ### reverse(), rotate_left(), rotate_right()
 
