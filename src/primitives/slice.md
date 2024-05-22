@@ -239,7 +239,38 @@ pub fn rotate_right(&mut self, k: usize);
 
 ![slice rotate right](assets/slice-rotate-right.svg)
 
-### split(), split_first()
+### split(), split_at(), split_at_mut()
+
+这一组函数将切片分隔开来. 它们的函数声明如下:
+
+```rust, ignore
+pub fn split<F>(&self, pred: F) -> Split<'_, T, F> ⓘ
+    where F: FnMut(&T) -> bool;
+pub const fn split_at(&self, mid: usize) -> (&[T], &[T]);
+pub fn split_at_mut(&mut self, mid: usize) -> (&mut [T], &mut [T]);
+```
+
+其中 `split()` 以给定的函数来分隔切片, 并返回一个迭代器. 看一个例子:
+
+```rust
+{{#include assets/slice-split.rs:5: }}
+```
+
+整个操作如下图所示:
+
+![slice split](assets/slice-split.svg)
+
+而 `split_at()` 和 `split_at_mut()` 则把切片从某个索引位置分开, 分成左右两部分切片.
+其中 `split_at()` 返回的都是不可变更切片, 而 `split_at_mut()` 则返回的是可变更切片.
+下面看一个示例程序:
+
+```rust
+{{#include assets/slice-split-at-mut.rs:5: }}
+```
+
+整个操作如下图所示:
+
+![slice split at mut](assets/slice-split-at-mut.svg)
 
 ### sort(), sort_unstable()
 
