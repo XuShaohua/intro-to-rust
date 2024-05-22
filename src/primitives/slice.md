@@ -133,6 +133,10 @@ pub fn starts_with(&self, needle: &[T]) -> bool where T: PartialEq;
 {{#include assets/slice-contains.rs:5: }}
 ```
 
+操作过程如下图所示:
+
+![slice contains](assets/slice-contains.svg)
+
 ### get(), get_mut(), first(), first_mut(), last(), last_mut()
 
 这一组方法用于获取切片中某个索引位置的元素, 它们都会返回 `Option<T>` 值, 因为不确定索引是否有效.
@@ -158,6 +162,10 @@ pub fn last_mut(&mut self) -> Option<&mut T>;
 {{#include assets/slice-get.rs:5: }}
 ```
 
+操作过程如下图所示:
+
+![slice get](assets/slice-get.svg)
+
 ### swap(), swap_with_slice()
 
 这一组方法用于交换切片中的元素, 但它们有明显的区别:
@@ -169,6 +177,18 @@ pub fn last_mut(&mut self) -> Option<&mut T>;
 pub fn swap(&mut self, a: usize, b: usize);
 pub fn swap_with_slice(&mut self, other: &mut [T]);
 ```
+
+以下代码片段演示了 `swap()` 的用法:
+
+```rust
+let nums = [0, 5, 3, 2, 2];
+nums.swap(1, 3);
+assert_eq!(nums, [0, 2, 3, 5, 2]);
+```
+
+交换的方式如下图所示:
+
+![slice swap](assets/slice-swap.svg)
 
 比如, 下面的插入排序算法就会频繁地调用 `swap()` 方法:
 
