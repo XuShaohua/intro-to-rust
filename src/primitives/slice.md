@@ -359,4 +359,22 @@ pub fn clone_from_slice(&mut self, src: &[T]) where T: Clone;
 
 ### fill(), fill_with()
 
+这一组函数用特定的值重新填充整个切片.
+
+它们的函数声明如下:
+
+```rust, ignore
+pub fn fill(&mut self, value: T) where T: Clone;
+pub fn fill_with<F>(&mut self, f: F) where F: FnMut() -> T;
+```
+
+- `fill(value)`, 使用给定的值来填充
+- `fill_with(f)`, 调用指定的函数来填充
+
+举一个例子:
+
+```rust
+{{#include assets/slice-fill.rs:5: }}
+```
+
 ### concat(), join()
