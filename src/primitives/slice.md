@@ -268,7 +268,7 @@ pub fn split_at_mut(&mut self, mid: usize) -> (&mut [T], &mut [T]);
 {{#include assets/slice-split-at-mut.rs:5: }}
 ```
 
-整个操作如下图所示:
+切片的分隔情况如下图所示:
 
 ![slice split at mut](assets/slice-split-at-mut.svg)
 
@@ -312,8 +312,51 @@ pub fn binary_search_by_key<'a, B, F>(&'a self, b: &B, f: F) -> Result<usize, us
 {{#include assets/slice-binary-search.rs:5: }}
 ```
 
-### concat(), join()
+### to_vec(), repeat()
+
+这一组函数将切片转换成动态数组 `Vec<T>`.
+
+`to_vec()` 将切片转换成数组, 并拷贝切片中所有的元素, 类似于这样写: `slice.iter().collect()`.
+
+`repeat(n)` 将切片转换成数组, 并重复 `n` 次拷贝切片中的所有元素.
+
+```rust, ignore
+pub fn to_vec(&self) -> Vec<T> where T: Clone;
+pub fn repeat(&self, n: usize) -> Vec<T> where  T: Copy;
+```
+
+看一个小例子:
+
+```rust
+{{#include assets/slice-to-vec.rs:5: }}
+```
+
+操作过程如下图所示:
+
+![slice to vec](assets/slice-to-vec.svg)
 
 ### copy_from_slice(), clone_from_slice()
 
-### fill(), fill_with(), repeat()
+这一组函数用于批量替换切片中的元素, 它们的差别在于:
+
+- `copy_from_slice()` 要求类型 `T` 实现 `Copy` trait
+- `clone_from_slice()` 要求类型 `T` 实现 `Clone` trait
+
+它们的函数声明如下:
+
+```rust, ignore
+pub fn copy_from_slice(&mut self, src: &[T]) where T: Copy;
+pub fn clone_from_slice(&mut self, src: &[T]) where T: Clone;
+```
+
+要注意的是, 当前切片的长度应该等于源切片 `src` 的长度, 否则程序就会崩溃.
+
+看一下示例程序:
+
+```rust
+{{#include assets/slice-clone-from-slice.rs:5: }}
+```
+
+### fill(), fill_with()
+
+### concat(), join()
