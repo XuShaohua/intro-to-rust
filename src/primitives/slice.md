@@ -378,3 +378,24 @@ pub fn fill_with<F>(&mut self, f: F) where F: FnMut() -> T;
 ```
 
 ### concat(), join()
+
+这一组函数用于将两个切片中的元素合并到一起, 并且生成新的对象.
+
+它们的函数声明如下:
+
+```rust, ignore
+pub fn concat<Item>(&self) -> <[T] as Concat<Item>>::Output
+    where [T]: Concat<Item>, Item: ?Sized;
+pub fn join<Separator>(&self, sep: Separator) -> <[T] as Join<Separator>>::Output
+    where [T]: Join<Separator>;
+```
+
+看下面一个例子:
+
+```rust
+{{#include assets/slice-join.rs:5: }}
+```
+
+操作过程参考下图:
+
+![slice join](assets/slice-join.svg)
