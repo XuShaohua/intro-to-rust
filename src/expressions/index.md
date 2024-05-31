@@ -14,4 +14,4 @@ fn main() {
 }
 ```
 
-在 C 语言中, expression 有值, statement 则没有.
+表达式 expression 有值, statement 则没有.
