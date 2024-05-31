@@ -1,4 +1,31 @@
-# if 条件判断
+# 条件判断 if 与 if let
+
+条件判断表达式在代码里特别常见, 给定一个条件, 如果它的值是 `true`, 就执行 if 表达式内部的代码块.
+
+```rust, ignore
+if some_condition {
+  do_some();
+}
+```
+
+跟 C/C++ 等语言不同之处在于, `some_condition` 表达式返回值的类型必须是 `bool`, 这里不进行
+隐式类型转换.
+
+```C
+int x = 42;
+if (x) {
+  do_some();
+}
+```
+
+像上面的代码片段, 如果用 rust 重写的话, 必须要先把隐藏的条件补充完成:
+
+```rust, ignore
+let x = 42;
+if x != 0 {
+  do_some();
+}
+```
 
 ## if let
 
