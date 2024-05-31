@@ -3,17 +3,17 @@
 条件判断表达式在代码里特别常见, 给定一个条件, 如果它的值是 `true`, 就执行 if 表达式内部的代码块.
 
 ```rust, ignore
-if some_condition {
-  do_some();
+if condition1 {
+  block1
 } else if condition2 {
-  do_some_others();
+  block2
 } else {
-  end();
+  block_n
 }
 ```
 
-跟 C/C++ 等语言不同之处在于, `some_condition` 表达式返回值的类型必须是 `bool`, 这里不进行
-隐式类型转换. 另外, 这里不需要用小括号把 `some_condition` 包括起来, 这个省去小括号的写法在其它语言中也不多见.
+跟 C/C++ 等语言不同之处在于, `condition1` 表达式返回值的类型必须是 `bool`, 这里不进行
+隐式类型转换. 另外, 这里不需要用小括号把 `condition1` 包括起来, 这个省去小括号的写法在其它语言中也不多见.
 
 ```C
 int x = 42;
