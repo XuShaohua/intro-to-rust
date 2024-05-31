@@ -2,6 +2,8 @@
 // Use of this source is governed by General Public License that can be found
 // in the LICENSE file.
 
+#![allow(dead_code)]
+
 #[derive(Debug, Clone, Copy, Eq, PartialEq)]
 enum Weekday {
     Monday,

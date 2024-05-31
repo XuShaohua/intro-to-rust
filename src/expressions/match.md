@@ -29,7 +29,7 @@ match 只能在最后一个分支使用通配符匹配 (wildcard pattern), 表�
 use std::env;
 
 fn main() {
-{{#include assets/jump-table.rs:8:16 }}
+{{#include assets/match-num.rs:5: }}
 ```
 
 用 C 语言来描述相同的功能, 大概如下:
@@ -40,9 +40,9 @@ fn main() {
 
 后文有单独的章节介绍 [模式匹配](../pattern-matching/index.md) 更多功能和写法.
 
-## 跳转表 Jump Table 或者 分支表 Branch Table
+## 跳转表 Jump Table
 
-跳转表是对分支语句的一种优化手段.
+跳转表 Jump Table, 又称作 分支表 Branch Table, 是对分支语句的一种优化手段.
 
 下面的代码用于本次验证:
 
@@ -56,16 +56,18 @@ fn main() {
 {{#include assets/jump-table-x86_64.s:1370:1426 }}
 ```
 
-可以看到, `with_if_else()` 函数, 使用 `if/else` 语句判断 `num` 变量时, 使用多次跳转才能匹配到 `else` 分支,
-跳转次数越多, CPU 执行指令的效率越低.
+可以看到, `with_if_else()` 函数, 使用 `if/else` 语句判断 `num` 变量时, 使用多次跳转才能匹配到
+`else` 分支, 跳转次数越多, CPU 执行指令的效率越低.
 
-接下来看 `with_match_short()` 函数, 它内部使用了 match 表达式来匹配 `num` 的值, 生成的汇编代码片段如下:
+接下来看 `with_match_short()` 函数, 它内部使用了 match 表达式来匹配 `num` 的值,
+生成的汇编代码片段如下:
 
 ```assembly
 {{#include assets/jump-table-x86_64.s:1518:1548 }}
 ```
 
-从上面的汇编代码可以看到, 汇编器并没有生成跳转表, 也都只是一些条件判断语句, 也需要多次判断用跳转才能到达最后一个分支.
+从上面的汇编代码可以看到, 汇编器并没有生成跳转表, 也都只是一些条件判断语句,
+需要多次判断用跳转才能到达最后一个分支.
 但这部分代码要比 `with_if_else()` 的汇编代码更简洁, 执行效率也会更高.
 
 只有分支语句达到某个限制时, 汇编器才会生成跳转表; 在 x86_64 上, 这个分支个数是4.
