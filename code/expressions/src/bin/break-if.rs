@@ -47,6 +47,14 @@ fn break2_expanded() {
     }
 }
 
+fn break3() {
+    loop {
+        if break println!("3") {
+            let _ = 3;
+        }
+    }
+}
+
 fn noop() {}
 
 fn main() {
@@ -55,4 +63,5 @@ fn main() {
     break2();
     break2_expanded();
     noop();
+    break3();
 }

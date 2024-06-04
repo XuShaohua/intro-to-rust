@@ -43,3 +43,15 @@ fn max_num(a: i32, b: i32) -> i32 {
   }
 }
 ```
+
+##   
+
+```rust
+{{#include assets/return-if.rs:5: }}
+```
+
+```rust, ignore
+{{#include assets/return-if.mir:3: }}
+```
+
+![return if](assets/return-if.svg)
