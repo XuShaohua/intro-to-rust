@@ -41,10 +41,39 @@ loop 表达式也可以有返回值:
 
 ### 深入理解 break 表达式
 
-先看一个基于 [RustQuiz#20](https://dtolnay.github.io/rust-quiz/20) 修改的示例程序:
+先看一个基于 [RustQuiz#20](https://dtolnay.github.io/rust-quiz/20) 修改的示例程序,
+考虑考虑程序运行的结果是什么样的:
 
 ```rust
 {{#include assets/break-if.rs:5: }}
+```
+
+上面的代码中, `break1_expand()` 函数是对 `break1()` 的重新格式化, 这样更容易阅读:
+
+- `break { println!("1"); }` 这个表达式作为 `if` 表达式的条件, 会优先被执行, 会打印出 `1`
+- 它执行的结果是 `()`, 所以 `if` 表达式中的条件不成立, if 表达式内的代码块不会被执行
+- 然后立即终止本循环
+
+可以看一下它的 MIR 代码:
+
+```rust, ignore
+{{#include assets/break-if.mir:3:36 }}
+```
+
+而 `break2()` 就更奇怪了, 它与 `break()` 相比, 只是少了一对小括号. `break2_expanded()` 是它的展开样式,
+可以发现 `if break () { xxx }` 表达式是核心, `break ()` 表达式返回值为空, 所以 `if` 表达式条件判断不成立,
+if 语句内的代码块不会被执行.
+
+`break2()` 和 `break2_expanded()` 的 MIR 代码如下:
+
+```rust, ignore
+{{#include assets/break-if.mir:73:91 }}
+```
+
+可以看出来, 这两个函数其实什么都不会做的, 类似于 `noop()` 函数:
+
+```rust, ignore
+{{#include assets/break-if.mir:93:99 }}
 ```
 
 ## 跳过当前循环 continue

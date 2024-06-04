@@ -47,9 +47,12 @@ fn break2_expanded() {
     }
 }
 
+fn noop() {}
+
 fn main() {
     break1();
     break1_expanded();
     break2();
     break2_expanded();
+    noop();
 }
