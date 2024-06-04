@@ -1,6 +1,38 @@
-# loop 循环
+# 循环 Loop
+
+
+## loop 循环
+
+## loop 循环中的标签
 
 多层嵌套的循环语句, 可以使用 label 跳出来.
+
+## 终止循环 break
+
+### 使用标签 label
+
+使用 label 可以中断最外层的循环:
+
+```rust
+fn main() {
+    let mut sum = 0;
+
+    'outer:
+    for i in 0..100 {
+        for j in 0..i {
+            sum += j;
+            if i * j > 200 {
+                break 'outer;
+            }
+        }
+    }
+    assert_eq!(sum, 560);
+}
+```
+
+## 跳过当前循环 continue
+
+## loop 循环返回值
 
 loop 表达式也可以有返回值:
 
@@ -55,29 +87,5 @@ while 的一般写法:
 
 ```
 
-## while let
+## while let 循环
 
-# 终止循环 break
-
-## 使用标签 label
-
-使用 label 可以中断最外层的循环:
-
-```rust
-fn main() {
-    let mut sum = 0;
-
-    'outer:
-    for i in 0..100 {
-        for j in 0..i {
-            sum += j;
-            if i * j > 200 {
-                break 'outer;
-            }
-        }
-    }
-    assert_eq!(sum, 560);
-}
-```
-
-## 跳过当前循环 continue

@@ -80,7 +80,11 @@ fn main() {
 {{#include assets/jump-table-x86_64.s:1714:1721 }}
 ```
 
-在 aarch64 平台编译器也有类似的行为, 下面的汇编代码片段展示了 `with_match_long()` 函数:
+下图展示了跳转表的基本结构, 与 if/else 语句相比, 分支越多, match 表达式的执行效率相对越高.
+
+![jump table](assets/jump-table.svg)
+
+另外, 在 aarch64 平台编译器也有类似的行为, 下面的汇编代码片段展示了 `with_match_long()` 函数:
 
 ```assembly
 {{#include assets/jump-table-aarch64.s:1836:1874 }}
@@ -89,5 +93,8 @@ fn main() {
 {{#include assets/jump-table-aarch64.s:1919:1926 }}
 ```
 
-关于跳转表的更多信息, 可以参考 [wikipedia](https://en.wikipedia.org/wiki/Branch_table),
-以及 [Thuc Le 的博客](https://thuc.space/posts/jump_table/)
+## 参考
+
+- [wikipedia](https://en.wikipedia.org/wiki/Branch_table)
+- [Thuc Le 的博客](https://thuc.space/posts/jump_table/)
+- [‘Switch’ in C – Jump table formation](https://remyaraj89.wordpress.com/2010/11/05/switch-in-c-jump-table-formation/)
