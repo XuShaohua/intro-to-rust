@@ -1,53 +1,53 @@
 # 循环 Loop
 
-
 ## loop 循环
 
-## loop 循环中的标签
+## 使用 break 终止循环
 
-多层嵌套的循环语句, 可以使用 label 跳出来.
+`break` 表达式的语法如下:
 
-## 终止循环 break
-
-### 使用标签 label
-
-使用 label 可以中断最外层的循环:
-
-```rust
-fn main() {
-    let mut sum = 0;
-
-    'outer:
-    for i in 0..100 {
-        for j in 0..i {
-            sum += j;
-            if i * j > 200 {
-                break 'outer;
-            }
-        }
-    }
-    assert_eq!(sum, 560);
-}
+```text
+break [LifeTime | Label] [Expression]
 ```
 
-## 跳过当前循环 continue
+可以发现 break 表达式比在其它语言中要更为复杂, 它后面通常都留空, 只立即终止当前循环;
+但也可以跟随标签(label) 或者表达式
 
-## loop 循环返回值
+```rust
+{{#include assets/break-loop.rs:5: }}
+```
+
+### break 跳转到最外层循环
+
+多层嵌套的循环语句, 可以使用 `break Label` 跳出来.
+
+```rust
+{{#include assets/break-labeled-loop.rs:5: }}
+```
+
+### 循环中使用 break 来返回值
 
 loop 表达式也可以有返回值:
 
 ```rust
-fn main() {
-    let mut counter = 0;
-    let result = loop {
-        counter += 1;
-        if counter == 10 {
-            break counter * 2;
-        }
-    };
-    assert_eq!(result, 20);
-}
+{{#include assets/break-loop-with-value.rs:5: }}
 ```
+
+### 代码块使用 break 来返回值
+
+```rust
+{{#include assets/break-labeled-block.rs:5: }}
+```
+
+### 深入理解 break 表达式
+
+先看一个基于 [RustQuiz#20](https://dtolnay.github.io/rust-quiz/20) 修改的示例程序:
+
+```rust
+{{#include assets/break-if.rs:5: }}
+```
+
+## 跳过当前循环 continue
 
 ## for 循环
 

@@ -50,7 +50,8 @@ fn main() {
 {{#include assets/jump-table.rs:5: }}
 ```
 
-是上面的是 `with_if_else()` 函数, 它里面的分支语句比较多, 生成的部分 x86_64 汇编代码如下:
+是上面的是 `with_if_else()` 函数, 它里面的分支语句比较多,
+使用 `rustc --emit asm jump-table.rs` 命令生成汇编代码, 生成的部分 x86_64 汇编代码如下:
 
 ```assembly
 {{#include assets/jump-table-x86_64.s:1370:1426 }}
