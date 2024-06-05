@@ -131,6 +131,28 @@ if 语句内的代码块不会被执行.
 
 ## 跳过当前循环 continue
 
+在循环语句中使用 `continue` 来跳过当前循环中的后续代码, 继续执行下个循环.
+
+`continue` 表达式的语法如下:
+
+```rust, ignore
+continue [Lifetime | Label ]
+```
+
+可以看到, `continue` 表达式也是支持标签的, 用于快速跳出多层循环嵌套.
+
+先看一个例子, 展示 continue 的一般用法:
+
+```rust
+{{#include assets/continue-loop.rs:5: }}
+```
+
+下面的例子, 展示了如何使用 `continue Label` 跳出多层循环:
+
+```rust
+{{#include assets/continue-labeled-loop.rs:5: }}
+```
+
 ## for 循环
 
 `for .. in` 表达式用于遍历一个迭代器.
