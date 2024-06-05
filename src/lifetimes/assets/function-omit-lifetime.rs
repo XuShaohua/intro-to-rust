@@ -1,0 +1,1 @@
+../../../code/lifetimes/src/bin/function-omit-lifetime.rs
