@@ -1,6 +1,59 @@
 # 循环 Loop
 
+Rust 支持四多循环表达式的写法, 下面列出它们的基本语法:
+
+```rust, ignore
+loop {
+  block
+}
+
+for pattern in iterator {
+  block
+}
+
+while condition {
+  block
+}
+
+while let pattern = expr {
+  block
+}
+```
+
+每种写法都应各自的使用场景, 本节会依次介绍它们.
+
 ## loop 循环
+
+最简单的循环语句就是 `loop { block }`, 它相当于 C 语言中的:
+
+```c
+while (true) {
+  block
+}
+```
+
+但是, Rust 单独引入了一个 `loop` 关键字来表示一个无限循环语句.
+
+终止无限循环的方法也有几种:
+
+- `break` 表达式, 立即终止循环
+- `return` 表达式, 立即终止循环并退出当前函数
+- 抛出错误, 立即终止循环. 退出当前函数并将错误向上继续抛出
+- 抛出 panic, 当前线程直接终止
+
+使用 `return` 表达式终止循环的例子:
+
+```rust
+{{#include assets/loop-return.rs:5: }}
+```
+
+如果 loop 循环的内部代码块执行时产生了错误 (`Result<T, E>`), 该错误又没有在代码块内部捕获,
+而是将错误向函数调用处抛出了, 那么就会立即终止当前的循环.
+下面的示例程序会尝试读取 `shadow` 文件, 但因为没有读取权限, 就会产生 `io::Error`, 进而终止整个循环:
+
+```rust
+{{#include assets/loop-with-result.rs:5: }}
+```
 
 ## 使用 break 终止循环
 
@@ -80,24 +133,10 @@ if 语句内的代码块不会被执行.
 
 ## for 循环
 
-`for .. in` 表达式用于遍历一个循环体.
+`for .. in` 表达式用于遍历一个迭代器.
 
 ```rust
-fn main() {
-    for i in 1..101 {
-        println!("i * i = {}", i * i);
-    }
-}
-```
-
-它还有一个变体, 用于包含超始值及终止值:
-
-```rust
-fn main() {
-    for i in 1..=100 {
-        println!("i * i = {}", i * i);
-    }
-}
+{{#include assets/for-in.rs:5: }}
 ```
 
 默认情况下, for 在遍历一个集合时会使用 `Iterator` trait 的 `into_iter()` 方法.
@@ -110,11 +149,25 @@ fn main() {
 
 ## while 循环
 
-while 的一般写法:
+while 的一般写法跟在 C/C++ 语言中没有多少差别, 当条件成立时, 就执行内部的代码块; 当条件不成立时, 就终止循环.
+看一个小示例:
 
 ```rust
+{{#include assets/while.rs:5: }}
+```
 
+另一个小示例, 猜数字:
+
+```rust
+{{#include assets/while-break.rs:5: }}
 ```
 
 ## while let 循环
 
+`while let` 表达式用于支持模式匹配, 当匹配成功时, 会执行 while 语句内的代码; 如果匹配失败了, 就终止循环.
+
+下面的示例程序展示了单链表的一种写法, 注意里面的 `len()` 函数和 `debug_print()` 函数, 它们展示了 `while let` 的用法:
+
+```rust
+{{#include assets/while-let.rs:5: }}
+```
