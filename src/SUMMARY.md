@@ -83,6 +83,7 @@
     - [函数 function](closure/function.md)
     - [重载 Overloading](closure/function-overloading.md)
     - [闭包 Closure](closure/closure.md)
+    - [闭包的内存布局](closure/mem-layout.md)
     - [Fn, FnMut 与 FnOnce](closure/fn-mut-once.md)
     - [回调函数](closure/callback.md)
     - [函数传递参数的几种方法](closure/function-parameters.md)
