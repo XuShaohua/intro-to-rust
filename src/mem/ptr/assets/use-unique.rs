@@ -1,1 +1,1 @@
-../../../../code/nightly-build/src/bin/use-unique.rs
+../../../../code/nightly_build/src/bin/use-unique.rs
