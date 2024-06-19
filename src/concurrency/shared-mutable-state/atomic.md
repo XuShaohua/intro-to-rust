@@ -46,8 +46,9 @@ fn set_times(
 }
 ```
 
-## References
+## 参考
 
 - [LLVM Atomic Instructions and Concurrency Guide](https://llvm.org/docs/Atomics.html)
 - [std::memory_order](https://en.cppreference.com/w/cpp/atomic/memory_order)
 - [Portable atomic](https://github.com/taiki-e/portable-atomic)
+- [Crust of Rust: Atomics and Memory Ordering](https://www.youtube.com/watch?v=rMGWeSjctlY)
