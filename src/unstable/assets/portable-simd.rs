@@ -1,1 +1,1 @@
-../../../code/nightly-build/src/bin/portable-simd.rs
+../../../code/nightly_build/src/bin/portable-simd.rs

@@ -28,8 +28,9 @@ members = [
     "code/stdlib",
     "code/strings",
     "code/structs",
-    "code/traits"
-]
+    "code/traits",
+    "code/unsafe_code"
+    ]
 
 exclude = [
     "book",

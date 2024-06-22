@@ -1,4 +1,4 @@
-# 过程宏 proc-macro
+# 过程宏 Procedure macro
 
 `rustversion` 库大量使用了过程宏; 另外 `getset` 库也是, 而且这个库的代码量很小, 就几百行,
 基于 proc-macro 实现的.

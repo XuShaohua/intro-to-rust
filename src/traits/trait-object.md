@@ -13,13 +13,12 @@ fn main() {
 
 这里, `writer` 就是一个 `trait object`.
 
-每个 `trait object` 都是一个 `fat pointer`, 有两个指针组成, 也就是说, 在 64 位的机器上,
-这样的一个指针, 占了 `16` 个字节:
+## Trait Object 的内存布局
 
-- `data` 指针指向实际对象的内存地址
-- `vptr` 指针指向该对象的 `vtable`, 里面记录了该对象提供的方法; 这个表是相同类型的所有值所共享.
+`trait object` 是一种胖指针(fat pointer), 有两个指针组成; 在 64 位的机器上, 占用 `16` 个字节:
 
-除了上面的 `&mut Write` 指针之外, 还有 `Box<Write>` 以及 `Rc<Write>` 这样的指针.
+- `data ptr` 指针指向实际对象的内存地址
+- `vtable ptr` 指针指向该对象的 `vtable`, 里面记录了该对象提供的方法; 这个表是相同类型的所有值所共享.
 
 ## 参考
 
