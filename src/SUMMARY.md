@@ -223,12 +223,12 @@
     - [初始化内存 Initialize Memory](mem/init.md)
     - [内存布局 Data Layout](mem/data-layout.md)
     - [内存模型 Memory Model](mem/memory-model.md)
-    - [Memory sanitizers](perf/sanitizers.md)
-    - [使用 valgrind 检查内存泄露](perf/valgrind.md)
-- [内存分配器](mem/allocator/index.md)
-    - [自定义内存分配器](mem/allocator/simple-alloc.md)
-    - [Arena 分配器](mem/allocator/arena.md)
-    - [jemalloc 库](mem/allocator/jemalloc.md)
+    - [Memory sanitizers](mem/sanitizers.md)
+    - [使用 valgrind 检查内存泄露](mem/valgrind.md)
+- [内存分配器](allocator/index.md)
+    - [自定义内存分配器](allocator/simple-alloc.md)
+    - [Arena 分配器](allocator/arena.md)
+    - [jemalloc 库](allocator/jemalloc.md)
 
 # 第五部分: 并发编程
 
