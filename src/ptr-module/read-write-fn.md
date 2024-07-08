@@ -15,11 +15,11 @@ pub unsafe fn write<T>(dst: *mut T, src: T);
 - 对于 `read(src)`, 原始指针必须指向一个被初始化了的地址
 
 ```rust
-{{#include assets/ptr-read-write.rs:5: }}
+{{#include assets/read-write.rs:5: }}
 ```
 
 它类似于下面的C代码:
 
 ```C
-{{#include assets/ptr-read-write.c:5: }}
+{{#include assets/read-write.c:5: }}
 ```

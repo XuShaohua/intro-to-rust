@@ -59,7 +59,7 @@ assert_eq!(align_of::<NonNull<str>>(), align_of::<Option<NonNull<str>>>());
 - `as_mut()` 得到可变更引用
 
 ```rust
-{{#include assets/ptr-nonnull.rs:5: }}
+{{#include assets/nonnull.rs:5: }}
 ```
 
 上面的代码片段, 其栈上的内存布局如下图所示:

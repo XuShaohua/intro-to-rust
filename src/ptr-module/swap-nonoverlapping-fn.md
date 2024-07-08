@@ -11,5 +11,5 @@ pub unsafe fn swap_nonoverlapping<T>(x: *mut T, y: *mut T, count: usize);
 看一下代码示例:
 
 ```rust
-{{#include assets/ptr-swap-nonoverlapping.rs:5: }}
+{{#include assets/swap-nonoverlapping.rs:5: }}
 ```

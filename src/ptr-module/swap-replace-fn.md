@@ -19,5 +19,5 @@ pub unsafe fn replace<T>(dst: *mut T, src: T) -> T;
 看一下示例代码:
 
 ```rust
-{{#include assets/ptr-swap-replace.rs:5: }}
+{{#include assets/swap-replace.rs:5: }}
 ```

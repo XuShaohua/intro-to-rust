@@ -20,11 +20,11 @@ pub const unsafe fn copy_nonoverlapping<T>(
 看一个例子:
 
 ```rust
-{{#include assets/ptr-copy.rs:5: }}
+{{#include assets/copy.rs:5: }}
 ```
 
 对应的 C 语言的实现:
 
 ```C
-{{#include assets/ptr-copy.c:5: }}
+{{#include assets/copy.c:5: }}
 ```

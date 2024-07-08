@@ -4,5 +4,5 @@
 它们不需要先经过创建引用这一步, 因为有些情况, 当结构体内存未对齐时, 是不能创建引用的.
 
 ```rust
-{{#include assets/ptr-addr-of.rs:5: }}
+{{#include assets/addr-of.rs:5: }}
 ```

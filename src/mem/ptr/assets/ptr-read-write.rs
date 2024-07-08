@@ -1,1 +1,0 @@
-../../../../code/memory/src/bin/ptr-read-write.rs
