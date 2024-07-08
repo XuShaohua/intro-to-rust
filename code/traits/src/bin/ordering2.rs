@@ -172,16 +172,18 @@ fn main() {
     }
 
     #[allow(clippy::eq_op)]
+    #[allow(invalid_nan_comparisons)]
     {
-        let x = std::f64::NAN;
+        let x = f64::NAN;
         println!("x: {x:?}");
         println!("x = x: {}", x == x);
 
-        let y = std::f64::INFINITY;
+        let y = f64::INFINITY;
         println!("x: {:?}", y);
 
         // Test Eq
-        println!("NAN == NAN ? {}", std::f64::NAN == std::f64::NAN);
+        println!("NAN == NAN ? {}", f64::NAN == f64::NAN);
+        println!("NAN == NAN ? {}", f64::NAN.is_nan());
 
         // Test Ord
         // will throw error

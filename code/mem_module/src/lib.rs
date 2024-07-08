@@ -1,14 +1,11 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
-}
+// Copyright (c) 2024 Xu Shaohua <shaohua@biofan.org>. All rights reserved.
+// Use of this source is governed by General Public License that can be found
+// in the LICENSE file.
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
-}
+#![deny(
+    warnings,
+    clippy::all,
+    clippy::cargo,
+    clippy::nursery,
+    clippy::pedantic
+)]

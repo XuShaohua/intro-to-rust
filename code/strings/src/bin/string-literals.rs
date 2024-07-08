@@ -3,7 +3,6 @@ fn str_literals() {
     assert_eq!(msg.len(), 13);
 
     let non_ascii = "你好, 世界";
-    assert!(!non_ascii.is_empty());
     for c in non_ascii.chars() {
         print!("{:04x}:", c as u32);
     }

@@ -4,6 +4,7 @@
 
 use std::mem;
 
+#[allow(clippy::needless_range_loop)]
 fn main() {
     let a1: [[i32; 4]; 3] = [[0, 1, 2, 3], [4, 5, 6, 7], [8, 9, 10, 11]];
     assert_eq!(mem::size_of_val(&a1), 48);
@@ -28,6 +29,7 @@ fn main() {
         [[12, 13, 14, 15], [16, 17, 18, 19], [20, 21, 22, 23]],
     ];
     assert_eq!(mem::size_of_val(&a2), 96);
+
     println!("Content of array a2:");
     for i in 0..2 {
         for j in 0..3 {

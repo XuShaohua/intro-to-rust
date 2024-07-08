@@ -1,3 +1,5 @@
+#![allow(clippy::missing_transmute_annotations)]
+
 use std::fmt::{Debug, Display};
 use std::mem::transmute;
 
