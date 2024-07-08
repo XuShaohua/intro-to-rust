@@ -4,17 +4,17 @@
 要注意的是, 源类型与目标类型应该大小相同.
 
 ```rust
-{{#include assets/mem-transmute.rs:5: }}
+{{#include assets/transmute.rs:5: }}
 ```
 
 相同的功能, 用C语言实现:
 
 ```C
-{{#include assets/mem-transmute.c:5: }}
+{{#include assets/transmute.c:5: }}
 ```
 
 ## 其它转换方式
 
-- [Casting](../../primitives/cast.md)
-- [From/Into](../../common-traits/from-into.md)
-- [TryFrom/TryInto](../../common-traits/try-from-try-into.md)
+- [Casting](../primitives/cast.md)
+- [From/Into](../common-traits/from-into.md)
+- [TryFrom/TryInto](../common-traits/try-from-try-into.md)

@@ -5,5 +5,5 @@
 这个函数的内部实现也较简单, 直接看源代码:
 
 ```rust
-{{#include assets/mem-replace.rs:5: }}
+{{#include assets/replace.rs:5: }}
 ```
