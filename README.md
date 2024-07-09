@@ -2,7 +2,7 @@
 
 本文档使用大量的图片和代码片段, 尝试帮助阅读者建立 Rust 的知识体系, 理清难点.
 
-[在线浏览](https://rust.biofan.org), 或者[下载 pdf 文件](https://share.biofan.org/intro-to-rust.pdf).
+[在线浏览](https://rust.biofan.org)
 
 本文档包括以下几个部分的内容:
 
