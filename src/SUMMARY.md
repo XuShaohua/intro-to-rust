@@ -53,6 +53,8 @@
     - [结构体生命周期](lifetimes/struct-lifetime.md)
     - [泛型生命周期](lifetimes/generic-lifetime.md)
     - [省去标注生命周期 Lifetime Elision](lifetimes/lifetime-elision.md)
+    - [常量 Const](lifetimes/constant.md)
+    - [静态变量 Static](lifetimes/static-variable.md)
     - [static 静态生命周期](lifetimes/lifetime-static.md)
     - [Non-lexical lifetimes NLL](lifetimes/nll.md)
 
@@ -61,8 +63,6 @@
 - [结构体 Structs](structs/index.md)
     - [定义结构体 Definition](structs/definition.md)
     - [定义方法 Implementation](structs/implementation.md)
-    - [常量 Const](structs/const.md)
-    - [静态变量 Static](structs/static.md)
     - [内存布局 Memory Layout](structs/layout.md)
 - [枚举 Enums](enums/index.md)
     - [内存布局 Memory Layout](enums/layout.md)
@@ -70,6 +70,8 @@
     - [Option](enums/option.md)
     - [Result](enums/result.md)
 - [联合体 Unions](unions/index.md)
+    - [定义联合体](unions/definition.md)
+    - [内存布局 Memory Layout](unions/layout.md)
 - [接口 Trait](traits/index.md)
     - [Trait](traits/trait.md)
     - [Derive: 自动继承常见的 trait](traits/derive.md)
@@ -159,7 +161,7 @@
     - [String 类](strings/string.md)
     - [字符串格式化](strings/formatting.md)
     - [字符串内存布局](strings/memory-layout.md)
-    - [其它字符串类型](strings/other-strings.md)
+    - [其它类型的字符串](strings/other-strings.md)
 - [输入输出 IO](io/index.md)
 
 # 第四部分: 内存管理
