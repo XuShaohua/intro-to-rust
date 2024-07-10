@@ -22,3 +22,5 @@
 - [concurrency](https://web.mit.edu/6.005/www/fa14/classes/17-concurrency/)
 - [Event-driven programming](https://en.wikipedia.org/wiki/Event-driven_programming)
 - [Actor model](https://en.wikipedia.org/wiki/Actor_model)
+- [The C11 and C++11 Concurrency Model](https://www.cs.kent.ac.uk/people/staff/mjb211/docs/toc.pdf)
+- [Hands-On Concurrency with Rust](https://github.com/packtpublishing/hands-on-concurrency-with-rust)
