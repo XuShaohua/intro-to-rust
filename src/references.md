@@ -1,5 +1,10 @@
 # 参考资料
 
+书籍:
+
+- [Programming Rust, 2nd Edition, Jim Blandy etc](https://www.oreilly.com/library/view/programming-rust-2nd/9781492052586/)
+- [Rust Atomics and Locks Low-Level Concurrency in Practice, Mara Bos](https://marabos.nl/atomics/)
+
 在线文档:
 
 - [Comprehensive Rust](https://github.com/google/comprehensive-rust)
@@ -22,9 +27,3 @@
 - [rust by example](https://doc.rust-lang.org/rust-by-example/) - rust 101
 - [rust course](https://github.com/sunface/rust-course)
 - [rustc source](https://github.com/rust-lang/rust/tree/master/compiler/rustc) - how to implement language features
-
-书籍:
-
-- [Programming Rust, 2nd Edition, Jim Blandy etc](https://www.oreilly.com/library/view/programming-rust-2nd/9781492052586/)
-- [Hands-On Concurrency with Rust, Brian L. Troutwine](https://www.packtpub.com/product/hands-on-concurrency-with-rust/9781788399975)
-- [Rust Atomics and Locks Low-Level Concurrency in Practice, Mara Bos](https://marabos.nl/atomics/)
