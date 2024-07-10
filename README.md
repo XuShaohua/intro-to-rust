@@ -17,6 +17,7 @@
 
 ## 反馈问题
 
+本文档到目前为止还没有完成, 中间有不少章节是缺失的, 如果发现错误,
 欢迎 [反馈问题](https://github.com/xushaohua/intro-to-rust/issues), 或者提交 PR.
 
 ## 搭建本地环境

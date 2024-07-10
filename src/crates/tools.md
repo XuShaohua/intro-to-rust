@@ -35,8 +35,10 @@
 
 ## cargo-edit
 
-[cargo-edit](https://github.com/killercup/cargo-edit) 为 `cargo` 添加 `add`, `rm` 以及
-`upgrade` 等命令, 而不用手动编辑 `Cargo.toml` 文件.
+[cargo-edit](https://github.com/killercup/cargo-edit) 为 `cargo` 添加 `add`, `rm` 以及 `upgrade` 等命令,
+而不用手动编辑 `Cargo.toml` 文件.
+
+比如 `cargo add serde`, `cargo rm serde_json`, 使用起来比较方面.
 
 ## cargo-watch
 
