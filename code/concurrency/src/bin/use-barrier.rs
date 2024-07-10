@@ -9,12 +9,13 @@ fn main() {
     const N: usize = 10;
     let mut handles = Vec::with_capacity(N);
     let barrier = Arc::new(Barrier::new(N));
-    for i in 0..N {
-        let c = Arc::clone(&barrier);
+    for _i in 0..N {
+        let barrier = Arc::clone(&barrier);
         let handle = thread::spawn(move || {
-            println!("Before wait: {i}");
-            c.wait();
-            println!("After wait: {i}");
+            let pid = thread::current().id();
+            println!("{pid:?} Before wait");
+            barrier.wait();
+            println!("{pid:?} After wait");
         });
         handles.push(handle);
     }
