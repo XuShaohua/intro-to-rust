@@ -225,7 +225,7 @@
     - [初始化内存 Initialize Memory](mem/init.md)
     - [内存布局 Data Layout](mem/data-layout.md)
     - [内存模型 Memory Model](mem/memory-model.md)
-    - [Memory sanitizers](mem/sanitizers.md)
+    - [Sanitizers](mem/sanitizers.md)
     - [使用 valgrind 检查内存泄露](mem/valgrind.md)
 - [内存分配器](allocator/index.md)
     - [自定义内存分配器](allocator/simple-alloc.md)
