@@ -2,9 +2,6 @@
 // Use of this source is governed by General Public License that can be found
 // in the LICENSE file.
 
-#![allow(dead_code)]
-#![allow(unused_variables)]
-
 use std::mem::ManuallyDrop;
 
 pub struct Sheep {
@@ -39,32 +36,36 @@ impl Drop for Horse {
 
 pub struct Animals {
     sheep: ManuallyDrop<Sheep>,
-    cow: ManuallyDrop<Cow>,
+    #[allow(dead_code)]
     horse: Horse,
+    cow: ManuallyDrop<Cow>,
 }
 
 impl Drop for Animals {
     fn drop(&mut self) {
         println!("Dropping animals");
         unsafe {
+            // 手动调用 `drop()` 释放这两个对象.
             ManuallyDrop::drop(&mut self.sheep);
             ManuallyDrop::drop(&mut self.cow);
+            // 而 horse 对象会被自动释放.
         }
     }
 }
 
+#[allow(unused_variables)]
 fn main() {
     let animals = Animals {
         sheep: ManuallyDrop::new(Sheep {
             name: "Doly".to_owned(),
         }),
-        cow: ManuallyDrop::new(Cow {
-            name: "Jery".to_owned(),
-        }),
         horse: Horse {
             name: "Tom".to_owned(),
         },
+        cow: ManuallyDrop::new(Cow {
+            name: "Jery".to_owned(),
+        }),
     };
-    // May cause resource leak
+    // 使用 mem::forget() 会导致内存泄露
     //mem::forget(animals);
 }
