@@ -1,0 +1,84 @@
+==48059== Memcheck, a memory error detector
+==48059== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==48059== Using Valgrind-3.20.0 and LibVEX; rerun with -h for copyright info
+==48059== Command: ./san-use-after-free
+==48059== Parent PID: 24939
+==48059== 
+==48059== Invalid write of size 1
+==48059==    at 0x484AD19: memset (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==48059==    by 0x11CFCB: write_bytes<u8> (intrinsics.rs:3153)
+==48059==    by 0x11CFCB: san_use_after_free::main (san-use-after-free.rs:13)
+==48059==    by 0x11D08A: core::ops::function::FnOnce::call_once (function.rs:250)
+==48059==    by 0x11DA4D: std::sys_common::backtrace::__rust_begin_short_backtrace (backtrace.rs:155)
+==48059==    by 0x11CB60: std::rt::lang_start::{{closure}} (rt.rs:159)
+==48059==    by 0x1340BF: call_once<(), (dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (function.rs:284)
+==48059==    by 0x1340BF: do_call<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (panicking.rs:559)
+==48059==    by 0x1340BF: try<i32, &(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (panicking.rs:523)
+==48059==    by 0x1340BF: catch_unwind<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (panic.rs:149)
+==48059==    by 0x1340BF: {closure#2} (rt.rs:141)
+==48059==    by 0x1340BF: do_call<std::rt::lang_start_internal::{closure_env#2}, isize> (panicking.rs:559)
+==48059==    by 0x1340BF: try<isize, std::rt::lang_start_internal::{closure_env#2}> (panicking.rs:523)
+==48059==    by 0x1340BF: catch_unwind<std::rt::lang_start_internal::{closure_env#2}, isize> (panic.rs:149)
+==48059==    by 0x1340BF: std::rt::lang_start_internal (rt.rs:141)
+==48059==    by 0x11CB39: std::rt::lang_start (rt.rs:158)
+==48059==    by 0x11D01D: main (in /tmp/san-use-after-free)
+==48059==  Address 0x4aa4b18 is 8 bytes inside a block of size 11 free'd
+==48059==    at 0x48431EF: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==48059==    by 0x11CA6F: dealloc (alloc.rs:119)
+==48059==    by 0x11CA6F: <alloc::alloc::Global as core::alloc::Allocator>::deallocate (alloc.rs:256)
+==48059==    by 0x11D1AD: <alloc::raw_vec::RawVec<T,A> as core::ops::drop::Drop>::drop (raw_vec.rs:583)
+==48059==    by 0x11D109: core::ptr::drop_in_place<alloc::raw_vec::RawVec<u8>> (mod.rs:514)
+==48059==    by 0x11D0DA: core::ptr::drop_in_place<alloc::vec::Vec<u8>> (mod.rs:514)
+==48059==    by 0x11D099: core::ptr::drop_in_place<alloc::string::String> (mod.rs:514)
+==48059==    by 0x11CEB5: core::mem::drop (mod.rs:938)
+==48059==    by 0x11CF68: san_use_after_free::main (san-use-after-free.rs:10)
+==48059==    by 0x11D08A: core::ops::function::FnOnce::call_once (function.rs:250)
+==48059==    by 0x11DA4D: std::sys_common::backtrace::__rust_begin_short_backtrace (backtrace.rs:155)
+==48059==    by 0x11CB60: std::rt::lang_start::{{closure}} (rt.rs:159)
+==48059==    by 0x1340BF: call_once<(), (dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (function.rs:284)
+==48059==    by 0x1340BF: do_call<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (panicking.rs:559)
+==48059==    by 0x1340BF: try<i32, &(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (panicking.rs:523)
+==48059==    by 0x1340BF: catch_unwind<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (panic.rs:149)
+==48059==    by 0x1340BF: {closure#2} (rt.rs:141)
+==48059==    by 0x1340BF: do_call<std::rt::lang_start_internal::{closure_env#2}, isize> (panicking.rs:559)
+==48059==    by 0x1340BF: try<isize, std::rt::lang_start_internal::{closure_env#2}> (panicking.rs:523)
+==48059==    by 0x1340BF: catch_unwind<std::rt::lang_start_internal::{closure_env#2}, isize> (panic.rs:149)
+==48059==    by 0x1340BF: std::rt::lang_start_internal (rt.rs:141)
+==48059==  Block was alloc'd at
+==48059==    at 0x4840808: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==48059==    by 0x11C73A: alloc::alloc::alloc (alloc.rs:100)
+==48059==    by 0x11C846: alloc::alloc::Global::alloc_impl (alloc.rs:183)
+==48059==    by 0x11CAC8: <alloc::alloc::Global as core::alloc::Allocator>::allocate (alloc.rs:243)
+==48059==    by 0x11D6C0: alloc::raw_vec::RawVec<T,A>::try_allocate_in (raw_vec.rs:230)
+==48059==    by 0x11D91D: with_capacity_in<u8, alloc::alloc::Global> (raw_vec.rs:158)
+==48059==    by 0x11D91D: with_capacity_in<u8, alloc::alloc::Global> (mod.rs:699)
+==48059==    by 0x11D91D: <T as alloc::slice::hack::ConvertVec>::to_vec (slice.rs:162)
+==48059==    by 0x11CD5B: to_vec<u8, alloc::alloc::Global> (slice.rs:111)
+==48059==    by 0x11CD5B: to_vec_in<u8, alloc::alloc::Global> (slice.rs:441)
+==48059==    by 0x11CD5B: to_vec<u8> (slice.rs:416)
+==48059==    by 0x11CD5B: to_owned<u8> (slice.rs:823)
+==48059==    by 0x11CD5B: to_owned (str.rs:211)
+==48059==    by 0x11CD5B: <alloc::string::String as core::convert::From<&str>>::from (string.rs:2711)
+==48059==    by 0x11CEEB: san_use_after_free::main (san-use-after-free.rs:8)
+==48059==    by 0x11D08A: core::ops::function::FnOnce::call_once (function.rs:250)
+==48059==    by 0x11DA4D: std::sys_common::backtrace::__rust_begin_short_backtrace (backtrace.rs:155)
+==48059==    by 0x11CB60: std::rt::lang_start::{{closure}} (rt.rs:159)
+==48059==    by 0x1340BF: call_once<(), (dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (function.rs:284)
+==48059==    by 0x1340BF: do_call<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (panicking.rs:559)
+==48059==    by 0x1340BF: try<i32, &(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (panicking.rs:523)
+==48059==    by 0x1340BF: catch_unwind<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (panic.rs:149)
+==48059==    by 0x1340BF: {closure#2} (rt.rs:141)
+==48059==    by 0x1340BF: do_call<std::rt::lang_start_internal::{closure_env#2}, isize> (panicking.rs:559)
+==48059==    by 0x1340BF: try<isize, std::rt::lang_start_internal::{closure_env#2}> (panicking.rs:523)
+==48059==    by 0x1340BF: catch_unwind<std::rt::lang_start_internal::{closure_env#2}, isize> (panic.rs:149)
+==48059==    by 0x1340BF: std::rt::lang_start_internal (rt.rs:141)
+==48059== 
+==48059== 
+==48059== HEAP SUMMARY:
+==48059==     in use at exit: 0 bytes in 0 blocks
+==48059==   total heap usage: 10 allocs, 10 frees, 2,171 bytes allocated
+==48059== 
+==48059== All heap blocks were freed -- no leaks are possible
+==48059== 
+==48059== For lists of detected and suppressed errors, rerun with: -s
+==48059== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)

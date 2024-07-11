@@ -67,6 +67,24 @@ valgrind --leak-check=full ./san-memory-leak
 - `==41511== by 0x11CB89: san_out_of_bounds::main (san-out-of-bounds.rs:15)`
 - `==41511== at 0x11CBC2: san_out_of_bounds::main (san-out-of-bounds.rs:21)`
 
+## 访问已被释放的内存 use after free
+
+以下的代码示例中, 错误地访问了已经被释放的堆内存:
+
+```rust
+{{#include assets/san-use-after-free.rs:5:}}
+```
+
+现在使用 valgrind 来检测, `valgrind ./san-use-after-free`, 输出了以下日志:
+
+```text
+{{#include assets/san-use-after-free.vg.log}}
+```
+
+可以看出, valgrind 确定发现了 use-after-free 的错误, 而且给出了精准定位:
+
+- `==48059== by 0x11CFCB: san_use_after_free::main (san-use-after-free.rs:13)`
+
 ## 只检查堆内存
 
 ```bash
