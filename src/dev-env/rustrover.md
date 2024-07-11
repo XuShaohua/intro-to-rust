@@ -1,7 +1,7 @@
 # RustRover IDE
 
-[RustRover](https://www.jetbrains.com/rust/) 是 JetBrains 推出的一款 Rust IDE 工具, 我认为它是目前最易用的,
-它目前还处在测试阶段. 它几乎开箱即用, 不需要单独的配置. 但因为 IDE 使用了 Java 编写, 有时反应会慢一些, 并且比较消耗内存.
+[RustRover](https://www.jetbrains.com/rust/) 是 JetBrains 推出的一款 Rust IDE 工具, 我认为它是目前最易用的.
+它几乎开箱即用, 不需要单独的配置. 但因为 IDE 使用了 Java 编写, 有时反应会慢一些, 并且比较消耗内存.
 
 安装 [Toolbox App](https://www.jetbrains.com/toolbox-app), 用它来安装并更新 JetBrains 所有的 IDE 工具.
 
@@ -30,19 +30,3 @@
 内存区块中的值, 以及手动执行 lldb 调试器:
 
 ![rust rover debug](assets/rust-rover-debug.png)
-
-## CLion + rust 插件
-
-上面介绍了 RustRover IDE, 但因为它还没有发布正式版, 存留一些 bug,
-可以考虑使用 CLion IDE + rust 插件的形式. 它们的核心功能都是类似的.
-
-CLion 是一个非常优秀的 C/C++ IDE, 可以用上面提到的 Toolbox App 来安装它.
-
-安装完成后, 在 Settings -> Plugins -> Marketplace 里面搜索 "rust" 关键字, 就可以找到 rust 插件.
-这个插件由 JetBrains 官方维护.
-
-![clion rust plugin](assets/clion-rust-plugin.png)
-
-其它的操作过程跟 RustRover 是类似的, 不再重复讲述.
-
-![clion open](assets/clion-open.png)
