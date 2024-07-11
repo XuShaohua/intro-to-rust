@@ -48,6 +48,25 @@ valgrind --leak-check=full ./san-memory-leak
 
 这里明确指示了被泄露的内存是在哪个地方分配的, 基于这些信息便可以轻松定位到问题.
 
+## 检测内存越界
+
+下面的代码示例中有三处内存越界发生:
+
+```rust
+{{#include assets/san-out-of-bounds.rs:5:}}
+```
+
+使用 `valgrind ./san-out-of-bounds` 来检测, 得到如下的报告:
+
+```text
+{{#include assets/san-out-of-bounds.vg.log}}
+```
+
+可以看到, valgrind 只检测出了堆内存读写相关的两处错误, 但并没能发现栈内存写入越界问题:
+
+- `==41511== by 0x11CB89: san_out_of_bounds::main (san-out-of-bounds.rs:15)`
+- `==41511== at 0x11CBC2: san_out_of_bounds::main (san-out-of-bounds.rs:21)`
+
 ## 只检查堆内存
 
 ```bash

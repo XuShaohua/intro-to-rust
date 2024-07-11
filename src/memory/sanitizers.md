@@ -42,6 +42,8 @@ RUSTFLAGS="-Zsanitizer=address" cargo +nightly run --bin san-memory-leak
 
 - `#13 0x55da5c20ffff in san_memory_leak::main::hcfa228fc530e0524 /tmp/san-memory-leak.rs:8:15`
 
+## 检测内存越界 Out of bounds
+
 ## 参考
 
 - [sanitizers in rust](https://rustc-dev-guide.rust-lang.org/sanitizers.html)
