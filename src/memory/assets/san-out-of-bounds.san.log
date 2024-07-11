@@ -1,0 +1,79 @@
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.02s
+     Running `/tmp/san-out-of-bounds`
+=================================================================
+==42151==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x502000000013 at pc 0x55998e7471f5 bp 0x7ffc1a6447d0 sp 0x7ffc1a643fa0
+WRITE of size 4 at 0x502000000013 thread T0
+    #0 0x55998e7471f4 in __asan_memset /rustc/llvm/src/llvm-project/compiler-rt/lib/asan/asan_interceptors_memintrinsics.cpp:67:3
+    #1 0x55998e7730c7 in core::intrinsics::write_bytes::hfe494c61db7f800f /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/core/src/intrinsics.rs:3132:9
+    #2 0x55998e7730c7 in san_out_of_bounds::main::h3f63e38c2d1ef70e /tmp/san-out-of-bounds.rs:15:9
+    #3 0x55998e77355a in core::ops::function::FnOnce::call_once::h99e98e40ac1d40bd /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/core/src/ops/function.rs:250:5
+    #4 0x55998e774acd in std::sys::backtrace::__rust_begin_short_backtrace::hc4c82fe50e968ef7 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/sys/backtrace.rs:155:18
+    #5 0x55998e774d44 in std::rt::lang_start::_$u7b$$u7b$closure$u7d$$u7d$::h861e2ef52e0aa796 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:159:18
+    #6 0x55998e78eadc in core::ops::function::impls::_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$::call_once::h8ee6b536c2e4e076 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/core/src/ops/function.rs:284:13
+    #7 0x55998e78eadc in std::panicking::try::do_call::h5c8c98de8ed5bd5b /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:553:40
+    #8 0x55998e78eadc in std::panicking::try::h6315052de0e5fa0e /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:517:19
+    #9 0x55998e78eadc in std::panic::catch_unwind::h1530d3793f92a4bb /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panic.rs:350:14
+    #10 0x55998e78eadc in std::rt::lang_start_internal::_$u7b$$u7b$closure$u7d$$u7d$::he545ff4063dfc2c8 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:141:48
+    #11 0x55998e78eadc in std::panicking::try::do_call::h09c77e8b42da26d9 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:553:40
+    #12 0x55998e78eadc in std::panicking::try::h7a9b2c58b7302b3b /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:517:19
+    #13 0x55998e78eadc in std::panic::catch_unwind::h464a2cd7183a7af5 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panic.rs:350:14
+    #14 0x55998e78eadc in std::rt::lang_start_internal::h99fdbebdafe8d634 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:141:20
+    #15 0x55998e774be8 in std::rt::lang_start::h3099b271feb757f6 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:158:17
+    #16 0x55998e77338d in main (/tmp/san-out-of-bounds+0xbb38d) (BuildId: 6c2cf0580429ba1b623f0c6a7da90fb779f95bb4)
+    #17 0x7f299e607c89 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #18 0x7f299e607d44 in __libc_start_main csu/../csu/libc-start.c:360:3
+    #19 0x55998e6c5c90 in _start (/tmp/san-out-of-bounds+0xdc90) (BuildId: 6c2cf0580429ba1b623f0c6a7da90fb779f95bb4)
+
+0x502000000013 is located 0 bytes after 3-byte region [0x502000000010,0x502000000013)
+allocated by thread T0 here:
+    #0 0x55998e748cdf in malloc /rustc/llvm/src/llvm-project/compiler-rt/lib/asan/asan_malloc_linux.cpp:68:3
+    #1 0x55998e773f2f in alloc::alloc::alloc::h048ee887d03d1a21 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/alloc.rs:100:9
+    #2 0x55998e77420e in alloc::alloc::Global::alloc_impl::h1e3095b87b5b90f9 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/alloc.rs:183:73
+    #3 0x55998e773d6a in _$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$::allocate::h8b2350106f6d4ff1 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/alloc.rs:243:9
+    #4 0x55998e773d6a in alloc::alloc::exchange_malloc::hc760a54e21bf6f69 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/alloc.rs:332:18
+    #5 0x55998e77355a in core::ops::function::FnOnce::call_once::h99e98e40ac1d40bd /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/core/src/ops/function.rs:250:5
+    #6 0x55998e78eadc in core::ops::function::impls::_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$::call_once::h8ee6b536c2e4e076 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/core/src/ops/function.rs:284:13
+    #7 0x55998e78eadc in std::panicking::try::do_call::h5c8c98de8ed5bd5b /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:553:40
+    #8 0x55998e78eadc in std::panicking::try::h6315052de0e5fa0e /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:517:19
+    #9 0x55998e78eadc in std::panic::catch_unwind::h1530d3793f92a4bb /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panic.rs:350:14
+    #10 0x55998e78eadc in std::rt::lang_start_internal::_$u7b$$u7b$closure$u7d$$u7d$::he545ff4063dfc2c8 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:141:48
+    #11 0x55998e78eadc in std::panicking::try::do_call::h09c77e8b42da26d9 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:553:40
+    #12 0x55998e78eadc in std::panicking::try::h7a9b2c58b7302b3b /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:517:19
+    #13 0x55998e78eadc in std::panic::catch_unwind::h464a2cd7183a7af5 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panic.rs:350:14
+    #14 0x55998e78eadc in std::rt::lang_start_internal::h99fdbebdafe8d634 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:141:20
+    #15 0x55998e774be8 in std::rt::lang_start::h3099b271feb757f6 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:158:17
+    #16 0x55998e77338d in main (/tmp/san-out-of-bounds+0xbb38d) (BuildId: 6c2cf0580429ba1b623f0c6a7da90fb779f95bb4)
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/core/src/intrinsics.rs:3132:9 in core::intrinsics::write_bytes::hfe494c61db7f800f
+Shadow bytes around the buggy address:
+  0x501ffffffd80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x501ffffffe00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x501ffffffe80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x501fffffff00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x501fffffff80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x502000000000: fa fa[03]fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x502000000080: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x502000000100: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x502000000180: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x502000000200: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x502000000280: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==42151==ABORTING

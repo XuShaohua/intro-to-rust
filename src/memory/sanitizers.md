@@ -28,6 +28,8 @@ Rustc 支持的 sanitizer 种类有:
 {{#include assets/san-memory-leak.rs:5:}}
 ```
 
+使用以下命令, 运行 sanitizer:
+
 ```bash
 RUSTFLAGS="-Zsanitizer=address" cargo +nightly run --bin san-memory-leak
 ```
@@ -43,6 +45,22 @@ RUSTFLAGS="-Zsanitizer=address" cargo +nightly run --bin san-memory-leak
 - `#13 0x55da5c20ffff in san_memory_leak::main::hcfa228fc530e0524 /tmp/san-memory-leak.rs:8:15`
 
 ## 检测内存越界 Out of bounds
+
+下面的代码示例中有三处内存越界发生:
+
+```rust
+{{#include assets/san-out-of-bounds.rs:5:}}
+```
+
+使用以下命令, 运行 sanitizer:
+
+```bash
+RUSTFLAGS="-Zsanitizer=address,leak" cargo +nightly run --bin san-out-of-bounds
+```
+
+只有针对写堆内存越界的错误给出了精准的定位:
+
+- `#2 0x55998e7730c7 in san_out_of_bounds::main::h3f63e38c2d1ef70e /tmp/san-out-of-bounds.rs:15:9`
 
 ## 参考
 
