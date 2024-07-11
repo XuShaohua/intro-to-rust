@@ -1,6 +1,6 @@
 # ptr::swap_nonoverlapping() 函数
 
-这个函数与前文讲到的 [swap() 函数](swap-replace-fn.md)类似, 但用于交换的两块内存不重叠.
+这个函数与前文讲到的 [swap() 函数](swap-replace)类似, 但用于交换的两块内存不重叠.
 
 其接口定义如下:
 
