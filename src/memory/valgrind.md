@@ -104,6 +104,29 @@ valgrind --leak-check=full ./san-memory-leak
 - `==57348== Conditional jump or move depends on uninitialised value(s)`
 - `==57348== at 0x11C50B: san_memory_uninit::main (san-memory-uninit.rs:12)`
 
+## 检测循环引用 Cyclic references
+
+循环引用的问题常出现在 Rc/Arc 等以引用计数的方式来管理对象的地方.
+以下一个示例展示了二叉树中的循环引用问题:
+
+```rust
+{{#include assets/san-cyclic-references.rs:5:}}
+```
+
+循环引用会导致节点上的对象不能被正常的释放, 内存不会回收并出现内存泄露的问题.
+
+使用 valgrind 来检测, `valgrind --check-leak=full ./san-cyclic-references`, 得到了以下日志:
+
+```text
+{{#include assets/san-cyclic-references.vg.log}}
+```
+
+可以看到 valgrind 确实检测到了堆内存泄露的问题:
+
+- `==165066== by 0x11DA0A: san_cyclic_references::main (san-cyclic-references.rs:33)`
+
+只是另一个泄露点 `(san-cyclic-references.rs:38)` 并没有被定位到.
+
 ## 只检查堆内存
 
 ```bash
