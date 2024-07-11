@@ -9,7 +9,7 @@ fn main() {
     let x = unsafe {
         x_uninit.assume_init()
     };
-    if x == 0 {
-        println!("x is 0");
+    if x == 2 {
+        println!("x is 2");
     }
 }

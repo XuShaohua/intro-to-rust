@@ -1,0 +1,69 @@
+   Compiling libc v0.2.155
+   Compiling memory v0.1.0 (/tmp/intro-to-rust/code/memory)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.46s
+     Running `/tmp/intro-to-rust/target/debug/san-cyclic-references`
+
+=================================================================
+==154957==ERROR: LeakSanitizer: detected memory leaks
+
+Indirect leak of 48 byte(s) in 1 object(s) allocated from:
+    #0 0x55e98639e10f in malloc /rustc/llvm/src/llvm-project/compiler-rt/lib/asan/asan_malloc_linux.cpp:68:3
+    #1 0x55e9863c961f in alloc::alloc::alloc::h71b9c2fa3833688e /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/alloc.rs:100:9
+    #2 0x55e9863c98fe in alloc::alloc::Global::alloc_impl::h4661849ad8696522 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/alloc.rs:183:73
+    #3 0x55e9863c945a in _$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$::allocate::h89a094a661859bcd /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/alloc.rs:243:9
+    #4 0x55e9863c945a in alloc::alloc::exchange_malloc::ha5a75c30f8f85d71 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/alloc.rs:332:18
+    #5 0x55e9863c9fd2 in san_cyclic_references::main::h92fbd07b3584710d /tmp/intro-to-rust/code/memory/src/bin/san-cyclic-references.rs:33:17
+    #6 0x55e9863c822a in core::ops::function::FnOnce::call_once::h691941b5fcd7eed2 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/core/src/ops/function.rs:250:5
+    #7 0x55e9863e483c in core::ops::function::impls::_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$::call_once::h8ee6b536c2e4e076 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/core/src/ops/function.rs:284:13
+    #8 0x55e9863e483c in std::panicking::try::do_call::h5c8c98de8ed5bd5b /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:553:40
+    #9 0x55e9863e483c in std::panicking::try::h6315052de0e5fa0e /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:517:19
+    #10 0x55e9863e483c in std::panic::catch_unwind::h1530d3793f92a4bb /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panic.rs:350:14
+    #11 0x55e9863e483c in std::rt::lang_start_internal::_$u7b$$u7b$closure$u7d$$u7d$::he545ff4063dfc2c8 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:141:48
+    #12 0x55e9863e483c in std::panicking::try::do_call::h09c77e8b42da26d9 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:553:40
+    #13 0x55e9863e483c in std::panicking::try::h7a9b2c58b7302b3b /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:517:19
+    #14 0x55e9863e483c in std::panic::catch_unwind::h464a2cd7183a7af5 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panic.rs:350:14
+    #15 0x55e9863e483c in std::rt::lang_start_internal::h99fdbebdafe8d634 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:141:20
+    #16 0x55e9863c91d8 in std::rt::lang_start::h554a4489af6c7e14 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:158:17
+    #17 0x55e9863ca29d in main (/tmp/intro-to-rust/target/debug/san-cyclic-references+0xbd29d) (BuildId: 5dc7b4586c73e6fdcab7c038bd63e8862b0b9ec5)
+
+Indirect leak of 48 byte(s) in 1 object(s) allocated from:
+    #0 0x55e98639e10f in malloc /rustc/llvm/src/llvm-project/compiler-rt/lib/asan/asan_malloc_linux.cpp:68:3
+    #1 0x55e9863c961f in alloc::alloc::alloc::h71b9c2fa3833688e /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/alloc.rs:100:9
+    #2 0x55e9863c98fe in alloc::alloc::Global::alloc_impl::h4661849ad8696522 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/alloc.rs:183:73
+    #3 0x55e9863c945a in _$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$::allocate::h89a094a661859bcd /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/alloc.rs:243:9
+    #4 0x55e9863c945a in alloc::alloc::exchange_malloc::ha5a75c30f8f85d71 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/alloc.rs:332:18
+    #5 0x55e9863ca05c in san_cyclic_references::main::h92fbd07b3584710d /tmp/intro-to-rust/code/memory/src/bin/san-cyclic-references.rs:38:17
+    #6 0x55e9863c822a in core::ops::function::FnOnce::call_once::h691941b5fcd7eed2 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/core/src/ops/function.rs:250:5
+    #7 0x55e9863e483c in core::ops::function::impls::_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$::call_once::h8ee6b536c2e4e076 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/core/src/ops/function.rs:284:13
+    #8 0x55e9863e483c in std::panicking::try::do_call::h5c8c98de8ed5bd5b /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:553:40
+    #9 0x55e9863e483c in std::panicking::try::h6315052de0e5fa0e /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:517:19
+    #10 0x55e9863e483c in std::panic::catch_unwind::h1530d3793f92a4bb /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panic.rs:350:14
+    #11 0x55e9863e483c in std::rt::lang_start_internal::_$u7b$$u7b$closure$u7d$$u7d$::he545ff4063dfc2c8 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:141:48
+    #12 0x55e9863e483c in std::panicking::try::do_call::h09c77e8b42da26d9 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:553:40
+    #13 0x55e9863e483c in std::panicking::try::h7a9b2c58b7302b3b /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:517:19
+    #14 0x55e9863e483c in std::panic::catch_unwind::h464a2cd7183a7af5 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panic.rs:350:14
+    #15 0x55e9863e483c in std::rt::lang_start_internal::h99fdbebdafe8d634 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:141:20
+    #16 0x55e9863c91d8 in std::rt::lang_start::h554a4489af6c7e14 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:158:17
+    #17 0x55e9863ca29d in main (/tmp/intro-to-rust/target/debug/san-cyclic-references+0xbd29d) (BuildId: 5dc7b4586c73e6fdcab7c038bd63e8862b0b9ec5)
+
+Indirect leak of 48 byte(s) in 1 object(s) allocated from:
+    #0 0x55e98639e10f in malloc /rustc/llvm/src/llvm-project/compiler-rt/lib/asan/asan_malloc_linux.cpp:68:3
+    #1 0x55e9863c961f in alloc::alloc::alloc::h71b9c2fa3833688e /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/alloc.rs:100:9
+    #2 0x55e9863c98fe in alloc::alloc::Global::alloc_impl::h4661849ad8696522 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/alloc.rs:183:73
+    #3 0x55e9863c945a in _$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$::allocate::h89a094a661859bcd /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/alloc.rs:243:9
+    #4 0x55e9863c945a in alloc::alloc::exchange_malloc::ha5a75c30f8f85d71 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/alloc.rs:332:18
+    #5 0x55e9863c9e8f in san_cyclic_references::main::h92fbd07b3584710d /tmp/intro-to-rust/code/memory/src/bin/san-cyclic-references.rs:30:21
+    #6 0x55e9863c822a in core::ops::function::FnOnce::call_once::h691941b5fcd7eed2 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/core/src/ops/function.rs:250:5
+    #7 0x55e9863e483c in core::ops::function::impls::_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$::call_once::h8ee6b536c2e4e076 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/core/src/ops/function.rs:284:13
+    #8 0x55e9863e483c in std::panicking::try::do_call::h5c8c98de8ed5bd5b /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:553:40
+    #9 0x55e9863e483c in std::panicking::try::h6315052de0e5fa0e /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:517:19
+    #10 0x55e9863e483c in std::panic::catch_unwind::h1530d3793f92a4bb /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panic.rs:350:14
+    #11 0x55e9863e483c in std::rt::lang_start_internal::_$u7b$$u7b$closure$u7d$$u7d$::he545ff4063dfc2c8 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:141:48
+    #12 0x55e9863e483c in std::panicking::try::do_call::h09c77e8b42da26d9 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:553:40
+    #13 0x55e9863e483c in std::panicking::try::h7a9b2c58b7302b3b /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:517:19
+    #14 0x55e9863e483c in std::panic::catch_unwind::h464a2cd7183a7af5 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panic.rs:350:14
+    #15 0x55e9863e483c in std::rt::lang_start_internal::h99fdbebdafe8d634 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:141:20
+    #16 0x55e9863c91d8 in std::rt::lang_start::h554a4489af6c7e14 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:158:17
+    #17 0x55e9863ca29d in main (/tmp/intro-to-rust/target/debug/san-cyclic-references+0xbd29d) (BuildId: 5dc7b4586c73e6fdcab7c038bd63e8862b0b9ec5)
+
+SUMMARY: AddressSanitizer: 144 byte(s) leaked in 3 allocation(s).

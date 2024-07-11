@@ -86,6 +86,34 @@ RUSTFLAGS="-Zsanitizer=address,leak" cargo +nightly run --bin san-use-after-free
 
 - `#2 0x55c491d2a4be in san_use_after_free::main::ha6e8e0b3b7b7c0d4 /tmp/san-use-after-free.rs:14:9`
 
+## 检测循环引用 Cyclic references
+
+循环引用的问题常出现在 Rc/Arc 等以引用计数的方式来管理对象的地方.
+以下一个示例展示了二叉树中的循环引用问题:
+
+```rust
+{{#include assets/san-cyclic-references.rs:5:}}
+```
+
+循环引用会导致节点上的对象不能被正常的释放, 内存不会回收并出现内存泄露的问题.
+
+Sanitizer 可以检测到内存泄露的情况, 使用以下命令:
+
+```bash
+RUSTFLAGS="-Zsanitizer=address,leak" cargo +nightly run --bin san-cyclic-references
+```
+
+可以得到以下日志报告:
+
+```text
+{{#include assets/san-cyclic-references.san.log}}
+```
+
+报告中确实有发现内存泄露的情况, 并且给出了位置所在:
+
+- `#5 0x55e9863c9fd2 in san_cyclic_references::main::h92fbd07b3584710d /tmp/intro-to-rust/code/memory/src/bin/san-cyclic-references.rs:33:17`
+- `#5 0x55e9863ca05c in san_cyclic_references::main::h92fbd07b3584710d /tmp/intro-to-rust/code/memory/src/bin/san-cyclic-references.rs:38:17`
+
 ## 参考
 
 - [sanitizers in rust](https://rustc-dev-guide.rust-lang.org/sanitizers.html)
