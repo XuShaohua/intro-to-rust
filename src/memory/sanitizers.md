@@ -114,6 +114,38 @@ RUSTFLAGS="-Zsanitizer=address,leak" cargo +nightly run --bin san-cyclic-referen
 - `#5 0x55e9863c9fd2 in san_cyclic_references::main::h92fbd07b3584710d /tmp/intro-to-rust/code/memory/src/bin/san-cyclic-references.rs:33:17`
 - `#5 0x55e9863ca05c in san_cyclic_references::main::h92fbd07b3584710d /tmp/intro-to-rust/code/memory/src/bin/san-cyclic-references.rs:38:17`
 
+## 检测数据竞态 Data race
+
+多个线程访问同一块内存时, 应该使用互斥锁等手段, 确保不会发生 data race condition.
+
+另外, 如果使用了线程本地存储 (Thread local storage) 的话, 它在每个线程中被单独保存了一份,
+各线程只会访问内部的那一份克隆, 所以不存在 data race.
+
+看下面的例子:
+
+```rust
+{{#include assets/san-data-race.rs:5:}}
+```
+
+使用以下命令来检测它:
+
+```bash
+RUSTFLAGS="-Zsanitizer=thread" cargo +nightly run --bin san-data-race
+```
+
+会得到这个报告:
+
+```text
+{{#include assets/san-data-race.san.log}}
+```
+
+通过报告我们能发现, ThreadSanitizer 确实发现了 data race 问题:
+
+- `Write of size 4 at 0x558040da1948 by thread T2`
+- `  #0 san_data_race::main:: /tmp/san-data-race.rs:30:13 (san-data-race+0x98906)`
+- `Previous write of size 4 at 0x558040da1948 by main thread:`
+- `  #0 san_data_race::main:: /tmp//san-data-race.rs:34:14 (san-data-race+0x98e81)`
+
 ## 参考
 
 - [sanitizers in rust](https://rustc-dev-guide.rust-lang.org/sanitizers.html)

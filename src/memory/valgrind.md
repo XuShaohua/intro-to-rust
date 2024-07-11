@@ -127,11 +127,33 @@ valgrind --leak-check=full ./san-memory-leak
 
 只是另一个泄露点 `(san-cyclic-references.rs:38)` 并没有被定位到.
 
-## 只检查堆内存
+## 检测数据竞态 Data race
 
-```bash
-valgrind --tool=massif your-app
+多个线程访问同一块内存时, 应该使用互斥锁等手段, 确保不会发生 data race condition.
+
+另外, 如果使用了线程本地存储 (Thread local storage) 的话, 它在每个线程中被单独保存了一份,
+各线程只会访问内部的那一份克隆, 所以不存在 data race.
+
+看下面的例子:
+
+```rust
+{{#include assets/san-data-race.rs:5:}}
 ```
+
+使用 valgrind 的 `Helgrind` 来检测线程相关的问题,
+`valgrind --tool=helgrind ./san-data-race`,
+得到了以下日志:
+
+```text
+{{#include assets/san-data-race.vg.log}}
+```
+
+可以看到 valgrind 确实检测到了堆内存泄露的问题:
+
+- `Possible data race during write of size 4 at 0x16ADD0 by thread #1`
+- `  at 0x124D33: san_data_race::main (san-data-race.rs:34)`
+- `This conflicts with a previous write of size 4 by thread #3`
+- `  at 0x122A30: san_data_race::main::{{closure}} (san-data-race.rs:30)`
 
 ## valgrind 的其它模块
 

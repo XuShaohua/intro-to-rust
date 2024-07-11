@@ -1,0 +1,61 @@
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.02s
+     Running `/tmp/intro-to-rust/target/debug/san-data-race`
+==================
+WARNING: ThreadSanitizer: data race (pid=174565)
+  Write of size 4 at 0x558040da1948 by thread T2:
+    #0 san_data_race::main::_$u7b$$u7b$closure$u7d$$u7d$::hca1d1aa2bd214a46 /tmp/intro-to-rust/code/memory/src/bin/san-data-race.rs:30:13 (san-data-race+0x98906) (BuildId: abaff10be3c90c7a985911bf9fb769fbad66acc6)
+    #1 std::sys::backtrace::__rust_begin_short_backtrace::he6b9930aee5e4b5d /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/sys/backtrace.rs:155:18 (san-data-race+0x98cd2) (BuildId: abaff10be3c90c7a985911bf9fb769fbad66acc6)
+    #2 std::thread::Builder::spawn_unchecked_::_$u7b$$u7b$closure$u7d$$u7d$::_$u7b$$u7b$closure$u7d$$u7d$::h28a2ac9c5e0b3c24 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/thread/mod.rs:542:17 (san-data-race+0x9fc82) (BuildId: abaff10be3c90c7a985911bf9fb769fbad66acc6)
+    #3 _$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$::call_once::hf30d54c2a60bd049 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/core/src/panic/unwind_safe.rs:272:9 (san-data-race+0x9ace2) (BuildId: abaff10be3c90c7a985911bf9fb769fbad66acc6)
+    #4 std::panicking::try::do_call::ha6f651f9e612b27e /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:553:40 (san-data-race+0x95170) (BuildId: abaff10be3c90c7a985911bf9fb769fbad66acc6)
+    #5 __rust_try ea5e5nbwalr06882ygazitcju (san-data-race+0xa0358) (BuildId: abaff10be3c90c7a985911bf9fb769fbad66acc6)
+    #6 std::panicking::try::h2adff5b2e4f05561 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:517:19 (san-data-race+0x9f0fe) (BuildId: abaff10be3c90c7a985911bf9fb769fbad66acc6)
+    #7 std::panic::catch_unwind::h2e6602efc4169fb7 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panic.rs:350:14 (san-data-race+0x9f0fe)
+    #8 std::thread::Builder::spawn_unchecked_::_$u7b$$u7b$closure$u7d$$u7d$::h40871ab9f42880dc /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/thread/mod.rs:541:30 (san-data-race+0x9f0fe)
+    #9 core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h2b08e2beafe17b93 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/core/src/ops/function.rs:250:5 (san-data-race+0x95971) (BuildId: abaff10be3c90c7a985911bf9fb769fbad66acc6)
+    #10 _$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..FnOnce$LT$Args$GT$$GT$::call_once::hbdeb5d489bfc9e66 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/boxed.rs:2064:9 (san-data-race+0xc253a) (BuildId: abaff10be3c90c7a985911bf9fb769fbad66acc6)
+    #11 _$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..FnOnce$LT$Args$GT$$GT$::call_once::hba97fe3013ab65e8 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/boxed.rs:2064:9 (san-data-race+0xc253a)
+    #12 std::sys::pal::unix::thread::Thread::new::thread_start::h01c5ff475a629e37 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/sys/pal/unix/thread.rs:108:17 (san-data-race+0xc253a)
+
+  Previous write of size 4 at 0x558040da1948 by main thread:
+    #0 san_data_race::main::ha84b3f5aaacb66cb /tmp/intro-to-rust/code/memory/src/bin/san-data-race.rs:34:14 (san-data-race+0x98e81) (BuildId: abaff10be3c90c7a985911bf9fb769fbad66acc6)
+    #1 core::ops::function::FnOnce::call_once::h758322e7ded22bf6 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/core/src/ops/function.rs:250:5 (san-data-race+0x95b3e) (BuildId: abaff10be3c90c7a985911bf9fb769fbad66acc6)
+    #2 std::sys::backtrace::__rust_begin_short_backtrace::h8c16abfc9d0ab508 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/sys/backtrace.rs:155:18 (san-data-race+0x98c91) (BuildId: abaff10be3c90c7a985911bf9fb769fbad66acc6)
+    #3 std::rt::lang_start::_$u7b$$u7b$closure$u7d$$u7d$::h153ec660acff75c1 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:159:18 (san-data-race+0x9c09e) (BuildId: abaff10be3c90c7a985911bf9fb769fbad66acc6)
+    #4 core::ops::function::impls::_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$::call_once::h8ee6b536c2e4e076 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/core/src/ops/function.rs:284:13 (san-data-race+0xbaeac) (BuildId: abaff10be3c90c7a985911bf9fb769fbad66acc6)
+    #5 std::panicking::try::do_call::h5c8c98de8ed5bd5b /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:553:40 (san-data-race+0xbaeac)
+    #6 std::panicking::try::h6315052de0e5fa0e /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:517:19 (san-data-race+0xbaeac)
+    #7 std::panic::catch_unwind::h1530d3793f92a4bb /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panic.rs:350:14 (san-data-race+0xbaeac)
+    #8 std::rt::lang_start_internal::_$u7b$$u7b$closure$u7d$$u7d$::he545ff4063dfc2c8 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:141:48 (san-data-race+0xbaeac)
+    #9 std::panicking::try::do_call::h09c77e8b42da26d9 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:553:40 (san-data-race+0xbaeac)
+    #10 std::panicking::try::h7a9b2c58b7302b3b /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:517:19 (san-data-race+0xbaeac)
+    #11 std::panic::catch_unwind::h464a2cd7183a7af5 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panic.rs:350:14 (san-data-race+0xbaeac)
+    #12 std::rt::lang_start_internal::h99fdbebdafe8d634 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:141:20 (san-data-race+0xbaeac)
+    #13 main <null> (san-data-race+0x99049) (BuildId: abaff10be3c90c7a985911bf9fb769fbad66acc6)
+
+  Location is global 'san_data_race::SHARED_COUNTER::h58377d13dedd594a' of size 4 at 0x558040da1948 (san-data-race+0x123948)
+
+  Thread T2 (tid=174570, running) created by main thread at:
+    #0 pthread_create /rustc/llvm/src/llvm-project/compiler-rt/lib/tsan/rtl/tsan_interceptors_posix.cpp:1023:3 (san-data-race+0x1497b) (BuildId: abaff10be3c90c7a985911bf9fb769fbad66acc6)
+    #1 std::sys::pal::unix::thread::Thread::new::h2a5a1c43e1035921 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/sys/pal/unix/thread.rs:87:19 (san-data-race+0xc2371) (BuildId: abaff10be3c90c7a985911bf9fb769fbad66acc6)
+    #2 std::thread::Builder::spawn_unchecked::hd5a840405c885ff3 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/thread/mod.rs:456:32 (san-data-race+0x9d025) (BuildId: abaff10be3c90c7a985911bf9fb769fbad66acc6)
+    #3 std::thread::Builder::spawn::ha557a18b7275cb76 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/thread/mod.rs:388:18 (san-data-race+0x9cd46) (BuildId: abaff10be3c90c7a985911bf9fb769fbad66acc6)
+    #4 std::thread::spawn::h0c5c2fd92f0917d0 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/thread/mod.rs:698:20 (san-data-race+0x9cd46)
+    #5 san_data_race::main::ha84b3f5aaacb66cb /tmp/intro-to-rust/code/memory/src/bin/san-data-race.rs:27:14 (san-data-race+0x98e73) (BuildId: abaff10be3c90c7a985911bf9fb769fbad66acc6)
+    #6 core::ops::function::FnOnce::call_once::h758322e7ded22bf6 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/core/src/ops/function.rs:250:5 (san-data-race+0x95b3e) (BuildId: abaff10be3c90c7a985911bf9fb769fbad66acc6)
+    #7 std::sys::backtrace::__rust_begin_short_backtrace::h8c16abfc9d0ab508 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/sys/backtrace.rs:155:18 (san-data-race+0x98c91) (BuildId: abaff10be3c90c7a985911bf9fb769fbad66acc6)
+    #8 std::rt::lang_start::_$u7b$$u7b$closure$u7d$$u7d$::h153ec660acff75c1 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:159:18 (san-data-race+0x9c09e) (BuildId: abaff10be3c90c7a985911bf9fb769fbad66acc6)
+    #9 core::ops::function::impls::_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$::call_once::h8ee6b536c2e4e076 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/core/src/ops/function.rs:284:13 (san-data-race+0xbaeac) (BuildId: abaff10be3c90c7a985911bf9fb769fbad66acc6)
+    #10 std::panicking::try::do_call::h5c8c98de8ed5bd5b /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:553:40 (san-data-race+0xbaeac)
+    #11 std::panicking::try::h6315052de0e5fa0e /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:517:19 (san-data-race+0xbaeac)
+    #12 std::panic::catch_unwind::h1530d3793f92a4bb /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panic.rs:350:14 (san-data-race+0xbaeac)
+    #13 std::rt::lang_start_internal::_$u7b$$u7b$closure$u7d$$u7d$::he545ff4063dfc2c8 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:141:48 (san-data-race+0xbaeac)
+    #14 std::panicking::try::do_call::h09c77e8b42da26d9 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:553:40 (san-data-race+0xbaeac)
+    #15 std::panicking::try::h7a9b2c58b7302b3b /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:517:19 (san-data-race+0xbaeac)
+    #16 std::panic::catch_unwind::h464a2cd7183a7af5 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panic.rs:350:14 (san-data-race+0xbaeac)
+    #17 std::rt::lang_start_internal::h99fdbebdafe8d634 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:141:20 (san-data-race+0xbaeac)
+    #18 main <null> (san-data-race+0x99049) (BuildId: abaff10be3c90c7a985911bf9fb769fbad66acc6)
+
+SUMMARY: ThreadSanitizer: data race /tmp/intro-to-rust/code/memory/src/bin/san-data-race.rs:30:13 in san_data_race::main::_$u7b$$u7b$closure$u7d$$u7d$::hca1d1aa2bd214a46
+==================
+ThreadSanitizer: reported 1 warnings
