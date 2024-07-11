@@ -62,6 +62,30 @@ RUSTFLAGS="-Zsanitizer=address,leak" cargo +nightly run --bin san-out-of-bounds
 
 - `#2 0x55998e7730c7 in san_out_of_bounds::main::h3f63e38c2d1ef70e /tmp/san-out-of-bounds.rs:15:9`
 
+## 访问已被释放的内存 use after free
+
+以下的代码示例中, 错误地访问了已经被释放的堆内存:
+
+```rust
+{{#include assets/san-use-after-free.rs:5:}}
+```
+
+使用 address sanitizer 来检测它:
+
+```bash
+RUSTFLAGS="-Zsanitizer=address,leak" cargo +nightly run --bin san-use-after-free
+```
+
+得到如下的报告:
+
+```text
+{{#include assets/san-use-after-free.san.log}}
+```
+
+报告里面写明了错误类型 `heap-use-after-free`, 并精准定位了出错的位置:
+
+- `#2 0x55c491d2a4be in san_use_after_free::main::ha6e8e0b3b7b7c0d4 /tmp/san-use-after-free.rs:14:9`
+
 ## 参考
 
 - [sanitizers in rust](https://rustc-dev-guide.rust-lang.org/sanitizers.html)

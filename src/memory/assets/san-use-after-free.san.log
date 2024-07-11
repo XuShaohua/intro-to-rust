@@ -1,0 +1,107 @@
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running `/tmp/san-use-after-free`
+=================================================================
+==48883==ERROR: AddressSanitizer: heap-use-after-free on address 0x502000000018 at pc 0x55c491cfd1f5 bp 0x7ffc8dc94270 sp 0x7ffc8dc93a40
+WRITE of size 1 at 0x502000000018 thread T0
+    #0 0x55c491cfd1f4 in __asan_memset /rustc/llvm/src/llvm-project/compiler-rt/lib/asan/asan_interceptors_memintrinsics.cpp:67:3
+    #1 0x55c491d2a4be in core::intrinsics::write_bytes::h275db0bf8dfd8b81 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/core/src/intrinsics.rs:3132:9
+    #2 0x55c491d2a4be in san_use_after_free::main::ha6e8e0b3b7b7c0d4 /tmp/san-use-after-free.rs:14:9
+    #3 0x55c491d293ca in core::ops::function::FnOnce::call_once::h9a7e669c52058242 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/core/src/ops/function.rs:250:5
+    #4 0x55c491d2a73d in std::sys::backtrace::__rust_begin_short_backtrace::h24fb90d0dbf25fd4 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/sys/backtrace.rs:155:18
+    #5 0x55c491d29fb4 in std::rt::lang_start::_$u7b$$u7b$closure$u7d$$u7d$::hcbc0207cb2102ed2 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:159:18
+    #6 0x55c491d4589c in core::ops::function::impls::_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$::call_once::h8ee6b536c2e4e076 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/core/src/ops/function.rs:284:13
+    #7 0x55c491d4589c in std::panicking::try::do_call::h5c8c98de8ed5bd5b /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:553:40
+    #8 0x55c491d4589c in std::panicking::try::h6315052de0e5fa0e /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:517:19
+    #9 0x55c491d4589c in std::panic::catch_unwind::h1530d3793f92a4bb /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panic.rs:350:14
+    #10 0x55c491d4589c in std::rt::lang_start_internal::_$u7b$$u7b$closure$u7d$$u7d$::he545ff4063dfc2c8 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:141:48
+    #11 0x55c491d4589c in std::panicking::try::do_call::h09c77e8b42da26d9 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:553:40
+    #12 0x55c491d4589c in std::panicking::try::h7a9b2c58b7302b3b /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:517:19
+    #13 0x55c491d4589c in std::panic::catch_unwind::h464a2cd7183a7af5 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panic.rs:350:14
+    #14 0x55c491d4589c in std::rt::lang_start_internal::h99fdbebdafe8d634 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:141:20
+    #15 0x55c491d29e58 in std::rt::lang_start::had829c785f68a77b /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:158:17
+    #16 0x55c491d2a61d in main (/tmp/san-use-after-free+0xbc61d) (BuildId: 40b07716a65da8f8519e83d784d142834d3684f2)
+    #17 0x7efe01d08c89 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #18 0x7efe01d08d44 in __libc_start_main csu/../csu/libc-start.c:360:3
+    #19 0x55c491c7bc90 in _start (/tmp/san-use-after-free+0xdc90) (BuildId: 40b07716a65da8f8519e83d784d142834d3684f2)
+
+0x502000000018 is located 8 bytes inside of 11-byte region [0x502000000010,0x50200000001b)
+freed by thread T0 here:
+    #0 0x55c491cfea46 in free /rustc/llvm/src/llvm-project/compiler-rt/lib/asan/asan_malloc_linux.cpp:52:3
+    #1 0x55c491d2ba06 in alloc::alloc::dealloc::he34fc8c895854eae /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/alloc.rs:119:14
+    #2 0x55c491d2ba06 in _$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$::deallocate::hd36615ec06478e33 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/alloc.rs:256:22
+    #3 0x55c491d2977a in _$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::h4f8728bad42a964e /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/raw_vec.rs:600:22
+    #4 0x55c491d295c9 in core::ptr::drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$::hf72af14d538b6207 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/core/src/ptr/mod.rs:542:1
+    #5 0x55c491d293ca in core::ops::function::FnOnce::call_once::h9a7e669c52058242 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/core/src/ops/function.rs:250:5
+    #6 0x55c491d4589c in core::ops::function::impls::_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$::call_once::h8ee6b536c2e4e076 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/core/src/ops/function.rs:284:13
+    #7 0x55c491d4589c in std::panicking::try::do_call::h5c8c98de8ed5bd5b /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:553:40
+    #8 0x55c491d4589c in std::panicking::try::h6315052de0e5fa0e /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:517:19
+    #9 0x55c491d4589c in std::panic::catch_unwind::h1530d3793f92a4bb /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panic.rs:350:14
+    #10 0x55c491d4589c in std::rt::lang_start_internal::_$u7b$$u7b$closure$u7d$$u7d$::he545ff4063dfc2c8 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:141:48
+    #11 0x55c491d4589c in std::panicking::try::do_call::h09c77e8b42da26d9 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:553:40
+    #12 0x55c491d4589c in std::panicking::try::h7a9b2c58b7302b3b /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:517:19
+    #13 0x55c491d4589c in std::panic::catch_unwind::h464a2cd7183a7af5 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panic.rs:350:14
+    #14 0x55c491d4589c in std::rt::lang_start_internal::h99fdbebdafe8d634 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:141:20
+    #15 0x55c491d29e58 in std::rt::lang_start::had829c785f68a77b /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:158:17
+    #16 0x55c491d2a61d in main (/tmp/san-use-after-free+0xbc61d) (BuildId: 40b07716a65da8f8519e83d784d142834d3684f2)
+
+previously allocated by thread T0 here:
+    #0 0x55c491cfecdf in malloc /rustc/llvm/src/llvm-project/compiler-rt/lib/asan/asan_malloc_linux.cpp:68:3
+    #1 0x55c491d2b41f in alloc::alloc::alloc::ha10955ac768529c4 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/alloc.rs:100:9
+    #2 0x55c491d2b6fe in alloc::alloc::Global::alloc_impl::h952e25fc69d013f2 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/alloc.rs:183:73
+    #3 0x55c491d2ba68 in _$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$::allocate::h3f5cd0999b0016dd /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/alloc.rs:243:9
+    #4 0x55c491d2992c in alloc::raw_vec::RawVec$LT$T$C$A$GT$::with_capacity_in::h90a3c53535a47f9c /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/raw_vec.rs:158:15
+    #5 0x55c491d2992c in alloc::vec::Vec$LT$T$C$A$GT$::with_capacity_in::h727aedd763542a12 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/vec/mod.rs:699:20
+    #6 0x55c491d2992c in _$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::h55b023e79ecdd1e4 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/slice.rs:162:25
+    #7 0x55c491d29c84 in alloc::slice::hack::to_vec::h4aab7a9196b5dd80 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/slice.rs:111:9
+    #8 0x55c491d29c84 in alloc::slice::_$LT$impl$u20$$u5b$T$u5d$$GT$::to_vec_in::h59ef1c2003b2da43 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/slice.rs:462:9
+    #9 0x55c491d29c84 in alloc::slice::_$LT$impl$u20$$u5b$T$u5d$$GT$::to_vec::h765ebc2e7b673718 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/slice.rs:437:14
+    #10 0x55c491d29c84 in alloc::slice::_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$$u5b$T$u5d$$GT$::to_owned::h78af1272be58f355 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/slice.rs:844:14
+    #11 0x55c491d29c84 in alloc::str::_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$::to_owned::h881d4cf593dc69cf /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/str.rs:212:62
+    #12 0x55c491d29c84 in _$LT$alloc..string..String$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$::from::he993a3d7b8799ab9 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/string.rs:2715:11
+    #13 0x55c491d2a3d5 in san_use_after_free::main::ha6e8e0b3b7b7c0d4 /tmp/san-use-after-free.rs:8:19
+    #14 0x55c491d293ca in core::ops::function::FnOnce::call_once::h9a7e669c52058242 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/core/src/ops/function.rs:250:5
+    #15 0x55c491d4589c in core::ops::function::impls::_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$::call_once::h8ee6b536c2e4e076 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/core/src/ops/function.rs:284:13
+    #16 0x55c491d4589c in std::panicking::try::do_call::h5c8c98de8ed5bd5b /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:553:40
+    #17 0x55c491d4589c in std::panicking::try::h6315052de0e5fa0e /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:517:19
+    #18 0x55c491d4589c in std::panic::catch_unwind::h1530d3793f92a4bb /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panic.rs:350:14
+    #19 0x55c491d4589c in std::rt::lang_start_internal::_$u7b$$u7b$closure$u7d$$u7d$::he545ff4063dfc2c8 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:141:48
+    #20 0x55c491d4589c in std::panicking::try::do_call::h09c77e8b42da26d9 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:553:40
+    #21 0x55c491d4589c in std::panicking::try::h7a9b2c58b7302b3b /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:517:19
+    #22 0x55c491d4589c in std::panic::catch_unwind::h464a2cd7183a7af5 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panic.rs:350:14
+    #23 0x55c491d4589c in std::rt::lang_start_internal::h99fdbebdafe8d634 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:141:20
+    #24 0x55c491d29e58 in std::rt::lang_start::had829c785f68a77b /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:158:17
+    #25 0x55c491d2a61d in main (/tmp/san-use-after-free+0xbc61d) (BuildId: 40b07716a65da8f8519e83d784d142834d3684f2)
+
+SUMMARY: AddressSanitizer: heap-use-after-free /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/core/src/intrinsics.rs:3132:9 in core::intrinsics::write_bytes::h275db0bf8dfd8b81
+Shadow bytes around the buggy address:
+  0x501ffffffd80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x501ffffffe00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x501ffffffe80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x501fffffff00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x501fffffff80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x502000000000: fa fa fd[fd]fa fa fa fa fa fa fa fa fa fa fa fa
+  0x502000000080: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x502000000100: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x502000000180: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x502000000200: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x502000000280: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==48883==ABORTING
