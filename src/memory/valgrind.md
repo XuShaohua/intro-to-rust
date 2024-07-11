@@ -85,6 +85,25 @@ valgrind --leak-check=full ./san-memory-leak
 
 - `==48059== by 0x11CFCB: san_use_after_free::main (san-use-after-free.rs:13)`
 
+## 访问未初始化的内存 uninit
+
+以下的代码片段包含了未初始化内存的错误:
+
+```rust
+{{#include assets/san-memory-uninit.rs:5:}}
+```
+
+使用 valgrind 来检测, `valgrind ./san-memory-uninit`, 得到了以下日志:
+
+```text
+{{#include assets/san-memory-uninit.vg.log}}
+```
+
+日志里显示了完整的错误:
+
+- `==57348== Conditional jump or move depends on uninitialised value(s)`
+- `==57348== at 0x11C50B: san_memory_uninit::main (san-memory-uninit.rs:12)`
+
 ## 只检查堆内存
 
 ```bash
