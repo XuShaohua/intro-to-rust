@@ -1,0 +1,54 @@
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.10s
+     Running `/tmp/intro-to-rust/target/debug/san-memory-leak`
+
+=================================================================
+==26078==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 24 byte(s) in 1 object(s) allocated from:
+    #0 0x55da5c1e5e5f in malloc /rustc/llvm/src/llvm-project/compiler-rt/lib/asan/asan_malloc_linux.cpp:68:3
+    #1 0x55da5c21076f in alloc::alloc::alloc::h18d98aef82814903 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/alloc.rs:100:9
+    #2 0x55da5c210a4e in alloc::alloc::Global::alloc_impl::hdf5500cbdd5c13e5 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/alloc.rs:183:73
+    #3 0x55da5c2105aa in _$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$::allocate::h57656c0cb9113886 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/alloc.rs:243:9
+    #4 0x55da5c2105aa in alloc::alloc::exchange_malloc::h4869f251cc126da0 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/alloc.rs:332:18
+    #5 0x55da5c213a9a in core::ops::function::FnOnce::call_once::h179e0f184daf3550 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/core/src/ops/function.rs:250:5
+    #6 0x55da5c22ef0c in core::ops::function::impls::_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$::call_once::h8ee6b536c2e4e076 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/core/src/ops/function.rs:284:13
+    #7 0x55da5c22ef0c in std::panicking::try::do_call::h5c8c98de8ed5bd5b /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:553:40
+    #8 0x55da5c22ef0c in std::panicking::try::h6315052de0e5fa0e /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:517:19
+    #9 0x55da5c22ef0c in std::panic::catch_unwind::h1530d3793f92a4bb /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panic.rs:350:14
+    #10 0x55da5c22ef0c in std::rt::lang_start_internal::_$u7b$$u7b$closure$u7d$$u7d$::he545ff4063dfc2c8 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:141:48
+    #11 0x55da5c22ef0c in std::panicking::try::do_call::h09c77e8b42da26d9 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:553:40
+    #12 0x55da5c22ef0c in std::panicking::try::h7a9b2c58b7302b3b /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:517:19
+    #13 0x55da5c22ef0c in std::panic::catch_unwind::h464a2cd7183a7af5 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panic.rs:350:14
+    #14 0x55da5c22ef0c in std::rt::lang_start_internal::h99fdbebdafe8d634 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:141:20
+    #15 0x55da5c214db8 in std::rt::lang_start::hc7e4f2c854274dbd /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:158:17
+    #16 0x55da5c21054d in main (/tmp/intro-to-rust/target/debug/san-memory-leak+0xbb54d) (BuildId: 161357dd922a2020d2b2bd4d81313ce5fb2b7a72)
+
+Direct leak of 11 byte(s) in 1 object(s) allocated from:
+    #0 0x55da5c1e5e5f in malloc /rustc/llvm/src/llvm-project/compiler-rt/lib/asan/asan_malloc_linux.cpp:68:3
+    #1 0x55da5c21076f in alloc::alloc::alloc::h18d98aef82814903 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/alloc.rs:100:9
+    #2 0x55da5c210a4e in alloc::alloc::Global::alloc_impl::hdf5500cbdd5c13e5 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/alloc.rs:183:73
+    #3 0x55da5c211638 in _$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$::allocate::h57656c0cb9113886 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/alloc.rs:243:9
+    #4 0x55da5c21304c in alloc::raw_vec::RawVec$LT$T$C$A$GT$::with_capacity_in::hb834086c0ea4b1b2 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/raw_vec.rs:158:15
+    #5 0x55da5c21304c in alloc::vec::Vec$LT$T$C$A$GT$::with_capacity_in::hd1af89fce9cfcc1f /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/vec/mod.rs:699:20
+    #6 0x55da5c21304c in _$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::hef44f66f7fe89ef0 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/slice.rs:162:25
+    #7 0x55da5c2149e4 in alloc::slice::hack::to_vec::hbb17b02e50387cfa /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/slice.rs:111:9
+    #8 0x55da5c2149e4 in alloc::slice::_$LT$impl$u20$$u5b$T$u5d$$GT$::to_vec_in::ha6ad9e9219b6abe7 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/slice.rs:462:9
+    #9 0x55da5c2149e4 in alloc::slice::_$LT$impl$u20$$u5b$T$u5d$$GT$::to_vec::h37bb05672b9af49e /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/slice.rs:437:14
+    #10 0x55da5c2149e4 in alloc::slice::_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$$u5b$T$u5d$$GT$::to_owned::h26d174d6cec3659e /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/slice.rs:844:14
+    #11 0x55da5c2149e4 in alloc::str::_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$::to_owned::h739fe38078478dff /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/str.rs:212:62
+    #12 0x55da5c2149e4 in _$LT$alloc..string..String$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$::from::hab63273f3f6b8c9b /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/alloc/src/string.rs:2715:11
+    #13 0x55da5c20ffff in san_memory_leak::main::hcfa228fc530e0524 /tmp/intro-to-rust/code/memory/src/bin/san-memory-leak.rs:8:15
+    #14 0x55da5c213a9a in core::ops::function::FnOnce::call_once::h179e0f184daf3550 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/core/src/ops/function.rs:250:5
+    #15 0x55da5c22ef0c in core::ops::function::impls::_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$::call_once::h8ee6b536c2e4e076 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/core/src/ops/function.rs:284:13
+    #16 0x55da5c22ef0c in std::panicking::try::do_call::h5c8c98de8ed5bd5b /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:553:40
+    #17 0x55da5c22ef0c in std::panicking::try::h6315052de0e5fa0e /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:517:19
+    #18 0x55da5c22ef0c in std::panic::catch_unwind::h1530d3793f92a4bb /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panic.rs:350:14
+    #19 0x55da5c22ef0c in std::rt::lang_start_internal::_$u7b$$u7b$closure$u7d$$u7d$::he545ff4063dfc2c8 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:141:48
+    #20 0x55da5c22ef0c in std::panicking::try::do_call::h09c77e8b42da26d9 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:553:40
+    #21 0x55da5c22ef0c in std::panicking::try::h7a9b2c58b7302b3b /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panicking.rs:517:19
+    #22 0x55da5c22ef0c in std::panic::catch_unwind::h464a2cd7183a7af5 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/panic.rs:350:14
+    #23 0x55da5c22ef0c in std::rt::lang_start_internal::h99fdbebdafe8d634 /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:141:20
+    #24 0x55da5c214db8 in std::rt::lang_start::hc7e4f2c854274dbd /rustc/20ae37c18df95f9246c019b04957d23b4164bf7a/library/std/src/rt.rs:158:17
+    #25 0x55da5c21054d in main (/tmp/intro-to-rust/target/debug/san-memory-leak+0xbb54d) (BuildId: 161357dd922a2020d2b2bd4d81313ce5fb2b7a72)
+
+SUMMARY: AddressSanitizer: 35 byte(s) leaked in 2 allocation(s).

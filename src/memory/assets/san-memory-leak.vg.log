@@ -58,7 +58,7 @@
 ==25294==    by 0x135BFF: catch_unwind<std::rt::lang_start_internal::{closure_env#2}, isize> (panic.rs:149)
 ==25294==    by 0x135BFF: std::rt::lang_start_internal (rt.rs:141)
 ==25294==    by 0x11E2C9: std::rt::lang_start (rt.rs:158)
-==25294==    by 0x11E28D: main (in /tmp/san-memory-leak)
+==25294==    by 0x11E28D: main (in /tmp/intro-to-rust/target/debug/san-memory-leak)
 ==25294== 
 ==25294== LEAK SUMMARY:
 ==25294==    definitely lost: 35 bytes in 2 blocks
