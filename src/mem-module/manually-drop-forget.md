@@ -1,6 +1,7 @@
 # ManuallyDrop 与 mem::forget() 函数
 
-ManuallyDrop<T> 用于抑制编译器自动调用 `T` 的析构函数. 可以用它来调整结构体中成员的 drop 顺序.
+ManuallyDrop<T> 用于抑制编译器自动调用 `T` 的析构函数 (基于 `Drop` trait 实现的).
+可以用它来调整结构体中成员的 drop 顺序.
 
 看下面一个例子:
 
@@ -38,6 +39,12 @@ struct Animals {
 pub const fn forget<T>(t: T) {
     let _ = ManuallyDrop::new(t);
 }
+```
+
+不正确的使用 `forget()` 函数会产生内存泄露, 看一个例子:
+
+```rust
+{{#include assets/forget.rs:5:}}
 ```
 
 ## 参考
