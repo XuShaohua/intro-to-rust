@@ -1,0 +1,71 @@
+==25294== Memcheck, a memory error detector
+==25294== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==25294== Using Valgrind-3.20.0 and LibVEX; rerun with -h for copyright info
+==25294== Command: ./san-memory-leak
+==25294== Parent PID: 24939
+==25294== 
+==25294== 
+==25294== HEAP SUMMARY:
+==25294==     in use at exit: 35 bytes in 2 blocks
+==25294==   total heap usage: 11 allocs, 9 frees, 2,195 bytes allocated
+==25294== 
+==25294== 11 bytes in 1 blocks are definitely lost in loss record 1 of 2
+==25294==    at 0x4840808: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25294==    by 0x11D6AA: alloc::alloc::alloc (alloc.rs:100)
+==25294==    by 0x11D7B6: alloc::alloc::Global::alloc_impl (alloc.rs:183)
+==25294==    by 0x11DF78: <alloc::alloc::Global as core::alloc::Allocator>::allocate (alloc.rs:243)
+==25294==    by 0x11EEE0: alloc::raw_vec::RawVec<T,A>::try_allocate_in (raw_vec.rs:230)
+==25294==    by 0x11CCED: with_capacity_in<u8, alloc::alloc::Global> (raw_vec.rs:158)
+==25294==    by 0x11CCED: with_capacity_in<u8, alloc::alloc::Global> (mod.rs:699)
+==25294==    by 0x11CCED: <T as alloc::slice::hack::ConvertVec>::to_vec (slice.rs:162)
+==25294==    by 0x11D48B: to_vec<u8, alloc::alloc::Global> (slice.rs:111)
+==25294==    by 0x11D48B: to_vec_in<u8, alloc::alloc::Global> (slice.rs:441)
+==25294==    by 0x11D48B: to_vec<u8> (slice.rs:416)
+==25294==    by 0x11D48B: to_owned<u8> (slice.rs:823)
+==25294==    by 0x11D48B: to_owned (str.rs:211)
+==25294==    by 0x11D48B: <alloc::string::String as core::convert::From<&str>>::from (string.rs:2711)
+==25294==    by 0x11E011: san_memory_leak::main (san-memory-leak.rs:8)
+==25294==    by 0x11E89A: core::ops::function::FnOnce::call_once (function.rs:250)
+==25294==    by 0x11CF4D: std::sys_common::backtrace::__rust_begin_short_backtrace (backtrace.rs:155)
+==25294==    by 0x11E2F0: std::rt::lang_start::{{closure}} (rt.rs:159)
+==25294==    by 0x135BFF: call_once<(), (dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (function.rs:284)
+==25294==    by 0x135BFF: do_call<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (panicking.rs:559)
+==25294==    by 0x135BFF: try<i32, &(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (panicking.rs:523)
+==25294==    by 0x135BFF: catch_unwind<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (panic.rs:149)
+==25294==    by 0x135BFF: {closure#2} (rt.rs:141)
+==25294==    by 0x135BFF: do_call<std::rt::lang_start_internal::{closure_env#2}, isize> (panicking.rs:559)
+==25294==    by 0x135BFF: try<isize, std::rt::lang_start_internal::{closure_env#2}> (panicking.rs:523)
+==25294==    by 0x135BFF: catch_unwind<std::rt::lang_start_internal::{closure_env#2}, isize> (panic.rs:149)
+==25294==    by 0x135BFF: std::rt::lang_start_internal (rt.rs:141)
+==25294== 
+==25294== 24 bytes in 1 blocks are definitely lost in loss record 2 of 2
+==25294==    at 0x4840808: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25294==    by 0x11D6AA: alloc::alloc::alloc (alloc.rs:100)
+==25294==    by 0x11D7B6: alloc::alloc::Global::alloc_impl (alloc.rs:183)
+==25294==    by 0x11D5E7: allocate (alloc.rs:243)
+==25294==    by 0x11D5E7: alloc::alloc::exchange_malloc (alloc.rs:332)
+==25294==    by 0x11E15D: san_memory_leak::main (san-memory-leak.rs:13)
+==25294==    by 0x11E89A: core::ops::function::FnOnce::call_once (function.rs:250)
+==25294==    by 0x11CF4D: std::sys_common::backtrace::__rust_begin_short_backtrace (backtrace.rs:155)
+==25294==    by 0x11E2F0: std::rt::lang_start::{{closure}} (rt.rs:159)
+==25294==    by 0x135BFF: call_once<(), (dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (function.rs:284)
+==25294==    by 0x135BFF: do_call<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (panicking.rs:559)
+==25294==    by 0x135BFF: try<i32, &(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (panicking.rs:523)
+==25294==    by 0x135BFF: catch_unwind<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (panic.rs:149)
+==25294==    by 0x135BFF: {closure#2} (rt.rs:141)
+==25294==    by 0x135BFF: do_call<std::rt::lang_start_internal::{closure_env#2}, isize> (panicking.rs:559)
+==25294==    by 0x135BFF: try<isize, std::rt::lang_start_internal::{closure_env#2}> (panicking.rs:523)
+==25294==    by 0x135BFF: catch_unwind<std::rt::lang_start_internal::{closure_env#2}, isize> (panic.rs:149)
+==25294==    by 0x135BFF: std::rt::lang_start_internal (rt.rs:141)
+==25294==    by 0x11E2C9: std::rt::lang_start (rt.rs:158)
+==25294==    by 0x11E28D: main (in /tmp/san-memory-leak)
+==25294== 
+==25294== LEAK SUMMARY:
+==25294==    definitely lost: 35 bytes in 2 blocks
+==25294==    indirectly lost: 0 bytes in 0 blocks
+==25294==      possibly lost: 0 bytes in 0 blocks
+==25294==    still reachable: 0 bytes in 0 blocks
+==25294==         suppressed: 0 bytes in 0 blocks
+==25294== 
+==25294== For lists of detected and suppressed errors, rerun with: -s
+==25294== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
