@@ -52,6 +52,14 @@ RUSTFLAGS="-Zsanitizer=address" cargo +nightly run --bin san-memory-leak
 {{#include assets/san-out-of-bounds.rs:5:}}
 ```
 
+上面代码中对 `numbers` 的堆内存读写都是越界的:
+
+![san out of bounds numbers](assets/san-out-of-bounds-numbers.svg)
+
+对变量 `numbers2` 的栈内存写入也是越界的, 它只有 12 个字节的空间, 却写入了 24 个字节的数据:
+
+![san out of bounds numbers2](assets/san-out-of-bounds-numbers2.svg)
+
 使用以下命令, 运行 sanitizer:
 
 ```bash
@@ -96,6 +104,8 @@ RUSTFLAGS="-Zsanitizer=address,leak" cargo +nightly run --bin san-use-after-free
 ```
 
 循环引用会导致节点上的对象不能被正常的释放, 内存不会回收并出现内存泄露的问题.
+
+![san cyclic references](assets/san-cyclic-references.svg)
 
 Sanitizer 可以检测到内存泄露的情况, 使用以下命令:
 
