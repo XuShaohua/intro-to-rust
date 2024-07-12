@@ -20,6 +20,7 @@ members = [
     "code/macros",
     "code/mem_module",
     "code/memory",
+    "code/memory_basic",
     "code/ownership",
     "code/pattern_matching",
     "code/perf",
