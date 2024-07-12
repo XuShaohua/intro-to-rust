@@ -1,4 +1,4 @@
-//! Redefination of `TcpStream`
+//! Redefinition of `TcpStream`
 
 #![allow(clippy::module_name_repetitions)]
 #![allow(dead_code)]

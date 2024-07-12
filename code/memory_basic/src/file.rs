@@ -1,4 +1,4 @@
-//! Redefination of `File` struct
+//! Redefinition of `File` struct
 
 #![allow(dead_code)]
 
