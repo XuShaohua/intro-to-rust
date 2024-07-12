@@ -6,9 +6,35 @@ RAII是 `Resource Acquisition Is Initialization` 的缩写, 最初来自于 C++.
 
 利用在栈上创建的局部变量的自动析构来保证它管理的资源一定被释放.
 
+
 ## 标准库中的 File 类
 
-```rust, no_run
+```rust
+{{#include assets/file.rs}}
+```
+
+## 标准库中的 TcpStream 类
+
+```rust
+{{#include assets/tcp.rs}}
+```
+
+## 标准库中的 Mutex 和 MutexGuard 类
+
+```rust
+{{#include assets/mutex.rs}}
+```
+
+## 标准库中的 Box 类
+
+```rust
+{{#include assets/boxed.rs}}
+```
+
+## 标准库中的 Rc 类
+
+```rust
+{{#include assets/rc.rs}}
 ```
 
 ## 参考
