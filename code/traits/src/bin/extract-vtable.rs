@@ -2,10 +2,20 @@
 
 use std::fmt::{Debug, Display};
 use std::mem::transmute;
+use std::ptr::addr_of;
+
+const GLOBAL_CONST_NAME: &str = "Rust const marker";
+static mut GLOBAL_NAME: i32 = 42;
 
 // From: https://zhuanlan.zhihu.com/p/407265957
 fn test_same_trait() {
     println!("test_same_trait()");
+    println!("const addr  {:p}", &GLOBAL_CONST_NAME);
+    unsafe {
+        println!("static addr {:p}", addr_of!(GLOBAL_NAME));
+        GLOBAL_NAME += 1;
+    }
+
     let s1 = "hello".to_owned();
     let s2 = "goodbye".to_owned();
     let w1: &dyn Debug = &s1;
