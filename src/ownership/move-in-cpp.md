@@ -24,10 +24,13 @@ std::string s2 = s1;
 
 ## C++11 引入 移动语义 Move semantics
 
+移动语义依赖三个基础:
+
 - move constructor
 - move assignment operator
+- `std::move()`
 
-是对 C++ 过渡封装的补救.
+这是对 C++ 过渡封装的补救.
 
 - 一个右值引用参数
 - 转移所有权
