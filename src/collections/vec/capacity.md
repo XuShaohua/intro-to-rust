@@ -46,14 +46,52 @@ assert_eq!(v2.capacity(), 3);
 
 ## pop() 函数, 从 vec 中移除元素, 会不会自动释放内存?
 
+先看一下测试代码:
+
 ```rust
 {{#include assets/vec-pop-capacity.rs:5:}}
 ```
 
-## reverse() 函数
+可以发现, 它并不会自动释放多余的内存, 需要手动调用 `resize()`, `shrink_to_fit()` 等函数.
 
-- `Vec::reverse();` 这里调用的是 `Slice::reverse()` 方法，是隐式地将 vec 先转成切片的
+## reverse(additional) 函数
+
+这个函数要求数组至少预留 `additional` 个元数的空间.
+
+```rust
+{{#include assets/vec-reserve-capacity.rs:5:}}
+```
+
+可以发现, 上面的例子中, 数组多分配了一些空间. 我们看一下标准库中的代码:
+
+```rust, no_run
+fn grow_amortized(&mut self, len: usize, additional: usize) -> Result<(), TryReserveError> {
+    ...
+   
+    // Nothing we can really do about these checks, sadly.
+    let required_cap = len.checked_add(additional).ok_or(CapacityOverflow)?;
+
+    // This guarantees exponential growth. The doubling cannot overflow
+    // because `cap <= isize::MAX` and the type of `cap` is `usize`.
+    let cap = cmp::max(self.cap.0 * 2, required_cap);
+    let cap = cmp::max(Self::MIN_NON_ZERO_CAP, cap);
+
+    let new_layout = Layout::array::<T>(cap);
+    ...
+}
+```
+
+如果要留出的空间比当前容量的 `2` 倍少的话, 会直接使用 `2 倍扩容` 的策略.
 
 ## shrink_to_fit() 函数
 
+这个函数比较容易理解, 调整数组的容量, 移除多余的未使用的内存, 这样 `len() == capacity()`.
+
 ## resize() 函数
+
+调整数组中的元素个数, 如果新的个数比当前的少, 就移除一部分;
+如果比当前的个数多, 就添加一部分, 使用指定的值, 同时数组的容量调整, 依然是按照 `2 倍扩容` 的策略.
+
+```rust
+{{#include assets/vec-resize-capacity.rs:5:}}
+```

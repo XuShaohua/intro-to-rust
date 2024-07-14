@@ -4,7 +4,7 @@
 
 fn main() {
     let mut v1: Vec<i32> = Vec::new();
-    for i in 0..10_000 {
+    for i in 0..1_000_000 {
         v1.push(i);
     }
     println!("capacity: {}, len: {}", v1.capacity(), v1.len());
