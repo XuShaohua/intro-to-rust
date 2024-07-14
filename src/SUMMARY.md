@@ -36,6 +36,7 @@
     - [预先导入 Preludes](modules/prelude.md)
 - [所有权 Ownership](ownership/index.md)
     - [所有权 Ownership](ownership/ownership.md)
+    - [C++ 中的移动语义 Move Semantics](ownership/move-in-cpp.md)
     - [转移所有权 Move Ownership](ownership/move.md)
     - [不需要转移所有权 Clone 与 Copy traits](ownership/clone-copy.md)
     - [使用 Rc 与 Arc 共享所有权](ownership/rc-arc.md)
@@ -169,8 +170,8 @@
 
 - [内存管理基础](memory-basic/index.md)
     - [进程内存结构 Segments](memory-basic/memory-segments.md)
-    - [Drop trait](memory-basic/drop.md)
     - [RAII](memory-basic/raii.md)
+    - [Drop trait](memory-basic/drop.md)
 - [std::ptr 模块](ptr-module/index.md)
     - [ptr::read() 与 ptr::write() 函数](ptr-module/read-write.md)
     - [ptr::addr_of!() 与 ptr::addr_of_mut!() 宏](ptr-module/addr-of.md)
