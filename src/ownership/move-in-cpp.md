@@ -52,6 +52,23 @@ std::string s2 = s1;
 - 函数返回值 (不是左值引用 lvalue reference)
 
 ```cpp
+std::string s1 = "C++";
+std::string s2 = std::move(s1);
+```
+
+上面的代码片段中, 字符串 `s2` 是 `s1` 原有内存的浅拷贝; 而 `s1` 里面的堆内存被重新设置了,
+并且其字符串长度 `size == 0`.
+
+![cpp move string](assets/cpp-move-string.svg)
+
+下面是一个更复杂的例子, `Person` 类额外实现了
+
+- move constructor
+- move assignment operator
+
+在创建对象时可以使用它们进行浅拷贝, 以提高程序的速度.
+
+```cpp
 {{#include assets/move_person.cpp:5:}}
 ```
 
