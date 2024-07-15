@@ -5,5 +5,5 @@
 ## 代码示例
 
 ```rust, compile_fail
-{{#include assets/singleton.rs:5: }}
+{{#include assets/lazy-static-singleton.rs:5: }}
 ```
