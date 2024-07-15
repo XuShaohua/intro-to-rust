@@ -22,6 +22,9 @@ std::string s2 = s1;
 {{#include assets/copy_person.cpp:5:}}
 ```
 
+为了简化图例, 本文忽略了 `std::string` 相关的 SSO (short string optimization), 但这对本文的核心没有影响.
+更多关于 SSO 的信息可以参考本文结尾的链接.
+
 ## C++11 引入 移动语义 Move semantics
 
 移动语义依赖三个基础:
@@ -79,3 +82,5 @@ std::string s2 = std::move(s1);
 
 - [C++ Move Semantics - The Complete Guide](https://cppmove.com/)
 - [C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines)
+- [SSO-23](https://github.com/elliotgoodrich/SSO-23)
+- [Understanding Small String Optimization (SSO) in std::string](https://cppdepend.com/blog/understanding-small-string-optimization-sso-in-stdstring/)

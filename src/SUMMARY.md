@@ -231,14 +231,14 @@
     - [分配与回收内存 Alloc](memory/alloc-dealloc.md)
     - [Sanitizers](memory/sanitizers.md)
     - [使用 valgrind 检查内存泄露](memory/valgrind.md)
-    - [内存分配器](allocator/index.md)
-        - [内存分配器关系图](allocator/relationship.md)
-        - [内存分配器的基本接口 GlobalAlloc](allocator/global-alloc.md)
-        - [Allocator Trait](allocator/allocator-api.md)
-        - [标准库中的内存分配器](allocator/alloc-in-std.md)
-        - [自定义内存分配器](allocator/simple-alloc.md)
-        - [Arena 分配器](allocator/arena.md)
-        - [jemalloc 库](allocator/jemalloc.md)
+- [内存分配器](allocator/index.md)
+    - [内存分配器关系图](allocator/relationship.md)
+    - [内存分配器的基本接口 GlobalAlloc](allocator/global-alloc.md)
+    - [Allocator Trait](allocator/allocator-api.md)
+    - [标准库中的内存分配器](allocator/alloc-in-std.md)
+    - [自定义内存分配器](allocator/simple-alloc.md)
+    - [Arena 分配器](allocator/arena.md)
+    - [jemalloc 库](allocator/jemalloc.md)
 
 # 第五部分: 并发编程
 
@@ -348,7 +348,8 @@
     - [如何调试 debug](tokio/debug.md)
 - [smol 库](smol/index.md)
 - [async-std 库](async-std/index.md)
-- [IO uring](io-uring/index.md)
+- [actix Actor Model](actix/index.md)
+- [异步IO io-uring](io-uring/index.md)
 
 # 第七部分: 工程实践
 

@@ -2,12 +2,12 @@
 
 根据并发模块之间的通信方式的不同, 可以有两种分类:
 
-- 共享内存
-- 消息传递
+- 基于共享内存的并发 shared-memory concurrency
+- 基于消息传递的并发 message-passing concurrency
 
-根据并发模块运行方式的不同, 可以有这种分类:
+根据并发模块运行方式的不同, 可以有这几种分类:
 
-- 多进程
+- 多进程, 进程由内核控制
 - 系统级多线程 (os threads), 线程由内核控制
 - 事件驱动 (event-driven programming), 与回调 (callback) 相结合, 当事件发生时回调函数被触发
 - Coroutines, 与多线程相同,不需要修改编程模型; 与 async 类似, 它们可以支持大量的任务
