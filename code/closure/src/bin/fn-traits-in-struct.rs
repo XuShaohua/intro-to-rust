@@ -1,4 +1,4 @@
-//! From https://stackoverflow.com/questions/27831944/how-do-i-store-a-closure-in-a-struct-in-rust
+//! From `https://stackoverflow.com/questions/27831944/how-do-i-store-a-closure-in-a-struct-in-rust`
 
 #![allow(dead_code)]
 #![allow(clippy::disallowed_names)]
