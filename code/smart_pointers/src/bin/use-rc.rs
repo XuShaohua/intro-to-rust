@@ -2,6 +2,7 @@
 // Use of this source is governed by General Public License that can be found
 // in the LICENSE file.
 
+use std::mem::size_of;
 use std::rc::Rc;
 
 fn use_rc() {
@@ -27,4 +28,6 @@ fn test_weak_rc() {
 fn main() {
     use_rc();
     test_weak_rc();
+
+    assert_eq!(size_of::<Rc<i32>>(), 8);
 }
