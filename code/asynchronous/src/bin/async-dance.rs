@@ -2,8 +2,6 @@
 // Use of this source is governed by General Public License that can be found
 // in the LICENSE file.
 
-use std::future::{Future, IntoFuture};
-
 use futures::executor::block_on;
 
 async fn learn_song() {

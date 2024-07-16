@@ -31,6 +31,7 @@ members = [
     "code/stdlib",
     "code/strings",
     "code/structs",
+    "code/tokio_crate",
     "code/traits",
     "code/unsafe_code"
     ]
