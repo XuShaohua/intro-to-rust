@@ -7,4 +7,4 @@ edition = "2021"
 publish = false
 
 [dependencies]
-nc = { version = "0.8.20", default-features = false }
+nc = { version = "0.8.21", default-features = false }
