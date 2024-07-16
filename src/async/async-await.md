@@ -3,6 +3,10 @@
 rustc 编译器遇到 async 函数时, 会在内部生成对应的状态机代码 (state machine), 这个状态机会实现
 `Future` trait.
 
+## async 表达式
+
+## await 表达式
+
 ## 参考
 
 - [Understanding Async Await in Rust: From State Machines to Assembly Code](https://eventhelix.com/rust/rust-to-assembly-async-await/)

@@ -1,4 +1,4 @@
-# 匹配 match
+# 匹配表达式 match
 
 match 表达式与 C/C++ 中的 switch/case 语句类似, 用于匹配多个分支条件.
 
