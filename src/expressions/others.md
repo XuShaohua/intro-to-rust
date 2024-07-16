@@ -10,6 +10,7 @@
 - [浮点类型 float](../primitives/floating-point.md)
 - [布尔类型 boolean](../primitives/bool.md)
 - [字符 char](../primitives/char.md)
+- [字符串常量](../strings/string-literals.md)
 
 ## 数组及其索引 Array
 

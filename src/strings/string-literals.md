@@ -39,7 +39,7 @@ hello, world.
 "###);
 ```
 
-## Byte strings
+## Byte string literals
 
 Byte strings 只能包含 ASCII 码以及 `\xHH` 这些字符，由一些 `u8` 值组成。
 
@@ -49,6 +49,10 @@ assert_eq!(method, &[b'G', b'E', b'T']);
 ```
 
 要注意的是, 它不是 string, 而是 u8 array, `[u8]`.
+
+## C string literals
+
+TODO(Shaohua):
 
 ## C strings
 
