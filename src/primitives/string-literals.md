@@ -1,6 +1,6 @@
 # 字符串常量 String Literals
 
-Unicode 字符串, 存在可执行文件的 text segment中.
+Unicode 字符串, 被存储在可执行文件的代码段 (text segment) 中.
 
 多行字符串:
 
