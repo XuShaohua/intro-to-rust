@@ -2,27 +2,21 @@
 // Use of this source is governed by General Public License that can be found
 // in the LICENSE file.
 
+use std::future::{Future, IntoFuture};
+
 use futures::executor::block_on;
 
-#[derive(Debug)]
-struct Song {
-    name: String,
-}
-
-async fn learn_song() -> Song {
+async fn learn_song() {
     println!("learn song()");
-    Song {
-        name: "Endless life".to_owned(),
-    }
 }
 
-async fn sing_song(song: Song) {
-    println!("Sing a song: {}", song.name);
+async fn sing_song() {
+    println!("Sing a song");
 }
 
 async fn learn_and_sing() {
-    let song = learn_song().await;
-    sing_song(song).await;
+    learn_song().await;
+    sing_song().await;
 }
 
 async fn dance() {

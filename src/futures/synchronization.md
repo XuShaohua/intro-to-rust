@@ -1,1 +1,1 @@
-# 同步原语 Synchronization Primitives
+# 同步 Synchronization
