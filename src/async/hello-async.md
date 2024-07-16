@@ -36,13 +36,3 @@ fn main() {
 - `block_on()` 会阻塞当前线程, 直到 `Future` 运行完成
 
 在 `async fn` 函数内部, 可以使用 `.await` 来等待另一个实现了 `Future` trait 的对象运行完成.
-
-下面的例子更为复杂:
-
-```rust, ignore
-{{#include assets/async-dance.rs:5: }}
-```
-
-其中 `futures::join!()` 宏, 类似于 `.await`, 但它等待多个 Future 对象并发运行, 大致如下图如示:
-
-![futures join](assets/async-dance.svg)
