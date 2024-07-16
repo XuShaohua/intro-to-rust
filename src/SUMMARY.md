@@ -91,7 +91,7 @@
     - [隐藏名称 Name Hiding](traits/name-hiding.md)
 - [函数与闭包 Closure](closure/index.md)
     - [函数 function](closure/function.md)
-    - [const 函数](closure/const-function.md)
+    - [函数属性](closure/function-attributes.md)
     - [重载 Overloading](closure/function-overloading.md)
     - [闭包 Closure](closure/closure.md)
     - [闭包的内存布局](closure/mem-layout.md)
@@ -334,7 +334,7 @@
 # 第六部分: 异步编程
 
 - [异步 async/await](async/index.md)
-    - [第一个 async 程序](async/async-dance.md)
+    - [第一个 async 程序](async/hello-async.md)
     - [理解 Futures 与 Tasks](async/futures-and-tasks.md)
     - [理解 async/await](async/async-await.md)
     - [生命周期与内存固定 Lifetimes and Pinning](async/lifetimes-pinning.md)
