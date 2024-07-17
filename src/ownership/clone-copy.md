@@ -1,5 +1,11 @@
 # 不需要转移所有权
 
+基础数据类型的值可以直接被拷贝, 因为它们的结构通常都很简单, 拷贝的效率很高.
+
+而且有时候需要深拷贝一个值, 这样的话新的值与原先的值可以共存, 而且双方没有任何关联.
+
+上面的情竞, 都不需要再转移值的所有权.
+
 ## Copy trait
 
 当一个类型实现了 `Copy` trait 后, 该类型的变量在赋值时, 进行的是复制的操作, 而不是转移（move）操作.
@@ -61,5 +67,19 @@
 
 {{#include assets/slice.rs:75:88}}
 ```
+
+## 一个更复杂的深拷贝示例
+
+```rust
+{{#include assets/clone-book.rs:5:}}
+```
+
+先创建 `books` 数组, 里面包含了两本书:
+
+![clone book books](assets/clone-book-books.svg)
+
+然后再创建 `books` 数组的副本, 并且基于价格对书进行排序, 最后其内存结构如下图所示:
+
+![clone book books sorted](assets/clone-book-books-sorted.svg)
 
 [copy_nonoverlapping]: https://doc.rust-lang.org/stable/std/intrinsics/fn.copy_nonoverlapping.html
