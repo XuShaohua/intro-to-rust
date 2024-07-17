@@ -52,8 +52,8 @@ pub use type Array<T, N> = [T; N];
 
 ![array mem layout](assets/array-mem-layout.svg)
 
-另外, `arr` 是直接存储在进程的栈空间的, 并不是存放在堆内存上. 所以, 数组占用的空间不能太大,
-否则会出现 `stack overflow` 等问题:
+另外, `arr` 直接存储在栈内存. 所以数组占用的空间不能太大, 否则会出现 `stack overflow` 问题,
+linux 平台线程的栈内存默认只有 8MB 的空间:
 
 ```rust
 {{#include assets/array-overflow.rs:5: }}
