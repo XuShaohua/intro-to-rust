@@ -32,6 +32,34 @@
 
 ![array copy mem layout](assets/array-copy-mem-layout.svg)
 
-## 如何"深拷贝" 字符串
+## 如何"深拷贝" 字符串 - Clone trait
 
 前文演示了 C++ 中如何深拷贝一个字符串对象, 在 Rust 中实现同样的操作也很容易.
+
+```rust
+{{#include assets/clone-string.rs:5:}}
+```
+
+生成的汇编代码如下:
+
+```asm
+{{#include assets/clone-string.s:1902:1906}}
+
+{{#include assets/clone-string.s:1594:1652}}
+```
+
+以上操作完成之后, 内存的结构如下图所示:
+
+![rust clone string](assets/rust-clone-string.svg)
+
+上图中的 `copy()` 函数, 实际上是调用的 `slice::to_vec()` 函数实现的, 最终会调用
+[`copy_nonoverlapping`][copy_nonoverlapping], 它等价于 libc 中的 `memcpy()`,
+它的核心代码如下所示:
+
+```rust, no_run
+{{#include assets/slice.rs:31:35}}
+
+{{#include assets/slice.rs:75:88}}
+```
+
+[copy_nonoverlapping]: https://doc.rust-lang.org/stable/std/intrinsics/fn.copy_nonoverlapping.html
