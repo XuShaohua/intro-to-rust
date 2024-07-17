@@ -3,6 +3,7 @@
 // that can be found in the LICENSE file.
 
 #![allow(dead_code)]
+#![allow(clippy::inconsistent_digit_grouping)]
 
 use std::mem::size_of;
 
@@ -13,9 +14,8 @@ pub struct Book {
     price: f64,
 }
 
-#[allow(clippy::inconsistent_digit_grouping)]
 fn main() {
-    assert_eq!(size_of::<Book>(), 4);
+    assert_eq!(size_of::<Book>(), 40);
 
     let books = vec![
         Book {
