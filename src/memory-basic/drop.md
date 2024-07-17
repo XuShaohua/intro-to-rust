@@ -7,3 +7,7 @@
 ## Drop flag
 
 ## 不要自动 Drop - ManuallyDrop
+
+## 参考
+
+- [Drop Flags](https://doc.rust-lang.org/nomicon/drop-flags.html)

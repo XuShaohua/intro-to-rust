@@ -67,3 +67,9 @@ let mut x2 = x;
 ```rust
 {{#include assets/move-person.rs:5:}}
 ```
+
+## 参考
+
+- [C++ 中的移动语义 Move Semantics](./move-in-cpp.md)
+- [Drop](../memory-basic/drop.md)
+- [不需要转移所有权](./clone-copy.md)
