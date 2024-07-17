@@ -19,7 +19,7 @@ std::string s2 = s1;
 下面是一个更复杂的例子:
 
 ```cpp
-{{#include assets/copy_person.cpp:5:}}
+{{#include assets/copy-person.cpp:5:}}
 ```
 
 为了简化图例, 本文忽略了 `std::string` 相关的 SSO (short string optimization), 但这对本文的核心没有影响.
@@ -75,7 +75,7 @@ std::string s2 = std::move(s1);
 在创建对象时可以使用它们进行浅拷贝, 以提高程序的速度.
 
 ```cpp
-{{#include assets/move_person.cpp:5:}}
+{{#include assets/move-person.cpp:5:}}
 ```
 
 ## 参考
