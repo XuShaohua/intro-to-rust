@@ -29,13 +29,13 @@ fn main() {
     let point2 = point;
     assert_eq!(point, point2);
 
-    // string literal
+    // string slice
     let s = "Rust";
     let s2 = s;
     assert_eq!(s, s2);
 
     // slice
-    let b = b"Rust";
+    let b = &[1, 2, 3];
     let b2 = b;
     assert_eq!(b, b2);
 

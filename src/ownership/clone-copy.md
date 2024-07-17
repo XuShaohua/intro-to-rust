@@ -22,13 +22,15 @@
 - [切片 slice](../primitives/slice.md)
 - [字符串字面量 string literal](../primitives/string-literals.md)
 
-下面来解释一下其中不容量理解的几个点:
+下面来解释一下数组的拷贝过程, 首先看看上面代码对应的汇编代码:
 
-### 数组 array
+```rust
+{{#include assets/copy-primitives.s:1316:1350}}
+```
 
-### 切片
+整个过程如下图所示:
 
-### 字符串字面量
+![array copy mem layout](assets/array-copy-mem-layout.svg)
 
 ## 如何"深拷贝" 字符串
 
