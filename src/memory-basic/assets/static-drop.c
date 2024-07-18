@@ -1,0 +1,1 @@
+../../../code/memory_basic/src/static-drop.c
