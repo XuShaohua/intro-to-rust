@@ -82,6 +82,40 @@
 {{#include assets/dynamic-drop.c:5:}}
 ```
 
+更有趣的是, 我们可以用 gdb/lldb 来手动修改 `x.drop-flag`, 如果把它设置为 `1`, 并且 `x` 未初始化的话,
+在进程结束时, 就可能会产生段错误 segfault.
+
+```text
+dynamic-drop`dynamic_drop::main::h5787b1b14685d565:
+    0x5555555696e0 <+0>:  subq   $0x118, %rsp              ; imm = 0x118
+    0x5555555696e7 <+7>:  movb   $0x0, 0xcf(%rsp)
+->  0x5555555696ef <+15>: movq   0x4165a(%rip), %rax
+    0x5555555696f6 <+22>: callq  *%rax
+    0x5555555696f8 <+24>: movq   %rax, 0x30(%rsp)
+```
+
+上面展示的是 main() 函数初始化时的代码, 它调整完栈顶后, 立即重置了 `x.drop-flag = 0`.
+在后面的代码运行前, 我们可以使用命令 `p *(char*)($rsp + 0xcf) = 1` 将 `x.drop-flag` 设置为`1`.
+等进程结束时, `x` 超出了作用域, 就要检查 `x.drop-flag` 的值. 如果`x` 未初始化的话, 它内部的
+指针可能指向任意的地址, 所以就产生了段错误.
+
+我们再看一下段错误时的函数的调用栈:
+
+```text
+* thread #1, name = 'dynamic-drop', stop reason = signal SIGSEGV: invalid address (fault address: 0xe8)
+    frame #0: 0x00007ffff7e0a6aa libc.so.6`__GI___libc_free(mem=0x00000000000000f0) at malloc.c:3375:7
+(lldb) bt
+* thread #1, name = 'dynamic-drop', stop reason = signal SIGSEGV: invalid address (fault address: 0xe8)
+  * frame #0: 0x00007ffff7e0a6aa libc.so.6`__GI___libc_free(mem=0x00000000000000f0) at malloc.c:3375:7
+    frame #1: 0x000055555556a000 dynamic-drop`_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$::deallocate::hfe4b1fe0680a312e at alloc.rs:119:14
+    frame #2: 0x0000555555569fcd dynamic-drop`_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$::deallocate::hfe4b1fe0680a312e(self=0x00007fffffff
+dd00, ptr=(pointer = ""), layout=Layout @ 0x00007fffffffdb88) at alloc.rs:256:22
+    frame #3: 0x0000555555569b89 dynamic-drop`_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::hea3c2fa5449fa588(self=0x00007ffff
+fffdcf8) at boxed.rs:1247:17
+    frame #4: 0x0000555555569ae8 dynamic-drop`core::ptr::drop_in_place$LT$alloc..boxed..Box$LT$i32$GT$$GT$::h4bec233740204caa((null)=0x00007fffffffdcf8) at mod.
+rs:514:1
+```
+
 ### 手动调用 `drop()` 函数
 
 上面的代码演示了 `Drop Flag` 是如何工作的, 接下来, 我们看一下手动调用 `drop()` 函数释放了对象后,
