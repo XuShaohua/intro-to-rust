@@ -1,0 +1,1 @@
+../../../code/memory_basic/src/bin/manual-drop.rs

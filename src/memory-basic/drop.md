@@ -82,6 +82,37 @@
 {{#include assets/dynamic-drop.c:5:}}
 ```
 
+### 手动调用 `drop()` 函数
+
+上面的代码演示了 `Drop Flag` 是如何工作的, 接下来, 我们看一下手动调用 `drop()` 函数释放了对象后,
+它的行为是怎么样的?
+
+先看示例代码:
+
+```rust
+{{#include assets/manual-drop.rs:5:}}
+```
+
+将上面的代码生成汇编代码, 我们还加上了几条注释:
+
+```asm
+{{#include assets/manual-drop.s:935:955}}
+```
+
+可以看到, 当执行到 `drop(x);` 时, 编译器:
+
+- 先重置 `x.drop-flag = 0`
+- 接着调用 `core::mem::drop(x);`
+
+而编译器自动释放对象 `x` 时, 会调用另一个函数
+`core::ptr::drop_in_place(*x as *mut i32)`.
+
+将上面的汇编代码合并到之前的 Rust 代码, 大致如下:
+
+```rust
+{{#include assets/manual-drop-noted.rs:5:}}
+```
+
 ## Drop 是零成本抽像吗?
 
 我们分析了上面的 Rust 程序, 可以明显地发现, 编译器生成的代码在支持动态 drop 时, 需要反复地判断
