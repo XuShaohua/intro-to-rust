@@ -42,8 +42,6 @@ pub struct LinkedList {
 }
 ```
 
-## Drop Flags
+## 相关内容
 
-## References
-
-- [Drop Flags](https://doc.rust-lang.org/nomicon/drop-flags.html)
+- [Drop](../memory-basic/drop.md)

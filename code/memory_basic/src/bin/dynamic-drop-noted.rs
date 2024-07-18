@@ -7,7 +7,7 @@ use std::time::{SystemTime, UNIX_EPOCH};
 fn main() {
     // 函数栈内存在初始完成后, 设置 x.drop-flag
     // x.drop-flag = 0;
-    
+
     let now = SystemTime::now();
     let timestamp = now.duration_since(UNIX_EPOCH).unwrap_or_default();
     // 声明 x, 但没有初始化它, 所以 x 是 uninit 的
@@ -15,7 +15,9 @@ fn main() {
 
     // 如果毫秒是偶数, 就进入分支
     if timestamp.as_millis() % 2 == 0 {
-        // 初始化 x, 分配堆内存, 并设置堆内存上的值为 42
+        // 分配堆内存 malloc(4)
+        // 并设置堆内存上的值为 42
+        // 初始化 x
         x = Box::new(42);
         // 设置 drop-flag 的值
         // x.drop-flag = 1
