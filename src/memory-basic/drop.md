@@ -158,7 +158,7 @@ ManuallyDrop 做了什么? 对于栈上的对象, 不需要调用该对象的 `D
 ```
 
 上面的代码, 如果 `millis` 是偶数的话, x 会被标记为 `ManuallyDrop`, 这样的话编译器将不再自动
-调用它的 `Drop` trait, 这里就会产生一个内存泄露点.
+调用它的 `Drop` trait, 这里就是一个内存泄露点.
 
 我们来看一下生成的汇编代码:
 
@@ -174,12 +174,24 @@ ManuallyDrop 做了什么? 对于栈上的对象, 不需要调用该对象的 `D
 
 ### Box::leak
 
+另一个例子是 `Box::leak()` 它也会抑制编译器自动调用对象的 `Drop` trait.
+看下面的例子, 也会产生内存泄露:
+
+```rust
+{{#include assets/box-leak-drop.rs:5:}}
+```
+
+我们追踪 `Box::leak()` 的源代码可以发现, 它的内部也是调用了 `ManuallyDrop::new()` 的:
+
+```rust
+{{#include assets/boxed.rs:39:65}}
+```
+
 ### ptr 模块
 
 - write()
 - copy()
 - copy_nonoverlapping()
--
 
 ## 参考
 

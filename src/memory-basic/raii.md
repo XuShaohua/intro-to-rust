@@ -28,7 +28,7 @@ RAII是 `Resource Acquisition Is Initialization` 的缩写, 最初来自于 C++.
 ## 标准库中的 Box 类
 
 ```rust
-{{#include assets/boxed.rs}}
+{{#include assets/boxed.rs:3:37}}
 ```
 
 ## 标准库中的 Rc 类
