@@ -183,15 +183,25 @@ ManuallyDrop 做了什么? 对于栈上的对象, 不需要调用该对象的 `D
 
 我们追踪 `Box::leak()` 的源代码可以发现, 它的内部也是调用了 `ManuallyDrop::new()` 的:
 
-```rust
+```rust, no_run
 {{#include assets/boxed.rs:39:65}}
 ```
 
 ### ptr 模块
 
+最后一个要介绍的是 `ptr` 模块中的几个函数:
+
 - write()
 - copy()
 - copy_nonoverlapping()
+
+它们也会抑制编译器自动调用对象的 `Drop` trait.
+
+我们不再举例了, 而是直接看一下 `Vec<T>` 的源代码, 看它是怎么实现插入元素和弹出元素的;
+
+```rust, no_run
+{{#include assets/vec.rs:3:}}
+```
 
 ## 参考
 
