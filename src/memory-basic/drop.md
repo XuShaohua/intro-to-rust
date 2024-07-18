@@ -149,14 +149,27 @@ x = malloc(4);
 
 ### ManuallyDrop
 
-ManuallyDrop 做了什么? 对于栈上的对象, 它把对象的 drop-flag 设置成了0. 这样就不需要调用该对象的 `Drop` trait.
+ManuallyDrop 做了什么? 对于栈上的对象, 不需要调用该对象的 `Drop` trait.
+
+先看一个 ManuallyDrop 的一个例子:
 
 ```rust
-
+{{#include assets/manually-drop.rs:5:}}
 ```
 
-```asm
+上面的代码, 如果 `millis` 是偶数的话, x 会被标记为 `ManuallyDrop`, 这样的话编译器将不再自动
+调用它的 `Drop` trait, 这里就会产生一个内存泄露点.
 
+我们来看一下生成的汇编代码:
+
+```asm
+{{#include assets/manually-drop.s:799:1029}}
+```
+
+上面的汇编代码比较长, 将它的行为作为注释加到原先的 Rust 代码中, 更容易阅读:
+
+```rust
+{{#include assets/manually-drop-noted.rs:5:}}
 ```
 
 ### Box::leak
