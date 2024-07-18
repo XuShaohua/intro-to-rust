@@ -46,7 +46,7 @@
     - [不需要转移所有权 Clone 与 Copy traits](ownership/clone-copy.md)
     - [使用 Rc 与 Arc 共享所有权](ownership/rc-arc.md)
     - [引用 References](ownership/references.md)
-- [引用 Reference](references/index.md)
+- [引用 References](references/index.md)
     - [引用的操作](references/ref-ops.md)
     - [引用的内存结构](references/mem-layout.md)
     - [引用的安全性 Reference Safety](references/ref-safety.md)

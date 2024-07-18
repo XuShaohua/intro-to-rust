@@ -1,4 +1,4 @@
-# 引用 Reference
+# 引用 References
 
 我们之前用过的 `Box<T>` 或者 `Vec<T>` 等, 内部包含了指向堆内存的指针, 这些指针是拥有堆内存的所有权,
 被称为 owning pointers. 当 box 或者 vec 对象被丢弃 (drop) 时, 这些堆内存也会被释放掉,
