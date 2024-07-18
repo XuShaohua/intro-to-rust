@@ -41,3 +41,8 @@ sudo apt install pandoc librsvg2-bin texlive-latex-recommended latex-cjk-all tex
 ```
 
 安装好依赖之后, 运行 `./tools/generate-pdf.sh` 脚本, 就会生成 `book-pandoc/intro-to-rust.pdf`.
+
+## 版权
+
+本文档中附带的源代码文件依照 [GPL 3.0](LICENSE) 协议发布.
+

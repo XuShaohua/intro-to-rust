@@ -1,7 +1,7 @@
 [book]
 title = "Rust 语言入门 Introduction to Rust"
 description = ""
-authors = ["Shaohua <shaohua@biofan.org>"]
+authors = ["Xu Shaohua <shaohua@biofan.org>"]
 language = "zh-CN"
 
 [rust]
