@@ -9,6 +9,6 @@ set -xe
 
 mv book.toml book.toml.bak
 mv pandoc.toml book.toml
-mdbook build
+mdbook build || true
 mv book.toml pandoc.toml
 mv book.toml.bak book.toml
