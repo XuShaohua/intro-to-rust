@@ -27,20 +27,15 @@
 
 1. 用 cargo 来安装它: `cargo install mdbook mdbook-linkcheck`
 2. 运行 `mdbook build` 命令, 会在`book/`目录里生成完整的电子书的网页版本
-3. 使用 `mdbook serve` 命令监控文件变更, 并启动一个本地的 web 服务器, 在浏览器中打开 [http://localhost:3000](http://localhost:3000)
+3. 使用 `mdbook serve` 命令监控文件变更, 并启动一个本地的 web 服务器,
+   在浏览器中打开 [http://localhost:3000](http://localhost:3000)
 
 ### 生成 PDF
 
-如果想生成 pdf, 需要安装 [mdbook-pandoc](https://github.com/max-heller/mdbook-pandoc),
-通过命令 `cargo install mdbook-pandoc`.
+如果想生成 pdf, 需要安装 [mdbook-pandoc](https://github.com/max-heller/mdbook-pandoc):
 
-然后安装 latex 相应的包:
-
-```bash
-sudo apt install pandoc librsvg2-bin texlive-latex-recommended latex-cjk-all texlive-xetex
-```
-
-安装好依赖之后, 运行 `./tools/generate-pdf.sh` 脚本, 就会生成 `book-pandoc/intro-to-rust.pdf`.
+- 运行 `./tools/install-pdf-deps.sh` 脚本安装相应的依赖包
+- 运行 `./tools/generate-pdf.sh` 脚本, 就会生成 `book-pandoc/pdf/IntroductionToRust.pdf`
 
 ## 版权
 

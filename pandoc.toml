@@ -1,7 +1,7 @@
 [book]
 title = "Rust 语言入门 Introduction to Rust"
 description = ""
-authors = ["Shaohua <shaohua@biofan.org>"]
+authors = ["Xu Shaohua <shaohua@biofan.org>"]
 language = "zh-CN"
 
 [rust]
@@ -15,7 +15,7 @@ create-missing = false
 hosted-html = "https://rust.biofan.org"
 
 [output.pandoc.profile.pdf]
-output-file = "intro-to-rust.pdf" # output file (within the profile's build directory)
+output-file = "IntroductionToRust.pdf" # output file (within the profile's build directory)
 to = "latex" # output format
 
 # PDF-specific settings
