@@ -5,3 +5,7 @@ edition = "2021"
 publish = false
 
 [dependencies]
+
+[[bin]]
+name = "perf-debug-assertions"
+path = "src/bin/debug-assertions.rs"

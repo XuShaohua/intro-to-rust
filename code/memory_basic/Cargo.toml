@@ -6,3 +6,39 @@ publish = false
 
 [dependencies]
 libc = "0.2.155"
+
+[[bin]]
+name = "memory_basic-dynamic-drop"
+path = "src/bin/dynamic-drop.rs"
+
+[[bin]]
+name = "memory_basic-multiple-dynamic-drop"
+path = "src/bin/multiple-dynamic-drop.rs"
+
+[[bin]]
+name = "memory_basic-manual-drop"
+path = "src/bin/manual-drop.rs"
+
+[[bin]]
+name = "memory_basic-static-drop"
+path = "src/bin/static-drop.rs"
+
+[[bin]]
+name = "memory_basic-dynamic-drop-noted"
+path = "src/bin/dynamic-drop-noted.rs"
+
+[[bin]]
+name = "memory_basic-manual-drop-noted"
+path = "src/bin/manual-drop-noted.rs"
+
+[[bin]]
+name = "memory_basic-manually-drop"
+path = "src/bin/manually-drop.rs"
+
+[[bin]]
+name = "memory_basic-manually-drop-noted"
+path = "src/bin/manually-drop-noted.rs"
+
+[[bin]]
+name = "memory_basic-box-leak-drop"
+path = "src/bin/box-leak-drop.rs"

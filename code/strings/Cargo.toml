@@ -5,3 +5,15 @@ edition = "2021"
 publish = false
 
 [dependencies]
+
+[[bin]]
+name = "strings-string-literals"
+path = "src/bin/string-literals.rs"
+
+[[bin]]
+name = "strings-string-utf8"
+path = "src/bin/string-utf8.rs"
+
+[[bin]]
+name = "strings-mem-layout"
+path = "src/bin/mem-layout.rs"

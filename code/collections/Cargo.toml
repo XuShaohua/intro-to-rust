@@ -5,3 +5,35 @@ edition = "2021"
 publish = false
 
 [dependencies]
+
+[[bin]]
+name = "collections-vec-deque-capacity"
+path = "src/bin/vec-deque-capacity.rs"
+
+[[bin]]
+name = "collections-hashmap-capacity"
+path = "src/bin/hashmap-capacity.rs"
+
+[[bin]]
+name = "collections-word-count"
+path = "src/bin/word-count.rs"
+
+[[bin]]
+name = "collections-vec-push-capacity"
+path = "src/bin/vec-push-capacity.rs"
+
+[[bin]]
+name = "collections-vec-pop-capacity"
+path = "src/bin/vec-pop-capacity.rs"
+
+[[bin]]
+name = "collections-vec-new-capacity"
+path = "src/bin/vec-new-capacity.rs"
+
+[[bin]]
+name = "collections-vec-resize-capacity"
+path = "src/bin/vec-resize-capacity.rs"
+
+[[bin]]
+name = "collections-vec-reserve-capacity"
+path = "src/bin/vec-reserve-capacity.rs"

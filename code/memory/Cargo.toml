@@ -6,3 +6,59 @@ publish = false
 
 [dependencies]
 libc = "0.2.155"
+
+[[bin]]
+name = "memory-droppable"
+path = "src/bin/droppable.rs"
+
+[[bin]]
+name = "memory-layout"
+path = "src/bin/layout.rs"
+
+[[bin]]
+name = "memory-boxed-pointer"
+path = "src/bin/boxed-pointer.rs"
+
+[[bin]]
+name = "memory-libc-ptr"
+path = "src/bin/libc-ptr.rs"
+
+[[bin]]
+name = "memory-system-allocator"
+path = "src/bin/system-allocator.rs"
+
+[[bin]]
+name = "memory-pinned-string"
+path = "src/bin/pinned-string.rs"
+
+[[bin]]
+name = "memory-drop-point"
+path = "src/bin/drop-point.rs"
+
+[[bin]]
+name = "memory-san-memory-leak"
+path = "src/bin/san-memory-leak.rs"
+
+[[bin]]
+name = "memory-san-data-race"
+path = "src/bin/san-data-race.rs"
+
+[[bin]]
+name = "memory-drop-reference"
+path = "src/bin/drop-reference.rs"
+
+[[bin]]
+name = "memory-san-out-of-bounds"
+path = "src/bin/san-out-of-bounds.rs"
+
+[[bin]]
+name = "memory-san-use-after-free"
+path = "src/bin/san-use-after-free.rs"
+
+[[bin]]
+name = "memory-san-cyclic-references"
+path = "src/bin/san-cyclic-references.rs"
+
+[[bin]]
+name = "memory-san-memory-uninit"
+path = "src/bin/san-memory-uninit.rs"

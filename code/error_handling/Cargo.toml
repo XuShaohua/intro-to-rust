@@ -7,3 +7,7 @@ publish = false
 [dependencies]
 r2d2 = "0.8.10"
 thiserror = "1.0.62"
+
+[[bin]]
+name = "error_handling-use-panic"
+path = "src/bin/use-panic.rs"

@@ -6,3 +6,127 @@ publish = false
 
 [dependencies]
 float-cmp = "0.9.0"
+
+[[bin]]
+name = "primtives-array-of-string"
+path = "src/bin/array-of-string.rs"
+
+[[bin]]
+name = "primtives-bool-and-some"
+path = "src/bin/bool-and-some.rs"
+
+[[bin]]
+name = "primtives-endian-of-i32"
+path = "src/bin/endian-of-i32.rs"
+
+[[bin]]
+name = "primtives-use-argb-color"
+path = "src/bin/use-argb-color.rs"
+
+[[bin]]
+name = "primtives-char-values"
+path = "src/bin/char-values.rs"
+
+[[bin]]
+name = "primtives-float-size"
+path = "src/bin/float-size.rs"
+
+[[bin]]
+name = "primtives-float-nearly-equal"
+path = "src/bin/float-nearly-equal.rs"
+
+[[bin]]
+name = "primtives-array-of-prime-numbers"
+path = "src/bin/array-of-prime-numbers.rs"
+
+[[bin]]
+name = "primtives-array-size"
+path = "src/bin/array-size.rs"
+
+[[bin]]
+name = "primtives-tuple-values"
+path = "src/bin/tuple-values.rs"
+
+[[bin]]
+name = "primtives-array-overflow"
+path = "src/bin/array-overflow.rs"
+
+[[bin]]
+name = "primtives-slice-values"
+path = "src/bin/slice-values.rs"
+
+[[bin]]
+name = "primtives-slice-as-ptr"
+path = "src/bin/slice-as-ptr.rs"
+
+[[bin]]
+name = "primtives-slice-join"
+path = "src/bin/slice-join.rs"
+
+[[bin]]
+name = "primtives-slice-sort"
+path = "src/bin/slice-sort.rs"
+
+[[bin]]
+name = "primtives-slice-iter"
+path = "src/bin/slice-iter.rs"
+
+[[bin]]
+name = "primtives-slice-binary-search"
+path = "src/bin/slice-binary-search.rs"
+
+[[bin]]
+name = "primtives-slice-contains"
+path = "src/bin/slice-contains.rs"
+
+[[bin]]
+name = "primtives-float-total-cmp"
+path = "src/bin/float-total-cmp.rs"
+
+[[bin]]
+name = "primtives-slice-reverse"
+path = "src/bin/slice-reverse.rs"
+
+[[bin]]
+name = "primtives-slice-get"
+path = "src/bin/slice-get.rs"
+
+[[bin]]
+name = "primtives-insertion-sort"
+path = "src/bin/insertion-sort.rs"
+
+[[bin]]
+name = "primtives-slice-rotate-left"
+path = "src/bin/slice-rotate-left.rs"
+
+[[bin]]
+name = "primtives-slice-rotate-right"
+path = "src/bin/slice-rotate-right.rs"
+
+[[bin]]
+name = "primtives-slice-split"
+path = "src/bin/slice-split.rs"
+
+[[bin]]
+name = "primtives-slice-split-at-mut"
+path = "src/bin/slice-split-at-mut.rs"
+
+[[bin]]
+name = "primtives-slice-to-vec"
+path = "src/bin/slice-to-vec.rs"
+
+[[bin]]
+name = "primtives-slice-clone-from-slice"
+path = "src/bin/slice-clone-from-slice.rs"
+
+[[bin]]
+name = "primtives-slice-fill"
+path = "src/bin/slice-fill.rs"
+
+[[bin]]
+name = "primtives-string-mem-layout"
+path = "src/bin/string-mem-layout.rs"
+
+[[bin]]
+name = "primtives-multi-dimensional-array"
+path = "src/bin/multi-dimensional-array.rs"

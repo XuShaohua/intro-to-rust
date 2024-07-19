@@ -5,3 +5,43 @@ edition = "2021"
 publish = false
 
 [dependencies]
+
+[[bin]]
+name = "traits-name-hiding"
+path = "src/bin/name-hiding.rs"
+
+[[bin]]
+name = "traits-dispatch"
+path = "src/bin/dispatch.rs"
+
+[[bin]]
+name = "traits-unit-iterator"
+path = "src/bin/unit-iterator.rs"
+
+[[bin]]
+name = "traits-fibonacci-iter"
+path = "src/bin/fibonacci-iter.rs"
+
+[[bin]]
+name = "traits-animal-trait"
+path = "src/bin/animal-trait.rs"
+
+[[bin]]
+name = "traits-index-trait"
+path = "src/bin/index-trait.rs"
+
+[[bin]]
+name = "traits-ordering2"
+path = "src/bin/ordering2.rs"
+
+[[bin]]
+name = "traits-convert"
+path = "src/bin/convert.rs"
+
+[[bin]]
+name = "traits-empty-trait"
+path = "src/bin/empty-trait.rs"
+
+[[bin]]
+name = "traits-extract-vtable"
+path = "src/bin/extract-vtable.rs"

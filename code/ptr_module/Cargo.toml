@@ -5,3 +5,27 @@ edition = "2021"
 publish = false
 
 [dependencies]
+
+[[bin]]
+name = "ptr_module-copy"
+path = "src/bin/copy.rs"
+
+[[bin]]
+name = "ptr_module-nonnull"
+path = "src/bin/nonnull.rs"
+
+[[bin]]
+name = "ptr_module-read-write"
+path = "src/bin/read-write.rs"
+
+[[bin]]
+name = "ptr_module-swap-nonoverlapping"
+path = "src/bin/swap-nonoverlapping.rs"
+
+[[bin]]
+name = "ptr_module-swap-replace"
+path = "src/bin/swap-replace.rs"
+
+[[bin]]
+name = "ptr_module-addr-of"
+path = "src/bin/addr-of.rs"

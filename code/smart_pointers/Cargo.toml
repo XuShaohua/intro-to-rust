@@ -5,3 +5,31 @@ edition = "2021"
 publish = false
 
 [dependencies]
+
+[[bin]]
+name = "smart_pointers-cons-list"
+path = "src/bin/cons-list.rs"
+
+[[bin]]
+name = "smart_pointers-box-of-array"
+path = "src/bin/box-of-array.rs"
+
+[[bin]]
+name = "smart_pointers-use-rc"
+path = "src/bin/use-rc.rs"
+
+[[bin]]
+name = "smart_pointers-cell-refcell2"
+path = "src/bin/cell-refcell2.rs"
+
+[[bin]]
+name = "smart_pointers-cell-refcell"
+path = "src/bin/cell-refcell.rs"
+
+[[bin]]
+name = "smart_pointers-use-refcell"
+path = "src/bin/use-refcell.rs"
+
+[[bin]]
+name = "smart_pointers-box-leak"
+path = "src/bin/box-leak.rs"

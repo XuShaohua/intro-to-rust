@@ -5,3 +5,99 @@ edition = "2021"
 publish = false
 
 [dependencies]
+
+[[bin]]
+name = "expressions-let-if"
+path = "src/bin/let-if.rs"
+
+[[bin]]
+name = "expressions-let-for"
+path = "src/bin/let-for.rs"
+
+[[bin]]
+name = "expressions-block-variable"
+path = "src/bin/block-variable.rs"
+
+[[bin]]
+name = "expressions-variables"
+path = "src/bin/variables.rs"
+
+[[bin]]
+name = "expressions-if-let-foo"
+path = "src/bin/if-let-foo.rs"
+
+[[bin]]
+name = "expressions-if-foo"
+path = "src/bin/if-foo.rs"
+
+[[bin]]
+name = "expressions-jump-table"
+path = "src/bin/jump-table.rs"
+
+[[bin]]
+name = "expressions-match-weekday"
+path = "src/bin/match-weekday.rs"
+
+[[bin]]
+name = "expressions-break-labeled-loop"
+path = "src/bin/break-labeled-loop.rs"
+
+[[bin]]
+name = "expressions-break-labeled-block"
+path = "src/bin/break-labeled-block.rs"
+
+[[bin]]
+name = "expressions-match-num"
+path = "src/bin/match-num.rs"
+
+[[bin]]
+name = "expressions-break-loop-with-value"
+path = "src/bin/break-loop-with-value.rs"
+
+[[bin]]
+name = "expressions-break-loop"
+path = "src/bin/break-loop.rs"
+
+[[bin]]
+name = "expressions-break-if"
+path = "src/bin/break-if.rs"
+
+[[bin]]
+name = "expressions-return-if"
+path = "src/bin/return-if.rs"
+
+[[bin]]
+name = "expressions-for-in"
+path = "src/bin/for-in.rs"
+
+[[bin]]
+name = "expressions-loop-with-result"
+path = "src/bin/loop-with-result.rs"
+
+[[bin]]
+name = "expressions-while"
+path = "src/bin/while.rs"
+
+[[bin]]
+name = "expressions-while-let"
+path = "src/bin/while-let.rs"
+
+[[bin]]
+name = "expressions-while-break"
+path = "src/bin/while-break.rs"
+
+[[bin]]
+name = "expressions-loop-return"
+path = "src/bin/loop-return.rs"
+
+[[bin]]
+name = "expressions-continue-labeled-loop"
+path = "src/bin/continue-labeled-loop.rs"
+
+[[bin]]
+name = "expressions-continue-loop"
+path = "src/bin/continue-loop.rs"
+
+[[bin]]
+name = "expressions-why-loop"
+path = "src/bin/why-loop.rs"

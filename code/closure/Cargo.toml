@@ -5,3 +5,23 @@ edition = "2021"
 publish = false
 
 [dependencies]
+
+[[bin]]
+name = "closure-consume-fn"
+path = "src/bin/consume-fn.rs"
+
+[[bin]]
+name = "closure-fn-traits"
+path = "src/bin/fn-traits.rs"
+
+[[bin]]
+name = "closure-fn-in-struct"
+path = "src/bin/fn-in-struct.rs"
+
+[[bin]]
+name = "closure-fn-traits-in-struct"
+path = "src/bin/fn-traits-in-struct.rs"
+
+[[bin]]
+name = "closure-returns-closure"
+path = "src/bin/returns-closure.rs"

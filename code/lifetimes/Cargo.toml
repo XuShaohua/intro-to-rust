@@ -5,3 +5,19 @@ edition = "2021"
 publish = false
 
 [dependencies]
+
+[[bin]]
+name = "lifetimes-lifetime"
+path = "src/bin/lifetime.rs"
+
+[[bin]]
+name = "lifetimes-lifetime2"
+path = "src/bin/lifetime2.rs"
+
+[[bin]]
+name = "lifetimes-function-omit-lifetime"
+path = "src/bin/function-omit-lifetime.rs"
+
+[[bin]]
+name = "lifetimes-static-lifetime"
+path = "src/bin/static-lifetime.rs"

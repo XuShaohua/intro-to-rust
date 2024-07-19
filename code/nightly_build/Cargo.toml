@@ -8,3 +8,23 @@ publish = false
 
 [dependencies]
 nc = { version = "0.8.21", default-features = false }
+
+[[bin]]
+name = "nightly_build-use-unique"
+path = "src/bin/use-unique.rs"
+
+[[bin]]
+name = "nightly_build-say-hello-to-no-std"
+path = "src/bin/say-hello-to-no-std.rs"
+
+[[bin]]
+name = "nightly_build-type-name"
+path = "src/bin/type-name.rs"
+
+[[bin]]
+name = "nightly_build-portable-simd"
+path = "src/bin/portable-simd.rs"
+
+[[bin]]
+name = "nightly_build-hello-coroutine"
+path = "src/bin/hello-coroutine.rs"

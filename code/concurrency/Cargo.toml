@@ -5,3 +5,63 @@ edition = "2021"
 publish = false
 
 [dependencies]
+
+[[bin]]
+name = "concurrency-rustc-version"
+path = "src/bin/rustc-version.rs"
+
+[[bin]]
+name = "concurrency-process-pipe"
+path = "src/bin/process-pipe.rs"
+
+[[bin]]
+name = "concurrency-channel-clone"
+path = "src/bin/channel-clone.rs"
+
+[[bin]]
+name = "concurrency-use-atomic"
+path = "src/bin/use-atomic.rs"
+
+[[bin]]
+name = "concurrency-use-channel"
+path = "src/bin/use-channel.rs"
+
+[[bin]]
+name = "concurrency-concurrency-sync"
+path = "src/bin/concurrency-sync.rs"
+
+[[bin]]
+name = "concurrency-arc-mutex"
+path = "src/bin/arc-mutex.rs"
+
+[[bin]]
+name = "concurrency-global-static"
+path = "src/bin/global-static.rs"
+
+[[bin]]
+name = "concurrency-atomic-bool"
+path = "src/bin/atomic-bool.rs"
+
+[[bin]]
+name = "concurrency-spinlock"
+path = "src/bin/spinlock.rs"
+
+[[bin]]
+name = "concurrency-message-passing"
+path = "src/bin/message-passing.rs"
+
+[[bin]]
+name = "concurrency-use-once-lock"
+path = "src/bin/use-once-lock.rs"
+
+[[bin]]
+name = "concurrency-global-counter"
+path = "src/bin/global-counter.rs"
+
+[[bin]]
+name = "concurrency-arc-mutex-condvar"
+path = "src/bin/arc-mutex-condvar.rs"
+
+[[bin]]
+name = "concurrency-use-barrier"
+path = "src/bin/use-barrier.rs"

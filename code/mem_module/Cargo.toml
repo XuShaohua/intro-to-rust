@@ -5,3 +5,35 @@ edition = "2021"
 publish = false
 
 [dependencies]
+
+[[bin]]
+name = "mem_module-replace"
+path = "src/bin/replace.rs"
+
+[[bin]]
+name = "mem_module-swap"
+path = "src/bin/swap.rs"
+
+[[bin]]
+name = "mem_module-take"
+path = "src/bin/take.rs"
+
+[[bin]]
+name = "mem_module-opt"
+path = "src/bin/opt.rs"
+
+[[bin]]
+name = "mem_module-transmute"
+path = "src/bin/transmute.rs"
+
+[[bin]]
+name = "mem_module-forget"
+path = "src/bin/forget.rs"
+
+[[bin]]
+name = "mem_module-transmute2"
+path = "src/bin/transmute2.rs"
+
+[[bin]]
+name = "mem_module-manually-drop"
+path = "src/bin/manually-drop.rs"

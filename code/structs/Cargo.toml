@@ -5,3 +5,27 @@ edition = "2021"
 publish = false
 
 [dependencies]
+
+[[bin]]
+name = "structs-partial-generic"
+path = "src/bin/partial-generic.rs"
+
+[[bin]]
+name = "structs-tuples"
+path = "src/bin/tuples.rs"
+
+[[bin]]
+name = "structs-extract-struct"
+path = "src/bin/extract-struct.rs"
+
+[[bin]]
+name = "structs-box-clone"
+path = "src/bin/box-clone.rs"
+
+[[bin]]
+name = "structs-function-local-static-variable"
+path = "src/bin/function-local-static-variable.rs"
+
+[[bin]]
+name = "structs-generic-struct"
+path = "src/bin/generic-struct.rs"

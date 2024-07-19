@@ -6,3 +6,51 @@ publish = false
 
 [dependencies]
 bitflags = "2.6.0"
+
+[[bin]]
+name = "enums-size-of-enums"
+path = "src/bin/size-of-enums.rs"
+
+[[bin]]
+name = "enums-match-range"
+path = "src/bin/match-range.rs"
+
+[[bin]]
+name = "enums-list"
+path = "src/bin/list.rs"
+
+[[bin]]
+name = "enums-use-bitflags"
+path = "src/bin/use-bitflags.rs"
+
+[[bin]]
+name = "enums-enum-tag"
+path = "src/bin/enum-tag.rs"
+
+[[bin]]
+name = "enums-weekday"
+path = "src/bin/weekday.rs"
+
+[[bin]]
+name = "enums-web-event"
+path = "src/bin/web-event.rs"
+
+[[bin]]
+name = "enums-json"
+path = "src/bin/json.rs"
+
+[[bin]]
+name = "enums-too-many-tags"
+path = "src/bin/too-many-tags.rs"
+
+[[bin]]
+name = "enums-use-option2"
+path = "src/bin/use-option2.rs"
+
+[[bin]]
+name = "enums-web-event2"
+path = "src/bin/web-event2.rs"
+
+[[bin]]
+name = "enums-web-event3"
+path = "src/bin/web-event3.rs"

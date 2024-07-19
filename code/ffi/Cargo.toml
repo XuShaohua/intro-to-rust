@@ -5,3 +5,15 @@ edition = "2021"
 publish = false
 
 [dependencies]
+
+[[bin]]
+name = "ffi-c-str"
+path = "src/bin/c-str.rs"
+
+[[bin]]
+name = "ffi-use-libc"
+path = "src/bin/use-libc.rs"
+
+[[bin]]
+name = "ffi-print-env"
+path = "src/bin/print-env.rs"

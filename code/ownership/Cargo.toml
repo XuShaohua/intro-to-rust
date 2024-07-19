@@ -8,3 +8,23 @@ publish = false
 compile_failure = []
 
 [dependencies]
+
+[[bin]]
+name = "ownership-move-person"
+path = "src/bin/move-person.rs"
+
+[[bin]]
+name = "ownership-move-string"
+path = "src/bin/move-string.rs"
+
+[[bin]]
+name = "ownership-copy-primitives"
+path = "src/bin/copy-primitives.rs"
+
+[[bin]]
+name = "ownership-clone-string"
+path = "src/bin/clone-string.rs"
+
+[[bin]]
+name = "ownership-clone-book"
+path = "src/bin/clone-book.rs"

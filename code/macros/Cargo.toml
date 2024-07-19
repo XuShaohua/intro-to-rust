@@ -5,3 +5,19 @@ edition = "2021"
 publish = false
 
 [dependencies]
+
+[[bin]]
+name = "macros-default-trait"
+path = "src/bin/default-trait.rs"
+
+[[bin]]
+name = "macros-file-line-column"
+path = "src/bin/file-line-column.rs"
+
+[[bin]]
+name = "macros-code-location"
+path = "src/bin/code-location.rs"
+
+[[bin]]
+name = "macros-add1"
+path = "src/bin/add1.rs"

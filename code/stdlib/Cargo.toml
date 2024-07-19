@@ -5,3 +5,7 @@ edition = "2021"
 publish = false
 
 [dependencies]
+
+[[bin]]
+name = "stdlib-filesystem"
+path = "src/bin/filesystem.rs"

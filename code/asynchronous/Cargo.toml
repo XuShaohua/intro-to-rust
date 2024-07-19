@@ -6,3 +6,11 @@ publish = false
 
 [dependencies]
 futures = "0.3.30"
+
+[[bin]]
+name = "asynchronous-async-dance"
+path = "src/bin/async-dance.rs"
+
+[[bin]]
+name = "asynchronous-async-hello"
+path = "src/bin/async-hello.rs"

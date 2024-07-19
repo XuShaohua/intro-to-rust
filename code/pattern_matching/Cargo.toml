@@ -5,3 +5,19 @@ edition = "2021"
 publish = false
 
 [dependencies]
+
+[[bin]]
+name = "pattern_matching-matches-macro"
+path = "src/bin/matches-macro.rs"
+
+[[bin]]
+name = "pattern_matching-match-ref"
+path = "src/bin/match-ref.rs"
+
+[[bin]]
+name = "pattern_matching-match-vec"
+path = "src/bin/match-vec.rs"
+
+[[bin]]
+name = "pattern_matching-match-guard"
+path = "src/bin/match-guard.rs"

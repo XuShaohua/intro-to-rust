@@ -5,3 +5,7 @@ edition = "2021"
 publish = false
 
 [dependencies]
+
+[[bin]]
+name = "fs-remove-zlib"
+path = "src/bin/remove-zlib.rs"

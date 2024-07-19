@@ -5,3 +5,7 @@ edition = "2021"
 publish = false
 
 [dependencies]
+
+[[bin]]
+name = "iterators-range"
+path = "src/bin/range.rs"

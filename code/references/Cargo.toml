@@ -6,3 +6,19 @@ publish = false
 
 [dependencies]
 
+
+[[bin]]
+name = "references-lifetime-notation"
+path = "src/bin/lifetime-notation.rs"
+
+[[bin]]
+name = "references-reference-assignment"
+path = "src/bin/reference-assignment.rs"
+
+[[bin]]
+name = "references-move-ref"
+path = "src/bin/move-ref.rs"
+
+[[bin]]
+name = "references-reference-address"
+path = "src/bin/reference-address.rs"
