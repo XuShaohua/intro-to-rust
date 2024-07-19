@@ -1,1 +1,1 @@
-../../../../code/design_patterns/behavioral/template-method/src/main.rs
+../../../../code/design_patterns/behavioral/src/bin/template-method.rs

@@ -1,1 +1,1 @@
-../../../../code/design_patterns/behavioral/iterator/src/main.rs
+../../../../code/design_patterns/behavioral/src/bin/iterator.rs

@@ -1,1 +1,1 @@
-../../../../code/design_patterns/structural/adapter/src/main.rs
+../../../../code/design_patterns/structural/src/bin/adapter.rs

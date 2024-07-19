@@ -1,1 +1,1 @@
-../../../../code/design_patterns/creational/prototype/src/main.rs
+../../../../code/design_patterns/creational/src/bin/prototype.rs

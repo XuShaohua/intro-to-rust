@@ -3,14 +3,6 @@
 version = 3
 
 [[package]]
-name = "abstract-factory"
-version = "0.1.0"
-
-[[package]]
-name = "adapter"
-version = "0.1.0"
-
-[[package]]
 name = "addr2line"
 version = "0.22.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -69,18 +61,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "behavioral"
+version = "0.1.0"
+dependencies = [
+ "chrono",
+]
+
+[[package]]
 name = "bitflags"
 version = "2.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b048fb63fd8b5923fc5aa7b340d8e156aec7ec02f0c78fa8a6ddc2613f6f71de"
-
-[[package]]
-name = "bridge"
-version = "0.1.0"
-
-[[package]]
-name = "builder"
-version = "0.1.0"
 
 [[package]]
 name = "bumpalo"
@@ -107,10 +98,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 
 [[package]]
-name = "chain-of-responsibility"
-version = "0.1.0"
-
-[[package]]
 name = "chrono"
 version = "0.4.38"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -133,14 +120,6 @@ name = "collections"
 version = "0.1.0"
 
 [[package]]
-name = "command"
-version = "0.1.0"
-
-[[package]]
-name = "composite"
-version = "0.1.0"
-
-[[package]]
 name = "concurrency"
 version = "0.1.0"
 
@@ -155,8 +134,12 @@ name = "crates"
 version = "0.1.0"
 
 [[package]]
-name = "decorator"
+name = "creational"
 version = "0.1.0"
+dependencies = [
+ "lazy_static",
+ "once_cell",
+]
 
 [[package]]
 name = "enums"
@@ -178,14 +161,6 @@ name = "expressions"
 version = "0.1.0"
 
 [[package]]
-name = "facade"
-version = "0.1.0"
-
-[[package]]
-name = "factory-method"
-version = "0.1.0"
-
-[[package]]
 name = "ffi"
 version = "0.1.0"
 
@@ -197,10 +172,6 @@ checksum = "98de4bbd547a563b716d8dfa9aad1cb19bfab00f4fa09a6a4ed21dbcf44ce9c4"
 dependencies = [
  "num-traits",
 ]
-
-[[package]]
-name = "flyweight"
-version = "0.1.0"
 
 [[package]]
 name = "fs"
@@ -331,10 +302,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "iterator"
-version = "0.1.0"
-
-[[package]]
 name = "iterators"
 version = "0.1.0"
 
@@ -384,13 +351,6 @@ name = "macros"
 version = "0.1.0"
 
 [[package]]
-name = "mediator"
-version = "0.1.0"
-dependencies = [
- "chrono",
-]
-
-[[package]]
 name = "mem_module"
 version = "0.1.0"
 
@@ -399,10 +359,6 @@ name = "memchr"
 version = "2.7.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6c8640c5d730cb13ebd907d8d04b52f55ac9a2eec55b440c8892f40d56c76c1d"
-
-[[package]]
-name = "memento"
-version = "0.1.0"
 
 [[package]]
 name = "memory"
@@ -465,10 +421,6 @@ checksum = "081b846d1d56ddfc18fdf1a922e4f6e07a11768ea1b92dec44e42b72712ccfce"
 dependencies = [
  "memchr",
 ]
-
-[[package]]
-name = "observer"
-version = "0.1.0"
 
 [[package]]
 name = "once_cell"
@@ -540,14 +492,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "prototype"
-version = "0.1.0"
-
-[[package]]
-name = "proxy"
-version = "0.1.0"
-
-[[package]]
 name = "ptr_module"
 version = "0.1.0"
 
@@ -615,18 +559,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "simple-factory"
-version = "0.1.0"
-
-[[package]]
-name = "singleton"
-version = "0.1.0"
-dependencies = [
- "lazy_static",
- "once_cell",
-]
-
-[[package]]
 name = "slab"
 version = "0.4.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -656,15 +588,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "state"
-version = "0.1.0"
-
-[[package]]
 name = "stdlib"
-version = "0.1.0"
-
-[[package]]
-name = "strategy"
 version = "0.1.0"
 
 [[package]]
@@ -673,6 +597,10 @@ version = "0.1.0"
 
 [[package]]
 name = "structs"
+version = "0.1.0"
+
+[[package]]
+name = "structural"
 version = "0.1.0"
 
 [[package]]
@@ -685,10 +613,6 @@ dependencies = [
  "quote",
  "unicode-ident",
 ]
-
-[[package]]
-name = "template-method"
-version = "0.1.0"
 
 [[package]]
 name = "thiserror"
@@ -759,10 +683,6 @@ checksum = "3354b9ac3fae1ff6755cb6db53683adb661634f67557942dea4facebec0fee4b"
 
 [[package]]
 name = "unsafe_code"
-version = "0.1.0"
-
-[[package]]
-name = "visitor"
 version = "0.1.0"
 
 [[package]]

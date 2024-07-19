@@ -1,1 +1,1 @@
-../../../../code/design_patterns/creational/singleton/src/bin/lazy-static-singleton.rs
+../../../../code/design_patterns/creational/src/bin/lazy-static-singleton.rs

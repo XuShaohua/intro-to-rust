@@ -1,1 +1,1 @@
-../../../../code/design_patterns/behavioral/memento/src/main.rs
+../../../../code/design_patterns/behavioral/src/bin/memento.rs

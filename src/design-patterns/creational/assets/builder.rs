@@ -1,1 +1,1 @@
-../../../../code/design_patterns/creational/builder/src/bin/builder.rs
+../../../../code/design_patterns/creational/src/bin/builder.rs

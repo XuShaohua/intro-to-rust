@@ -1,1 +1,1 @@
-../../../../code/design_patterns/creational/factory-method/src/main.rs
+../../../../code/design_patterns/creational/src/bin/factory-method.rs

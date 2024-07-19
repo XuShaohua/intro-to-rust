@@ -1,1 +1,1 @@
-../../../../code/design_patterns/behavioral/mediator/src/main.rs
+../../../../code/design_patterns/behavioral/src/bin/mediator.rs

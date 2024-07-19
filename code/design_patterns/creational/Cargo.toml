@@ -1,0 +1,49 @@
+[package]
+name = "creational"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+lazy_static = "1.5.0"
+once_cell = "1.19.0"
+
+[[bin]]
+name = "creational-simple-factory"
+path = "src/bin/simple-factory.rs"
+
+[[bin]]
+name = "creational-factory-method"
+path = "src/bin/factory-method.rs"
+
+[[bin]]
+name = "creational-builder"
+path = "src/bin/builder.rs"
+
+[[bin]]
+name = "creational-prototype"
+path = "src/bin/prototype.rs"
+
+[[bin]]
+name = "creational-dynamic-abstract-factory"
+path = "src/bin/dynamic-abstract-factory.rs"
+
+[[bin]]
+name = "creational-lazy-static-singleton"
+path = "src/bin/lazy-static-singleton.rs"
+
+[[bin]]
+name = "creational-mutex-singleton"
+path = "src/bin/mutex-singleton.rs"
+
+[[bin]]
+name = "creational-once-cell-singleton"
+path = "src/bin/once-cell-singleton.rs"
+
+[[bin]]
+name = "creational-threaded-builder"
+path = "src/bin/threaded-builder.rs"
+
+[[bin]]
+name = "creational-static-abstract-factory"
+path = "src/bin/static-abstract-factory.rs"

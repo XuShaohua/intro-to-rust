@@ -1,1 +1,1 @@
-../../../../code/design_patterns/structural/flyweight/src/main.rs
+../../../../code/design_patterns/structural/src/bin/flyweight.rs

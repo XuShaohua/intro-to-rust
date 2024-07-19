@@ -13,5 +13,5 @@
 ## 代码示例
 
 ```rust
-{{#include assets/abstract-factory.rs:5: }}
+{{#include assets/dynamic-abstract-factory.rs:5: }}
 ```

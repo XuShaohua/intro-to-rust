@@ -1,0 +1,1 @@
+../../../../code/design_patterns/creational/src/bin/static-abstract-factory.rs

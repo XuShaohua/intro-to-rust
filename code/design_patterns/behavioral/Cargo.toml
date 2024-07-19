@@ -1,0 +1,48 @@
+[package]
+name = "behavioral"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+chrono = "0.4.38"
+
+[[bin]]
+name = "behavioral-memento"
+path = "src/bin/memento.rs"
+
+[[bin]]
+name = "behavioral-state"
+path = "src/bin/state.rs"
+
+[[bin]]
+name = "behavioral-iterator"
+path = "src/bin/iterator.rs"
+
+[[bin]]
+name = "behavioral-template-method"
+path = "src/bin/template-method.rs"
+
+[[bin]]
+name = "behavioral-visitor"
+path = "src/bin/visitor.rs"
+
+[[bin]]
+name = "behavioral-strategy"
+path = "src/bin/strategy.rs"
+
+[[bin]]
+name = "behavioral-observer"
+path = "src/bin/observer.rs"
+
+[[bin]]
+name = "behavioral-command"
+path = "src/bin/command.rs"
+
+[[bin]]
+name = "behavioral-chain-of-responsibility"
+path = "src/bin/chain-of-responsibility.rs"
+
+[[bin]]
+name = "behavioral-mediator"
+path = "src/bin/mediator.rs"

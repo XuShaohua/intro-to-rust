@@ -1,1 +1,1 @@
-../../../../code/design_patterns/structural/decorator/src/main.rs
+../../../../code/design_patterns/structural/src/bin/decorator.rs

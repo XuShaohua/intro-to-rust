@@ -1,1 +1,1 @@
-../../../../code/design_patterns/behavioral/chain-of-responsibility/src/main.rs
+../../../../code/design_patterns/behavioral/src/bin/chain-of-responsibility.rs

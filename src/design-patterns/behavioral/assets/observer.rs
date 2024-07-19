@@ -1,1 +1,1 @@
-../../../../code/design_patterns/behavioral/observer/src/main.rs
+../../../../code/design_patterns/behavioral/src/bin/observer.rs

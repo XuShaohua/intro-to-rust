@@ -1,1 +1,1 @@
-../../../../code/design_patterns/structural/bridge/src/main.rs
+../../../../code/design_patterns/structural/src/bin/bridge.rs

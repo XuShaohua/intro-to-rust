@@ -1,1 +1,1 @@
-../../../../code/design_patterns/behavioral/state/src/main.rs
+../../../../code/design_patterns/behavioral/src/bin/state.rs

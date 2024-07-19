@@ -1,1 +1,1 @@
-../../../../code/design_patterns/structural/facade/src/main.rs
+../../../../code/design_patterns/structural/src/bin/facade.rs

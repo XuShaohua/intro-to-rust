@@ -1,0 +1,35 @@
+[package]
+name = "structural"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+
+[[bin]]
+name = "structural-adapter"
+path = "src/bin/adapter.rs"
+
+[[bin]]
+name = "structural-proxy"
+path = "src/bin/proxy.rs"
+
+[[bin]]
+name = "structural-facade"
+path = "src/bin/facade.rs"
+
+[[bin]]
+name = "structural-flyweight"
+path = "src/bin/flyweight.rs"
+
+[[bin]]
+name = "structural-composite"
+path = "src/bin/composite.rs"
+
+[[bin]]
+name = "structural-bridge"
+path = "src/bin/bridge.rs"
+
+[[bin]]
+name = "structural-decorator"
+path = "src/bin/decorator.rs"

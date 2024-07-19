@@ -1,1 +1,1 @@
-../../../../code/design_patterns/structural/proxy/src/main.rs
+../../../../code/design_patterns/structural/src/bin/proxy.rs
