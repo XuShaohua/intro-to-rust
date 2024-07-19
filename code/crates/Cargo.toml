@@ -5,3 +5,24 @@ edition = "2021"
 publish = false
 
 [dependencies]
+
+[[bin]]
+name = "crates-update-binaries"
+path = "src/bin/update-binaries.rs"
+
+[[bin]]
+name = "crates-is-nightly"
+path = "src/bin/is-nightly.rs"
+
+[[bin]]
+name = "crates-read-passwd"
+path = "src/bin/read-passwd.rs"
+
+[[bin]]
+name = "crates-inline"
+path = "src/bin/inline.rs"
+
+[[bin]]
+name = "crates-inline-location"
+path = "src/bin/inline-location.rs"
+
