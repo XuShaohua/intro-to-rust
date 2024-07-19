@@ -290,6 +290,7 @@
 - [线程间共享可变更的状态 Mutable State](shared-mutable-state/index.md)
     - [互斥琐 Mutex 与 MutexGuard](shared-mutable-state/mutex.md)
     - [读写锁 RwLock 与 RwLockGuards](shared-mutable-state/rwlock.md)
+    - [qcef 库](shared-mutable-state/qcell.md)
     - [可重入锁 ReentrantLock](shared-mutable-state/reentrant-lock.md)
     - [自旋锁 Spinlock](shared-mutable-state/spinlock.md)
     - [Barrier](shared-mutable-state/barrier.md)
