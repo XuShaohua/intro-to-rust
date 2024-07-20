@@ -331,6 +331,10 @@ name = "lifetimes"
 version = "0.1.0"
 
 [[package]]
+name = "linux_ipc"
+version = "0.1.0"
+
+[[package]]
 name = "lock_api"
 version = "0.4.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
