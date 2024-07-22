@@ -5,5 +5,9 @@ edition = "2021"
 publish = false
 
 [dependencies]
+eframe = { version = "0.28.1", default-features = false, features = ["wayland", "wgpu"] }
+egui = { version = "0.28.1", default-features = false }
+egui_extras = "0.28.1"
+image = "0.25.2"
 nc = "0.8.21"
 serde = { version = "1.0.204", features = ["serde_derive"] }

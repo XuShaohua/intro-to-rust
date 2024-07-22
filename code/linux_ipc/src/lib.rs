@@ -10,8 +10,10 @@
     clippy::pedantic
 )]
 #![allow(dead_code)]
+#![allow(clippy::multiple_crate_versions)]
 
-mod keyboard_reader;
-mod keycode;
-mod msg;
+pub mod crab_sim;
+pub mod keyboard_reader;
+pub mod keycode;
+pub mod msg;
 mod termios;

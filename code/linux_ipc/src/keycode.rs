@@ -26,6 +26,7 @@ pub const KEYCODE_T: u8 = 0x74;
 pub const KEYCODE_V: u8 = 0x76;
 
 /// Convert keyboard control event to twist message.
+#[must_use]
 pub fn parse_keycode(keycode: u8) -> KeyboardMsg {
     let to_linear = |linear: f64| {
         let mut twist = Twist::default();

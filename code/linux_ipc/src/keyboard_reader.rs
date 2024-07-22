@@ -35,6 +35,9 @@ impl Display for KeyboardError {
 impl Error for KeyboardError {}
 
 impl KeyboardReader {
+    /// # Errors
+    ///
+    /// Returns error if failed to get or set terminal attributes.
     pub fn new() -> Result<Self, KeyboardError> {
         let stdin_fd = 0;
         let cooked = unsafe { termios::get_attr(stdin_fd).map_err(KeyboardError::GetAttr) }?;
@@ -56,6 +59,10 @@ impl KeyboardReader {
     }
 
     /// Read a single character from stdin.
+    ///
+    /// # Errors
+    ///
+    /// Returns error if failed to read from stdin.
     pub fn read_one(&mut self) -> Result<u8, KeyboardError> {
         let mut byte = [0_u8; 1];
         let _ret = unsafe {

@@ -30,6 +30,12 @@ pub struct Color {
     pub blue: u8,
 }
 
+pub const DEFAULT_BACKGROUND: Color = Color {
+    red: 0x45,
+    green: 0x56,
+    blue: 0xff,
+};
+
 #[derive(Debug, Default, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Pose {
     pub x: f32,
