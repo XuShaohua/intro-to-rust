@@ -6,3 +6,4 @@ publish = false
 
 [dependencies]
 nc = "0.8.21"
+serde = { version = "1.0.204", features = ["serde_derive"] }

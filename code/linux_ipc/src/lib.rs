@@ -9,7 +9,9 @@
     clippy::nursery,
     clippy::pedantic
 )]
+#![allow(dead_code)]
 
 mod keyboard_reader;
-mod termios;
+mod keycode;
 mod msg;
+mod termios;

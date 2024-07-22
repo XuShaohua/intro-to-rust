@@ -2,8 +2,6 @@
 // Use of this source is governed by GNU General Public License
 // that can be found in the LICENSE file.
 
-#![allow(dead_code)]
-
 use std::error::Error;
 use std::fmt::Display;
 use std::{fmt, ptr};
