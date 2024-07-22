@@ -27,6 +27,10 @@ name = "smart_pointers-cell-refcell"
 path = "src/bin/cell-refcell.rs"
 
 [[bin]]
+name = "smart_pointers-const-cast"
+path = "src/bin/const-cast.rs"
+
+[[bin]]
 name = "smart_pointers-use-refcell"
 path = "src/bin/use-refcell.rs"
 
