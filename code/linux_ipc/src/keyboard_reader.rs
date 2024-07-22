@@ -71,6 +71,15 @@ impl KeyboardReader {
         }?;
         Ok(byte[0])
     }
+
+    pub fn show_prompt(&self) {
+        println!("Reading from keyboard");
+        println!("---------------------------");
+        println!("Use arrow keys to move the crab.");
+        println!("Use g|b|v|c|d|e|r|t keys to rotate to absolute orientations.");
+        println!("'f' to cancel a rotation.");
+        println!("'q' to quit.");
+    }
 }
 
 /// Reset terminal raw mode on destruct.
