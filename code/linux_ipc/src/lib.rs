@@ -9,3 +9,6 @@
     clippy::nursery,
     clippy::pedantic
 )]
+
+mod keyboard_reader;
+mod termios;
