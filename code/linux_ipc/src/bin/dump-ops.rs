@@ -7,7 +7,8 @@ use linux_ipc::keycode::parse_keycode;
 use linux_ipc::msg::KeyboardMsg;
 
 fn main() {
-    let mut input = KeyboardReader::new().expect("Failed to init keyboard reader");
+    KeyboardReader::show_prompt();
+    let mut input = KeyboardReader::new(true).expect("Failed to init keyboard reader");
     let mut running = true;
     while running {
         match input.read_one() {

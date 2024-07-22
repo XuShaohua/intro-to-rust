@@ -3,6 +3,7 @@
 // in the LICENSE file.
 
 use std::fs::File;
+use std::io::{BufReader, BufWriter};
 #[cfg(unix)]
 use std::os::fd::FromRawFd;
 use std::sync::mpsc;
@@ -26,13 +27,19 @@ fn main() {
 
     let pid = unsafe { nc::fork().expect("Failed to fork process") };
     if pid == 0 {
+        let curr_pid = unsafe { nc::getpid() };
+        println!("child pid: {curr_pid}");
         // child process
         unsafe {
             let _ = nc::close(write_pipe);
         }
         child_entry(read_pipe);
-        return;
+        unsafe {
+            nc::exit(0);
+        }
     }
+    let curr_pid = unsafe { nc::getpid() };
+    println!("parent pid: {curr_pid}, child pid: {pid}");
 
     // parent process
     unsafe {
@@ -42,10 +49,11 @@ fn main() {
 }
 
 fn child_entry(read_pipe: i32) {
-    let file = unsafe { File::from_raw_fd(read_pipe) };
     let (sender, receiver) = mpsc::channel();
     let _handler = thread::spawn(move || {
-        while let Ok(msg) = serde_json::from_reader(&file) {
+        let file = unsafe { File::from_raw_fd(read_pipe) };
+        let mut buf_reader = BufReader::new(file);
+        while let Ok(msg) = serde_json::from_reader(&mut buf_reader) {
             let _ = sender.send(msg);
         }
     });
@@ -54,9 +62,10 @@ fn child_entry(read_pipe: i32) {
 
 fn parent_entry(write_pipe: i32) {
     let file = unsafe { File::from_raw_fd(write_pipe) };
+    let mut buf_writer = BufWriter::new(file);
 
-    let mut input = KeyboardReader::new().expect("Failed to init keyboard reader");
-    input.show_prompt();
+    KeyboardReader::show_prompt();
+    let mut input = KeyboardReader::new(true).expect("Failed to init keyboard reader");
 
     let mut running = true;
     while running {
@@ -68,14 +77,20 @@ fn parent_entry(write_pipe: i32) {
                     }
                     msg @ KeyboardMsg::Quit => {
                         // Send quit to remote side.
-                        serde_json::to_writer(&file, &msg).expect("Broken pipe");
+                        if let Err(err) = serde_json::to_writer(&mut buf_writer, &msg) {
+                            println!("Broken pipe, got: {err:?}");
+                        }
 
                         // Quit self
                         running = false;
                     }
                     msg => {
+                        println!("key msg: {msg:?}");
                         // Proxy any msg to remote side.
-                        serde_json::to_writer(&file, &msg).expect("Broken pipe");
+                        if let Err(err) = serde_json::to_writer(&mut buf_writer, &msg) {
+                            println!("Broken pipe, got: {err:?}");
+                            running = false;
+                        }
                     }
                 }
             }

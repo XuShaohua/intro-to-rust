@@ -44,9 +44,31 @@ impl eframe::App for CrabFrame {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
         if let Ok(msg) = self.receiver.try_recv() {
             println!("crab frame got msg: {msg:?}");
+            match msg {
+                KeyboardMsg::None => {
+                    // Ignore
+                }
+                KeyboardMsg::Quit => unsafe {
+                    nc::exit(0);
+                },
+                KeyboardMsg::CancelRotate => {
+                    println!("[crab] cancel rotate");
+                }
+                KeyboardMsg::Rotate(_rotate) => {
+                    println!("[crab] rotate");
+                }
+                KeyboardMsg::Twist(_twist) => {
+                    println!("[crab] twist");
+                }
+            }
+        } else {
+            println!("cram no msg received");
         }
+
         egui::CentralPanel::default().show(ctx, |ui| {
-            ui.image(egui::include_image!("../assets/ferris.gif"));
+            egui::ScrollArea::both().show(ui, |ui| {
+                ui.image(egui::include_image!("../assets/ferris.gif"));
+            })
         });
     }
 }

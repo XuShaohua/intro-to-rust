@@ -10,13 +10,13 @@ use linux_ipc::crab_sim::run_sim;
 use linux_ipc::msg::KeyboardMsg;
 
 fn main() {
-    let (sender, receiver) = mpsc::channel();
+    let (_sender, receiver) = mpsc::channel();
+    /*
     let _handler = thread::spawn(move || {
-        if let Err(err) = sender.send(KeyboardMsg::Quit) {
-            eprintln!("Failed to send msg to receiver, err: {err:?}");
-        } else {
-            thread::sleep(Duration::from_secs(1));
+        while let Ok(()) = sender.send(KeyboardMsg::None) {
+            thread::sleep(Duration::from_secs(5));
         }
     });
+    */
     run_sim(receiver).unwrap();
 }

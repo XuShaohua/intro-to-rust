@@ -38,19 +38,24 @@ impl KeyboardReader {
     /// # Errors
     ///
     /// Returns error if failed to get or set terminal attributes.
-    pub fn new() -> Result<Self, KeyboardError> {
+    pub fn new(raw_mode: bool) -> Result<Self, KeyboardError> {
         let stdin_fd = 0;
         let cooked = unsafe { termios::get_attr(stdin_fd).map_err(KeyboardError::GetAttr) }?;
 
-        let mut raw = cooked.clone();
-        raw.c_cflag &= !(nc::ECHOE | nc::ICANON);
-        // Setting a new line, then end of file
-        raw.c_cc[nc::VEOL as usize] = 1;
-        raw.c_cc[nc::VEOF as usize] = 2;
-        raw.c_cc[nc::VTIME as usize] = 1;
-        raw.c_cc[nc::VMIN as usize] = 0;
+        if raw_mode {
+            #[allow(clippy::redundant_clone)]
+            let mut raw = cooked.clone();
+            raw.c_cflag &= !(nc::ECHOE | nc::ICANON);
+            // Setting a new line, then end of file
+            raw.c_cc[nc::VEOL as usize] = 1;
+            raw.c_cc[nc::VEOF as usize] = 2;
+            raw.c_cc[nc::VTIME as usize] = 1;
+            raw.c_cc[nc::VMIN as usize] = 0;
 
-        unsafe { termios::set_attr(stdin_fd, nc::TCSANOW, &raw).map_err(KeyboardError::SetAttr) }?;
+            unsafe {
+                termios::set_attr(stdin_fd, nc::TCSANOW, &raw).map_err(KeyboardError::SetAttr)
+            }?;
+        }
 
         Ok(Self {
             fd: stdin_fd,
@@ -72,7 +77,7 @@ impl KeyboardReader {
         Ok(byte[0])
     }
 
-    pub fn show_prompt(&self) {
+    pub fn show_prompt() {
         println!("Reading from keyboard");
         println!("---------------------------");
         println!("Use arrow keys to move the crab.");
@@ -85,6 +90,7 @@ impl KeyboardReader {
 /// Reset terminal raw mode on destruct.
 impl Drop for KeyboardReader {
     fn drop(&mut self) {
+        println!("Reset terminal from raw mode");
         let ret = unsafe { termios::set_attr(self.fd, nc::TCSANOW, &self.cooked) };
         if let Err(errno) = ret {
             eprintln!(
