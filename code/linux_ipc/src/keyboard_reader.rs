@@ -4,9 +4,9 @@
 
 #![allow(dead_code)]
 
-use std::{fmt, ptr};
 use std::error::Error;
 use std::fmt::Display;
+use std::{fmt, ptr};
 
 use crate::termios;
 
@@ -39,9 +39,7 @@ impl Error for KeyboardError {}
 impl KeyboardReader {
     pub fn new() -> Result<Self, KeyboardError> {
         let stdin_fd = 0;
-        let cooked = unsafe {
-            termios::get_attr(stdin_fd).map_err(KeyboardError::GetAttr)
-        }?;
+        let cooked = unsafe { termios::get_attr(stdin_fd).map_err(KeyboardError::GetAttr) }?;
 
         let mut raw = cooked.clone();
         raw.c_cflag &= !(nc::ECHOE | nc::ICANON);
@@ -51,9 +49,7 @@ impl KeyboardReader {
         raw.c_cc[nc::VTIME as usize] = 1;
         raw.c_cc[nc::VMIN as usize] = 0;
 
-        unsafe {
-            termios::set_attr(stdin_fd, nc::TCSANOW, &raw).map_err(KeyboardError::SetAttr)
-        }?;
+        unsafe { termios::set_attr(stdin_fd, nc::TCSANOW, &raw).map_err(KeyboardError::SetAttr) }?;
 
         Ok(Self {
             fd: stdin_fd,
@@ -65,18 +61,22 @@ impl KeyboardReader {
     pub fn read_one(&mut self) -> Result<u8, KeyboardError> {
         let mut byte = [0_u8; 1];
         let _ret = unsafe {
-            nc::read(self.fd, ptr::addr_of_mut!(byte) as usize, byte.len()).map_err
-            (KeyboardError::ReadChar)
+            nc::read(self.fd, ptr::addr_of_mut!(byte) as usize, byte.len())
+                .map_err(KeyboardError::ReadChar)
         }?;
         Ok(byte[0])
     }
 }
 
+/// Reset terminal raw mode on destruct.
 impl Drop for KeyboardReader {
     fn drop(&mut self) {
         let ret = unsafe { termios::set_attr(self.fd, nc::TCSANOW, &self.cooked) };
         if let Err(errno) = ret {
-            eprintln!("Failed to reset terminal attribute, reason: {:?}", nc::strerror(errno));
+            eprintln!(
+                "Failed to reset terminal attribute, reason: {:?}",
+                nc::strerror(errno)
+            );
         }
     }
 }
