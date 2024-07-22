@@ -331,6 +331,13 @@ name = "lifetimes"
 version = "0.1.0"
 
 [[package]]
+name = "linux_ipc"
+version = "0.1.0"
+dependencies = [
+ "nc",
+]
+
+[[package]]
 name = "lock_api"
 version = "0.4.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -392,6 +399,15 @@ dependencies = [
  "libc",
  "wasi",
  "windows-sys 0.48.0",
+]
+
+[[package]]
+name = "nc"
+version = "0.8.21"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "388827c54cacb7f6604751c05dc9adf9ec9c1b35a6f50948e3d11049502481f3"
+dependencies = [
+ "cc",
 ]
 
 [[package]]

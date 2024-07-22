@@ -17,6 +17,7 @@ members = [
     "code/fs",
     "code/iterators", 
     "code/lifetimes",
+    "code/linux_ipc",
     "code/macros",
     "code/mem_module",
     "code/memory",
