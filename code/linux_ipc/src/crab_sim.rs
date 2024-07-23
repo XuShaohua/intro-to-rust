@@ -49,6 +49,7 @@ impl eframe::App for CrabFrame {
                     // Ignore
                 }
                 KeyboardMsg::Quit => unsafe {
+                    println!("[crab] quit");
                     nc::exit(0);
                 },
                 KeyboardMsg::CancelRotate => {
@@ -61,8 +62,6 @@ impl eframe::App for CrabFrame {
                     println!("[crab] twist");
                 }
             }
-        } else {
-            println!("cram no msg received");
         }
 
         egui::CentralPanel::default().show(ctx, |ui| {

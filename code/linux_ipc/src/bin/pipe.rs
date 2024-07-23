@@ -50,14 +50,15 @@ fn main() {
 
 fn child_entry(read_pipe: i32) {
     let (sender, receiver) = mpsc::channel();
-    let _handler = thread::spawn(move || {
+    let handler = thread::spawn(move || {
         let file = unsafe { File::from_raw_fd(read_pipe) };
         let mut buf_reader = BufReader::new(file);
         while let Ok(msg) = serde_json::from_reader(&mut buf_reader) {
-            let _ = sender.send(msg);
+            let _ret = sender.send(msg);
         }
     });
-    run_sim(receiver).unwrap();
+    let _ret = run_sim(receiver);
+    let _ret = handler.join();
 }
 
 fn parent_entry(write_pipe: i32) {
@@ -69,33 +70,26 @@ fn parent_entry(write_pipe: i32) {
 
     let mut running = true;
     while running {
-        match input.read_one() {
-            Ok(keycode) => {
-                match parse_keycode(keycode) {
-                    KeyboardMsg::None => {
-                        // Invalid keyboard input.
-                    }
-                    msg @ KeyboardMsg::Quit => {
-                        // Send quit to remote side.
-                        if let Err(err) = serde_json::to_writer(&mut buf_writer, &msg) {
-                            println!("Broken pipe, got: {err:?}");
-                        }
-
-                        // Quit self
-                        running = false;
-                    }
-                    msg => {
-                        println!("key msg: {msg:?}");
-                        // Proxy any msg to remote side.
-                        if let Err(err) = serde_json::to_writer(&mut buf_writer, &msg) {
-                            println!("Broken pipe, got: {err:?}");
-                            running = false;
-                        }
-                    }
-                }
+        let keycode = input.read_one().expect("Failed to read input");
+        match parse_keycode(keycode) {
+            KeyboardMsg::None => {
+                // Invalid keyboard input.
             }
-            Err(err) => {
-                eprintln!("err: {err:?}");
+            msg @ KeyboardMsg::Quit => {
+                // Send quit to remote side.
+                if let Err(err) = serde_json::to_writer(&mut buf_writer, &msg) {
+                    println!("Broken pipe, got: {err:?}");
+                }
+                // Quit self
+                running = false;
+            }
+            msg => {
+                println!("key msg: {msg:?}");
+                // Proxy any msg to remote side.
+                if let Err(err) = serde_json::to_writer(&mut buf_writer, &msg) {
+                    println!("Broken pipe, got: {err:?}");
+                    running = false;
+                }
             }
         }
     }

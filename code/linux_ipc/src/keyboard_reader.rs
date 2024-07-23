@@ -11,7 +11,7 @@ use crate::termios;
 #[derive(Debug)]
 pub struct KeyboardReader {
     fd: i32,
-    cooked: nc::termios_t,
+    cooked: nc::termios2_t,
 }
 
 #[derive(Debug, Clone, Copy, Eq, PartialEq, Hash)]
@@ -38,24 +38,19 @@ impl KeyboardReader {
     /// # Errors
     ///
     /// Returns error if failed to get or set terminal attributes.
-    pub fn new(raw_mode: bool) -> Result<Self, KeyboardError> {
+    pub fn new(_raw_mode: bool) -> Result<Self, KeyboardError> {
         let stdin_fd = 0;
-        let cooked = unsafe { termios::get_attr(stdin_fd).map_err(KeyboardError::GetAttr) }?;
+        let cooked = termios::get_attr(stdin_fd).map_err(KeyboardError::GetAttr)?;
 
-        if raw_mode {
-            #[allow(clippy::redundant_clone)]
-            let mut raw = cooked.clone();
-            raw.c_cflag &= !(nc::ECHOE | nc::ICANON);
-            // Setting a new line, then end of file
-            raw.c_cc[nc::VEOL as usize] = 1;
-            raw.c_cc[nc::VEOF as usize] = 2;
-            raw.c_cc[nc::VTIME as usize] = 1;
-            raw.c_cc[nc::VMIN as usize] = 0;
+        let mut raw = cooked.clone();
+        raw.c_lflag &= !(nc::ECHOE | nc::ICANON);
+        // Setting a new line, then end of file
+        raw.c_cc[nc::VEOL] = 1;
+        raw.c_cc[nc::VEOF] = 2;
+        raw.c_cc[nc::VTIME] = 1;
+        raw.c_cc[nc::VMIN] = 0;
 
-            unsafe {
-                termios::set_attr(stdin_fd, nc::TCSANOW, &raw).map_err(KeyboardError::SetAttr)
-            }?;
-        }
+        termios::set_attr(stdin_fd, nc::TCSANOW, &raw).map_err(KeyboardError::SetAttr)?;
 
         Ok(Self {
             fd: stdin_fd,
@@ -91,7 +86,8 @@ impl KeyboardReader {
 impl Drop for KeyboardReader {
     fn drop(&mut self) {
         println!("Reset terminal from raw mode");
-        let ret = unsafe { termios::set_attr(self.fd, nc::TCSANOW, &self.cooked) };
+        println!("old cooked: {:?}", self.cooked);
+        let ret = termios::set_attr(self.fd, nc::TCSANOW, &self.cooked);
         if let Err(errno) = ret {
             eprintln!(
                 "Failed to reset terminal attribute, reason: {:?}",

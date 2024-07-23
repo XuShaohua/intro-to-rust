@@ -5,11 +5,12 @@ edition = "2021"
 publish = false
 
 [dependencies]
-eframe = { version = "0.28.1", default-features = false, features = ["wayland",  "wgpu"] }
+eframe = { version = "0.28.1", default-features = false, features = ["wayland", "wgpu"] }
 egui = { version = "0.28.1", default-features = false }
 egui_extras = { version = "0.28.1", default-features = false, features = ["default", "all_loaders"] }
 image = { version = "0.25.2", default-features = false, features = ["jpeg", "png"] }
-nc = "0.8.21"
+libc = "0.2.155"
+nc = { version = "0.8.21", git = "https://github.com/xushaohua/nc", rev = "619d4d1f" }
 serde = { version = "1.0.204", features = ["serde_derive"] }
 serde_json = "1.0.120"
 

@@ -7,13 +7,27 @@
 use std::ptr;
 
 /// Like `tcgetattr()` in libc.
-pub unsafe fn get_attr(fd: i32) -> Result<nc::termios_t, nc::Errno> {
-    let mut tio = nc::termios_t::default();
-    nc::ioctl(fd, nc::TCGETS, ptr::addr_of_mut!(tio) as usize)?;
+///
+/// # Errors
+///
+/// Returns error if `ioctl()` fails.
+pub fn get_attr(fd: i32) -> Result<nc::termios2_t, nc::Errno> {
+    let mut tio = nc::termios2_t::default();
+    unsafe {
+        nc::ioctl(fd, nc::TCGETS, ptr::from_mut(&mut tio) as usize)?;
+    }
     Ok(tio)
 }
 
 /// Like `tcsetattr()` in libc.
-pub unsafe fn set_attr(fd: i32, act: i32, tio: &nc::termios_t) -> Result<(), nc::Errno> {
-    nc::ioctl(fd, nc::TCSETS + act, ptr::addr_of!(tio) as usize)
+///
+/// # Errors
+///
+/// Returns error if `ioctl()` fails.
+pub fn set_attr(fd: i32, act: i32, tio: &nc::termios2_t) -> Result<(), nc::Errno> {
+    #[allow(clippy::manual_range_contains)]
+    if act < 0 || act > 2 {
+        return Err(nc::EINVAL);
+    }
+    unsafe { nc::ioctl(fd, nc::TCSETS + act, ptr::from_ref(&tio) as usize) }
 }
