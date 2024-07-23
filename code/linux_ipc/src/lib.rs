@@ -16,4 +16,5 @@ pub mod crab_sim;
 pub mod keyboard_reader;
 pub mod keycode;
 pub mod msg;
+pub mod process;
 pub mod termios;

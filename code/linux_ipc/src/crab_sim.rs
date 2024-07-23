@@ -50,9 +50,7 @@ impl eframe::App for CrabFrame {
                 }
                 KeyboardMsg::Quit => {
                     println!("[crab] quit");
-                    unsafe {
-                        nc::exit(0);
-                    }
+                    return;
                 }
                 KeyboardMsg::CancelRotate => {
                     println!("[crab] cancel rotate");

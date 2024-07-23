@@ -3,9 +3,10 @@
 // in the LICENSE file.
 
 use std::fs::File;
-use std::io::{BufReader, BufWriter};
+use std::io::{Read, Write};
 #[cfg(unix)]
 use std::os::fd::FromRawFd;
+use std::os::fd::OwnedFd;
 use std::sync::mpsc;
 use std::thread;
 
@@ -13,6 +14,7 @@ use linux_ipc::crab_sim::run_sim;
 use linux_ipc::keyboard_reader::KeyboardReader;
 use linux_ipc::keycode::parse_keycode;
 use linux_ipc::msg::KeyboardMsg;
+use linux_ipc::process::wait_child_process;
 
 // 1. create pipe
 // 2. fork child process
@@ -50,23 +52,40 @@ fn main() {
 
 fn child_entry(read_pipe: i32) {
     let (sender, receiver) = mpsc::channel();
+
     let handler = thread::spawn(move || {
-        let file = unsafe { File::from_raw_fd(read_pipe) };
-        let mut buf_reader = BufReader::new(file);
-        while let Ok(msg) = serde_json::from_reader(&mut buf_reader) {
-            let _ret = sender.send(msg);
+        let mut file = unsafe { File::from(OwnedFd::from_raw_fd(read_pipe)) };
+        println!("[child] create file from raw fd: {read_pipe}");
+        let mut buf = [0; 256];
+        while let Ok(n_read) = file.read(&mut buf) {
+            if n_read == 0 {
+                eprintln!("[child] n_read == 0, broken pipe");
+                break;
+            }
+            if let Ok(msg) = serde_json::from_slice(&buf[..n_read]) {
+                let _ret = sender.send(msg);
+            } else {
+                eprintln!("Invalid msg");
+                break;
+            }
         }
+        println!("child_entry failed to read msg");
     });
     let _ret = run_sim(receiver);
+    println!("[child] run_sim() exited");
     let _ret = handler.join();
+    println!("[child] handler.join()");
 }
 
 fn parent_entry(write_pipe: i32) {
-    let file = unsafe { File::from_raw_fd(write_pipe) };
-    let mut buf_writer = BufWriter::new(file);
+    let mut file = unsafe { File::from_raw_fd(write_pipe) };
+    let mut write_msg = |msg: &KeyboardMsg| {
+        let text = serde_json::to_string(msg).expect("Failed to serialize msg");
+        file.write_all(text.as_bytes())
+    };
 
     KeyboardReader::show_prompt();
-    let mut input = KeyboardReader::new(true).expect("Failed to init keyboard reader");
+    let mut input = KeyboardReader::new().expect("Failed to init keyboard reader");
 
     let mut running = true;
     while running {
@@ -77,20 +96,22 @@ fn parent_entry(write_pipe: i32) {
             }
             msg @ KeyboardMsg::Quit => {
                 // Send quit to remote side.
-                if let Err(err) = serde_json::to_writer(&mut buf_writer, &msg) {
+                if let Err(err) = write_msg(&msg) {
                     println!("Broken pipe, got: {err:?}");
                 }
                 // Quit self
                 running = false;
             }
             msg => {
-                println!("key msg: {msg:?}");
+                println!("main_entry, msg: {msg:?}");
                 // Proxy any msg to remote side.
-                if let Err(err) = serde_json::to_writer(&mut buf_writer, &msg) {
+                if let Err(err) = write_msg(&msg) {
                     println!("Broken pipe, got: {err:?}");
                     running = false;
                 }
             }
         }
     }
+
+    wait_child_process(1);
 }

@@ -38,7 +38,7 @@ impl KeyboardReader {
     /// # Errors
     ///
     /// Returns error if failed to get or set terminal attributes.
-    pub fn new(_raw_mode: bool) -> Result<Self, KeyboardError> {
+    pub fn new() -> Result<Self, KeyboardError> {
         let stdin_fd = 0;
         let cooked = termios::get_attr(stdin_fd).map_err(KeyboardError::GetAttr)?;
 
