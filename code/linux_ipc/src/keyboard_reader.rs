@@ -11,7 +11,7 @@ use crate::termios;
 #[derive(Debug)]
 pub struct KeyboardReader {
     fd: i32,
-    cooked: nc::termios2_t,
+    cooked: nc::termios_t,
 }
 
 #[derive(Debug, Clone, Copy, Eq, PartialEq, Hash)]
@@ -43,7 +43,7 @@ impl KeyboardReader {
         let cooked = termios::get_attr(stdin_fd).map_err(KeyboardError::GetAttr)?;
 
         let mut raw = cooked.clone();
-        raw.c_lflag &= !(nc::ECHOE | nc::ICANON);
+        raw.c_lflag &= !(nc::ICANON | nc::ECHO);
         // Setting a new line, then end of file
         raw.c_cc[nc::VEOL] = 1;
         raw.c_cc[nc::VEOF] = 2;
@@ -85,8 +85,6 @@ impl KeyboardReader {
 /// Reset terminal raw mode on destruct.
 impl Drop for KeyboardReader {
     fn drop(&mut self) {
-        println!("Reset terminal from raw mode");
-        println!("old cooked: {:?}", self.cooked);
         let ret = termios::set_attr(self.fd, nc::TCSANOW, &self.cooked);
         if let Err(errno) = ret {
             eprintln!(
