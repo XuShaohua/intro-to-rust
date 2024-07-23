@@ -2,6 +2,8 @@
 // Use of this source is governed by General Public License that can be found
 // in the LICENSE file.
 
+use std::mem;
+
 #[derive(Debug, Clone, Copy)]
 pub enum Shape {
     Rectangle,
@@ -11,7 +13,7 @@ pub enum Shape {
 
 impl Shape {
     pub fn tag(&self) -> u8 {
-        unsafe { std::mem::transmute(*self) }
+        unsafe { mem::transmute(*self) }
     }
 }
 
