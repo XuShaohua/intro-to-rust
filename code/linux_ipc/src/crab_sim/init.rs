@@ -15,6 +15,12 @@ use crate::msg::KeyboardMsg;
 use super::state::State;
 
 fn event_loop_handler<T>(event: &Event<T>, control_flow: &mut ControlFlow, state: &mut State) {
+    let msg = state.receiver.try_recv().ok();
+    if msg == Some(KeyboardMsg::Quit) {
+        *control_flow = ControlFlow::Exit;
+        return;
+    }
+
     match event {
         Event::WindowEvent {
             ref event,
@@ -33,7 +39,7 @@ fn event_loop_handler<T>(event: &Event<T>, control_flow: &mut ControlFlow, state
             }
         }
         Event::RedrawRequested(window_id) if *window_id == state.window().id() => {
-            state.update();
+            state.update(msg);
             match state.render() {
                 Ok(_) => {}
                 Err(wgpu::SurfaceError::Lost) => state.resize(state.size()),

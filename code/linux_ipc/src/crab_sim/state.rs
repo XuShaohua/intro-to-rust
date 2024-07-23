@@ -17,7 +17,7 @@ use super::vertex::{INDICES, Vertex, VERTICES};
 
 #[derive(Debug)]
 pub struct State {
-    receiver: Receiver<KeyboardMsg>,
+    pub receiver: Receiver<KeyboardMsg>,
 
     surface: wgpu::Surface,
     device: wgpu::Device,
@@ -269,7 +269,20 @@ impl State {
         false
     }
 
-    pub fn update(&mut self) {}
+    pub fn update(&mut self, msg: Option<KeyboardMsg>) {
+        match msg {
+            Some(KeyboardMsg::CancelRotate) => {
+                log::info!("cancel rotate");
+            }
+            Some(KeyboardMsg::Rotate(rotate)) => {
+                log::info!("rotate: {rotate:?}");
+            }
+            Some(KeyboardMsg::Twist(twist)) => {
+                log::info!("twist: {twist:?}");
+            }
+            _ => (),
+        }
+    }
 
     pub fn render(&mut self) -> Result<(), wgpu::SurfaceError> {
         let output = self.surface.get_current_texture()?;
@@ -290,9 +303,9 @@ impl State {
                     resolve_target: None,
                     ops: wgpu::Operations {
                         load: wgpu::LoadOp::Clear(wgpu::Color {
-                            r: 0.2,
-                            g: 0.3,
-                            b: 0.3,
+                            r: 0.1,
+                            g: 0.1,
+                            b: 0.1,
                             a: 1.0,
                         }),
                         store: true,
