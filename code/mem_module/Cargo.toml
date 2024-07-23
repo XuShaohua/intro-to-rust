@@ -31,8 +31,12 @@ name = "mem_module-forget"
 path = "src/bin/forget.rs"
 
 [[bin]]
-name = "mem_module-transmute2"
-path = "src/bin/transmute2.rs"
+name = "mem_module-transmute-enum"
+path = "src/bin/transmute-enum.rs"
+
+[[bin]]
+name = "mem_module-transmute-slice"
+path = "src/bin/transmute-slice.rs"
 
 [[bin]]
 name = "mem_module-manually-drop"

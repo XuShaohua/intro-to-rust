@@ -1019,8 +1019,9 @@ dependencies = [
 
 [[package]]
 name = "nc"
-version = "0.8.22"
-source = "git+https://github.com/xushaohua/nc?rev=619d4d1f#619d4d1f940acd75ee3aac257ca8c09700dbab76"
+version = "0.8.23"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "44b24115ea9683b6fd45d99c7e83002a739601faea67908edb02737497fabdd3"
 dependencies = [
  "cc",
 ]

@@ -8,7 +8,7 @@ publish = false
 bytemuck = { version = "1.16.1", features = ["derive"] }
 image = { version = "0.25.2", default-features = false, features = ["jpeg", "png"] }
 log = "0.4.22"
-nc = { version = "0.8.21", git = "https://github.com/xushaohua/nc", rev = "619d4d1f" }
+nc = "0.8.23"
 pollster = "0.3.0"
 serde = { version = "1.0.204", features = ["serde_derive"] }
 serde_json = "1.0.120"
