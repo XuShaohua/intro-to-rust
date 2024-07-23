@@ -29,8 +29,6 @@ fn main() {
 
     let pid = unsafe { nc::fork().expect("Failed to fork process") };
     if pid == 0 {
-        let curr_pid = unsafe { nc::getpid() };
-        println!("child pid: {curr_pid}");
         // child process
         unsafe {
             let _ = nc::close(write_pipe);
@@ -53,28 +51,32 @@ fn main() {
 fn child_entry(read_pipe: i32) {
     let (sender, receiver) = mpsc::channel();
 
-    let handler = thread::spawn(move || {
+    let _handler = thread::spawn(move || {
         let mut file = unsafe { File::from(OwnedFd::from_raw_fd(read_pipe)) };
-        println!("[child] create file from raw fd: {read_pipe}");
         let mut buf = [0; 256];
         while let Ok(n_read) = file.read(&mut buf) {
             if n_read == 0 {
                 eprintln!("[child] n_read == 0, broken pipe");
                 break;
             }
+
             if let Ok(msg) = serde_json::from_slice(&buf[..n_read]) {
+                let will_quit = msg == KeyboardMsg::Quit;
                 let _ret = sender.send(msg);
+                if will_quit {
+                    break;
+                }
             } else {
-                eprintln!("Invalid msg");
+                eprintln!("[child] Invalid msg");
                 break;
             }
         }
-        println!("child_entry failed to read msg");
+        println!("[child] failed to read msg");
     });
     let _ret = run_sim(receiver);
-    println!("[child] run_sim() exited");
-    let _ret = handler.join();
-    println!("[child] handler.join()");
+    unsafe {
+        nc::exit(0);
+    }
 }
 
 fn parent_entry(write_pipe: i32) {

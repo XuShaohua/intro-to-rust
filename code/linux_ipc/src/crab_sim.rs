@@ -4,6 +4,8 @@
 
 use std::sync::mpsc::Receiver;
 
+use egui::ViewportCommand;
+
 use crate::msg::KeyboardMsg;
 
 /// # Errors
@@ -50,7 +52,7 @@ impl eframe::App for CrabFrame {
                 }
                 KeyboardMsg::Quit => {
                     println!("[crab] quit");
-                    return;
+                    ctx.send_viewport_cmd(ViewportCommand::Close);
                 }
                 KeyboardMsg::CancelRotate => {
                     println!("[crab] cancel rotate");

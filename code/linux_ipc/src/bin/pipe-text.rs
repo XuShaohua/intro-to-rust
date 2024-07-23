@@ -46,7 +46,7 @@ fn child_entry(read_pipe: i32) {
             println!("[child] n_read is 0");
             break;
         }
-        let msg = serde_json::from_slice::<Msg>(&buf[..(n_read as usize)]);
+        let msg = serde_json::from_slice::<Msg>(&buf[..n_read]);
         println!("[child] msg: {msg:?}");
     }
 }
