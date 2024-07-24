@@ -91,6 +91,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "arc_module"
+version = "0.1.0"
+
+[[package]]
 name = "arrayref"
 version = "0.3.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -271,6 +275,10 @@ name = "cfg_aliases"
 version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "fd16c4719339c4530435d38e511904438d07cce7950afa3718a84ac36c10e89e"
+
+[[package]]
+name = "channel"
+version = "0.1.0"
 
 [[package]]
 name = "chrono"
@@ -1490,6 +1498,10 @@ dependencies = [
  "ryu",
  "serde",
 ]
+
+[[package]]
+name = "shared_mutable_state"
+version = "0.1.0"
 
 [[package]]
 name = "signal-hook-registry"

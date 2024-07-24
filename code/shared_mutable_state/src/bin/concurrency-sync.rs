@@ -2,7 +2,7 @@
 // Use of this source is governed by General Public License that can be found
 // in the LICENSE file.
 
-use std::sync::{mpsc, Arc, Mutex};
+use std::sync::{Arc, Mutex};
 use std::thread;
 use std::time::Duration;
 
@@ -80,48 +80,12 @@ fn move_closure() {
     println!("outside number: {}", number);
 }
 
-fn mpsc_demo() {
-    let (tx, rx) = mpsc::channel();
-    for i in 0..5 {
-        let tx_clone = tx.clone();
-        thread::spawn(move || {
-            let ret = tx_clone.send(i * 2);
-            assert!(ret.is_ok());
-        });
-    }
-    for _i in 0..5 {
-        println!("Recving value: {:?}", rx.recv());
-    }
-}
-
 #[derive(Debug)]
 pub struct Person {
     pub name: String,
     pub id: i32,
     pub data: Option<i32>,
     //pub data: Option<Rc<i32>>,
-}
-
-fn string_channel() {
-    let (tx, rx) = mpsc::channel();
-    for i in 0..5 {
-        let tx_clone = tx.clone();
-        thread::spawn(move || {
-            // Value is moved to channel
-            //let msg = String::from("Hello");
-            let person = Person {
-                name: "Anonymous".to_string(),
-                id: i,
-                data: None,
-            };
-            let ret = tx_clone.send(person);
-            assert!(ret.is_ok());
-            //println!("msg: {}", msg);
-        });
-    }
-    for _ in 0..5 {
-        println!("Recving value: {:?}", rx.recv());
-    }
 }
 
 fn arc_demo() {
@@ -157,7 +121,5 @@ fn main() {
     spawn();
     mutex();
     move_closure();
-    mpsc_demo();
-    string_channel();
     arc_demo();
 }

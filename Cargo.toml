@@ -4,6 +4,7 @@ resolver = "2"
 members = [
     "code/arc_module",
     "code/asynchronous",
+    "code/channel",
     "code/closure",
     "code/collections",
     "code/concurrency",
@@ -29,6 +30,7 @@ members = [
     "code/primtives",
     "code/ptr_module",
     "code/references",
+    "code/shared_mutable_state",
     "code/smart_pointers",
     "code/stdlib",
     "code/strings",
