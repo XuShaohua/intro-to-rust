@@ -2,6 +2,7 @@
 resolver = "2"
 
 members = [
+    "code/arc_module",
     "code/asynchronous",
     "code/closure",
     "code/collections",
