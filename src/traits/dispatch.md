@@ -56,6 +56,9 @@ fn main() {
 }
 ```
 
+## C++ 中的编译期多态和运行时多态
+TODO
+
 ## 参考
 
 - [trait object](https://stackoverflow.com/questions/27567849/what-makes-something-a-trait-object)

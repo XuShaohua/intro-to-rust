@@ -216,3 +216,9 @@ fn main() {}
 
 只要 trait 或者相应的类型在本 crate 中有声明, 就可以给这个类型实现这个 trait.
 Marker Trait: 不需要实现任何具体的方法, 只是一个定义约束. 比如 `Sized`, `Copy`.
+
+## 解决函数名冲突 Turbofish
+
+
+## 参考
+- [What is Rust's turbofish?](https://techblog.tonsser.com/posts/what-is-rusts-turbofish)
