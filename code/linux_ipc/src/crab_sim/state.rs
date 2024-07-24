@@ -9,11 +9,11 @@ use winit::dpi::PhysicalSize;
 use winit::event::WindowEvent;
 use winit::window::Window;
 
-use crate::Error;
 use crate::msg::KeyboardMsg;
+use crate::Error;
 
 use super::texture::Texture;
-use super::vertex::{INDICES, Vertex, VERTICES};
+use super::vertex::{Vertex, INDICES, VERTICES};
 
 #[derive(Debug)]
 pub struct State {
@@ -63,9 +63,7 @@ impl State {
                 force_fallback_adapter: false,
             })
             .await
-            .ok_or_else(|| {
-                Error::Others("Failed to get an appropriate wgpu adapter".to_owned())
-            })?;
+            .ok_or_else(|| Error::Others("Failed to get an appropriate wgpu adapter".to_owned()))?;
 
         let (device, queue) = adapter
             .request_device(
@@ -106,8 +104,9 @@ impl State {
     ) -> wgpu::RenderPipeline {
         let shader = device.create_shader_module(wgpu::ShaderModuleDescriptor {
             label: Some("Shader"),
-            source: wgpu::ShaderSource::Wgsl(include_str!("../../assets/shaders/texture.wgsl").into
-            ()),
+            source: wgpu::ShaderSource::Wgsl(
+                include_str!("../../assets/shaders/texture.wgsl").into(),
+            ),
         });
 
         let render_pipeline_layout =
@@ -272,13 +271,13 @@ impl State {
     pub fn update(&mut self, msg: Option<KeyboardMsg>) {
         match msg {
             Some(KeyboardMsg::CancelRotate) => {
-                log::info!("cancel rotate");
+                println!("cancel rotate");
             }
             Some(KeyboardMsg::Rotate(rotate)) => {
-                log::info!("rotate: {rotate:?}");
+                println!("rotate: {rotate:?}");
             }
             Some(KeyboardMsg::Twist(twist)) => {
-                log::info!("twist: {twist:?}");
+                println!("twist: {twist:?}");
             }
             _ => (),
         }

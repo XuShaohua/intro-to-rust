@@ -21,9 +21,9 @@ name = "linux_ipc-pipe"
 path = "src/bin/pipe.rs"
 
 [[bin]]
-name = "linux_ipc-barely-sim"
-path = "src/bin/barely-sim.rs"
+name = "linux_ipc-pipe-text"
+path = "src/bin/pipe-text.rs"
 
 [[bin]]
-name = "linux_ipc-dump-ops"
-path = "src/bin/dump-ops.rs"
+name = "linux_ipc-barely-sim"
+path = "src/bin/barely-sim.rs"

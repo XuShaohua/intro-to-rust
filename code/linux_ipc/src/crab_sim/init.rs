@@ -9,8 +9,8 @@ use winit::event::{Event, WindowEvent};
 use winit::event_loop::{ControlFlow, EventLoop};
 use winit::window::{Window, WindowBuilder};
 
-use crate::Error;
 use crate::msg::KeyboardMsg;
+use crate::Error;
 
 use super::state::State;
 
@@ -19,6 +19,16 @@ fn event_loop_handler<T>(event: &Event<T>, control_flow: &mut ControlFlow, state
     if msg == Some(KeyboardMsg::Quit) {
         *control_flow = ControlFlow::Exit;
         return;
+    }
+    state.update(msg);
+    match state.render() {
+        Ok(_) => {}
+        Err(wgpu::SurfaceError::Lost) => state.resize(state.size()),
+        Err(wgpu::SurfaceError::OutOfMemory) => {
+            log::error!("System out of memory!");
+            *control_flow = ControlFlow::Exit;
+        }
+        Err(err) => log::error!("{err:?}"),
     }
 
     match event {
@@ -39,7 +49,7 @@ fn event_loop_handler<T>(event: &Event<T>, control_flow: &mut ControlFlow, state
             }
         }
         Event::RedrawRequested(window_id) if *window_id == state.window().id() => {
-            state.update(msg);
+            /*
             match state.render() {
                 Ok(_) => {}
                 Err(wgpu::SurfaceError::Lost) => state.resize(state.size()),
@@ -49,6 +59,7 @@ fn event_loop_handler<T>(event: &Event<T>, control_flow: &mut ControlFlow, state
                 }
                 Err(err) => log::error!("{err:?}"),
             }
+            */
         }
 
         Event::MainEventsCleared => state.window().request_redraw(),
