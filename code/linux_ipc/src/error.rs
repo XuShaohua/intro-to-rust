@@ -23,4 +23,13 @@ pub enum Error {
 
     #[error("other error")]
     Others(String),
+
+    #[error("System Call error")]
+    Sys(&'static str),
+}
+
+impl From<nc::Errno> for Error {
+    fn from(errno: nc::Errno) -> Self {
+        Self::Sys(nc::strerror(errno))
+    }
 }

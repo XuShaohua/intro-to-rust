@@ -17,6 +17,15 @@ wgpu = "0.17.2"
 winit = "0.28.7"
 
 [[bin]]
+name = "linux_ipc-fifo-consumer"
+path = "src/bin/fifo-consumer.rs"
+
+[[bin]]
+name = "linux_ipc-fifo-proucer"
+path = "src/bin/fifo-producer.rs"
+
+
+[[bin]]
 name = "linux_ipc-pipe"
 path = "src/bin/pipe.rs"
 

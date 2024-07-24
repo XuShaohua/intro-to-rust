@@ -12,12 +12,13 @@
 #![allow(dead_code)]
 #![allow(clippy::multiple_crate_versions)]
 
+pub use error::Error;
+
 pub mod crab_sim;
-mod error;
+pub mod error;
 pub mod keyboard_reader;
 pub mod keycode;
 pub mod msg;
 pub mod process;
 pub mod termios;
 
-pub use error::Error;
