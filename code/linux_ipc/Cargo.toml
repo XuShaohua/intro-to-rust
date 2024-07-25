@@ -17,12 +17,24 @@ wgpu = "0.17.2"
 winit = "0.28.7"
 
 [[bin]]
+name = "linux_ipc-pipe"
+path = "src/bin/pipe.rs"
+
+[[bin]]
+name = "linux_ipc-barely-sim"
+path = "src/bin/barely-sim.rs"
+
+[[bin]]
 name = "linux_ipc-fifo-consumer"
 path = "src/bin/fifo-consumer.rs"
 
 [[bin]]
-name = "linux_ipc-fifo-proucer"
+name = "linux_ipc-fifo-producer"
 path = "src/bin/fifo-producer.rs"
+
+[[bin]]
+name = "linux_ipc-pipe-text"
+path = "src/bin/pipe-text.rs"
 
 [[bin]]
 name = "linux_ipc-signal-consumer"
@@ -33,13 +45,9 @@ name = "linux_ipc-signal-producer"
 path = "src/bin/signal-producer.rs"
 
 [[bin]]
-name = "linux_ipc-pipe"
-path = "src/bin/pipe.rs"
+name = "linux_ipc-uds-producer"
+path = "src/bin/uds-producer.rs"
 
 [[bin]]
-name = "linux_ipc-pipe-text"
-path = "src/bin/pipe-text.rs"
-
-[[bin]]
-name = "linux_ipc-barely-sim"
-path = "src/bin/barely-sim.rs"
+name = "linux_ipc-uds-consumer"
+path = "src/bin/uds-consumer.rs"
