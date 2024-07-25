@@ -2,7 +2,9 @@
 // Use of this source is governed by General Public License that can be found
 // in the LICENSE file.
 
-use allocator::simple_alloc::MMapAllocator;
+use std::io::{Read, stdin};
+
+use allocator::mmap_allocator::MMapAllocator;
 
 #[global_allocator]
 static GLOBAL: MMapAllocator = MMapAllocator;
@@ -13,4 +15,8 @@ fn main() {
 
     let nums = vec![1, 1, 2, 3, 5];
     println!("nums: {nums:?}");
+
+    println!("Press any key to continue ...");
+    let mut buf = [0; 4];
+    let _ = stdin().read(&mut buf).unwrap();
 }

@@ -2,7 +2,7 @@
 // Use of this source is governed by General Public License that can be found
 // in the LICENSE file.
 
-use allocator::simple_alloc::DebugAllocator;
+use allocator::debug_allocator::DebugAllocator;
 
 #[global_allocator]
 static GLOBAL: DebugAllocator = DebugAllocator;

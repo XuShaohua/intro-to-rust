@@ -10,4 +10,5 @@
     clippy::pedantic
 )]
 
-pub mod simple_alloc;
+pub mod mmap_allocator;
+pub mod debug_allocator;

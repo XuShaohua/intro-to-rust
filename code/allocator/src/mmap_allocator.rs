@@ -5,7 +5,7 @@
 use std::alloc::{GlobalAlloc, Layout};
 use std::ptr;
 
-use crate::simple_alloc::DebugAllocator;
+use crate::debug_allocator::DebugAllocator;
 
 pub struct MMapAllocator;
 
