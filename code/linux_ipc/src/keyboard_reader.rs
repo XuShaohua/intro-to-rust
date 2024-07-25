@@ -2,9 +2,9 @@
 // Use of this source is governed by GNU General Public License
 // that can be found in the LICENSE file.
 
+use std::{fmt, ptr};
 use std::error::Error;
 use std::fmt::Display;
-use std::{fmt, ptr};
 
 use crate::termios;
 
@@ -13,6 +13,8 @@ pub struct KeyboardReader {
     fd: i32,
     cooked: nc::termios_t,
 }
+
+pub type KeyCode = u8;
 
 #[derive(Debug, Clone, Copy, Eq, PartialEq, Hash)]
 pub enum KeyboardError {
@@ -63,8 +65,8 @@ impl KeyboardReader {
     /// # Errors
     ///
     /// Returns error if failed to read from stdin.
-    pub fn read_one(&mut self) -> Result<u8, KeyboardError> {
-        let mut byte = [0_u8; 1];
+    pub fn read_one(&mut self) -> Result<KeyCode, KeyboardError> {
+        let mut byte: [KeyCode; 1] = [0_u8];
         let _ret = unsafe {
             nc::read(self.fd, ptr::addr_of_mut!(byte) as usize, byte.len())
                 .map_err(KeyboardError::ReadChar)

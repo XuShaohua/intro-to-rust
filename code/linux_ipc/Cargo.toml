@@ -24,6 +24,13 @@ path = "src/bin/fifo-consumer.rs"
 name = "linux_ipc-fifo-proucer"
 path = "src/bin/fifo-producer.rs"
 
+[[bin]]
+name = "linux_ipc-signal-consumer"
+path = "src/bin/signal-consumer.rs"
+
+[[bin]]
+name = "linux_ipc-signal-producer"
+path = "src/bin/signal-producer.rs"
 
 [[bin]]
 name = "linux_ipc-pipe"

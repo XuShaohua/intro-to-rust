@@ -9,8 +9,8 @@ fn main_closure_add1(x: &mut i32) {
 fn main() {
     let mut x = 0;
 
-    add1(&mut x);
-    add1(&mut x);
+    main_closure_add1(&mut x);
+    main_closure_add1(&mut x);
     println!("x: {x}");
     assert_eq!(x, 2);
 }

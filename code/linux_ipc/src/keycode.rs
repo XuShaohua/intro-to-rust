@@ -4,30 +4,31 @@
 
 #![allow(clippy::module_name_repetitions)]
 
-use crate::msg::{KeyboardMsg, RotateAbsolute, Twist};
-
 use std::f32::consts::{FRAC_PI_2, FRAC_PI_4, PI};
+
+use crate::keyboard_reader::KeyCode;
+use crate::msg::{KeyboardMsg, RotateAbsolute, Twist};
 
 const FRAC_PI_23: f32 = FRAC_PI_2 + FRAC_PI_4;
 
-pub const KEYCODE_RIGHT: u8 = 0x43;
-pub const KEYCODE_LEFT: u8 = 0x44;
-pub const KEYCODE_UP: u8 = 0x41;
-pub const KEYCODE_DOWN: u8 = 0x42;
-pub const KEYCODE_B: u8 = 0x62;
-pub const KEYCODE_C: u8 = 0x63;
-pub const KEYCODE_D: u8 = 0x64;
-pub const KEYCODE_E: u8 = 0x65;
-pub const KEYCODE_F: u8 = 0x66;
-pub const KEYCODE_G: u8 = 0x67;
-pub const KEYCODE_Q: u8 = 0x71;
-pub const KEYCODE_R: u8 = 0x72;
-pub const KEYCODE_T: u8 = 0x74;
-pub const KEYCODE_V: u8 = 0x76;
+pub const KEYCODE_UP: KeyCode = 0x41;
+pub const KEYCODE_DOWN: KeyCode = 0x42;
+pub const KEYCODE_RIGHT: KeyCode = 0x43;
+pub const KEYCODE_LEFT: KeyCode = 0x44;
+pub const KEYCODE_B: KeyCode = 0x62;
+pub const KEYCODE_C: KeyCode = 0x63;
+pub const KEYCODE_D: KeyCode = 0x64;
+pub const KEYCODE_E: KeyCode = 0x65;
+pub const KEYCODE_F: KeyCode = 0x66;
+pub const KEYCODE_G: KeyCode = 0x67;
+pub const KEYCODE_Q: KeyCode = 0x71;
+pub const KEYCODE_R: KeyCode = 0x72;
+pub const KEYCODE_T: KeyCode = 0x74;
+pub const KEYCODE_V: KeyCode = 0x76;
 
 /// Convert keyboard control event to twist message.
 #[must_use]
-pub fn parse_keycode(keycode: u8) -> KeyboardMsg {
+pub fn parse_keycode(keycode: KeyCode) -> KeyboardMsg {
     let to_linear = |linear: f64| {
         let mut twist = Twist::default();
         twist.linear.x = linear;
