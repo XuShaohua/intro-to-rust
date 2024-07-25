@@ -4,9 +4,12 @@
 
 //! This memory management is based on musl libc.
 
-pub use allocator::SimpleAllocator;
+pub use debug_allocator::DebugAllocator;
+pub use mmap_allocator::MMapAllocator;
 
-mod allocator;
+mod debug_allocator;
+mod mmap_allocator;
+
 //mod free;
 //mod malloc;
 //mod realloc;
