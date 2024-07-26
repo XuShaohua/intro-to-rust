@@ -63,6 +63,19 @@ fn main() {
 
 ## 获取函数调用者的信息
 
+除了上面介绍的获取当前代码信息信息之外, 在函数体内部, 也可以跟踪哪个地方在调用它, 这对于追踪较复杂的
+函数调用关系链比较有效.
+
+```rust
+{{#include assets/get-caller-location.rs:5:}}
+```
+
+上述代码, 会输出 `noop()` 函数的调用者的信息:
+
+```text
+{{#include assets/get-caller-location.txt}}
+```
+
 ## 参考
 
 - [条件编译](../crates/conditional-compilation.md)
