@@ -61,6 +61,27 @@ fn main() {
 
 ## 获取当前代码的位置信息
 
+标准库中带了好几个宏, 用于返回当前源代码的位置信息:
+
+- `file!()`, 当前源代码文件的文件名
+- `line!()`, 当前代码所在的行号, 从 1 开始计数
+- `column!()`, 当前代码所在的列号, 从 1 开始计数
+
+看一个代码示例:
+
+```rust
+{{#include assets/file-macro.rs}}
+```
+
+```text
+filename: code/perf/src/bin/file-macro.rs, line num: 7, column num: 22
+```
+
+但是, 如何获取函数名呢? 目前标准库还不支持, 但我们可以使用第三方的库:
+
+- [function_name crate](https://docs.rs/function_name/latest/function_name/)
+- [stdext crate](https://docs.rs/function_name/latest/function_name/)
+
 ## 获取函数调用者的信息
 
 除了上面介绍的获取当前代码信息信息之外, 在函数体内部, 也可以跟踪哪个地方在调用它, 这对于追踪较复杂的
@@ -74,6 +95,12 @@ fn main() {
 
 ```text
 {{#include assets/get-caller-location.txt}}
+```
+
+在标准库的引用计数类型的指针中, 经常用它来追踪函数的调用者信息. 比如 `RefCell<T>`:
+
+```rust,no_run
+{{#include assets/cell.rs}}
 ```
 
 ## 参考
