@@ -11,7 +11,7 @@ fn main() {
             *num *= 2;
         }
         assert_eq!(nums.len(), 3);
-        return nums;
+        nums
     });
 
     if let Ok(moved_nums) = handler.join() {

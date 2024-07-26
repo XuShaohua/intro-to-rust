@@ -42,6 +42,27 @@ fn main() {
 }
 ```
 
+## dbg 宏
+
+这个宏用于打印表达式本身的内容, 代码位置以及其返回值到错误输出 (stderr), 比 `eprintln!()` 等要更为快捷,
+而且它并不会影响表达式本身的执行 (但是有副作用). 先看几个例子:
+
+```rust
+{{#include assets/dbg-macro.rs:5:}}
+```
+
+上面的代码, 输出如下调试信息:
+
+```text
+{{#include assets/dbg-macro.txt}}
+```
+
+可以发现, `dbg!` 宏对于跟踪递归代码非常有效, 它能打印出类似函数调用栈的信息.
+
+## 获取当前代码的位置信息
+
+## 获取函数调用者的信息
+
 ## 参考
 
 - [条件编译](../crates/conditional-compilation.md)

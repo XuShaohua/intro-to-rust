@@ -1,0 +1,13 @@
+[code/perf/src/bin/dbg-macro.rs:6:8] n == 1 || n == 2 = false
+[code/perf/src/bin/dbg-macro.rs:6:8] n == 1 || n == 2 = false
+[code/perf/src/bin/dbg-macro.rs:6:8] n == 1 || n == 2 = false
+[code/perf/src/bin/dbg-macro.rs:6:8] n == 1 || n == 2 = true
+[code/perf/src/bin/dbg-macro.rs:6:8] n == 1 || n == 2 = true
+[code/perf/src/bin/dbg-macro.rs:9:5] fibonacci(n - 1) + fibonacci(n - 2) = 2
+[code/perf/src/bin/dbg-macro.rs:6:8] n == 1 || n == 2 = true
+[code/perf/src/bin/dbg-macro.rs:9:5] fibonacci(n - 1) + fibonacci(n - 2) = 3
+[code/perf/src/bin/dbg-macro.rs:6:8] n == 1 || n == 2 = false
+[code/perf/src/bin/dbg-macro.rs:6:8] n == 1 || n == 2 = true
+[code/perf/src/bin/dbg-macro.rs:6:8] n == 1 || n == 2 = true
+[code/perf/src/bin/dbg-macro.rs:9:5] fibonacci(n - 1) + fibonacci(n - 2) = 2
+[code/perf/src/bin/dbg-macro.rs:9:5] fibonacci(n - 1) + fibonacci(n - 2) = 5
