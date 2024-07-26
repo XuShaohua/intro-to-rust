@@ -9,6 +9,7 @@
     clippy::nursery,
     clippy::pedantic
 )]
+#![allow(clippy::needless_pass_by_ref_mut)]
 
 use std::cell::RefCell;
 use std::rc::Rc;

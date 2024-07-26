@@ -3,6 +3,8 @@
 // in the LICENSE file.
 
 fn main() {
+    // TODO(Shaohua): Remove
+    #[allow(unexpected_cfgs)]
     if cfg!(is_nightly) {
         println!("is-nightly is set");
     } else {
