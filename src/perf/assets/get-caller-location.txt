@@ -1,0 +1,6 @@
+caller is: Location { file: "code/perf/src/bin/get-caller-location.rs", line: 8, col: 18 }
+[code/perf/src/bin/get-caller-location.rs:10:5] caller = Location {
+    file: "code/perf/src/bin/get-caller-location.rs",
+    line: 8,
+    col: 18,
+}

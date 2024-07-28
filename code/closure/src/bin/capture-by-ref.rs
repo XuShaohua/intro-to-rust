@@ -3,11 +3,15 @@
 // in the LICENSE file.
 
 fn main() {
-    // TODO(Shaohua): Remove
-    #[allow(unexpected_cfgs)]
-    if cfg!(is_nightly) {
-        println!("is-nightly is set");
-    } else {
-        println!("is-nightly not set");
-    }
+    let mut x = 1;
+    let mut y = 1;
+
+    let mut add = || {
+        (x, y) = (x + y, x);
+    };
+
+    add();
+    add();
+    println!("x: {x}, y: {y}");
+    assert_eq!(x, 3);
 }

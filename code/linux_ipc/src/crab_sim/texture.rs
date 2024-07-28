@@ -6,6 +6,7 @@ use image::GenericImageView;
 
 use crate::Error;
 
+#[allow(dead_code)]
 #[derive(Debug)]
 pub struct Texture {
     pub texture: wgpu::Texture,

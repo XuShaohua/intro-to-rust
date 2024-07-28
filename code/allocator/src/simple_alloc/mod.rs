@@ -2,13 +2,8 @@
 // Use of this source is governed by General Public License that can be found
 // in the LICENSE file.
 
-pub use error::Error;
+//! This memory management is based on musl libc.
 
-pub mod crab_sim;
-pub mod error;
-pub mod keyboard_reader;
-pub mod keycode;
-pub mod msg;
-pub mod process;
-pub mod signal_keycode;
-pub mod termios;
+//mod free;
+//mod malloc;
+//mod realloc;
