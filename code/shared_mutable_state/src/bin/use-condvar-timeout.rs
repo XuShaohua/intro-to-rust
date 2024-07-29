@@ -18,9 +18,14 @@ fn main() {
             let item = loop {
                 if let Some(item) = queue_guard.pop_front() {
                     break item;
-                } else {
-                    queue_guard = non_empty_notify.wait(queue_guard).unwrap();
                 }
+                let (guard, timeout) = non_empty_notify.wait_timeout(queue_guard,
+                                                                     Duration::from_millis(500))
+                    .unwrap();
+                if timeout.timed_out() {
+                    println!("[consumer] wait timeout");
+                }
+                queue_guard = guard;
             };
             drop(queue_guard);
             println!("[consumer] {item}");
