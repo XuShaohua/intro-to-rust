@@ -4,6 +4,12 @@
 
 [Compiler Explorer](https://rust.godbolt.org/), 在线查看 Rust 中间代码及汇编等.
 
+## cargo-show-asm
+
+通常我们可以用 `rustc --emit asm /path/to/file.rs` 来编译生成汇编代码, 但此种方法会生成所有的代码,
+阅读起来不算方便. 而 [cargo-show-asm](https://github.com/pacak/cargo-show-asm) 工具
+可以很方便地帮我们整理生成的汇编代码, 只打印我们感兴趣的函数.
+
 ## clippy
 
 [rust-clippy](https://github.com/rust-lang/rust-clippy) 是一个很全面的代码检查工具, 可以配置选项.
