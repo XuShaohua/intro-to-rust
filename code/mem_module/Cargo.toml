@@ -31,6 +31,10 @@ name = "mem_module-forget"
 path = "src/bin/forget.rs"
 
 [[bin]]
+name = "mem_module-offset-of"
+path = "src/bin/offset-of.rs"
+
+[[bin]]
 name = "mem_module-transmute-enum"
 path = "src/bin/transmute-enum.rs"
 
