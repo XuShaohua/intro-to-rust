@@ -1,4 +1,4 @@
-# ManuallyDrop 与 mem::forget() 函数
+# mem::ManuallyDrop 类与 mem::forget() 函数
 
 ManuallyDrop<T> 用于抑制编译器自动调用 `T` 的析构函数 (基于 `Drop` trait 实现的).
 可以用它来调整结构体中成员的 drop 顺序.

@@ -1,1 +1,1 @@
-# 内存对齐 align_of() 与 align_of_val()
+# mem::align_of() 与 mem::align_of_val() 函数
