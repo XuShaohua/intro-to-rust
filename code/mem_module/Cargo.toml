@@ -41,3 +41,7 @@ path = "src/bin/transmute-slice.rs"
 [[bin]]
 name = "mem_module-manually-drop"
 path = "src/bin/manually-drop.rs"
+
+[[bin]]
+name = "mem_module-zeroed"
+path = "src/bin/zeroed.rs"

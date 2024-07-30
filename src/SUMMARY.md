@@ -193,7 +193,7 @@
     - [offset_of!() 宏](mem-module/offset-of-macro.md)
     - [获取对象的内存大小 size_of() 与 size_of_val()](mem-module/size-of.md)
     - [内存对齐 align_of() 与 align_of_val()](mem-module/align-of.md)
-    - [将所有字节都置为0 zeroed()](mem-module/zeroed.md)
+    - [将所有字节都置为 0 zeroed()](mem-module/zeroed.md)
     - [MaybeUninit 类](mem-module/maybe-uninit.md)
     - [ManuallyDrop 与 mem::forget() 函数](mem-module/manually-drop-forget.md)
     - [mem::replace() 函数](mem-module/replace.md)
