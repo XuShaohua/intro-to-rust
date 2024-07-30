@@ -2,7 +2,7 @@
 // Use of this source is governed by General Public License that can be found
 // in the LICENSE file.
 
-fn main_closure_add1(x: &mut i32) {
+fn add1(x: &mut i32) {
     *x += 1;
 }
 
