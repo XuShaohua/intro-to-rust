@@ -915,6 +915,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "lock_based_concurrency"
+version = "0.1.0"
+
+[[package]]
+name = "lock_free_concurrency"
+version = "0.1.0"
+
+[[package]]
 name = "log"
 version = "0.4.22"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1505,10 +1513,6 @@ dependencies = [
  "ryu",
  "serde",
 ]
-
-[[package]]
-name = "shared_mutable_state"
-version = "0.1.0"
 
 [[package]]
 name = "signal-hook-registry"

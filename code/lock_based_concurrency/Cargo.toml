@@ -1,5 +1,5 @@
 [package]
-name = "shared_mutable_state"
+name = "lock_based_concurrency"
 version = "0.1.0"
 edition = "2021"
 publish = false

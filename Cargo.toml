@@ -21,6 +21,8 @@ members = [
     "code/iterators", 
     "code/lifetimes",
     "code/linux_ipc",
+    "code/lock_based_concurrency",
+    "code/lock_free_concurrency",
     "code/macros",
     "code/mem_module",
     "code/memory",
@@ -31,14 +33,13 @@ members = [
     "code/primtives",
     "code/ptr_module",
     "code/references",
-    "code/shared_mutable_state",
     "code/smart_pointers",
     "code/stdlib",
     "code/strings",
     "code/structs",
     "code/tokio_crate",
     "code/traits",
-    "code/unsafe_code"
+    "code/unsafe_code",
     ]
 
 exclude = [
