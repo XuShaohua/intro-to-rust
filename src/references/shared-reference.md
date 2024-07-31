@@ -8,3 +8,8 @@
   shared references 实现了 `Copy` trait
 - mutable reference, `&mut T`，对其引用的值可读可写，同时期内只能有一个可写引用
   指向一个值，Mutable references 没有实现 `Copy` trait
+
+上面的情况是互斥的, 即, 一个对象不能同时有共享引用 (shared references),
+也有可变更引用 (mutable reference), 这个 Rust 语言的重要特点.
+因为它禁止对 "对象的共享可变更访问" (shared mutable accesses, SMA).
+
