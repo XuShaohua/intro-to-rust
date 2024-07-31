@@ -218,7 +218,6 @@
         - [内部可变性: Rc<Refcell<T>> 的使用](smart-pointers/rc/rc-refcell-of-t.md)
         - [对比 C++ 里的 shared_from_this](smart-pointers/rc/shared-from-this.md)
         - [Rc<[T]> 切片](smart-pointers/rc/rc-slice.md)
-    - [Arc<T> 跨线程的引用计数](smart-pointers/arc.md)
     - [Cell 与 RefCell](smart-pointers/cell/index.md)
         - [内部可变性 Interior Mutability](smart-pointers/cell/interior-mutability.md)
         - [Cell<T> 类](smart-pointers/cell/cell-of-t.md)
