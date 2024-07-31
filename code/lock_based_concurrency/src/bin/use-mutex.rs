@@ -6,20 +6,20 @@ use std::sync::Mutex;
 use std::thread;
 
 fn main() {
-    let x = Mutex::new(42_i32);
+    let counter: Mutex<i32> = Mutex::new(42);
     let num_threads = 10;
     thread::scope(|s| {
         for _i in 0..num_threads {
             s.spawn(|| {
-                if let Ok(mut guard) = x.lock() {
+                if let Ok(mut guard) = counter.lock() {
                     *guard += 1;
                 }
             });
         }
     });
 
-    if let Ok(result) = x.into_inner() {
-        println!("x: {result}");
+    if let Ok(result) = counter.into_inner() {
+        println!("counter is: {result}");
         assert_eq!(result, 52);
     }
 }

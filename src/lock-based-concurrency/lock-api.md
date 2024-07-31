@@ -28,3 +28,20 @@
     - `Lock::acquire()` 函数会返回 `LockGuard<T>` 对象
     - 当 `LockGuard<T>` 对象超出作用域后, 编译器生成的代码自动调用 `Lock::release()` 解锁
 - 将锁与它保护的资源关联起来, 通过泛型类 `Lock<T>`, 这样的话只有获得锁之后才能访问被保护的资源
+
+这套接口更加安全易用.
+
+
+看下面的代码示例:
+
+```rust
+{{#include assets/use-mutex.rs:5:}}
+```
+
+有两点要重点关注:
+1. `let counter: Mutex<i32> = Mutex::new(42);` 这里的 `counter` 是 `Mutex<i32>` 类型,
+   这把锁保护的数据类型是 `i32`
+2. `if let Ok(guard) = counter.lock()`, `Mutex::lock()` 接口返回的就是 `LockGuard<T>` 类型
+    - 当锁定成功后, 就返回 `Ok(lock_guard)`, 这个对象在超出作用域后, 会自动被销毁, 自动解锁
+    - 当锁定失败时, 就返回 `Err(lock_failed)`
+
