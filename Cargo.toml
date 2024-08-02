@@ -33,6 +33,7 @@ members = [
     "code/primtives",
     "code/ptr_module",
     "code/references",
+    "code/runtime",
     "code/smart_pointers",
     "code/stdlib",
     "code/strings",

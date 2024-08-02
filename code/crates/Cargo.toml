@@ -15,10 +15,6 @@ name = "crates-is-nightly"
 path = "src/bin/is-nightly.rs"
 
 [[bin]]
-name = "crates-read-passwd"
-path = "src/bin/read-passwd.rs"
-
-[[bin]]
 name = "crates-inline"
 path = "src/bin/inline.rs"
 
