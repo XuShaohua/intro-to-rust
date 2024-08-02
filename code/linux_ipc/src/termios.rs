@@ -4,8 +4,6 @@
 
 //! Re-impl some functions in termios of libc.
 
-use std::ptr;
-
 /// Like `tcgetattr()` in libc.
 ///
 /// # Errors
@@ -14,7 +12,7 @@ use std::ptr;
 pub fn get_attr(fd: i32) -> Result<nc::termios_t, nc::Errno> {
     let mut tio = nc::termios_t::default();
     unsafe {
-        nc::ioctl(fd, nc::TCGETS, ptr::from_mut(&mut tio) as usize)?;
+        nc::ioctl(fd, nc::TCGETS, &mut tio as *mut nc::termios_t as *const _)?;
     }
     Ok(tio)
 }
@@ -24,10 +22,16 @@ pub fn get_attr(fd: i32) -> Result<nc::termios_t, nc::Errno> {
 /// # Errors
 ///
 /// Returns error if `ioctl()` fails.
-pub fn set_attr(fd: i32, act: i32, tio: &nc::termios_t) -> Result<(), nc::Errno> {
-    #[allow(clippy::manual_range_contains)]
-    if act < 0 || act > 2 {
+pub fn set_attr(fd: i32, act: u32, tio: &nc::termios_t) -> Result<(), nc::Errno> {
+    if act > 2 {
         return Err(nc::EINVAL);
     }
-    unsafe { nc::ioctl(fd, nc::TCSETS + act, ptr::from_ref(tio) as usize) }
+    unsafe {
+        nc::ioctl(
+            fd,
+            nc::TCSETS + act,
+            tio as *const nc::termios_t as *const _,
+        )
+        .map(drop)
+    }
 }

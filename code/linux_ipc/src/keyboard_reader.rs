@@ -2,8 +2,8 @@
 // Use of this source is governed by GNU General Public License
 // that can be found in the LICENSE file.
 
-use std::{fmt, ptr};
 use std::error::Error;
+use std::fmt;
 use std::fmt::Display;
 
 use crate::termios;
@@ -67,10 +67,7 @@ impl KeyboardReader {
     /// Returns error if failed to read from stdin.
     pub fn read_one(&mut self) -> Result<KeyCode, KeyboardError> {
         let mut byte: [KeyCode; 1] = [0_u8];
-        let _ret = unsafe {
-            nc::read(self.fd, ptr::addr_of_mut!(byte) as usize, byte.len())
-                .map_err(KeyboardError::ReadChar)
-        }?;
+        let _ret = unsafe { nc::read(self.fd, &mut byte).map_err(KeyboardError::ReadChar) }?;
         Ok(byte[0])
     }
 

@@ -2,64 +2,71 @@
 // Use of this source is governed by GNU General Public License
 // that can be found in the LICENSE file.
 
-
-use std::mem::size_of;
+use std::sync::atomic::{AtomicI32, Ordering};
+use std::sync::mpsc;
 use std::thread;
-use std::time::Duration;
 
-use linux_ipc::Error;
+use linux_ipc::crab_sim::run_sim;
+use linux_ipc::keycode::parse_keycode;
+use linux_ipc::msg::KeyboardMsg;
 use linux_ipc::signal_keycode::SIGNAL_KEYCODE;
 
-fn signal_handler(sig_num: i32) {
-    println!("sig_num: {sig_num}");
+static SIG_NUM: AtomicI32 = AtomicI32::new(0);
 
-    // unsafe {
-    //     #[allow(static_mut_refs)]
-    //     if let Some(sender) = &mut SENDER {
-    //         if let Ok(index) = SIGNAL_KEYCODE.binary_search_by_key(&sig_num, |pair| pair.0) {
-    //             let keycode = SIGNAL_KEYCODE[index].1;
-    //             let msg = parse_keycode(keycode);
-    //             if let Err(err) = sender.send(msg) {
-    //                 eprintln!("Failed to send msg to main thread, err: {err:?}");
-    //             }
-    //             // TODO(Shaohua): Quit thread
-    //         } else {
-    //             // Ignore this signal.
-    //         }
-    //     }
-    // }
+#[must_use]
+fn get_sa_restorer() -> Option<nc::restorefn_t> {
+    let mut old_sa = nc::sigaction_t::default();
+    let ret = unsafe { nc::rt_sigaction(nc::SIGSEGV, None, Some(&mut old_sa)) };
+    if ret.is_ok() {
+        old_sa.sa_restorer
+    } else {
+        None
+    }
 }
 
-fn main() -> Result<(), Error> {
-    // let (sender, receiver) = mpsc::channel();
+fn signal_handler(sig_num: i32) {
+    SIG_NUM.store(sig_num, Ordering::Relaxed);
+}
+
+fn main() {
+    let (sender, receiver) = mpsc::channel();
 
     let sa = nc::sigaction_t {
         sa_handler: signal_handler as nc::sighandler_t,
-        sa_flags: nc::SA_RESTART,
+        sa_flags: nc::SA_RESTART | nc::SA_RESTORER,
+        sa_restorer: get_sa_restorer(),
         ..Default::default()
     };
-    let mut old_sa = nc::sigaction_t::default();
     for (sig_num, _keycode) in SIGNAL_KEYCODE {
-        let ret = unsafe { nc::rt_sigaction(sig_num, &sa, &mut old_sa, size_of::<nc::sigset_t>()) };
+        let ret = unsafe { nc::rt_sigaction(sig_num, Some(&sa), None) };
         assert!(ret.is_ok());
         println!("register signal handler for {sig_num}");
     }
 
-    // let _handler = thread::spawn(move || {
-    let tid = unsafe { nc::gettid() };
-    println!("consumer pid is: {:?}", tid);
-    loop {
-        // unsafe {
-        // let mask = nc::sigset_t::default();
-        // let _ret = nc::rt_sigsuspend(&mask, size_of::<nc::sigset_t>());
-        // }
-        thread::sleep(Duration::from_secs(3600));
-        // read and reset signal number from global variable.
-        // then send msg to ui thread.
-    }
-    // });?
-    //
-    // let tid = unsafe { nc::gettid() };
-    // println!("consumer ui pid is: {:?}", tid);
-    // run_sim(receiver)
+    let handle = thread::spawn(move || {
+        let tid = unsafe { nc::gettid() };
+        println!("consumer pid is: {:?}", tid);
+        let mut is_running = true;
+        while is_running {
+            let mask = nc::sigset_t::default();
+            let ret = unsafe { nc::rt_sigsuspend(&mask) };
+            assert_eq!(ret, Err(nc::EINTR));
+
+            let sig_num = SIG_NUM.fetch_and(0, Ordering::Relaxed);
+            if sig_num == 0 {
+                continue;
+            }
+            if let Ok(index) = SIGNAL_KEYCODE.binary_search_by_key(&sig_num, |pair| pair.0) {
+                let keycode = SIGNAL_KEYCODE[index].1;
+                let msg = parse_keycode(keycode);
+                is_running = msg != KeyboardMsg::Quit;
+                if let Err(err) = sender.send(msg) {
+                    eprintln!("Failed to send msg to main thread, err: {err:?}");
+                }
+            }
+        }
+    });
+
+    let _ret = run_sim(receiver);
+    let _ = handle.join();
 }
