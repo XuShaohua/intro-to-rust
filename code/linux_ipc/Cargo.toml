@@ -28,10 +28,6 @@ name = "linux_ipc-fifo-producer"
 path = "src/bin/fifo-producer.rs"
 
 [[bin]]
-name = "linux_ipc-pipe-text"
-path = "src/bin/pipe-text.rs"
-
-[[bin]]
 name = "linux_ipc-signal-consumer"
 path = "src/bin/signal-consumer.rs"
 
