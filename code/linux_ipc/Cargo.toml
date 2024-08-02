@@ -5,16 +5,11 @@ edition = "2021"
 publish = false
 
 [dependencies]
-bytemuck = { version = "1.16.1", features = ["derive"] }
-image = { version = "0.25.2", default-features = false, features = ["jpeg", "png"] }
 log = "0.4.22"
 nc = "0.8.23"
-pollster = "0.3.0"
 serde = { version = "1.0.204", features = ["serde_derive"] }
 serde_json = "1.0.120"
 thiserror = "1.0.63"
-wgpu = "0.17.2"
-winit = "0.28.7"
 
 [[bin]]
 name = "linux_ipc-pipe"

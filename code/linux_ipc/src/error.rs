@@ -3,29 +3,32 @@
 // in the LICENSE file.
 
 use std::io;
+use std::sync::mpsc;
 
 #[derive(Debug, thiserror::Error)]
 pub enum Error {
     #[error("io error")]
     Io(#[from] io::Error),
 
-    #[error("image error")]
-    Image(#[from] image::ImageError),
-
-    #[error("wgpu device error")]
-    WgpuDevice(#[from] wgpu::RequestDeviceError),
-
-    #[error("wgpu surface error")]
-    WpugSurface(#[from] wgpu::CreateSurfaceError),
-
-    #[error("window error")]
-    Winit(#[from] winit::error::OsError),
-
+    //    #[error("image error")]
+    //    Image(#[from] image::ImageError),
+    //
+    //    #[error("wgpu device error")]
+    //    WgpuDevice(#[from] wgpu::RequestDeviceError),
+    //
+    //    #[error("wgpu surface error")]
+    //    WpugSurface(#[from] wgpu::CreateSurfaceError),
+    //
+    //    #[error("window error")]
+    //    Winit(#[from] winit::error::OsError),
     #[error("other error")]
     Others(String),
 
     #[error("System Call error")]
     Sys(&'static str),
+
+    #[error("Channel error")]
+    Channel(#[from] mpsc::RecvError),
 }
 
 impl From<nc::Errno> for Error {
