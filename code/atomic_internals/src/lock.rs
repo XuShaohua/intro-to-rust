@@ -76,6 +76,14 @@ impl<L: RawTryLock, T> Lock<L, T> {
     }
 }
 
+impl<'a, L: RawLock, T> Drop for LockGuard<'a, L, T> {
+    fn drop(&mut self) {
+        unsafe {
+            self.lock.lock.unlock(self.token.clone());
+        }
+    }
+}
+
 impl<'a, L: RawLock, T> Deref for LockGuard<'a, L, T> {
     type Target = T;
 
