@@ -4,6 +4,7 @@ resolver = "2"
 members = [
     "code/allocator",
     "code/asynchronous",
+    "code/atomic_internals",
     "code/channel",
     "code/closure",
     "code/collections",
