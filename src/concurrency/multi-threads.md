@@ -1,7 +1,9 @@
 # 多线程与线程池
 
-## Fork-Join
+## Spawn-Join
 
-## 在线程之间共享不可变更的数据 (immutable data)
+## 在线程之间共享不可变更的数据 shared immutable data
+
+## 在线程之间共享可变更的状态 shared mutable states
 
 ## 线程池 rayon
