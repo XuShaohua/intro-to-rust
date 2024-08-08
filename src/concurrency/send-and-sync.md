@@ -1,4 +1,4 @@
-# Send 与 Sync
+# Send 与 Sync trait
 
 * Types that implement `Send` are safe to pass by value to another thread. They can
   be moved across threads.
