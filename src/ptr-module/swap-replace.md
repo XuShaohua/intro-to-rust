@@ -21,3 +21,31 @@ pub unsafe fn replace<T>(dst: *mut T, src: T) -> T;
 ```rust
 {{#include assets/swap-replace.rs:5: }}
 ```
+
+## replace() 的实现
+
+replace() 函数的实现如下:
+
+```rust, no_run
+{{#include assets/replace-fn.rs:2:}}
+```
+
+这个函数会先检查一下代码是否对齐, 然后就直接调用 `mem::replace()` 来交换两个内存地址.
+
+## swap() 的实现
+
+swap() 函数的实现如下:
+
+```rust, no_run
+{{#include assets/swap-fn.rs:2:}}
+```
+
+可以看到, 它分成了以下几步:
+
+1. 在栈上分配一个临时对象 tmp
+2. 将目标对象 dst 拷贝到 tmp
+3. 将源对象 src 拷贝到 dst
+4. 最后将 tmp 拷贝到 src
+
+可以发现这个步骤比较多, 如果 `src` 与 `dst` 的内存没有重叠, 可以使用 [swap_nonoverlapping()](swap-nonoverlapping.md),
+这个函数效率更高.

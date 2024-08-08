@@ -8,6 +8,8 @@ pub const unsafe fn read<T>(src: *const T) -> T;
 pub unsafe fn write<T>(dst: *mut T, src: T);
 ```
 
+这两个函数是 Rust 操作内存的基础, 像标准库中的 `ptr` 和 `mem` 模块中的函数, 很多都是利用这两个函数实现的.
+
 要使用它们, 需要先满足前置条件, 不然对指针的操作就会出现未定义行为:
 
 - 原始指针必须是有效指针
