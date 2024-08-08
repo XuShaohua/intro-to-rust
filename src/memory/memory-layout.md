@@ -1,7 +1,5 @@
 # 内存布局 Memory Layout
 
-## 内存对齐 Alignment
-
 ## 数组 Array
 
 ## 元组 Tuple

@@ -233,6 +233,7 @@
     - [PhantomData 类](memory/phantom-data.md)
     - [固定内存 pin::Pin 以及 pin::Unpin](memory/pin.md)
     - [初始化内存 Initialize Memory](memory/init.md)
+    - [内存对齐 Memory Alignment](memory/memory-alignment.md)
     - [内存布局 Memory Layout](memory/memory-layout.md)
     - [分配与回收内存 Alloc](memory/alloc-dealloc.md)
     - [Sanitizers](memory/sanitizers.md)
