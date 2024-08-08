@@ -17,5 +17,11 @@ fn main() {
 }
 ```
 
+这一组函数常用于 FFI 相关的代码, 比如下面的代码片段, 调用 `mmap(2)` 时, 将 `start_pointer` 设置为空指针,
+这样的话 linux 内核会自动选择合适的地址作为内存页的起始地址:
+
+```rust, no_run
+{{#include assets/mmap.rs:5:}}
+```
 
 
