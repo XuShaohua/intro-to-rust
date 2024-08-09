@@ -1,4 +1,4 @@
-# PhantomData 类
+# marker::PhantomData 类
 
 使用 `PhantomData<T>`, 用于处理编译期生命周期的问题, `PhantomData<T>` 本身不占用内存.
 以下示例中, 结构体 `S` 的大小跟 `i32` 是一致的:
