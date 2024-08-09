@@ -31,7 +31,7 @@
 下面来解释一下数组的拷贝过程, 首先看看上面代码对应的汇编代码:
 
 ```rust
-{{#include assets/copy-primitives.s:1316:1350}}
+{{#include assets/copy-primitives.s:86:120}}
 ```
 
 整个过程如下图所示:
@@ -49,9 +49,7 @@
 生成的汇编代码如下:
 
 ```asm
-{{#include assets/clone-string.s:1902:1906}}
-
-{{#include assets/clone-string.s:1594:1652}}
+{{#include assets/clone-string.s}}
 ```
 
 以上操作完成之后, 内存的结构如下图所示:

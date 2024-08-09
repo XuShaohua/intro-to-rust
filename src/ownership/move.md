@@ -24,7 +24,7 @@ let mut x2 = x;
 我们摘取 `main()` 函数的代码并加上了一些注释, 可以对比上面的 rust 代码片段:
 
 ```asm
-{{#include assets/move-string.s:1289:1315}}
+{{#include assets/move-string.s}}
 ```
 
 根据上面的汇编代码指令, 我们画一下对应的图:
@@ -40,7 +40,7 @@ let mut x2 = x;
 例如上面的汇编代码就是编译器自动填充的:
 
 ```asm
-{{#include assets/move-string.s:1310:1312}}
+{{#include assets/move-string.s:22:24}}
 ```
 
 因为 s1 已经被编译器标记为 `未初始化 uninit`, 所以它不再能被使用, 也不必要调用 `drop(s1)` 释放它的内存.
