@@ -13,9 +13,7 @@
 可以看下生成的汇编代码:
 
 ```asm
-{{#include assets/string-mem-layout.s:332:355}}
-
-{{#include assets/string-mem-layout.s:413:418}}
+{{#include assets/string-mem-layout.s}}
 ```
 
 上面的代码中, 先定义了一个字符串字面量, 并用它来初始化字符串切片 `s`,

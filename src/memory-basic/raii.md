@@ -6,7 +6,6 @@ RAII是 `Resource Acquisition Is Initialization` 的缩写, 最初来自于 C++.
 
 利用在栈上创建的局部变量的自动析构来保证它管理的资源一定被释放.
 
-
 ## 标准库中的 File 类
 
 ```rust
@@ -38,4 +37,5 @@ RAII是 `Resource Acquisition Is Initialization` 的缩写, 最初来自于 C++.
 ```
 
 ## 参考
+
 - [RAII](https://en.cppreference.com/w/cpp/language/raii)

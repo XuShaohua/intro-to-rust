@@ -54,7 +54,7 @@ fn main() {
 使用 `rustc --emit asm jump-table.rs` 命令生成汇编代码, 生成的部分 x86_64 汇编代码如下:
 
 ```assembly
-{{#include assets/jump-table-x86_64.s:1370:1426 }}
+{{#include assets/jump-table-x86_64.s:1:118 }}
 ```
 
 可以看到, `with_if_else()` 函数, 使用 `if/else` 语句判断 `num` 变量时, 使用多次跳转才能匹配到
@@ -64,7 +64,7 @@ fn main() {
 生成的汇编代码片段如下:
 
 ```assembly
-{{#include assets/jump-table-x86_64.s:1518:1548 }}
+{{#include assets/jump-table-x86_64.s:120:219 }}
 ```
 
 从上面的汇编代码可以看到, 汇编器并没有生成跳转表, 也都只是一些条件判断语句,
@@ -75,10 +75,7 @@ fn main() {
 接下来看 `with_match_long()` 函数的汇编代码, 它就被构造出了跳转表:
 
 ```assembly
-{{#include assets/jump-table-x86_64.s:1650:1679 }}
-
-// 定义的跳转表
-{{#include assets/jump-table-x86_64.s:1714:1721 }}
+{{#include assets/jump-table-x86_64.s:221: }}
 ```
 
 下图展示了跳转表的基本结构, 与 if/else 语句相比, 分支越多, match 表达式的执行效率相对越高.
@@ -88,10 +85,7 @@ fn main() {
 另外, 在 aarch64 平台编译器也有类似的行为, 下面的汇编代码片段展示了 `with_match_long()` 函数:
 
 ```assembly
-{{#include assets/jump-table-aarch64.s:1836:1874 }}
-
-// 定义的跳转表
-{{#include assets/jump-table-aarch64.s:1919:1926 }}
+{{#include assets/jump-table-aarch64.s }}
 ```
 
 ## 参考
