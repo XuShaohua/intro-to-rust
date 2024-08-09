@@ -50,8 +50,8 @@ pub fn size_of_val<T>(val: &T) -> usize where T: ?Sized;
 | [T; N ]   | N * siz_of::<T>() | T[N]                          |
 | &T        | 8                 | -                             |
 | &mut T    | 8                 | -                             |
-| *const T  | 8                 | *const T                      |
-| *mut T    | 8                 | *T                            |
+| *const T  | 8                 | const T*                      |
+| *mut T    | 8                 | T*                            |
 | Box<T>    | 8                 | -                             |
 | dyn Trait | 16                | -                             |
 
