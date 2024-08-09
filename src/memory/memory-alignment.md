@@ -7,3 +7,5 @@
 ## repr(packed)
 
 使用这种对齐方式非常受限.
+
+## repr(align(N))
