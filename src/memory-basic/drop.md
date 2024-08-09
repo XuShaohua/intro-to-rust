@@ -25,7 +25,7 @@
 下面展示了核心部分的代码, 并加上了几行注释:
 
 ```asm
-{{#include assets/static-drop.s:605:702}}
+{{#include assets/static-drop.s}}
 ```
 
 阅读汇编代码时, 最好对比着 Rust 代码, 方便理解.
@@ -57,7 +57,7 @@
 上面的 Rust 代码生成的汇编代码如下, 我们加入了一些注释:
 
 ```asm
-{{#include assets/dynamic-drop.s:799:969}}
+{{#include assets/dynamic-drop.s}}
 ```
 
 其行为如下:
@@ -130,7 +130,7 @@ rs:514:1
 将上面的代码生成汇编代码, 我们还加上了几条注释:
 
 ```asm
-{{#include assets/manual-drop.s:935:955}}
+{{#include assets/manual-drop.s}}
 ```
 
 可以看到, 当执行到 `drop(x);` 时, 编译器:
@@ -197,7 +197,7 @@ ManuallyDrop 做了什么? 对于栈上的对象, 不需要调用该对象的 `D
 我们来看一下生成的汇编代码:
 
 ```asm
-{{#include assets/manually-drop.s:799:1029}}
+{{#include assets/manually-drop.s}}
 ```
 
 上面的汇编代码比较长, 将它的行为作为注释加到原先的 Rust 代码中, 更容易阅读:
