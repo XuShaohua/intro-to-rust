@@ -12,8 +12,14 @@ pub struct MMapAllocator;
 impl MMapAllocator {
     unsafe fn map(layout: Layout) -> *mut u8 {
         let map_size = Self::align_layout(layout);
-        match nc::mmap(0, map_size, nc::PROT_READ | nc::PROT_WRITE,
-                       nc::MAP_PRIVATE | nc::MAP_ANONYMOUS, -1, 0) {
+        match nc::mmap(
+            ptr::null(),
+            map_size,
+            nc::PROT_READ | nc::PROT_WRITE,
+            nc::MAP_PRIVATE | nc::MAP_ANONYMOUS,
+            -1,
+            0,
+        ) {
             Ok(addr) => addr as *mut u8,
             Err(errno) => {
                 DebugAllocator::debug_errno("MMapAllocator::map()", errno);
@@ -24,7 +30,7 @@ impl MMapAllocator {
 
     unsafe fn unmap(ptr: *mut u8, layout: Layout) {
         let map_size = Self::align_layout(layout);
-        nc::munmap(ptr as usize, map_size).unwrap();
+        nc::munmap(ptr as *const _, map_size).unwrap();
     }
 
     fn align_layout(layout: Layout) -> usize {

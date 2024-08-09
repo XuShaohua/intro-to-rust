@@ -41,3 +41,7 @@
 ## Arc<T>
 
 ## Mutex<T>
+
+## References
+
+- [Data Representation in Rust](https://doc.rust-lang.org/nomicon/data.html)

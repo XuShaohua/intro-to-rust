@@ -5,4 +5,4 @@ edition = "2021"
 publish = false
 
 [dependencies]
-nc = "0.8.23"
+nc = "0.9.1"

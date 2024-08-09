@@ -16,11 +16,11 @@ impl DebugAllocator {
         debug_assert!(context.len() < 32);
         let mut cursor = Cursor::new(buf);
         writeln!(cursor, "{context} failed, {}", nc::strerror(errno)).unwrap();
-        let pos = cursor.position();
+        let _pos = cursor.position();
         let buf = cursor.into_inner();
         unsafe {
             let stdout = 1;
-            let _ret = nc::write(stdout, buf.as_ptr() as usize, pos as usize);
+            let _ret = nc::write(stdout, &buf);
         }
     }
 
@@ -28,13 +28,18 @@ impl DebugAllocator {
         debug_assert!(fn_name.len() < 32);
         let buf = [0_u8; 64];
         let mut cursor = Cursor::new(buf);
-        writeln!(cursor, "{fn_name} at 0x{:0x}, layout size: {}", ptr as usize, layout.size())
-            .unwrap();
-        let pos = cursor.position();
+        writeln!(
+            cursor,
+            "{fn_name} at 0x{:0x}, layout size: {}",
+            ptr as usize,
+            layout.size()
+        )
+        .unwrap();
+        let _pos = cursor.position();
         let buf = cursor.into_inner();
         unsafe {
             let stdout = 1;
-            let _ret = nc::write(stdout, buf.as_ptr() as usize, pos as usize);
+            let _ret = nc::write(stdout, &buf);
         }
     }
 }
