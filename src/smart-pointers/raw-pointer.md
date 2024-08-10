@@ -1,16 +1,50 @@
 # 原始指针 raw pointer
 
-## const pointer
+Rust 支持原始指针, 原始指针与 C 语言中的指针是完全一样的.
 
-`*const T`
+## 只读指针 const pointer
 
-`*const ()` 对应于C语言中的 `const void*`, 可以代表指向任意类型的指针, 使用时需要显式地转型.
+不能通过只读指针, 来修改指针指向的内存的值.
 
-## mutable pointer
+只读指针的形式是 `*const T`, 相当于 C 语言中的 `const T*`.
 
-`*mut T`
+`*const c_void` 对应于 C 语言中的 `const void*`, 可以代表指向任意类型的指针, 使用时需要显式地转型.
 
-## 原始指针的内存布局
+具体来说, 只读的原始指针分为三种:
+
+- `*const T`, 指向元素 `T` 的原始指针
+- `*const [T]`, 指向切片的原始指针
+- `*const [T; N]`, 指向数组的原始指针, 这里包含了数组中的元素类型 `T` 以及元数的个数 `N`
+
+### `*const T`
+
+### `*const [T]` 与 `*const [T; N]`
+
+针对这两个指针的操作方式比较受限.
+
+先看一个用例程序:
+
+```rust
+{{#include assets/const-ptr-array.rs:5:}}
+```
+
+`*const [T]` 本身是一个切片引用, 它的内存布局与 `&[T]` 是一致的, 甚至可以进行互换.
+
+```rust, no_run
+{{#include assets/const-ptr-array.rs:28:31}}
+```
+
+`*const [T; N]` 占用的内存中, 只有一个指向原始数组的指针, 并不包含数组的元素个数, 元素个数是编译器处理的.
+
+其内存操作如下图所示:
+
+![const ptr array](assets/const-ptr-array.svg)
+
+## 可变更指针 mutable pointer
+
+可变更指针的形式是 `*mut T`, 相当于 C 语言中的 `T*`.
+
+而 `*mut c_void` 相当于 C 语言中的 `void*`, 可以代表指向任意类型的指针, 在使用时需要显式地转型.
 
 ## 模拟 C++ 中的 const_cast::<T>
 
