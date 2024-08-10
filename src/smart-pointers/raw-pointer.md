@@ -18,6 +18,41 @@ Rust 支持原始指针, 原始指针与 C 语言中的指针是完全一样的.
 
 ### `*const T`
 
+这个原始指针的用处要更广泛一些, 它可以与 C 语言中的 `const T*` 进行互操作, 是 ABI 兼容的.
+
+先看一个示例程序:
+
+```rust
+{{#include assets/const-ptr.rs:5:}}
+```
+
+上面代码, 对应的内存操作如下图所示:
+
+![const ptr](assets/const-ptr.svg)
+
+下面还列出了指针的常用运算.
+
+指针偏移运算:
+
+- `offset()`
+- `byte_offset()`
+- `wrapping_offset()`
+- `wrapping_byte_offset()`
+- `add()`
+- `byte_add()`
+- `wrapping_add()`
+- `wrapping_byte_add()`
+- `sub()`
+- `byte_sub()`
+- `wrapping_sub()`
+- `wrapping_byte_sub()`
+
+两指针之间的关系:
+
+- `offset_from()`
+- `byte_offset_from()`
+- `sub_ptr()`
+
 ### `*const [T]` 与 `*const [T; N]`
 
 针对这两个指针的操作方式比较受限.

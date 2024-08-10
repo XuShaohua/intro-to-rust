@@ -5,8 +5,7 @@
 fn main() {
     let x = 42;
     let x_ptr = &x as *const i32;
-    x_ptr.cast_mut();
-    let x_mut_ptr = &x as *const i32 as *mut i32;
+    let x_mut_ptr: *mut i32 = x_ptr.cast_mut();
     unsafe {
         x_mut_ptr.write(43);
     }
