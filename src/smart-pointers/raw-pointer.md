@@ -32,6 +32,11 @@ Rust 支持原始指针, 原始指针与 C 语言中的指针是完全一样的.
 
 下面还列出了指针的常用运算.
 
+- `is_null()`, 判断指针是否为空
+- `cast()`, 转换为指向另一种数据类型的指针
+- `cast_mut()`, 将不可变更指针转换为可变更指针
+- `addr()`, 得到指针的地址, 相当于 `x_ptr as usize`
+
 指针偏移运算:
 
 - `offset()`
@@ -80,6 +85,59 @@ Rust 支持原始指针, 原始指针与 C 语言中的指针是完全一样的.
 可变更指针的形式是 `*mut T`, 相当于 C 语言中的 `T*`.
 
 而 `*mut c_void` 相当于 C 语言中的 `void*`, 可以代表指向任意类型的指针, 在使用时需要显式地转型.
+
+所谓的可变更指针, 是可以通过该指针来修改指针所指向的内存的值.
+
+与不可变更指针类型, 可变更指针也有三种形式:
+
+- `*mut T`, 指向元素 `T` 的原始指针
+- `*mut [T]`, 指向切片的原始指针
+- `*mut [T; N]`, 指向数组的原始指针, 这里包含了数组中的元素类型 `T` 以及元数的个数 `N`
+
+### `*mut T`
+
+先看一个示例程序:
+
+```rust
+{{#include assets/mut-ptr.rs:5:}}
+```
+
+上面代码, 对应的内存操作如下图所示:
+
+![mut ptr](assets/mut-ptr.svg)
+
+这里的, `i8_ptr` 比较有意思, 它只是指向了 `x` 的第一个字节, 如果是小端 (little endian) 的系统,
+里面存放的数值恰好是 `43`.
+
+下面还列出了可变更指针的常用运算.
+
+- `is_null()`, 判断指针是否为空
+- `cast()`, 转换为指向另一种数据类型的指针
+- `cast_const()`, 将可变更指针转为 `*const T`
+- `addr()`, 得到指针的地址, 相当于 `x_ptr as usize`
+
+指针偏移运算:
+
+- `offset()`
+- `byte_offset()`
+- `wrapping_offset()`
+- `wrapping_byte_offset()`
+- `add()`
+- `byte_add()`
+- `wrapping_add()`
+- `wrapping_byte_add()`
+- `sub()`
+- `byte_sub()`
+- `wrapping_sub()`
+- `wrapping_byte_sub()`
+
+两指针之间的关系:
+
+- `offset_from()`
+- `byte_offset_from()`
+- `sub_ptr()`
+
+### `*mut [T]` 与 `*mut [T; N]`
 
 ## 模拟 C++ 中的 const_cast::<T>
 
