@@ -4,7 +4,7 @@
 
 fn add1() -> i32 {
     let mut x: i32 = 42;
-    let x_ref = &mut x;
+    let x_ref: &mut i32 = &mut x;
     *x_ref += 1;
     x
 }
