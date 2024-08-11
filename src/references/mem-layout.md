@@ -57,7 +57,7 @@ Rust 中的引用, 跟 C++ 中的引用一样, 在底层都是指针.
 
 但是, 除了我们用过的这些引用类型之外, Rust 还有一些更复杂的引用类型, 它们的内存结构也更复杂.
 
-## 切片 slice 及 trait object 的引用
+## 切片 slice 的引用
 
 上段介绍过了引用本身占用的内存大小只是一个指针大小, 即 `usize`. 这个类似于 C/C++ 中的
 指针.
@@ -77,7 +77,39 @@ Rust 中的引用, 跟 C++ 中的引用一样, 在底层都是指针.
 - slice 起始地址
 - slice 长度
 
-trait object 的引用也是一个胖指针, 包含:
+先看一段代码示例:
+
+```rust
+{{#include assets/slice-reference.rs:5:}}
+```
+
+这里面创建了两个引用:
+
+- `numbers_ref` 只是一般的引用, 它指向数组 `numbers` 第 1 个元素的地址
+- `slice_ref` 是一个切片引用, 它里面的指针指向 `numbers` 的第 3 个元素的地址; 而且切片的长度为 3
+
+其内存结构如下图如示:
+
+![slice reference](assets/slice-reference.svg)
+
+如果还不相信的话, 我们可以用调试器直接查看它们的内存, 首先是 `numbers` 数组, 注意它的第 3 个元素的内存地址:
+
+![numbers array](assets/numbers-array.png)
+
+可以看到, 这个整数数组的内存都是连续存放的, 每个元素占用 4 个字节.
+
+然后是 `slice_ref` 的内存结构:
+
+![slice ref](assets/slice-ref.png)
+
+可以看到, `slice_ref` 确实包含两个成员:
+
+- 指针, 指向数组 `numbers` 的第 3 个元素
+- 切片长度, 是 3
+
+## trait object 的引用
+
+trait object 的引用也是一个胖指针, 包含两部分:
 
 - object 数据地址
 - object virtual table 地址, 即该值对该 trait 的具体实现
