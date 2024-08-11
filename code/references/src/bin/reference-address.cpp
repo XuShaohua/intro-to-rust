@@ -2,13 +2,12 @@
 // Use of this source is governed by General Public License that can be found
 // in the LICENSE file.
 
-#include <stdlib.h>
-#include <assert.h>
+#include <cassert>
 
 int addr1() {
   int x = 42;
-  int* x_ptr = &x;
-  *x_ptr += 1;
+  int& x_ptr = x;
+  x_ptr += 1;
   return x;
 }
 

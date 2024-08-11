@@ -206,7 +206,6 @@
     - [胖指针 Fat pointer](smart-pointers/fat-pointer.md)
     - [使用 Box 分配堆内存](smart-pointers/box/index.md)
         - [`Box<T>` 类](smart-pointers/box/box-of-t.md)
-        - [使用 `Box<T>` 实现单链表](smart-pointers/box/box-of-t-based-linked-list.md)
         - [Box::leak() 函数](smart-pointers/box/leak.md)
         - [`Box<[T]>` 类](smart-pointers/box/box-of-array-of-t.md)
         - [`Box<dyn Trait>` 类](smart-pointers/box/box-of-dyn-trait.md)
