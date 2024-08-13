@@ -17,5 +17,6 @@ pub mod cache_padded;
 pub mod clh_lock;
 pub mod lock;
 pub mod mcs_lock;
+pub mod mcs_parking_lock;
 pub mod spin_lock;
 pub mod ticket_lock;

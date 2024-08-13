@@ -2,14 +2,14 @@
 // Use of this source is governed by GNU General Public License
 // that can be found in the LICENSE file.
 
-use std::ptr;
+use std::{ptr, thread};
 use std::sync::atomic::{AtomicBool, AtomicPtr, Ordering};
+use std::thread::Thread;
 
-use crate::backoff::Backoff;
 use crate::cache_padded::CachePadded;
 use crate::lock::RawLock;
 
-pub struct McsLock {
+pub struct McsParkingLock {
     tail: AtomicPtr<CachePadded<Node>>,
 }
 
@@ -20,19 +20,21 @@ pub struct Token {
 
 struct Node {
     next: AtomicPtr<CachePadded<Node>>,
+    thread: Thread,
     locked: AtomicBool,
 }
 
 impl Node {
-    const fn new() -> Self {
+    fn new() -> Self {
         Self {
-            locked: AtomicBool::new(true),
             next: AtomicPtr::new(ptr::null_mut()),
+            locked: AtomicBool::new(true),
+            thread: thread::current(),
         }
     }
 }
 
-impl McsLock {
+impl McsParkingLock {
     #[must_use]
     #[inline]
     pub const fn new() -> Self {
@@ -42,14 +44,14 @@ impl McsLock {
     }
 }
 
-impl Default for McsLock {
+impl Default for McsParkingLock {
     #[inline]
     fn default() -> Self {
         Self::new()
     }
 }
 
-impl RawLock for McsLock {
+impl RawLock for McsParkingLock {
     type Token = Token;
 
     fn lock(&self) -> Self::Token {
@@ -67,9 +69,9 @@ impl RawLock for McsLock {
             (*prev_node).next.store(new_node, Ordering::Release);
         }
 
-        let backoff = Backoff::new();
         while unsafe { (*new_node).locked.load(Ordering::Acquire) } {
-            backoff.snooze();
+            // Parking current thread.
+            thread::park();
         }
 
         Token {
@@ -86,8 +88,17 @@ impl RawLock for McsLock {
             if !next_node.is_null() {
                 // Deallocate node in the same thread.
                 drop(Box::from_raw(node));
+
+                let thread = (*next_node).thread.clone();
+
                 // Unlock next node
                 (*next_node).locked.store(false, Ordering::Release);
+
+                // Wakeup waiting thread.
+                // The order is critical.
+                // - first reset locked value
+                // - then unpark thread
+                thread.unpark();
                 return;
             }
 
