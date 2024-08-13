@@ -7,6 +7,7 @@
 //! The l1dcache line size if checked at runtime.
 
 use std::fs;
+use std::ops::{Deref, DerefMut};
 use std::sync::OnceLock;
 
 /// Get l1dcache line size at runtime.
@@ -45,6 +46,50 @@ pub const fn get_l1dcache_compiled() -> usize {
 )]
 pub struct CachePadded<T>(T);
 
+impl<T> CachePadded<T> {
+    #[must_use]
+    #[inline]
+    pub const fn new(value: T) -> Self {
+        Self(value)
+    }
+
+    #[must_use]
+    #[inline]
+    pub fn into_inner(self) -> T {
+        self.0
+    }
+}
+
+unsafe impl<T: Send> Send for CachePadded<T> {}
+unsafe impl<T: Sync> Sync for CachePadded<T> {}
+
+impl<T> AsRef<T> for CachePadded<T> {
+    fn as_ref(&self) -> &T {
+        &self.0
+    }
+}
+
+impl<T> Deref for CachePadded<T> {
+    type Target = T;
+
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+
+impl<T> DerefMut for CachePadded<T> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+
+impl<T> From<T> for CachePadded<T> {
+    #[inline]
+    fn from(value: T) -> Self {
+        Self(value)
+    }
+}
 
 #[cfg(test)]
 mod tests {
