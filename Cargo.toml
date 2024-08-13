@@ -5,7 +5,6 @@ members = [
     "code/allocator",
     "code/asynchronous",
     "code/atomic_internals",
-    "code/cds",
     "code/channel",
     "code/closure",
     "code/collections",
@@ -19,7 +18,7 @@ members = [
     "code/expressions",
     "code/ffi",
     "code/fs",
-    "code/iterators", 
+    "code/iterators",
     "code/lifetimes",
     "code/linux_ipc",
     "code/lock_based_concurrency",
@@ -42,7 +41,7 @@ members = [
     "code/tokio_crate",
     "code/traits",
     "code/unsafe_code",
-    ]
+]
 
 exclude = [
     "book",
