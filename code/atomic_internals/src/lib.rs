@@ -14,5 +14,5 @@
 
 pub mod spin_lock;
 pub mod lock;
-mod ticket_lock;
-mod backoff;
+pub mod ticket_lock;
+pub mod backoff;

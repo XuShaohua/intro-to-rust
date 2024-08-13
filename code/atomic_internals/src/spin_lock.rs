@@ -4,9 +4,9 @@
 
 use std::error::Error;
 use std::fmt::{Debug, Display, Formatter};
-use std::hint::spin_loop;
 use std::sync::atomic::{AtomicBool, Ordering};
 
+use crate::backoff::Backoff;
 use crate::lock::{RawLock, RawTryLock};
 
 pub struct SpinLock {
@@ -25,9 +25,12 @@ impl RawLock for SpinLock {
     type Token = ();
 
     fn lock(&self) -> Self::Token {
-        while let Err(_result) = self.inner.compare_exchange(false, true, Ordering::Acquire,
-                                                             Ordering::Acquire) {
-            spin_loop();
+        let backoff = Backoff::new();
+        while let Err(_result) =
+            self.inner
+                .compare_exchange(false, true, Ordering::Acquire, Ordering::Acquire)
+        {
+            backoff.spin();
         }
     }
 
@@ -58,8 +61,11 @@ impl RawTryLock for SpinLock {
     type Error = LockError;
 
     fn try_lock(&self) -> Result<Self::Token, Self::Error> {
-        if self.inner.compare_exchange(false, true, Ordering::Acquire,
-                                       Ordering::Acquire).is_ok() {
+        if self
+            .inner
+            .compare_exchange(false, true, Ordering::Acquire, Ordering::Acquire)
+            .is_ok()
+        {
             Ok(())
         } else {
             Err(LockError::Failed)
