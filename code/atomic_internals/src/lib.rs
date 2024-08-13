@@ -12,9 +12,10 @@
 #![allow(dead_code)]
 #![allow(clippy::module_name_repetitions)]
 
-pub mod spin_lock;
-pub mod lock;
-pub mod ticket_lock;
 pub mod backoff;
-mod clh_lock;
-mod cache_padded;
+pub mod cache_padded;
+pub mod clh_lock;
+pub mod lock;
+pub mod mcs_lock;
+pub mod spin_lock;
+pub mod ticket_lock;

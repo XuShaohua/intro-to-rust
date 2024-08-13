@@ -11,6 +11,10 @@ use std::ops::{Deref, DerefMut};
 use std::sync::OnceLock;
 
 /// Get l1dcache line size at runtime.
+///
+/// # Panics
+///
+/// Raise panic if failed to read cpu cache file.
 pub fn get_l1dcache() -> usize {
     // See https://stackoverflow.com/questions/794632/programmatically-get-the-cache-line-size
     static SIZE: OnceLock<usize> = OnceLock::new();
