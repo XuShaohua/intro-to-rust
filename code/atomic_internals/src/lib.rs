@@ -16,3 +16,5 @@ pub mod spin_lock;
 pub mod lock;
 pub mod ticket_lock;
 pub mod backoff;
+mod clh_lock;
+mod cache_padded;
