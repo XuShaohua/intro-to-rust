@@ -5,6 +5,7 @@ members = [
     "code/allocator",
     "code/asynchronous",
     "code/atomic_internals",
+    "code/cds",
     "code/channel",
     "code/closure",
     "code/collections",
@@ -45,6 +46,7 @@ members = [
 
 exclude = [
     "book",
+    "book-pandoc",
     "src",
     "tools",
 ]

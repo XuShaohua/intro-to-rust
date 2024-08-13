@@ -103,6 +103,10 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "504bdec147f2cc13c8b57ed9401fd8a147cc66b67ad5cb241394244f2c947549"
 
 [[package]]
+name = "cds"
+version = "0.1.0"
+
+[[package]]
 name = "cfg-if"
 version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"

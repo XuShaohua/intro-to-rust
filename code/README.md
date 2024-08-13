@@ -21,4 +21,5 @@ cargo build
 
 
 ## License
+
 This project is released with General Public License which can be found in [LICENSE](LICENSE) file.
