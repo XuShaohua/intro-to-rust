@@ -24,8 +24,30 @@ const CONFIG: Config = Config {
     x_store: Ordering::Relaxed,
     y_load: Ordering::Relaxed,
     y_store: Ordering::Relaxed,
-    sleep: Duration::from_millis(10),
-    round: 1000,
+    sleep: Duration::from_millis(1),
+    round: 100_000,
+    line_width: 75,
+};
+
+#[allow(dead_code)]
+const CONFIG_ACQUIRED: Config = Config {
+    x_load: Ordering::Acquire,
+    x_store: Ordering::Release,
+    y_load: Ordering::Acquire,
+    y_store: Ordering::Release,
+    sleep: Duration::from_millis(1),
+    round: 100_000,
+    line_width: 75,
+};
+
+#[allow(dead_code)]
+const CONFIG_SEQ: Config = Config {
+    x_load: Ordering::SeqCst,
+    x_store: Ordering::SeqCst,
+    y_load: Ordering::SeqCst,
+    y_store: Ordering::SeqCst,
+    sleep: Duration::from_millis(1),
+    round: 100_000,
     line_width: 75,
 };
 
@@ -62,7 +84,7 @@ fn main() {
         let mark = match pair {
             (10, 20) => "_",
             (0, 0) => "-",
-            _ => panic!("Invalid pair"),
+            pair => panic!("Invalid pair, {pair:?}"),
         };
         print!("{mark}");
         if i % CONFIG.line_width == CONFIG.line_width - 1 {

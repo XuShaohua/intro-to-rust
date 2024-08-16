@@ -42,7 +42,7 @@ fn main() {
         let mark = match pair {
             (10, 20) => "_",
             (0, 0) => "-",
-            _ => panic!("Invalid pair"),
+            pair => panic!("Invalid pair {pair:?}"),
         };
         print!("{mark}");
         if i % 75 == 64 {
