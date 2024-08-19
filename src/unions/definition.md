@@ -53,11 +53,3 @@ let data = epoll_data_t { fd: 1 };
 ```rust
 {{#include assets/init.rs:5:}}
 ```
-
-## 联合体的模式匹配
-
-## 泛型联合体
-
-## 使用枚举 enum 代替联合体 union
-
-因
