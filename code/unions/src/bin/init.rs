@@ -17,7 +17,9 @@ pub union literals_t {
 }
 
 fn main() {
-    // 初始化时, 不是 unsafe
+    assert_eq!(size_of::<literals_t>(), 8);
+
+    // 初始化时, 不是 unsafe的, 这里只写入其中 1 个字节, 其它 7 个字节位未初始化.
     let value = literals_t { v_u8: 42 };
 
     // 访问成员的值是, 是 unsafe
