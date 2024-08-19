@@ -12,8 +12,12 @@
 
 ## 不安全的函数 unsafe
 
-这个在 [后面的章节](../unsafe/unsafe-functions.md) 有详细介绍.
+这个在 [后面的章节](../unsafe/unsafe-function.md) 有详细介绍.
 
 ## 异步函数 async
 
 这个在 [async/await 章节](../async/async-await.md) 有详细介绍.
+
+## 外部函数 extern
+
+这个在 [后面的章节](../ffi/extern-function.md) 有详细介绍.

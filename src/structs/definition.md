@@ -2,7 +2,13 @@
 
 结构体有三种写法:
 
-## Named-Field Structs
+- struct struct
+- tuple struct
+- union struct
+
+## Struct Structs
+
+Struct structs 又称为 named-field struct.
 
 C 语言中类似的结构体, 经典写法, 除了各元素本身占用的内存之外, struct 内还可能有
 一个额外的 padding, 用于对齐内存, 即是 4 的倍数.
@@ -14,9 +20,9 @@ struct PointF {
 }
 ```
 
-## 命名元组, Tuple-Like Structs, Named Tuple
+## Tuple Structs
 
-命名元组, named tuple, 其实就是一个元素的别名, 比如 `struct Matrix(f64, f64, f64, f64)`.
+命名元组, Tuple-like structs, named tuple, 其实就是一个元素的别名, 比如 `struct Matrix(f64, f64, f64, f64)`.
 也可能包含一个 padding 用于对齐内存.
 
 ```rust

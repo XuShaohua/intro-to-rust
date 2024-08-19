@@ -40,6 +40,7 @@ members = [
     "code/structs",
     "code/tokio_crate",
     "code/traits",
+    "code/unions",
     "code/unsafe_code",
 ]
 
