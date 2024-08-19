@@ -53,3 +53,31 @@ let data = epoll_data_t { fd: 1 };
 ```rust
 {{#include assets/init.rs:5:}}
 ```
+
+## 定义方法
+
+这个是跟 C/C++ 有很大不同的地方, Rust 可以给联合体定义方法.
+
+还看上面用到的例子:
+
+```rust, no_run
+{{#include assets/init.rs:19:25}}
+```
+
+与结构体和枚举一样, 使用 `impl Union` 语法可以给联合体定义方法.
+
+甚至还可以给它定义常量值, 就像在结构体中一样.
+
+与结构体的两个不同点:
+
+- 联合体中的成员共享同一块内存, 彼此之间可能会相互覆盖
+- 联合体中的成员类型比较受限, 通常需要实现 `Copy` trait
+
+其它方面, 和结构体相比就相差不多了, 比如:
+
+- 可以定义常量
+- 可以通过 `impl Union` 语法实现方法
+- 可以给它们实现 trait `impl Trait for Union`
+- 可以给成员设置 `pub`, `pub(crate)`, 修改其可见性 visibility
+- 支持泛型
+- 支持模式匹配

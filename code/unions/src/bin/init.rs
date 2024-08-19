@@ -17,6 +17,8 @@ pub union literals_t {
 }
 
 impl literals_t {
+    pub const NULL_PTR: Self = Self { v_u64: 0 };
+
     /// 将所有字节都重置为 0
     #[inline]
     pub fn reset(&mut self) {
@@ -31,12 +33,11 @@ fn main() {
     let value = literals_t { v_u8: 42 };
 
     // 访问成员的值是, 是 unsafe
-    unsafe { assert_eq!(value.v_u8, 0x2a); }
+    unsafe {
+        assert_eq!(value.v_u8, 0x2a);
+    }
 
-    let v_u64 =
-        unsafe {
-            value.v_u64
-        };
+    let v_u64 = unsafe { value.v_u64 };
     let least_byte = (v_u64 & 0xff) as u8;
     assert_eq!(least_byte, 42);
 
