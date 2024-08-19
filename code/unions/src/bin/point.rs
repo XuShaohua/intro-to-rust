@@ -50,6 +50,8 @@ impl Point {
 }
 
 fn main() {
+    assert_eq!(size_of::<Point>(), 16);
+
     let point = Point::new_f32(3.12);
     assert!(!point.is_zero());
 }

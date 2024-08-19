@@ -16,6 +16,14 @@ pub union literals_t {
     pub v_ptr: *const c_void,
 }
 
+impl literals_t {
+    /// 将所有字节都重置为 0
+    #[inline]
+    pub fn reset(&mut self) {
+        self.v_u64 = 0;
+    }
+}
+
 fn main() {
     assert_eq!(size_of::<literals_t>(), 8);
 
@@ -23,7 +31,7 @@ fn main() {
     let value = literals_t { v_u8: 42 };
 
     // 访问成员的值是, 是 unsafe
-    unsafe { assert_eq!(value.v_u8, 42); }
+    unsafe { assert_eq!(value.v_u8, 0x2a); }
 
     let v_u64 =
         unsafe {
