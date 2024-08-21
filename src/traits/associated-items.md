@@ -13,13 +13,18 @@
 
 ## 关联类型 Associated Types
 
-对于复杂的泛型, 可以使用关联类型这种写法:
+关联类型, 定义即与当前的 trait 相关的类型, 最常用的就是迭代器:
 
-```rust
-{{#include assets/associated-type.rs:5:}}
+```rust, no_run
+{{#include assets/iterator-trait.rs:2:}}
 ```
 
+上面的代码来自标准库中的 `Iterator` trait, 里面的 `type Item` 就是声明的一个关联类型,
+它用于表示该迭代器在每次迭代时输出的数据类型, 也就是 `next()` 方法的返回值.
+
 ## 关联常量 Associated Consts
+
+关联常量, 可以预定义一些与当前类型或者 trait 相关联的常量值, 比如下面的例子:
 
 ```rust
 {{#include assets/float.rs:5:}}
