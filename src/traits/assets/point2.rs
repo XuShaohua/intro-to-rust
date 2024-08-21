@@ -1,0 +1,1 @@
+../../../code/traits/src/point2.rs

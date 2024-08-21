@@ -1,10 +1,57 @@
 # 定义和实现 Trait
 
-```rust
-{{#include assets/animal-trait.rs:5:}}
+定义 trait 比较简单, 其语法如下:
+
+```rust, no_run
+pub trait TraitName {
+  fn method1(&self, ...) -> Retrun1;
+  fn function2(...) -> Return2;
+  ...
+}
 ```
 
-## Inheritance
+先看一下标准库中 `fmt::Debug` trait:
+
+```rust, no_run
+pub trait Debug {
+    // Required method
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result;
+}
+```
+
+该 trait 只声明了一个方法 `fmt()`, 要为自己定义的类型实现这个方法, 也很简单:
+
+```rust
+{{#include assets/point2.rs:5:19}}
+```
+
+另一个常用的 trait 是 `Default` trait, 用于实现类型的默认值, 其定义如下:
+
+```rust
+pub trait Default: Sized {
+    // Required method
+    fn default() -> Self;
+}
+```
+
+接下来给上面的 `Point` 结构体实现这个 trait:
+
+```rust, no_run
+{{#include assets/point2.rs:21:28}}
+```
+
+## 实现方法
+
+在 trait 中, 可以只声明方法 (method declaration), 也可以同时定义方法 (method default definition),
+即编写该方法的默认实现, 但可以被外部类型所覆盖.
+
+看一下标准库中的例子:
+
+```rust, no_run
+
+```
+
+## 继承 trait
 
 ```rust
 {{#include assets/person-trait.rs:5:}}

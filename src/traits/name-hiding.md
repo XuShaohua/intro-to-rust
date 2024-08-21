@@ -6,14 +6,21 @@ rustc 编译器不能推导出你想使用哪一个, 而只会使用 `impl Struc
 先看一下示例程序:
 
 ```rust
-{{#include assets/name-hiding.rs:5:}}
+{{#include assets/name-hiding.rs:5:52}}
+}
 ```
 
 ## 完全限定语法 Fully Qualified Syntax
 
 这种写法就是为了消除歧义, 让编译器很清晰地找到要使用的函数, 这种写法又称为 Turbofish.
 
-比如:
+上面的代码, 如果要访问这几个 traits 中定义的 `title()` 方法, 需要这样写:
+
+```rust
+{{#include assets/name-hiding.rs:5:}}
+```
+
+另外的一个示例:
 
 ```rust
 use std::rc::Rc;

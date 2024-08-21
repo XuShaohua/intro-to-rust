@@ -17,3 +17,4 @@ mod point;
 mod protocol_level;
 mod float;
 mod float_eq;
+mod point2;

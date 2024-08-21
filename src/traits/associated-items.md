@@ -9,7 +9,7 @@
 - 关联类型 associated types
 - 关联常量 associated consts
 
-# 关联函数 Associated Functions
+## 关联函数 Associated Functions
 
 ## 关联类型 Associated Types
 

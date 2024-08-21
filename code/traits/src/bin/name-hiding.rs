@@ -48,8 +48,12 @@ fn main() {
     let child = Child {
         name: "Joey".to_owned(),
     };
+    // 调用 Child::title() 方法
     child.title();
+    // 使用完全限定语法
     Student::title(&child);
+    // 第二种风格
     <Child as ClassPresident>::title(&child);
-    MathRepresentative::title(&child);
+    // 另一种风格的写法
+    (&child as &dyn MathRepresentative).title();
 }
