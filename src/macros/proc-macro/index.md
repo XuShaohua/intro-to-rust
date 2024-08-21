@@ -1,11 +1,12 @@
-# 过程宏 Procedure macro
+# 过程宏 Procedure Macro
 
-`rustversion` 库大量使用了过程宏; 另外 `getset` 库也是, 而且这个库的代码量很小, 就几百行,
-基于 proc-macro 实现的.
+过程宏基本上分为三类:
 
 - 函数式宏, `println!()`
 - 继承宏, `#[derive(Debug)]`
 - 属性宏, `#[serde(rename("foo"))]`
+
+`rustversion` 库大量使用了过程宏; 另外 `getset` 库也是, 而且这个库的代码量很小, 就几百行, 基于 proc-macro 实现的.
 
 ## 第三方库
 

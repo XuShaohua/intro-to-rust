@@ -1,0 +1,1 @@
+# 函数式宏 Function-like Macro
