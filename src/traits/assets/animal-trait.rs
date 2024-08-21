@@ -1,0 +1,1 @@
+../../../code/traits/src/bin/animal-trait.rs

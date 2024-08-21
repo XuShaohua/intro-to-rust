@@ -1,0 +1,1 @@
+../../../code/traits/src/bin/person-trait.rs

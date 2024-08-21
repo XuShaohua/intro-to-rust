@@ -1,0 +1,1 @@
+../../../code/traits/src/bin/associated-type.rs
