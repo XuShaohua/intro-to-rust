@@ -13,14 +13,16 @@ rustc 编译器不能推导出你想使用哪一个, 而只会使用 `impl Struc
 
 这种写法就是为了消除歧义, 让编译器很清晰地找到要使用的函数, 这种写法又称为 Turbofish.
 
+比如:
+
 ```rust
 use std::rc::Rc;
 
 fn main() {
     let rc = Rc::new(5);
-    // Method call syntax
+    // 直接调用 trait 的方法
     let rc2 = rc.clone();
-    // Fully qualified syntax
+    // 使用完全限定语法
     let rc3 = Rc::clone(&rc);
 }
 ```

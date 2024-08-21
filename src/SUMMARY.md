@@ -83,7 +83,8 @@
     - [内存布局 Memory Layout](unions/layout.md)
     - [泛型联合体](unions/generics.md)
 - [接口 Trait](traits/index.md)
-    - [Trait](traits/trait.md)
+    - [使用 Trait](traits/use-trait.md)
+    - [定义和实现 Trait](traits/define-traits.md)
     - [Derive: 自动继承常见的 trait](traits/derive.md)
     - [关联类型 Associated Types](traits/associated-types.md)
     - [关联常量 Associated Consts](traits/associated-consts.md)
@@ -102,6 +103,11 @@
     - [Fn, FnMut 与 FnOnce](closure/fn-mut-once.md)
     - [回调函数](closure/callback.md)
     - [函数声名示例](closure/declaration.md)
+- [泛型 Generics](generics/index.md)
+    - [泛型函数 Generic Functions](generics/generic-functions.md)
+    - [泛型结构体 Generic Structs](generics/generic-structs.md)
+    - [泛型 Traits Generic Traits](generics/generic-traits.md)
+    - [常量泛型参数 Const Generics](generics/const-generics.md)
 - [模式匹配 Pattern Matching](pattern-matching/index.md)
     - [模式 Patterns](pattern-matching/patterns.md)
     - [匹配值 Matching Values](pattern-matching/matching-values.md)
@@ -109,11 +115,6 @@
     - [解构 Destructing](pattern-matching/destructing.md)
     - [let 控制流](pattern-matching/let-control-flow.md)
     - [matches 宏](pattern-matching/matches-macro.md)
-- [泛型 Generics](generics/index.md)
-    - [泛型函数 Generic Functions](generics/generic-functions.md)
-    - [泛型结构体 Generic Structs](generics/generic-structs.md)
-    - [泛型 Traits Generic Traits](generics/generic-traits.md)
-    - [常量泛型参数 Const Generics](generics/const-generics.md)
 
 # 第三部分: 标准库
 
