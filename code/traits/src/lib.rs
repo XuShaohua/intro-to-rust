@@ -15,3 +15,4 @@ mod complex;
 mod margin;
 mod point;
 mod protocol_level;
+mod float;
