@@ -10,20 +10,29 @@
 {{#include assets/person-trait.rs:5:}}
 ```
 
-## dyn trait
+## 空的 trait
 
-```rust
-{{#include assets/dyn-trait.rs:5:}}
+标准库中定义了好几个空的 trait, 这些 trait 只有名称, 没有约束任何的方法或者别的类型, 比如:
+
+- Sized
+- Copy
+- Send
+- Sync
+
+声明它们的代码很简单:
+
+```rust, no_run
+pub trait Copy: Clone { }
+pub trait Sized { }
+pub unsafe auto trait Send { }
+pub unsafe auto trait Sync { }
 ```
 
-## impl trait
+通常这些类型都被编译器使用:
 
-```rust
-{{#include assets/impl-trait.rs:5:}}
-```
-
-只要 trait 或者相应的类型在本 crate 中有声明, 就可以给这个类型实现这个 trait.
-Marker Trait: 不需要实现任何具体的方法, 只是一个定义约束. 比如 `Sized`, `Copy`.
+- Copy trait 可以让类型通过拷贝比特位来复制其值
+- Send/Sync, 用于实现跨线程访问共享的状态
+- Sized, 要求类型在编译期有确定的内存大小占用, 否则就是 dynamic sized type
 
 ## 为外部类型实现外部的 trait
 
@@ -42,3 +51,4 @@ trait, 看下面的一个简陋的例子:
 ## 参考
 
 - [New Type Idiom](https://doc.rust-lang.org/stable/rust-by-example/generics/new_types.html)
+- [Using the Newtype Pattern to Implement External Traits on External Types](https://doc.rust-lang.org/book/ch19-03-advanced-traits.html#using-the-newtype-pattern-to-implement-external-traits-on-external-types)

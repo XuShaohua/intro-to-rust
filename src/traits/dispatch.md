@@ -10,53 +10,26 @@
 举例来说:
 
 ```rust
-pub struct Point {
-    x: f32,
-    y: f32,
-}
-
-pub trait Print {
-    fn print(&self);
-
-    fn default_method(&self) {
-        println!("Print::default_method()");
-    }
-}
-
-impl dyn Print + 'static {
-    fn print_trait_object(&self) {
-        println!("Print::print_trait_object()");
-    }
-}
-
-impl Print for Point {
-    fn print(&self) {
-        println!("Point({}, {})", self.x, self.y);
-    }
-}
-
-fn static_dispatch<T: Print>(point: &T) {
-    print!("static_dispatch: ");
-    point.print();
-    point.default_method();
-}
-
-fn dynamic_dispatch(point: &(dyn Print + 'static)) {
-    print!("dynamic_dispatch: ");
-    point.print();
-    point.default_method();
-    point.print_trait_object();
-}
-
-fn main() {
-    let p = Point { x: 3.0, y: 4.0 };
-    static_dispatch(&p);
-    println!("==============");
-    dynamic_dispatch(&p);
-}
+{{#include assets/dispatch.rs:5:}}
 ```
 
+## dyn trait
+
+```rust
+{{#include assets/dyn-trait.rs:5:}}
+```
+
+## impl trait
+
+```rust
+{{#include assets/impl-trait.rs:5:}}
+```
+
+只要 trait 或者相应的类型在本 crate 中有声明, 就可以给这个类型实现这个 trait.
+Marker Trait: 不需要实现任何具体的方法, 只是一个定义约束. 比如 `Sized`, `Copy`.
+
 ## C++ 中的编译期多态和运行时多态
+
 TODO
 
 ## 参考
