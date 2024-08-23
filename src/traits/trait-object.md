@@ -1,6 +1,6 @@
 # Trait Objects
 
-A reference to a trait type is called a trait object.
+对一个实现了某个 trait 的对象的引用, 就称为 trait object.
 
 ```rust
 use std::io::Write;
@@ -11,7 +11,14 @@ fn main() {
 }
 ```
 
-这里, `writer` 就是一个 `trait object`.
+这里, `writer` 就是一个 `trait object`. 作为对比, 我们看看之前学过的 slice 用.
+
+```rust
+fn main() {
+    let vec = vec![1, 2, 3, 4];
+    let vec_ref: &[i32] = &vec;
+}
+```
 
 ## Trait Object 的内存布局
 
