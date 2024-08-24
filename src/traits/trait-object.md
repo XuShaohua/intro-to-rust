@@ -20,12 +20,27 @@ fn main() {
 }
 ```
 
+## dyn trait
+
+类似于使用切片引用来存储数组 array 或者 动态数组 vec 一样, 使用 `dyn trait` 语法来存储 trait object.
+
+先看一个示例程序:
+
+```rust
+{{#include assets/animal-trait.rs:5:}}
+```
+
+它使用 dyn trait 作为返回值, 因为trait object 对象本身占用的内存大小是不确定的, 我们需要把它用 `Box<dyn Trait>` 包装起来,
+放在堆内存上, 否则编译器就会提示内存大小的错误.
+
 ## Trait Object 的内存布局
 
-`trait object` 是一种胖指针(fat pointer), 有两个指针组成; 在 64 位的机器上, 占用 `16` 个字节:
+`trait object` 的引用是一种胖指针(fat pointer), 有两个指针组成; 在 64 位的机器上, 占用 `16` 个字节:
 
 - `data ptr` 指针指向实际对象的内存地址
 - `vtable ptr` 指针指向该对象的 `vtable`, 里面记录了该对象提供的方法; 这个表是相同类型的所有值所共享.
+
+trait object 详细的布局结构会在下一节动态派发部分有更全面的介绍.
 
 ## 参考
 
