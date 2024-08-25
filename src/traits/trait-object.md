@@ -1,6 +1,8 @@
-# Trait Objects
+# 特征对象 Trait Objects
 
-对一个实现了某个 trait 的对象的引用, 就称为 trait object.
+特征对象 trait objects 是实现一组特征 trait 的一种类型的不透明值 opaque value,
+其没有固定内存大小的值.
+这种数值类型类似于数组, 因为其大小不确定, 并不能直接作为参数使用, 需要使用 `&dyn Trait` 或者 `Box<dyn Trait>` 的形式.
 
 ```rust
 use std::io::Write;

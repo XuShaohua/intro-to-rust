@@ -7,7 +7,7 @@ trait Shape {
     fn area(&self) -> f64;
 }
 
-#[derive(Debug, Default, Clone, PartialEq)]
+#[derive(Debug, Default, Clone, Copy, PartialEq)]
 struct Point {
     x: f64,
     y: f64,
@@ -45,6 +45,5 @@ impl Shape for Rectangle {
         self.width * self.height
     }
 }
-
 
 fn main() {}

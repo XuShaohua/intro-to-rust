@@ -89,7 +89,6 @@
     - [关联的项目 Associated Items](traits/associated-items.md)
     - [Trait Objects](traits/trait-object.md)
     - [静态派发与动态派发 Static Dispatch and Dynamic Dispatch](traits/dispatch.md)
-    - [虚表 vtable](traits/vtable.md)
     - [隐藏名称 Name Hiding](traits/name-hiding.md)
 - [函数与闭包 Functions and Closures](closure/index.md)
     - [函数 function](closure/function.md)
