@@ -71,6 +71,7 @@
     - [定义结构体 Definition](structs/definition.md)
     - [定义方法 Implementation](structs/implementation.md)
     - [调用结构体的方法](structs/method-call.md)
+    - [New Type](structs/new-type.md)
     - [内存布局 Memory Layout](structs/layout.md)
 - [枚举 Enums](enums/index.md)
     - [内存布局 Memory Layout](enums/layout.md)
