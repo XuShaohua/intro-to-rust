@@ -71,6 +71,26 @@ println!("value: {:#?}", value);
 {{#include assets/alignment-and-fill.rs:5:}}
 ```
 
+### 数值的符号与填充
+
+上面讲到的对齐与字符宽度等, 都是通用的格式化手段. 这里要介绍的是数值类型特有的格式化手段.
+
+- `+`, 默认情况下, 只要负数才会被打印 `-` 符号, 而无符号数以及正数, 都会忽略掉符号位. 使用 `+` 可以强制打印数值的符号
+- `-`, 目前不支持, 会被忽略掉
+- `0`, 使用 `0` 进行数值填充, 而且对齐方式被强制为左对齐
+- `#` 表示要使用另外一种格式化形式:
+    - `?`, 使用 pretty-printing 形式调用 `fmt::Debug` trait, 会添加换行符和缩进
+    - `x`, 使用小写的十六进制格式, 并且添加 `0x` 前缀
+    - `X`, 使用大写的十六进制格式, 并且添加 `0X` 前缀
+    - `b`, 使用小写的二进制格式, 并且添加 `0b` 前缀
+    - `o`, 使用八进制格式, 并且添加 `0o` 前缀
+
+看下面的示例代码:
+
+```rust
+{{#include assets/formatting-numbers.rs:5:}}
+```
+
 ### 常用格式化符号 Formatting Traits
 
 `println!("{formatting}", arg);`, 这里的 `formatting` 就是本节要讨论的 Formatting traits,
@@ -95,7 +115,7 @@ println!("value: {:#?}", value);
 下面的代码示例展示了如何使用格式化参数:
 
 ```rust
-{{#include assets/formatting.rs:5:}}
+{{#include assets/formatting-traits.rs:5:}}
 ```
 
 ## 相关的宏定义
