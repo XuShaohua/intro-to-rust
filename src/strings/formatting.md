@@ -9,9 +9,8 @@ let greating = format!("Hello, {}", name);
 
 ## 位置参数 Positional parameters
 
-比如 `{0}`, `{1}`, `{2}` 这种的, 如果省略了里面的位置标记, 那就会提供
-一个计数器, 从0开始计数. 比如 `println!("{1} {} {2}", 1, 2, 3)` 读取的参数顺序
-依次是 `1`, `0`, `2`, 其结果就会输出 `"2 1 3"` 这样的字符串.
+使用参数的位置索引, 比如 `{0}`, `{1}`, `{2}` 这种的.
+如果省略了里面的位置标记, 那就会提供一个计数器, 从0开始计数.
 
 看一个例子:
 
@@ -21,16 +20,26 @@ let greating = format!("Hello, {}", name);
 
 ## 具名参数 Named parameters
 
-还支持类似于 python 中的那种格式化, 使用索引或者名称:
+还支持类似于 python 中的那种格式化, 使用参数名称, 实现更灵活更易读的参数引用:
 
 ```rust
-println!("{name} {age}", age = 25, name = "Jolia");
-
-let value = [1, 1, 2, 3, 5];
-println!("value: {value:?}");
+{{#include assets/named-parameters.rs:5:}}
 ```
 
-## 对齐方式
+## 格式化参数 Formatting parameters
+
+### 宽度 Width
+
+可以指定参数所占用的最小宽度 (最少字符数), 如果宽度不够, 可以使用空格或者指定的字符来填充.
+
+指定参数占用的宽度值, 该值需要是 `usize` 类型, 比如 `{name:width$}`, 这里的 `name` 是要被
+格式化的参数, 而 `width` 参数就指定了它占用的宽度, 注意 `width` 后面那个 `$` 是作为后缀存在的.
+
+```rust
+{{#include assets/formatting-width.rs:5:}}
+```
+
+### 对齐方式
 
 * `<` 左对齐
 * `^` 居中
@@ -43,7 +52,7 @@ let value = [1, 1, 2, 3, 5];
 println!("value: {:#?}", value);
 ```
 
-## 常用格式化符号 Formatting Traits
+### 常用格式化符号 Formatting Traits
 
 `println!("{formatting}", arg);`, 这里的 `formatting` 就是本节要讨论的 Formatting traits,
 标准库里定义了一些 traits, 用于修饰被格式化的参数, 以得到期望的形式.
