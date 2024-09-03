@@ -7,6 +7,13 @@ let name = "Julia";
 let greating = format!("Hello, {}", name);
 ```
 
+如果是结构体的话, 使用 `{:#?}` 可以实现类似 "pretty printing" 的效果, 多行打印结构体信息:
+
+```rust
+let value = [1, 1, 2, 3, 5];
+println!("value: {:#?}", value);
+```
+
 ## 位置参数 Positional parameters
 
 使用参数的位置索引, 比如 `{0}`, `{1}`, `{2}` 这种的.
@@ -39,17 +46,29 @@ let greating = format!("Hello, {}", name);
 {{#include assets/formatting-width.rs:5:}}
 ```
 
-### 对齐方式
+### 对齐方式与填充字符 Alignment and fill
 
-* `<` 左对齐
-* `^` 居中
-* `>` 右对齐
+在设定了字符串的宽度值时, 同时可以指定字符串的对齐方式以及多余空间要填充的字符.
 
-如果是结构体的话, 使用 `{:#?}` 可以实现类似 "pretty printing" 的效果, 多行打印结构体信息:
+字符串的对齐方式有三种:
+
+- `<` 左对齐, 如果不指定对齐方式, 默认就是左对齐
+- `^` 居中
+- `>` 右对齐
+
+字符串宽度与对齐方式的语法是 `string:char<width`, 可以这样解析:
+
+- 左对齐, 也可以是右中对齐或者右对齐, 要注意的是这里并没有考虑有些语言中从右到左的布局方式 (R2L), 我们默认是L2R
+- 字符串的宽度值是 `width`, 比如 `5`
+- 空白处要填充的字符是 `char`, 比如 `-` 或者 `.`
+- 如果指定了要填充的字符, 则必须同时指定对齐方式
+- 如果没有指定对齐方式, 默认是左对齐
+- 默认的填充字符是空格
+
+看一些代码示例:
 
 ```rust
-let value = [1, 1, 2, 3, 5];
-println!("value: {:#?}", value);
+{{#include assets/alignment-and-fill.rs:5:}}
 ```
 
 ### 常用格式化符号 Formatting Traits

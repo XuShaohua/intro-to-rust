@@ -10,7 +10,6 @@ fn main() {
     let s = format!("{1} {} {2}", 1, 2, 3);
     assert_eq!(s, "2 1 3");
 
-
     let s = format!("{1} {2} {0}", 1, 2, 3);
     assert_eq!(s, "2 3 1");
 }

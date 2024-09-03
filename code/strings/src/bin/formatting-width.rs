@@ -21,7 +21,7 @@ fn main() {
     let s = format!("Hello {:width$}!", 'x', width = 5);
     assert_eq!(s, expected);
 
-    let width = 5;
+    let width: usize = 5;
     // 使用了具名参数作为宽度值
     let s = format!("Hello {:width$}!", 'x');
     assert_eq!(s, expected);
