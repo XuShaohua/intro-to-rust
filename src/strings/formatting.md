@@ -42,4 +42,44 @@ println!("{name} {age}", age = 25, name = "Jolia");
 
 如果是结构体的话, 还支持 pretty printing, 只需要使用 `{:#?}` 这样的标记即可.
 
-## Format Traits
+## 常用格式化符号 Formatting Traits
+
+`println!("{formatting}", arg);`, 这里的 `formatting` 就是本节要讨论的 Formatting traits,
+标准库里定义了一些 traits, 用于修饰被格式化的参数, 以得到期望的形式.
+
+| 符号    | 描述                                      |
+|-------|-----------------------------------------| 
+| 空白    | 调用 `fmt::Display` trait                 |
+| `:?`  | 调用 `fmt::Debug` trait                   |
+| `:x?` | 调用 `fmt::Debug` trait, 并使用小写的十六进制整数     |
+| `:X?` | 调用 `fmt::Debug` trait, 并使用大写的十六进制整数     |
+| `:o`  | 调用 `fmt::Octal` trait, 转换成八进制           |
+| `:x`  | 调用 `fmt::LowerHex` trait, 转换成小写的十六进制    |
+| `:X`  | 调用 `fmt::UpperHex` trait, 转换成大写的十六进制    |
+| `:b`  | 调用 `fmt::Binary` trait, 转换成二进制          | 
+| `:e`  | 调用 `fmt::LowerExp` trait, 转换成小写的科学计数法格式 |
+| `:E`  | 调用 `fmt::UpperExp` trait, 转换成大写的科学计数法格式 |
+| `:p`  | 调用 `fmt::Pointer` trait, 转换成指针形式        |
+
+在标准库中已经为很多基础数据类型实现了, 上表中列出来的 `fmt` 模块中的各个 traits.
+
+下面的代码示例展示了如何使用格式化参数:
+
+```rust
+{{#include assets/formatting.rs:5:}}
+```
+
+## 相关的宏定义
+
+标准库中定义了一系列与字符串格式化相关的宏, 它们分别是:
+
+- `format!`
+- `write!`
+- `writeln!`
+- `print!`
+- `println!`
+- `eprint!`
+- `eprintln!`
+- `format_args!`
+
+### `format!` 宏
