@@ -91,6 +91,8 @@ println!("value: {:#?}", value);
 {{#include assets/formatting-numbers.rs:5:}}
 ```
 
+### 数值精度 Precision
+
 ### 常用格式化符号 Formatting Traits
 
 `println!("{formatting}", arg);`, 这里的 `formatting` 就是本节要讨论的 Formatting traits,
@@ -132,3 +134,5 @@ println!("value: {:#?}", value);
 - `format_args!`
 
 ### `format!` 宏
+
+TODO

@@ -178,7 +178,7 @@
 - [内存管理基础](memory-basic/index.md)
     - [进程内存结构 Segments](memory-basic/memory-segments.md)
     - [RAII](memory-basic/raii.md)
-    - [Drop 内存的时机](memory-basic/drop.md)
+    - [Drop 对象的时机](memory-basic/when-to-drop.md)
 - [std::ptr 模块](ptr-module/index.md)
     - [read() 与 write() 函数](ptr-module/read-write.md)
     - [addr_of!() 与 addr_of_mut!() 宏](ptr-module/addr-of.md)

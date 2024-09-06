@@ -1,4 +1,4 @@
-# Drop 内存的时机
+# Drop 对象的时机
 
 `Drop` trait 在好些地方都有所提及, 但是它们的重点不太一样, 比如前文有介绍
 [Drop trait](../common-traits/drop.md) 的基本用法, 以及 [所有权转移](../ownership/move.md).
