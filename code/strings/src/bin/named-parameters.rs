@@ -3,7 +3,7 @@
 // in the LICENSE file.
 
 fn main() {
-    println!("{name} {age}", age = 25, name = "Jolia");
+    println!("Jolia {age}", age = 25);
 
     let value = [1, 1, 2, 3, 5];
     println!("value: {value:?}");

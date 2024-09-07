@@ -56,7 +56,7 @@ pub struct TeaShop {
 
 impl TeaShop {
     #[must_use]
-    pub fn new(tea_maker: TeaMaker) -> Self {
+    pub const fn new(tea_maker: TeaMaker) -> Self {
         Self {
             tea_maker,
             orders: BTreeMap::new(),
