@@ -18,7 +18,7 @@ additional-css = ["theme/pagetoc.css"]
 additional-js  = ["theme/pagetoc.js"]
 edit-url-template = "https://github.com/xushaohua/intro-to-rust/edit/main/{path}"
 git-repository-url = "https://github.com/xushaohua/intro-to-rust"
-mathjax-support = true
+mathjax-support = false
 
 [output.html.fold]
 enable = true
