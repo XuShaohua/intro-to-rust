@@ -25,7 +25,7 @@
 想在本地搭建本文档的环境也是很容易的, 这些文档记录以 markdown 文件为主, 并使用
 [mdbook](https://github.com/rust-lang/mdBook) 生成网页.
 
-1. 用 cargo 来安装它: `cargo install mdbook mdbook-linkcheck`
+1. 用 cargo 来安装它: `cargo install mdbook mdbook-linkcheck mdbook-pagetoc`
 2. 运行 `mdbook build` 命令, 会在`book/`目录里生成完整的电子书的网页版本
 3. 使用 `mdbook serve` 命令监控文件变更, 并启动一个本地的 web 服务器,
    在浏览器中打开 [http://localhost:3000](http://localhost:3000)
