@@ -5,7 +5,7 @@ edition = "2021"
 publish = false
 
 [dependencies]
-float-cmp = "0.9.0"
+float-cmp = "0.10.0"
 
 [[bin]]
 name = "primtives-array-of-string"

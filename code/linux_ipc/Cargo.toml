@@ -6,10 +6,10 @@ publish = false
 
 [dependencies]
 log = "0.4.22"
-nc = "0.9.3"
+nc = "0.9.5"
 serde = { version = "1.0.210", features = ["serde_derive"] }
-serde_json = "1.0.128"
-thiserror = "1.0.63"
+serde_json = "1.0.131"
+thiserror = "1.0.64"
 
 [[bin]]
 name = "linux_ipc-pipe"
