@@ -5,7 +5,7 @@ edition = "2021"
 publish = false
 
 [dependencies]
-libc = "0.2.161"
+libc = "0.2.164"
 
 [[bin]]
 name = "memory-droppable"

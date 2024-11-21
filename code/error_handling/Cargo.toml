@@ -6,7 +6,7 @@ publish = false
 
 [dependencies]
 r2d2 = "0.8.10"
-thiserror = "1.0.64"
+thiserror = "2.0.3"
 
 [[bin]]
 name = "error_handling-use-panic"
