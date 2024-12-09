@@ -76,7 +76,7 @@ impl<L: RawTryLock, T> Lock<L, T> {
     }
 }
 
-impl<'a, L: RawLock, T> Drop for LockGuard<'a, L, T> {
+impl<L: RawLock, T> Drop for LockGuard<'_, L, T> {
     fn drop(&mut self) {
         unsafe {
             self.lock.lock.unlock(self.token.clone());
@@ -84,20 +84,16 @@ impl<'a, L: RawLock, T> Drop for LockGuard<'a, L, T> {
     }
 }
 
-impl<'a, L: RawLock, T> Deref for LockGuard<'a, L, T> {
+impl<L: RawLock, T> Deref for LockGuard<'_, L, T> {
     type Target = T;
 
     fn deref(&self) -> &Self::Target {
-        unsafe {
-            &*self.lock.data.get()
-        }
+        unsafe { &*self.lock.data.get() }
     }
 }
 
-impl<'a, L: RawLock, T> DerefMut for LockGuard<'a, L, T> {
+impl<L: RawLock, T> DerefMut for LockGuard<'_, L, T> {
     fn deref_mut(&mut self) -> &mut Self::Target {
-        unsafe {
-            &mut *self.lock.data.get()
-        }
+        unsafe { &mut *self.lock.data.get() }
     }
 }

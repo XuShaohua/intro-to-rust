@@ -10,7 +10,7 @@ where
     least: &'elt T,
 }
 
-impl<'elt, T> Extrema<'elt, T>
+impl<T> Extrema<'_, T>
 where
     T: PartialOrd,
 {
