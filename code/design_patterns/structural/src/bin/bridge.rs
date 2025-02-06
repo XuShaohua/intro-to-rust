@@ -48,14 +48,14 @@ impl WebPage for CareersPage {
 }
 
 pub trait Theme {
-    fn color(&self) -> &str;
+    fn color(&self) -> &'static str;
 }
 
 #[derive(Debug, Clone)]
 pub struct DarkTheme {}
 
 impl Theme for DarkTheme {
-    fn color(&self) -> &str {
+    fn color(&self) -> &'static str {
         "Dark Black"
     }
 }
@@ -64,7 +64,7 @@ impl Theme for DarkTheme {
 pub struct LightTheme {}
 
 impl Theme for LightTheme {
-    fn color(&self) -> &str {
+    fn color(&self) -> &'static str {
         "Off White"
     }
 }
@@ -73,7 +73,7 @@ impl Theme for LightTheme {
 pub struct AquaTheme {}
 
 impl Theme for AquaTheme {
-    fn color(&self) -> &str {
+    fn color(&self) -> &'static str {
         "Light blue"
     }
 }

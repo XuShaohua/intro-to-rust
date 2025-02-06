@@ -8,7 +8,7 @@
 
 fn break1() {
     loop {
-        if (break { println!("1") }) {
+        if (break println!("1")) {
             let _ = 1;
         }
     }
