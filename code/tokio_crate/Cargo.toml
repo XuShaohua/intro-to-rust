@@ -5,7 +5,7 @@ edition = "2021"
 publish = false
 
 [dependencies]
-tokio = { version = "1.41.1", features = ["full"] }
+tokio = { version = "1.42.0", features = ["full"] }
 
 [[bin]]
 name = "tokio_crate-hello-tokio"
