@@ -68,7 +68,7 @@ impl Error {
 
     #[must_use]
     pub fn message(&self) -> &str {
-        &self.message
+        self.message.as_str()
     }
 }
 

@@ -22,7 +22,7 @@ impl EditorMemento {
 
     #[must_use]
     pub fn content(&self) -> &str {
-        &self.content
+        self.content.as_str()
     }
 }
 
@@ -50,7 +50,7 @@ impl Editor {
 
     #[must_use]
     pub fn content(&self) -> &str {
-        &self.content
+        self.content.as_str()
     }
 
     #[must_use]

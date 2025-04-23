@@ -25,7 +25,7 @@ impl KarakTea {
 
     #[must_use]
     pub fn preference(&self) -> &str {
-        &self.preference
+        self.preference.as_str()
     }
 }
 

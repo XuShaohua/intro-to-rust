@@ -24,7 +24,7 @@ impl JobPost {
 
     #[must_use]
     pub fn title(&self) -> &str {
-        &self.title
+        self.title.as_str()
     }
 }
 

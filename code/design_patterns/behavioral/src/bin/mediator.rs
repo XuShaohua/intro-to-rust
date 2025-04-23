@@ -59,7 +59,7 @@ impl User {
 
     #[must_use]
     pub fn name(&self) -> &str {
-        &self.name
+        self.name.as_str()
     }
 
     pub fn send(&self, message: &str) {

@@ -37,13 +37,13 @@ impl Point {
     }
 
     /// Sets new values x and y.
-    pub fn set(&mut self, x: f32, y: f32) {
+    pub const fn set(&mut self, x: f32, y: f32) {
         self.x = x;
         self.y = y;
     }
 
     /// Sets x to absolute value of `pt.x`; and y to absolute value of `pt.y`.
-    pub fn set_abs(&mut self, pt: Self) {
+    pub const fn set_abs(&mut self, pt: Self) {
         self.x = pt.x.abs();
         self.y = pt.y.abs();
     }

@@ -32,7 +32,7 @@ impl Sheep {
 
     #[must_use]
     pub fn name(&self) -> &str {
-        &self.name
+        self.name.as_str()
     }
 
     pub fn set_category(&mut self, category: &str) {
@@ -42,7 +42,7 @@ impl Sheep {
 
     #[must_use]
     pub fn category(&self) -> &str {
-        &self.category
+        self.category.as_str()
     }
 
     pub fn show_info(&self) {

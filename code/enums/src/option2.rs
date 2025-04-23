@@ -42,7 +42,7 @@ impl<T> Option2<T> {
         }
     }
 
-    pub fn as_mut(&mut self) -> Option2<&mut T> {
+    pub const fn as_mut(&mut self) -> Option2<&mut T> {
         match *self {
             Some2(ref mut x) => Some2(x),
             None2 => None2,
