@@ -31,7 +31,7 @@ impl Sheep {
     }
 
     #[must_use]
-    pub fn name(&self) -> &str {
+    pub const fn name(&self) -> &str {
         self.name.as_str()
     }
 
@@ -41,7 +41,7 @@ impl Sheep {
     }
 
     #[must_use]
-    pub fn category(&self) -> &str {
+    pub const fn category(&self) -> &str {
         self.category.as_str()
     }
 

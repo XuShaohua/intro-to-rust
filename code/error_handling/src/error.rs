@@ -67,7 +67,7 @@ impl Error {
     }
 
     #[must_use]
-    pub fn message(&self) -> &str {
+    pub const fn message(&self) -> &str {
         self.message.as_str()
     }
 }
