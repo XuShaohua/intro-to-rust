@@ -21,12 +21,10 @@ pub struct AboutPage {
 }
 
 impl WebPage for AboutPage {
-    #[must_use]
     fn new(theme: Box<dyn Theme>) -> Self {
         Self { theme }
     }
 
-    #[must_use]
     fn get_content(&self) -> String {
         format!("About page in {}", self.theme.color())
     }
@@ -37,11 +35,9 @@ pub struct CareersPage {
 }
 
 impl WebPage for CareersPage {
-    #[must_use]
     fn new(theme: Box<dyn Theme>) -> Self {
         Self { theme }
     }
-    #[must_use]
     fn get_content(&self) -> String {
         format!("Careers page in {}", self.theme.color())
     }

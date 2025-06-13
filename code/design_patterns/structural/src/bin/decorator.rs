@@ -31,12 +31,10 @@ impl SimpleCoffee {
 }
 
 impl Coffee for SimpleCoffee {
-    #[must_use]
     fn get_cost(&self) -> f64 {
         10.0
     }
 
-    #[must_use]
     fn get_description(&self) -> String {
         "Simple coffee".to_owned()
     }
@@ -54,12 +52,10 @@ impl MilkCoffee {
 }
 
 impl Coffee for MilkCoffee {
-    #[must_use]
     fn get_cost(&self) -> f64 {
         self.inner.get_cost() + 2.0
     }
 
-    #[must_use]
     fn get_description(&self) -> String {
         let mut desc = self.inner.get_description();
         desc.push_str(", milk");
@@ -83,7 +79,6 @@ impl Coffee for WilpCoffee {
         self.inner.get_cost() + 5.0
     }
 
-    #[must_use]
     fn get_description(&self) -> String {
         let mut desc = self.inner.get_description();
         desc.push_str(", wilp");
@@ -107,7 +102,6 @@ impl Coffee for VanillaCoffee {
         self.inner.get_cost() + 3.0
     }
 
-    #[must_use]
     fn get_description(&self) -> String {
         let mut desc = self.inner.get_description();
         desc.push_str(", vanilla");

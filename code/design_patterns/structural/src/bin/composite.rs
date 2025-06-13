@@ -35,12 +35,10 @@ impl Developer {
 }
 
 impl Employee for Developer {
-    #[must_use]
     fn get_name(&self) -> &str {
         &self.name
     }
 
-    #[must_use]
     fn get_salary(&self) -> f64 {
         self.salary
     }
@@ -49,7 +47,6 @@ impl Employee for Developer {
         self.salary = salary;
     }
 
-    #[must_use]
     fn get_roles(&self) -> &[String] {
         &self.roles
     }
@@ -73,12 +70,10 @@ impl Designer {
 }
 
 impl Employee for Designer {
-    #[must_use]
     fn get_name(&self) -> &str {
         &self.name
     }
 
-    #[must_use]
     fn get_salary(&self) -> f64 {
         self.salary
     }
@@ -87,7 +82,6 @@ impl Employee for Designer {
         self.salary = salary;
     }
 
-    #[must_use]
     fn get_roles(&self) -> &[String] {
         &self.roles
     }
