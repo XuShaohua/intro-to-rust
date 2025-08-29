@@ -57,18 +57,16 @@ impl RawLock for ClhLock {
         let prev_node: *mut CachePadded<Node> = self.tail.swap(new_node, Ordering::Relaxed);
         let backoff = Backoff::new();
 
-        while unsafe { (*prev_node).locked.load(Ordering::Acquire) } {
+        while unsafe { (&(*prev_node)).locked.load(Ordering::Acquire) } {
             backoff.snooze();
         }
 
         drop(unsafe { Box::from_raw(prev_node) });
 
-        Token {
-            ptr: new_node
-        }
+        Token { ptr: new_node }
     }
 
     unsafe fn unlock(&self, token: Self::Token) {
-        (*token.ptr).locked.store(false, Ordering::Release);
+        (&(*token.ptr)).locked.store(false, Ordering::Release);
     }
 }

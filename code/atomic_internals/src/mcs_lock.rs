@@ -59,42 +59,41 @@ impl RawLock for McsLock {
         let prev_node: *mut CachePadded<Node> = self.tail.swap(new_node, Ordering::Relaxed);
 
         if prev_node.is_null() {
-            return Token {
-                ptr: new_node,
-            };
+            return Token { ptr: new_node };
         }
         unsafe {
-            (*prev_node).next.store(new_node, Ordering::Release);
+            (&(*prev_node)).next.store(new_node, Ordering::Release);
         }
 
         let backoff = Backoff::new();
-        while unsafe { (*new_node).locked.load(Ordering::Acquire) } {
+        while unsafe { (&(*new_node)).locked.load(Ordering::Acquire) } {
             backoff.snooze();
         }
 
-        Token {
-            ptr: new_node,
-        }
+        Token { ptr: new_node }
     }
 
     unsafe fn unlock(&self, token: Self::Token) {
         let node = token.ptr;
 
         loop {
-            let next_node: *mut CachePadded<Node> = (*node).next.load(Ordering::Acquire);
+            let next_node: *mut CachePadded<Node> = (&(*node)).next.load(Ordering::Acquire);
             // `node` is not the tail node in the lock.
             if !next_node.is_null() {
                 // Deallocate node in the same thread.
                 drop(Box::from_raw(node));
                 // Unlock next node
-                (*next_node).locked.store(false, Ordering::Release);
+                (&(*next_node)).locked.store(false, Ordering::Release);
                 return;
             }
 
             // `node` is the tail in the lock.
             // Remove it from lock and drop it.
-            if self.tail.compare_exchange(node, ptr::null_mut(), Ordering::Release,
-                                          Ordering::Relaxed).is_ok() {
+            if self
+                .tail
+                .compare_exchange(node, ptr::null_mut(), Ordering::Release, Ordering::Relaxed)
+                .is_ok()
+            {
                 // Deallocate node in the same thread.
                 drop(Box::from_raw(node));
                 return;

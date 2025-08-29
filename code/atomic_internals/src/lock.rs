@@ -53,7 +53,7 @@ impl<L: RawLock, T> Lock<L, T> {
         self.data.into_inner()
     }
 
-    pub fn lock_guard(&self) -> LockGuard<L, T> {
+    pub fn lock_guard(&self) -> LockGuard<'_, L, T> {
         let token = self.lock.lock();
         LockGuard {
             token,
@@ -67,7 +67,7 @@ impl<L: RawTryLock, T> Lock<L, T> {
     /// # Errors
     ///
     /// Returns error if failed to lock.
-    pub fn try_lock(&self) -> Result<LockGuard<L, T>, L::Error> {
+    pub fn try_lock(&self) -> Result<LockGuard<'_, L, T>, L::Error> {
         self.lock.try_lock().map(|token| LockGuard {
             token,
             lock: self,
