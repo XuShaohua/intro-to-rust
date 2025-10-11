@@ -167,7 +167,7 @@ fn main() {
         // Reverse
         let mut v = vec![1, 2, 3, 4, 5, 6];
         //v.sort_by_key(|&n| (n > 3, std::cmp::Reverse(n)));
-        v.sort_by_key(|&n| (std::cmp::Reverse(n)));
+        v.sort_by_key(|&n| std::cmp::Reverse(n));
         println!("v: {:?}", v);
     }
 

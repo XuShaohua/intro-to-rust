@@ -37,7 +37,7 @@ impl MMapAllocator {
         let page_size = nc::PAGE_SIZE;
         let requested_size = layout.size();
         debug_assert!(requested_size > 0);
-        if requested_size % page_size == 0 {
+        if requested_size.is_multiple_of(page_size) {
             requested_size
         } else {
             requested_size / page_size * page_size + page_size
