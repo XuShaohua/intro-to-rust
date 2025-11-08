@@ -5,6 +5,7 @@ fn main() {
     let x_ptr: *const () = &x as *const i32 as *const ();
     let x_addr: usize = x_ptr as usize;
     unsafe {
+        #[allow(integer_to_ptr_transmutes)]
         let x_mut_ref = mem::transmute::<usize, &mut i32>(x_addr);
         *x_mut_ref = 43;
     }

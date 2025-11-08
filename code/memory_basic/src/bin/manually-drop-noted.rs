@@ -10,11 +10,11 @@ fn main() {
     // x.drop-flag = 0
     let now = SystemTime::now();
     let timestamp = now.duration_since(UNIX_EPOCH).unwrap_or_default();
-    let x: Box::<i32>;
+    let x: Box<i32>;
 
     let millis = timestamp.as_millis();
 
-    if millis % 2 == 0 {
+    if millis.is_multiple_of(2) {
         // 设置 x 的 Drop Flag:
         // x.drop-flag = 1
         // 为 x 分配堆内存, 并设置它的值为42
@@ -23,7 +23,7 @@ fn main() {
         // 这里, ManuallyDrop 会重置 x 的 Drop Flag:
         // x.drop-flag = 0
         let _x_no_dropping = ManuallyDrop::new(x);
-    } else if millis % 3 == 0 {
+    } else if millis.is_multiple_of(3) {
         // 设置 x 的 Drop Flag:
         // x.drop-flag = 1
         // 为 x 分配堆内存, 并设置它的值为41

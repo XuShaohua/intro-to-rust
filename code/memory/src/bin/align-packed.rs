@@ -5,7 +5,7 @@
 use std::mem::{offset_of, size_of};
 
 #[allow(non_camel_case_types)]
-#[repr(packed)]
+#[repr(C, packed)]
 pub struct linux_dirent_t {
     pub d_ino: u64,
     pub d_off: i64,

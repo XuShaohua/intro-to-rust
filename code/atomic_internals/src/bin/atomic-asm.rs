@@ -44,12 +44,12 @@ pub fn or_ten_with_atomic_by_hand(num: &AtomicI32) -> i32 {
 
 #[inline(never)]
 pub fn compare_exchange(num: &AtomicI32) {
-    num.compare_exchange(5, 6, Ordering::Relaxed, Ordering::Relaxed);
+    let _ = num.compare_exchange(5, 6, Ordering::Relaxed, Ordering::Relaxed);
 }
 
 #[inline(never)]
 pub fn compare_exchange_weak(num: &AtomicI32) {
-    num.compare_exchange_weak(5, 6, Ordering::Relaxed, Ordering::Relaxed);
+    let _ = num.compare_exchange_weak(5, 6, Ordering::Relaxed, Ordering::Relaxed);
 }
 
 pub fn main() {

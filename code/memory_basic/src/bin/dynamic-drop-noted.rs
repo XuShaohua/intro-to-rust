@@ -11,10 +11,10 @@ fn main() {
     let now = SystemTime::now();
     let timestamp = now.duration_since(UNIX_EPOCH).unwrap_or_default();
     // 声明 x, 但没有初始化它, 所以 x 是 uninit 的
-    let x: Box::<i32>;
+    let x: Box<i32>;
 
     // 如果毫秒是偶数, 就进入分支
-    if timestamp.as_millis() % 2 == 0 {
+    if timestamp.as_millis().is_multiple_of(2) {
         // 分配堆内存 malloc(4)
         // 并设置堆内存上的值为 42
         // 初始化 x

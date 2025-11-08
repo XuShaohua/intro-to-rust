@@ -56,7 +56,7 @@ pub fn replace<T>(dest: &mut T, mut src: T) -> T {
     src
 }
 
-#[repr(packed)]
+#[repr(C, packed)]
 #[derive(Debug)]
 struct FooStruct {
     x: u8,

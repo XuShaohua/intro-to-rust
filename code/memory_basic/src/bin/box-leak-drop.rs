@@ -7,14 +7,14 @@ use std::time::{SystemTime, UNIX_EPOCH};
 fn main() {
     let now = SystemTime::now();
     let timestamp = now.duration_since(UNIX_EPOCH).unwrap_or_default();
-    let x: Box::<i32>;
+    let x: Box<i32>;
 
     let millis = timestamp.as_millis();
-    if millis % 2 == 0 {
+    if millis.is_multiple_of(2) {
         x = Box::new(42);
         println!("x: {x}");
         let _x_ptr = Box::leak(x);
-    } else if millis % 3 == 0 {
+    } else if millis.is_multiple_of(3) {
         x = Box::new(41);
         println!("x: {x}");
     }

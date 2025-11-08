@@ -26,7 +26,7 @@ pub struct linux_dirent_c_t {
 }
 
 // 为结构体添加 packed attribute, 忽略结构体内成员的内存对齐.
-#[repr(packed)]
+#[repr(C, packed)]
 pub struct linux_dirent_packed_t {
     pub d_ino: u64,
     pub d_off: u64,

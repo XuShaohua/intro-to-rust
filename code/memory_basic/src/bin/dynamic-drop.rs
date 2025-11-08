@@ -7,9 +7,9 @@ use std::time::{SystemTime, UNIX_EPOCH};
 fn main() {
     let now = SystemTime::now();
     let timestamp = now.duration_since(UNIX_EPOCH).unwrap_or_default();
-    let x: Box::<i32>;
+    let x: Box<i32>;
 
-    if timestamp.as_millis() % 2 == 0 {
+    if timestamp.as_millis().is_multiple_of(2) {
         x = Box::new(42);
         println!("x: {x}");
     }

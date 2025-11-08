@@ -9,9 +9,9 @@ fn main() {
     // x.drop-flag = 0;
     let now = SystemTime::now();
     let timestamp = now.duration_since(UNIX_EPOCH).unwrap_or_default();
-    let x: Box::<i32>;
+    let x: Box<i32>;
 
-    if timestamp.as_millis() % 2 == 0 {
+    if timestamp.as_millis().is_multiple_of(2) {
         // 设置 x.drop-flag = 1
         // 为 x 分配堆内存, 并设置其值为 42
         x = Box::new(42);

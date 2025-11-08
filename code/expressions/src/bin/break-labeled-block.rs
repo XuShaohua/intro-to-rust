@@ -7,16 +7,15 @@ use std::env;
 fn main() {
     let args: Vec<String> = env::args().collect();
 
-    let result: i32 =
-        'block: {
-            if args.len() % 3 == 0 && args.len() % 5 != 0 {
-                break 'block 1;
-            }
-            if args.len() % 3 != 0 && args.len() % 5 == 0 {
-                break 'block 2;
-            }
-            3
-        };
+    let result: i32 = 'block: {
+        if args.len().is_multiple_of(3) && !args.len().is_multiple_of(5) {
+            break 'block 1;
+        }
+        if !args.len().is_multiple_of(3) && args.len().is_multiple_of(5) {
+            break 'block 2;
+        }
+        3
+    };
 
     assert_eq!(result, 3);
 }
