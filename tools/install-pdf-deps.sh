@@ -14,4 +14,4 @@ sudo apt install -y \
   librsvg2-bin \
   pandoc \
   texlive-latex-recommended \
-  etexlive-xetex
+  texlive-xetex
