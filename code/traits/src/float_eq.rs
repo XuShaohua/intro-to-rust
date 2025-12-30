@@ -5,12 +5,17 @@
 use std::cmp::Ordering;
 use std::hash::{Hash, Hasher};
 
-#[derive(Debug, Default, Clone, Copy, PartialEq, PartialOrd)]
+#[derive(Debug, Default, Clone, Copy, PartialEq)]
 pub struct F32(f32);
 
 impl Eq for F32 {}
 
-#[allow(clippy::derive_ord_xor_partial_ord)]
+impl PartialOrd for F32 {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
 impl Ord for F32 {
     fn cmp(&self, other: &Self) -> Ordering {
         self.0.to_be_bytes().cmp(&other.0.to_be_bytes())
