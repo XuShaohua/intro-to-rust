@@ -20,32 +20,32 @@
         <meta name="theme-color" content="#ffffff">
 
         {{#if favicon_svg}}
-        <link rel="icon" href="{{ path_to_root }}favicon.svg">
+        <link rel="icon" href="{{ path_to_root }}{{ resource "favicon.svg" }}">
         {{/if}}
         {{#if favicon_png}}
-        <link rel="shortcut icon" href="{{ path_to_root }}favicon.png">
+        <link rel="shortcut icon" href="{{ path_to_root }}{{ resource "favicon.png" }}">
         {{/if}}
-        <link rel="stylesheet" href="{{ path_to_root }}css/variables.css">
-        <link rel="stylesheet" href="{{ path_to_root }}css/general.css">
-        <link rel="stylesheet" href="{{ path_to_root }}css/chrome.css">
+        <link rel="stylesheet" href="{{ path_to_root }}{{ resource "css/variables.css" }}">
+        <link rel="stylesheet" href="{{ path_to_root }}{{ resource "css/general.css" }}">
+        <link rel="stylesheet" href="{{ path_to_root }}{{ resource "css/chrome.css" }}">
         {{#if print_enable}}
-        <link rel="stylesheet" href="{{ path_to_root }}css/print.css" media="print">
+        <link rel="stylesheet" href="{{ path_to_root }}{{ resource "css/print.css" }}" media="print">
         {{/if}}
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="{{ path_to_root }}FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="{{ path_to_root }}{{ resource "FontAwesome/css/font-awesome.css" }}">
         {{#if copy_fonts}}
-        <link rel="stylesheet" href="{{ path_to_root }}fonts/fonts.css">
+        <link rel="stylesheet" href="{{ path_to_root }}{{ resource "fonts/fonts.css" }}">
         {{/if}}
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="{{ path_to_root }}highlight.css">
-        <link rel="stylesheet" href="{{ path_to_root }}tomorrow-night.css">
-        <link rel="stylesheet" href="{{ path_to_root }}ayu-highlight.css">
+        <link rel="stylesheet" href="{{ path_to_root }}{{ resource "highlight.css" }}">
+        <link rel="stylesheet" href="{{ path_to_root }}{{ resource "tomorrow-night.css" }}">
+        <link rel="stylesheet" href="{{ path_to_root }}{{ resource "ayu-highlight.css" }}">
 
         <!-- Custom theme stylesheets -->
         {{#each additional_css}}
-        <link rel="stylesheet" href="{{ ../path_to_root }}{{ this }}">
+        <link rel="stylesheet" href="{{ path_to_root }}{{ resource this }}">
         {{/each}}
 
         {{#if mathjax_support}}
@@ -59,7 +59,7 @@
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "{{ preferred_dark_theme }}" : "{{ default_theme }}";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="{{ path_to_root }}toc.js"></script>
+        <script src="{{ path_to_root }}{{ resource "toc.js" }}"></script>
     </head>
     <body>
     <div id="body-container">
@@ -191,44 +191,44 @@
 
                 <div id="content" class="content">
                     <main>
-						<!-- page toc -->
-						<div class="sidetoc">
-							<nav class="pagetoc"></nav>
-						</div>
+                        <!-- page toc -->
+                        <div class="sidetoc">
+                            <nav class="pagetoc"></nav>
+                        </div>
 
                         {{{ content }}}
 
-						<!-- Include giscus -->
-						<script src="https://giscus.app/client.js"
-							data-repo="XuShaohua/intro-to-rust"
-							data-repo-id="R_kgDOKF0a4A"
-							data-category="General"
-							data-category-id="DIC_kwDOKF0a4M4CidzX"
-							data-mapping="pathname"
-							data-strict="0"
-							data-reactions-enabled="1"
-							data-emit-metadata="0"
-							data-input-position="bottom"
-							data-theme="preferred_color_scheme"
-							data-lang="en"
-							crossorigin="anonymous"
-							async>
-						</script>
+                        <!-- Include giscus -->
+                        <script src="https://giscus.app/client.js"
+                            data-repo="XuShaohua/intro-to-rust"
+                            data-repo-id="R_kgDOKF0a4A"
+                            data-category="General"
+                            data-category-id="DIC_kwDOKF0a4M4CidzX"
+                            data-mapping="pathname"
+                            data-strict="0"
+                            data-reactions-enabled="1"
+                            data-emit-metadata="0"
+                            data-input-position="bottom"
+                            data-theme="preferred_color_scheme"
+                            data-lang="en"
+                            crossorigin="anonymous"
+                            async>
+                        </script>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                        {{#previous}}
+                        {{#with previous}}
                             <a rel="prev" href="{{ path_to_root }}{{link}}" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                        {{/previous}}
+                        {{/with}}
 
-                        {{#next}}
+                        {{#with next}}
                             <a rel="next prefetch" href="{{ path_to_root }}{{link}}" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
-                        {{/next}}
+                        {{/with}}
 
                         <div style="clear: both"></div>
                     </nav>
@@ -236,17 +236,17 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                {{#previous}}
+                {{#with previous}}
                     <a rel="prev" href="{{ path_to_root }}{{link}}" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                {{/previous}}
+                {{/with}}
 
-                {{#next}}
+                {{#with next}}
                     <a rel="next prefetch" href="{{ path_to_root }}{{link}}" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
-                {{/next}}
+                {{/with}}
             </nav>
 
         </div>
@@ -302,26 +302,26 @@
         {{/if}}
 
         {{#if playground_js}}
-        <script src="{{ path_to_root }}ace.js"></script>
-        <script src="{{ path_to_root }}editor.js"></script>
-        <script src="{{ path_to_root }}mode-rust.js"></script>
-        <script src="{{ path_to_root }}theme-dawn.js"></script>
-        <script src="{{ path_to_root }}theme-tomorrow_night.js"></script>
+        <script src="{{ path_to_root }}{{ resource "ace.js" }}"></script>
+        <script src="{{ path_to_root }}{{ resource "editor.js" }}"></script>
+        <script src="{{ path_to_root }}{{ resource "mode-rust.js" }}"></script>
+        <script src="{{ path_to_root }}{{ resource "theme-dawn.js" }}"></script>
+        <script src="{{ path_to_root }}{{ resource "theme-tomorrow_night.js" }}"></script>
         {{/if}}
 
         {{#if search_js}}
-        <script src="{{ path_to_root }}elasticlunr.min.js"></script>
-        <script src="{{ path_to_root }}mark.min.js"></script>
-        <script src="{{ path_to_root }}searcher.js"></script>
+        <script src="{{ path_to_root }}{{ resource "elasticlunr.min.js" }}"></script>
+        <script src="{{ path_to_root }}{{ resource "mark.min.js" }}"></script>
+        <script src="{{ path_to_root }}{{ resource "searcher.js" }}"></script>
         {{/if}}
 
-        <script src="{{ path_to_root }}clipboard.min.js"></script>
-        <script src="{{ path_to_root }}highlight.js"></script>
-        <script src="{{ path_to_root }}book.js"></script>
+        <script src="{{ path_to_root }}{{ resource "clipboard.min.js" }}"></script>
+        <script src="{{ path_to_root }}{{ resource "highlight.js" }}"></script>
+        <script src="{{ path_to_root }}{{ resource "book.js" }}"></script>
 
         <!-- Custom JS scripts -->
         {{#each additional_js}}
-        <script src="{{ ../path_to_root }}{{this}}"></script>
+        <script src="{{ path_to_root }}{{ resource this }}"></script>
         {{/each}}
 
         {{#if is_print}}
@@ -344,5 +344,5 @@
 
     </div>
     </body>
-	<script defer data-domain="rust.biofan.org" src="https://stat.biofan.org/js/script.js"></script>
+    <script defer data-domain="rust.biofan.org" src="https://stat.biofan.org/js/script.js"></script>
 </html>
