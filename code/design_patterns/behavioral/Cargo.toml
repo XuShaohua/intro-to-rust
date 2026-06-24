@@ -5,7 +5,7 @@ edition = "2021"
 publish = false
 
 [dependencies]
-chrono = "0.4.38"
+chrono = "0.4.45"
 
 [[bin]]
 name = "behavioral-memento"

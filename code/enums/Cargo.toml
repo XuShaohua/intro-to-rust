@@ -5,7 +5,7 @@ edition = "2021"
 publish = false
 
 [dependencies]
-bitflags = "2.6.0"
+bitflags = "2.13.0"
 
 [[bin]]
 name = "enums-size-of-enums"
