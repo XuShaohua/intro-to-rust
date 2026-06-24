@@ -19,7 +19,7 @@ pub struct Token {
 }
 
 struct Node {
-    next: AtomicPtr<CachePadded<Node>>,
+    next: AtomicPtr<CachePadded<Self>>,
     thread: Thread,
     locked: AtomicBool,
 }
